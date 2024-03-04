@@ -31,15 +31,16 @@ Route::get('lupa-password',[LupaPassword::class, 'index']);
 Route::get('logout',[LogoutController::class, 'index']);
 
 
+
+
 // <<<<<< ========== Route Admin ========== >>>>>>
 Route::prefix('admin')->group(function(){
     Route::get('', [AdminController::class, 'index']);
 
-    Route::prefix('kelola-akun')->group(function(){
-        Route::get('', [AkunController::class, 'index']);
-        Route::get('tambah', [AkunController::class, 'tambah']);
+    // Route Kelola Akun
+    Route::get('kelola-akun', [AkunController::class, 'index']);
+    Route::get('kelola_akun/tambah',[AkunController::class, 'tambah']);
 
-    });
     Route::get('peliputan', [PeliputanController::class, 'index']);
     Route::get('publikasi', [PublikasiController::class, 'index']);
     Route::get('video-editing', [VideoEditingController::class, 'index']);

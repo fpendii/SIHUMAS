@@ -25,16 +25,11 @@ class AkunController extends Controller
 
     public function tambah(){
         $data = [
-            'title' => 'Kelola Akun | SIHUMAS',
-            'page' => 'Kelola Akun',
-            'level' => 'Admin',
-            'data_pegawai' => PegawaiModel::all()
+            'title' => 'Tambah Akun | SIHUMAS',
+            'page' => 'Tambah Akun',
+            'level' => 'Admin'
         ];
 
-        $data_pegawai = PegawaiModel::all();
-
-
-
-        return view('pages.admin.kelola_akun.akun',compact('data_pegawai'),$data);
+        return view('pages.admin.kelola_akun.form_tambah',$data);
     }
 }

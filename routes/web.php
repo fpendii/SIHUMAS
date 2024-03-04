@@ -41,9 +41,16 @@ Route::prefix('admin')->group(function(){
     Route::get('kelola-akun', [AkunController::class, 'index']);
     Route::get('kelola_akun/tambah',[AkunController::class, 'tambah']);
 
+    // Ruote kelola peliputan
     Route::get('peliputan', [PeliputanController::class, 'index']);
+
+    // Ruote kelola publikasi
     Route::get('publikasi', [PublikasiController::class, 'index']);
+
+    // Ruote kelola video editing
     Route::get('video-editing', [VideoEditingController::class, 'index']);
+
+    // Ruote kelola desain
     Route::get('desain', [DesainControllert::class, 'index']);
 
 });

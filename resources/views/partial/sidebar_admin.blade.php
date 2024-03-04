@@ -75,7 +75,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item {{ $page == 'Kelola-akun' ? 'active' : '' }} ">
+                <li class="sidebar-item {{ $page == 'Laporan Bulanan' ? 'active' : '' }} ">
+                    <a href="{{ url('admin') }}" class='sidebar-link '>
+                        <i class="fas fa-file-alt"></i>
+                        <span>Laporan Bulanan</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ $page == 'Kelola Akun' ? 'active' : '' }} ">
                     <a href="{{ url('admin/kelola-akun') }}" class='sidebar-link '>
                         <i class="fa bi-person-lines-fill"></i>
                         <span>Akun Pegawai</span>
@@ -87,9 +93,8 @@
                         <span>Logout</span>
                     </a>
                 </li>
-
-
             </ul>
+
         </div>
     </div>
 

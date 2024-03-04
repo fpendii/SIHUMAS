@@ -32,4 +32,15 @@ class AkunController extends Controller
 
         return view('pages.admin.kelola_akun.form_tambah',$data);
     }
+
+    public function simpan(Request $request){
+
+
+        PegawaiModel::create([
+            'nama' => $request->nama,
+            'nomer_hp' => $request->nomer_hp
+        ]);
+
+        return redirect()->to('admin/kelola-akun')->with('success','Data '.$request->nama.' Berhasil Ditambah');
+    }
 }

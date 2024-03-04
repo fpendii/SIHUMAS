@@ -40,6 +40,7 @@ Route::prefix('admin')->group(function(){
     // Route Kelola Akun
     Route::get('kelola-akun', [AkunController::class, 'index']);
     Route::get('kelola_akun/tambah',[AkunController::class, 'tambah']);
+    Route::post('kelola_akun/simpan',[AkunController::class, 'simpan']);
 
     // Ruote kelola peliputan
     Route::get('peliputan', [PeliputanController::class, 'index']);

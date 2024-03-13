@@ -28,11 +28,12 @@
     <div id="app">
 
 
+
         {{-- Start Sidebar --}}
         @if ($level == 'Admin')
             @include('partial.sidebar_admin')
-        @else
-            {{ 'Babi' }}
+        @elseif ($level == 'Petugas')
+            @include('partial.sidebar_petugas')
         @endif
         {{-- End Sidebar --}}
 

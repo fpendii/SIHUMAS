@@ -1,4 +1,3 @@
-
 <div id="sidebar">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
@@ -68,7 +67,13 @@
                             <a href="{{ url('admin/publikasi') }}" class="submenu-link">Publikasi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/video-editing') }}" class="submenu-link">Video Editing</a>
+                            <a href="{{ url('admin/video-editing') }}" class="submenu-link">Editing Video</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ url('admin/video-foto') }}" class="submenu-link">Editing Foto</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ url('admin/pas-foto') }}" class="submenu-link">Pas Foto</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="{{ url('admin/desain') }}" class="submenu-link">Desain</a>

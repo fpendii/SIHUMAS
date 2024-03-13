@@ -5,12 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PegawaiModel extends Model
+class PetugasModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'pegawai';
-
-    protected $fillable = ['nama', 'nomer_hp'];
-    public $timestamps = false;
+    protected $table = 'petugas';
 }

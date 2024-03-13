@@ -40,9 +40,9 @@
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mandatory">
-                                                <label for="first-name-column" class="form-label">Nama</label>
-                                                <input type="text" id="first-name-column" class="form-control"
-                                                    placeholder="Masukkan nama" name="nama"
+                                                <label for="nama" class="form-label">Nama</label>
+                                                <input type="text" id="nama" class="form-control"
+                                                    placeholder="Masukkan nama" name="nama_petugas"
                                                     data-parsley-required="true" />
                                             </div>
                                         </div>
@@ -50,13 +50,57 @@
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mandatory">
-                                                <label for="first-name-column" class="form-label">Nomer Handphone</label>
-                                                <input type="text" id="first-name-column" class="form-control"
-                                                    placeholder="Masukkan no handphone" name="nomer_hp"
+                                                <label for="username" class="form-label">Username</label>
+                                                <input type="text" id="username" class="form-control"
+                                                    placeholder="Masukkan no handphone" name="username"
                                                     data-parsley-required="true" />
                                             </div>
                                         </div>
-
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group mandatory">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="text" id="email" class="form-control"
+                                                    placeholder="Masukkan no handphone" name="email"
+                                                    data-parsley-required="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group mandatory">
+                                                <label for="no_hp" class="form-label">No Handphone</label>
+                                                <input type="text" id="no_hp" class="form-control"
+                                                    placeholder="Masukkan no handphone" name="no_hp"
+                                                    data-parsley-required="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group mandatory">
+                                                <label for="password" class="form-label">password</label>
+                                                <input type="text" id="password" class="form-control"
+                                                    placeholder="Masukkan no handphone" name="password"
+                                                    data-parsley-required="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="jabatan" class="form-label">Email</label>
+                                            <fieldset class="form-group">
+                                                <select name="level" class="form-select" id="jabatan">
+                                                    <option>--- Pilih Jabatan --</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="koordinator">Koordinator</option>
+                                                    <option value="petugas">Petugas</option>
+                                                    <option value="redaktur">Redaktur</option>
+                                                    <option value="pelanggan">Pelanggan</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
                                     </div>
 
                                     <div class="row">

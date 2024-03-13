@@ -33,20 +33,20 @@
                     <table class="table table-striped" id="table1">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>City</th>
+                                <th>Nama</th>
+                                <th>Jabatan</th>
+                                <th>No Handphone</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data_pegawai as $item)
                             <tr>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->nomer_hp }}</td>
-                                <td>{{ $item->nama }}</td>
-                                <td>Tes</td>
+                                <td>{{ $item->nama_petugas }}</td>
+                                <td>{{ $item->role }}</td>
+                                <td>{{ $item->no_hp }}</td>
+                                <td>{{ $item->no_hp == true ? 'Aktif' : 'Tidak Aktif' }}</td>
                                 <td class="col-2">
                                     <a href="#" class="btn btn-sm btn-primary">Edit</a>
                                     <a href="#" class="btn btn-sm btn-danger">Hapus</a>

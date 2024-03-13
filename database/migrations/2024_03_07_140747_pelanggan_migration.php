@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('akun', function (Blueprint $table) {
-            $table->id('id_akun');
-            $table->string('username');
-            $table->string('password');
-            $table->string('role_id');
+        Schema::create('pelanggan', function (Blueprint $table) {
+            $table->id('id_pelanggan');
+            $table->bigInteger('id_akun')->unsigned();
+            $table->string('nama_pelanggan');
             $table->timestamps();
+
+            $table->foreign('id_akun')->references('id_akun')->on('akun')->onDelete('cascade');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('pelanggan');
     }
 };

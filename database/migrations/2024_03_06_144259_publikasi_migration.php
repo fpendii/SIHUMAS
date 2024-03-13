@@ -14,13 +14,16 @@ return new class extends Migration
         Schema::create('publikasi', function (Blueprint $table) {
             $table->id('id_publikasi');
             $table->bigInteger('id_jasa')->unsigned();
+            $table->bigInteger('id_pesanan')->unsigned();  
             $table->char('pilihan_publikasi');
             $table->char('catatan_redaktur');
             $table->text('tag_sosmed');
             $table->text('link_ringkasan_publikasi');
+
             $table->timestamps();
 
             $table->foreign('id_jasa')->references('id_jasa')->on('jasa')->onDelete('cascade');
+            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan')->onDelete('cascade');
         });
     }
 

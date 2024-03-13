@@ -18,7 +18,7 @@ class GrafikPermohonanBulanan
         return $this->chart->barChart()
             ->setTitle('Data Perhomohan Jasa Bulanan')
             ->setSubtitle('Total permohan jasa Humas Politeknik Negeri Tanah Laut tiap bulan')
-            ->addData('San Francisco', [6, 9, 3, 4, 10, 8])
+            ->addData('San Francisco', [6, 9, 10, 4, 10, 8])
             ->setHeight('300')
             ->setXAxis(['January', 'February', 'March', 'April', 'May', 'June']);
     }

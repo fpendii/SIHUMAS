@@ -14,11 +14,15 @@ return new class extends Migration
         Schema::create('desain', function (Blueprint $table) {
             $table->id('id_desain');
             $table->bigInteger('id_jasa')->unsigned();
+            $table->bigInteger('id_pesanan')->unsigned(); 
             $table->string('tipe_desain');
-            $table->string('ukuran_gambar');
+            $table->string('ukuran_gambar');  
             $table->timestamps();
 
             $table->foreign('id_jasa')->references('id_jasa')->on('jasa')->onDelete('cascade');
+
+             
+            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan')->onDelete('cascade');
         });
     }
 

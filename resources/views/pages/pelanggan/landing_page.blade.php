@@ -66,22 +66,6 @@
     </div>
     <!-- End Preloader -->
 
-    <!-- Get Pro Button -->
-    <ul class="pro-features">
-        <li class="big-title">Pro Version Available on Themeforest</li>
-        <li class="title">Pro Version Features</li>
-        <li>2+ premade home pages</li>
-        <li>20+ html pages</li>
-        <li>Color Plate With 12+ Colors</li>
-        <li>Sticky Header / Sticky Filters</li>
-        <li>Working Contact Form With Google Map</li>
-        <div class="button">
-            <a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879"
-                target="_blank" class="btn">Pro Version Demo</a>
-            <a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank"
-                class="btn">Buy Pro Version</a>
-        </div>
-    </ul>
 
     <!-- Header Area -->
     <header class="header">
@@ -90,14 +74,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-5 col-12">
-                        <!-- Contact -->
-                        <ul class="top-link">
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Doctors</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                        <!-- End Contact -->
+
                     </div>
                     <div class="col-lg-6 col-md-7 col-12">
                         <!-- Top Contact -->
@@ -173,7 +150,7 @@
     <section class="slider mb-5">
         <div class="hero-slider">
             <!-- Start Single Slider -->
-            <div class="single-slider" style="background-image:url('template_landing_page/img/slider2.jpg')">
+            <div class="single-slider" style="background-image:url('images/hero_1.png')">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7">
@@ -192,7 +169,7 @@
             </div>
             <!-- End Single Slider -->
             <!-- Start Single Slider -->
-            <div class="single-slider" style="background-image:url('template_landing_page/img/slider.jpg')">
+            <div class="single-slider" style="background-image:url('images/hero_2.png')">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7">
@@ -222,9 +199,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>We Are Always Ready to Help You & Your Family</h2>
-                        <img src="template_landing_page/img/section-img.png" alt="#">
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
+                        <h2>Langkah-langkah melakukan permohon</h2>
+
                     </div>
                 </div>
             </div>
@@ -332,7 +308,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-12">
+                <div class="">
                     <!-- Start Choose Left -->
                     <div class="choose-left">
                         <h3>Visi</h3>
@@ -342,8 +318,8 @@
                         <h3>Misi</h3>
 
                         <div class="row">
-                            <div class="col-lg-6">
-                                <ol class="list">
+                            <div class="">
+                                <ol class="list ml-4">
                                     <li>Merencakanan dan mengembangkan kompetensi SDM yang Unggul dan Humanis</li>
                                     <li>Memberikan informasi dan dokumentasi yang aktual dan transparan</li>
                                     <li>Menjalin kerjasama yang harmonis dengan pihak internal dan mitra institusi dalam
@@ -356,25 +332,7 @@
                     </div>
                     <!-- End Choose Left -->
                 </div>
-                <div class="col-lg-6 col-12">
-                    <!-- Start Choose Rights -->
-                    <div class="choose-right">
-                        <div class="video-image">
-                            <!-- Video Animation -->
-                            <div class="promo-video">
-                                <div class="waves-block">
-                                    <div class="waves wave-1"></div>
-                                    <div class="waves wave-2"></div>
-                                    <div class="waves wave-3"></div>
-                                </div>
-                            </div>
-                            <!--/ End Video Animation -->
-                            <a href="https://www.youtube.com/watch?v=RFVXy6CRVR4"
-                                class="video video-popup mfp-iframe"><i class="fa fa-play"></i></a>
-                        </div>
-                    </div>
-                    <!-- End Choose Rights -->
-                </div>
+
             </div>
         </div>
     </section>
@@ -386,12 +344,10 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="content">
-                        <h2>Do you need Emergency Medical Care? Call @ 1234 56789</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor dictum turpis nec
-                            gravida.</p>
-                        <div class="button">
+                        <h2>Ada masalah atau pertanyaan?</h2>
+                        <div class="button mt-2">
                             <a href="#" class="btn">Contact Now</a>
-                            <a href="#" class="btn second">Learn More<i class="fa fa-long-arrow-right"></i></a>
+
                         </div>
                     </div>
                 </div>

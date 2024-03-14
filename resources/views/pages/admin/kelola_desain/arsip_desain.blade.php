@@ -14,14 +14,13 @@
                                 </div>
                             </div>
                             <span class="favorite">
-
                                 <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
                                     <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#star" />
                                 </svg>
                             </span>
                         </div>
                         <div class="pr-50">
-                            <div class="avatar">
+                            <div class="avatar" style="transform: translateX(10px)">
                                 <img class="rounded-circle" src="/template/dist/assets/compiled/jpg/3.jpg"
                                     alt="Generic placeholder image">
                             </div>

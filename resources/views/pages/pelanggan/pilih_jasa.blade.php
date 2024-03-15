@@ -16,6 +16,12 @@
     <div class="page-content">
         <section class="row">
             <div class="">
+                @if (session('success'))
+                <div class="alert alert-success alert-dismissible show fade">
+                    {{session('success')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
                 <div class="row">
                     <div class="col-6 box-jasa col-lg-4 col-md-6">
                         <a href="{{url('jasa/desain')}}">

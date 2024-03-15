@@ -31,8 +31,16 @@ use App\Http\Controllers\Admin\DesainControllert;
 |
 */
 
+Route::get('login',[LoginController::class, 'index']);
+Route::get('registrasi',[RegistrasiController::class, 'index']);
+Route::get('lupa-password',[LupaPassword::class, 'index']);
+Route::get('logout',[LogoutController::class, 'index']);
+
+
 // Route Landing Page
 Route::get('',[LandingPageController::class, 'index']);
+
+// Route Pelanggan
 Route::prefix('jasa')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
 
@@ -44,10 +52,6 @@ Route::prefix('jasa')->group(function(){
 
 
 
-Route::get('login',[LoginController::class, 'index']);
-Route::get('registrasi',[RegistrasiController::class, 'index']);
-Route::get('lupa-password',[LupaPassword::class, 'index']);
-Route::get('logout',[LogoutController::class, 'index']);
 
 
 

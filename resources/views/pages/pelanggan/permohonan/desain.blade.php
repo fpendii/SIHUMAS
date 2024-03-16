@@ -7,8 +7,17 @@
             <div class="">
                 @if (session('error'))
                     <div class="alert alert-danger alert-dismissible show fade">
-                        {{session('error')}}
+                        {{ session('error') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endif
                 <div class="card">
@@ -27,12 +36,18 @@
                                         <div class="col-md-8 form-group">
 
                                             <fieldset class="form-group">
-                                                <select name="tipe_desain" class="form-select" id="basicSelect">
-                                                    <option> --- Pilih Tipe Desain --- </option>
+                                                <select name="tipe_desain"
+                                                    class="form-select @error('tipe_desain') is-invalid @enderror"
+                                                    id="basicSelect">
+                                                    <option value=""> --- Pilih Tipe Desain --- </option>
                                                     <option value="poster">Poster</option>
                                                     <option value="spanduk">Spanduk</option>
                                                 </select>
+                                                @error('tipe_desain')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
                                             </fieldset>
+
                                         </div>
                                         <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>
@@ -44,8 +59,12 @@
                                             <label for="email-horizontal">Ukuran Gambar</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="email-horizontal" class="form-control"
+                                            <input type="text" id="email-horizontal"
+                                                class="form-control @error('ukuran_gambar') is-invalid @enderror"
                                                 name="ukuran_gambar" placeholder="Ukuran Gambar...">
+                                            @error('ukuran_gambar')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                         <div class="col-md-4">
                                             <label for="contact-info-horizontal">Mentahan</label>

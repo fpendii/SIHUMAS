@@ -24,7 +24,7 @@ class DesainController extends Controller
     {
         $request->validate([
             'link_mentahan' => 'required',
-            'keterangan' => 'required',
+            'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
             'tipe_desain' => 'required',
             'ukuran_gambar' => 'required',
@@ -38,10 +38,10 @@ class DesainController extends Controller
             $pesanan = DB::table('pesanan')->insertGetId([
                 'id_pelanggan' => 1,
                 'id_jasa' => 1,
-                'status' => 'proses',
+                'status' => 'pending',
                 'link_mentahan' => $request->link_mentahan,
                 'keterangan' => $request->pesan,
-                'tenggat_pengerjaan' => $request->tenggat_waktu,
+                'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             ]);
 
             // Simpan data ke tabel kedua

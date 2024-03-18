@@ -35,6 +35,7 @@ class DesainControllert extends Controller
 
         $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.status','!=','pending')->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get();
 
+
         return view('pages.admin.kelola_desain.arsip_desain',$data,compact('dataPermohonan'));
 
     }

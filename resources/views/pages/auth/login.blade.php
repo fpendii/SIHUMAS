@@ -30,15 +30,28 @@
                     <h1 class="auth-title">Login</h1>
                     <p class="auth-subtitle mb-5">Login dengan akun yang sudah anda daftarkan</p>
 
-                    <form action="index.html">
+                    @if (session('loginError'))
+                        <div class="alert alert-danger"><i class="bi bi-file-excel"></i> {{session('loginError')}}</div>
+                    @endif
+
+                    <form action="/login" method="POST">
+                        @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="email" class="form-control form-control-xl" placeholder="Email">
+                            <input type="text" name="email"
+                                class="form-control form-control-xl @error('email') is-invalid @enderror"
+                                placeholder="Email" autofocus required value="{{ old('email') }}">
                             <div class="form-control-icon">
                                 <i class="bi bi-envelope-fill"></i>
                             </div>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Password">
+                            <input type="password" class="form-control form-control-xl" name="password"
+                                placeholder="Password" required>
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

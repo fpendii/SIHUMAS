@@ -22,10 +22,20 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
+                                            <label for="contact-info-horizontal">Pelaksana</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="contact-info-horizontal"
+                                                class="form-control @error('link_mentahan') is-invalid @enderror"
+                                                name="link_mentahan" placeholder="Masukkan nama pelaksana">
+                                            @error('ukuran_gambar')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-4">
                                             <label for="first-name-horizontal">Tipe Desain</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-
                                             <fieldset class="form-group">
                                                 <select name="tipe_desain"
                                                     class="form-select @error('tipe_desain') is-invalid @enderror"
@@ -38,7 +48,6 @@
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </fieldset>
-
                                         </div>
                                         <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>

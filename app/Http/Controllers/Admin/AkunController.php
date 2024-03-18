@@ -39,13 +39,16 @@ class AkunController extends Controller
     public function simpan(Request $request){
 
         DB::transaction(function () use ($request){
-            // Sisipkan data ke tabel kedua
+
+            $password = bcrypt($request->password);
+
+
             $id_akun = DB::table('akun')->insertGetId([
                 'username' => $request->username,
                 'email' => $request->email,
                 'no_hp' => $request->no_hp,
                 'role' => $request->level,
-                'password' => $request->password,
+                'password' => $password,
                 'is_active' => true,
 
             ]);
@@ -56,11 +59,6 @@ class AkunController extends Controller
                 'foto' => 'default.png'
             ]);
         });
-
-        // PetugasModel::create([
-        //     'nama' => $request->nama,
-        //     'nomer_hp' => $request->nomer_hp
-        // ]);
 
         return redirect()->to('admin/kelola-akun')->with('success','Data '.$request->nama.' Berhasil Ditambah');
     }

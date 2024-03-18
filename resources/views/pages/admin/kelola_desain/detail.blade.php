@@ -66,17 +66,6 @@
                                     <input type="text" id="feedback2" class="form-control"
                                         placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                                 </div>
-                                <div class="form-group">
-                                    <select name="reason" class="form-control">
-                                        <option value="Inquiry">Inquiry</option>
-                                        <option value="Complain">Complaints</option>
-                                        <option value="Quotation">Quotation</option>
-                                    </select>
-                                </div>
-                                <div class="form-group form-label-group">
-                                    <textarea class="form-control" id="label-textarea" rows="3" placeholder="Suggestion"></textarea>
-                                    <label for="label-textarea"></label>
-                                </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
 

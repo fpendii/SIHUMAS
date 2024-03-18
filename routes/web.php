@@ -19,6 +19,7 @@ use App\Http\Controllers\pelanggan\permohonan\desain;
 use App\Http\Controllers\RegistrasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DesainControllert;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,10 @@ use App\Http\Controllers\Admin\DesainControllert;
 |
 */
 
-Route::get('login',[LoginController::class, 'index']);
+Route::get('/login',[LoginController::class, 'index']);
+Route::post('/login',[LoginController::class, 'store']);
+
+
 Route::get('registrasi',[RegistrasiController::class, 'index']);
 Route::get('lupa-password',[LupaPassword::class, 'index']);
 Route::get('logout',[LogoutController::class, 'index']);
@@ -48,12 +52,10 @@ Route::prefix('jasa')->group(function(){
     // Route Desain
     Route::get('desain',[DesainController::class, 'index']);
     Route::post('desain/submit',[DesainController::class, 'submit']);
+
+    // Route Publikasi
+    Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
 });
-
-
-
-
-
 
 
 // <<<<<< ========== Route Admin ========== >>>>>>

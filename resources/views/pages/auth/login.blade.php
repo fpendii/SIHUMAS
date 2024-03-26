@@ -33,6 +33,9 @@
                     @if (session('loginError'))
                         <div class="alert alert-danger"><i class="bi bi-file-excel"></i> {{session('loginError')}}</div>
                     @endif
+                    @if (session('success'))
+                        <div class="alert alert-success"><i class="bi bi-file-excel"></i> {{session('success')}}</div>
+                    @endif
 
                     <form action="/login" method="POST">
                         @csrf

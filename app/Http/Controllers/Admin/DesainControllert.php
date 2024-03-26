@@ -67,4 +67,5 @@ class DesainControllert extends Controller
         return redirect()->to('admin/desain')->with('success', 'Data dikirim ke petugas');
     }
 
+
 }

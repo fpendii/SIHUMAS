@@ -16,15 +16,14 @@ class LoginController extends Controller
     // Proses Authentifikasi
     public function store(Request $request){
         $crentials = $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
         if(Auth::attempt($crentials)){
-            dd('Login Berhasil');
             // $request->session()->regenerate();
 
-            // return redirect()->intended('admin');
+            return redirect('admin')->with('success','Anda berhasil login');
         }
 
         return back()->with('loginError','Login Gagal');

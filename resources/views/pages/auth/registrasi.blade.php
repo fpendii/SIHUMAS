@@ -27,27 +27,51 @@
             </div>
             <h1 class="auth-title">Daftar</h1>
 
-            <form action="index.html">
+
+
+            <form action="{{url('registrasi')}}" method="POST">
+                @csrf
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Email">
+                    <input type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{old('email')}}">
+                    @error('email')
+                        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                     <div class="form-control-icon">
                         <i class="bi bi-envelope"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input type="text" class="form-control form-control-xl @error('nama') is-invalid @enderror" placeholder="Nama" name="nama" value="{{old('nama')}}">
+                    @error('nama')
+                        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Nomer Handphone">
+                    <input type="text" class="form-control form-control-xl @error('username') is-invalid @enderror" placeholder="Username" name="username" value="{{old('username')}}">
+                    @error('username')
+                        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
+                    <div class="form-control-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
+                </div>
+                <div class="form-group position-relative has-icon-left mb-4">
+                    <input type="text" class="form-control form-control-xl @error('no_hp') is-invalid @enderror" placeholder="Nomer Handphone" name="no_hp" value="{{old('no_hp')}}">
+                    @error('no_hp')
+                        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                     <div class="form-control-icon">
                         <i class="bi bi-phone"></i>
                     </div>
                 </div>
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password">
+                    <input type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                    @error('password')
+                        <div class="invalid-feedback">{{$message}}</div>
+                    @enderror
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
@@ -58,7 +82,7 @@
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Daftar</button>
+                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Daftar</button>
             </form>
             <div class="text-center mt-5 text-lg fs-4">
                 <p class='text-gray-600'>Sudah Punya Akun? <a href="{{ url('login') }}" class="font-bold">Login</a>.</p>

@@ -22,7 +22,6 @@ class AkunController extends Controller
                             ->select('petugas.*','akun.*')
                             ->get();
 
-        // dd(compact('data_pegawai'));
         return view('pages.admin.kelola_akun.akun',compact('data_pegawai'),$data);
     }
 

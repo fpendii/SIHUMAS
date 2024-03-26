@@ -32,22 +32,30 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 |
 */
 
-Route::get('/login',[LoginController::class, 'index']);
-Route::post('/login',[LoginController::class, 'store']);
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/login',[LoginController::class, 'index'])->name('login');
+    Route::post('/login',[LoginController::class, 'store']);
+
+    Route::get('registrasi',[RegistrasiController::class, 'index']);
+    Route::post('registrasi',[RegistrasiController::class, 'create']);
 
 
-Route::get('registrasi',[RegistrasiController::class, 'index']);
-Route::get('lupa-password',[LupaPassword::class, 'index']);
-Route::get('logout',[LogoutController::class, 'index']);
+    Route::get('lupa-password',[LupaPassword::class, 'index']);
+    Route::get('logout',[LogoutController::class, 'index']);
+});
+
+
+
+
+
 
 
 // Route Landing Page
 Route::get('',[LandingPageController::class, 'index']);
 
 // Route Pelanggan
-Route::prefix('jasa')->group(function(){
+Route::prefix('jasa')->middleware('auth')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
-
 
     // Route Desain
     Route::get('desain',[DesainController::class, 'index']);
@@ -57,9 +65,8 @@ Route::prefix('jasa')->group(function(){
     Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
 });
 
-
 // <<<<<< ========== Route Admin ========== >>>>>>
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('', [AdminController::class, 'index']);
 
     // Route Kelola Akun
@@ -81,10 +88,10 @@ Route::prefix('admin')->group(function(){
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
     Route::get('desain/{id}', [DesainControllert::class, 'detail']);
     Route::put('desain/pilih-petugas/{id}',[DesainControllert::class,'pilihPetugas']);
-
 });
 
 Route::prefix('petugas')->group(function(){
+
     Route::get('', [PetugasController::class, 'index']);
 
     // Route Kelola Tugas

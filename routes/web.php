@@ -54,7 +54,7 @@ Route::group(['middleware' => 'guest'], function(){
 Route::get('',[LandingPageController::class, 'index']);
 
 // Route Pelanggan
-Route::prefix('jasa')->middleware('auth')->group(function(){
+Route::prefix('jasa')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
 
     // Route Desain
@@ -66,7 +66,7 @@ Route::prefix('jasa')->middleware('auth')->group(function(){
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->group(function(){
     Route::get('', [AdminController::class, 'index']);
 
     // Route Kelola Akun

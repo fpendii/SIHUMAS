@@ -52,7 +52,7 @@
                                             <div class="form-group mandatory">
                                                 <label for="username" class="form-label">Username</label>
                                                 <input type="text" id="username" class="form-control"
-                                                    placeholder="Masukkan no handphone" name="username"
+                                                    placeholder="Masukkan Username" name="username"
                                                     data-parsley-required="true" />
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                                             <div class="form-group mandatory">
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="text" id="email" class="form-control"
-                                                    placeholder="Masukkan no handphone" name="email"
+                                                    placeholder="Masukkan Alamat Email" name="email"
                                                     data-parsley-required="true" />
                                             </div>
                                         </div>
@@ -93,11 +93,11 @@
                                             <fieldset class="form-group">
                                                 <select name="level" class="form-select" id="jabatan">
                                                     <option>--- Pilih Jabatan --</option>
-                                                    <option value="admin">Admin</option>
+                                                    {{-- <option value="admin">Admin</option> --}}
                                                     <option value="koordinator">Koordinator</option>
                                                     <option value="petugas">Petugas</option>
                                                     <option value="redaktur">Redaktur</option>
-                                                    <option value="pelanggan">Pelanggan</option>
+                                                    {{-- <option value="pelanggan">Pelanggan</option> --}}
                                                 </select>
                                             </fieldset>
                                         </div>

@@ -10,12 +10,11 @@ class PeliputanController extends Controller
 {
     public function index(){
         $dataPermohonan = peliputanModel::all();
-
-        dd(compact('dataPermohonan'));
         $data = [
             'title' => 'Peliputan | SIHUMAS',
             'page' => 'Peliputan',
-            'level' => 'Admin'
+            'level' => 'Admin',
+            'sidebar'=> 'inbox'
         ];
         return view('pages.admin.kelola_liputan.liputan',$data);
     }

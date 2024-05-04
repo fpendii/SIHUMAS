@@ -82,7 +82,7 @@
                                             <div class="form-group mandatory">
                                                 <label for="password" class="form-label">password</label>
                                                 <input type="text" id="password" class="form-control"
-                                                    placeholder="Masukkan no handphone" name="password"
+                                                    placeholder="Masukkan password" name="password"
                                                     data-parsley-required="true" />
                                             </div>
                                         </div>

@@ -21,7 +21,7 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/desain') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('admin/pas-foto') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
                 <img src="/template/dist/assets/compiled/svg/logo.svg">
             </a>
@@ -40,32 +40,30 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
-                        <p class="card-text">Pas Foto {{ $dataPermohonan->tipe_desain }}</p>
-                        <form action="{{url('admin/desain/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
+                        <h4 class="card-title">Data Permohonan Pas Foto</h4>
+                        <form action="{{url('admin/pas_foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf
                             @method('PUT')
-                            <div class="form-body">
-                                <div class="form-group">
-                                    <label for="feedback1" class="sr-only">Tema</label>
-                                    <input type="text" id="feedback1" class="form-control" placeholder="Name"
-                                        name="name" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback1" class="sr-only">Ukuran Gambar</label>
-                                    <input type="text" id="feedback1" class="form-control"
-                                        placeholder="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                    <input type="text" id="feedback4" class="form-control"
-                                        placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                    <input type="text" id="feedback2" class="form-control"
-                                        placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                                </div>
+                            <div class="form-group">
+                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
+                                <input type="text" id="feedback2" class="form-control"
+                                placeholder="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                <input type="text" id="feedback4" class="form-control"
+                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                <input type="text" id="feedback2" class="form-control"
+                                placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback4" class="sr-only">Link Hasil</label>
+                                <input type="text" id="feedback4" class="form-control"
+                                    placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
+                            </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
 
@@ -127,7 +125,7 @@
                                 </div>
                                 {{-- end modal --}}
                                 <button type="reset" class="btn btn-danger me-1">Tolak</button>
-                                <button type="reset" class="btn btn-secondary">Kembali</button>
+                                <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>
                     </div>

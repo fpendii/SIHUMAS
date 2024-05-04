@@ -19,6 +19,7 @@ use App\Http\Controllers\pelanggan\permohonan\desain;
 use App\Http\Controllers\RegistrasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DesainControllert;
+use App\Http\Controllers\Admin\PasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 
 /*

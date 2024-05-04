@@ -83,6 +83,18 @@ Route::prefix('admin')->group(function(){
     // Ruote kelola video editing
     Route::get('video-editing', [VideoEditingController::class, 'index']);
 
+    //Route kelola pas foto
+    Route::get('pas-foto', [PasFotoController::class, 'index']);
+    Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
+    Route::get('pas-foto/{id}', [PasFotoController::class, 'detail']);
+    Route::get('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'detail']);
+
+    //Route kelola Editing foto
+    Route::get('edit-foto', [EditFotoController::class, 'index']);
+    Route::get('edit-foto/arsip', [EditFotoController::class, 'arsip']);
+    Route::get('edit-foto/{id}', [EditFotoController::class, 'detail']);
+    Route::get('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'detail']);
+
     // Ruote kelola desain
     Route::get('desain', [DesainControllert::class, 'index']);
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);

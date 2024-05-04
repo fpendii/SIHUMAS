@@ -28,7 +28,7 @@ class EditFotoController extends Controller
     public function arsip(){
         $data = [
             'title' => 'Edit Foto | SIHUMAS',
-            'page' => 'pas-foto',
+            'page' => 'edit-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];

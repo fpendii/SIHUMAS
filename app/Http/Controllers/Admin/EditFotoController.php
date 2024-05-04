@@ -3,9 +3,69 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\EditFotoModel;
+use App\Models\PesananModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\PetugasModel;
+use App\Models\PetugasPesananModel;
 
 class EditFotoController extends Controller
 {
-    //
+    public function index(){
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+
+
+        $data = [
+            'title' => 'Editing Foto | SIHUMAS',
+            'page' => 'edit-foto',
+            'sidebar' => 'inbox',
+            'level' => 'Admin'
+        ];
+        return view('pages.admin.kelola_editFoto.editFoto',$data,compact('dataPermohonan'));
+    }
+
+    public function arsip(){
+        $data = [
+            'title' => 'Edit Foto | SIHUMAS',
+            'page' => 'pas-foto',
+            'sidebar' => 'arsip',
+            'level' => 'Admin'
+        ];
+
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+
+
+        return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan'));
+
+    }
+
+    public function detail($id){
+
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get()->first();
+
+        $dataPetugas = PetugasModel::all();
+
+        // dd(compact('dataPetugas'));
+
+        $data = [
+            'title' => 'Permohonan Edit Foto | SIHUMAS',
+            'page' => 'Permohonan Edit Foto' ,
+            'level' => 'Admin',
+        ];
+        return view('pages.admin.kelola_editFoto.detail',$data,compact('dataPermohonan','dataPetugas'));
+    }
+
+    public function pilihPetugas(Request $request,$id){
+        $petugas_pesanan = PetugasPesananModel::create([
+            'id_petugas' => $request->petugas,
+            'id_pesanan' => $id
+        ]);
+
+        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
+
+        return redirect()->to('admin/editing')->with('success', 'Data dikirim ke petugas');
+    }
+
+
 }

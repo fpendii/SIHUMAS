@@ -28,7 +28,7 @@ class PasFotoController extends Controller
     public function arsip(){
         $data = [
             'title' => 'Pas Foto | SIHUMAS',
-            'page' => 'Pas Foto',
+            'page' => 'pas-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];

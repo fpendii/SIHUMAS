@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\ModelsEditingModel;
+use App\Models\EditingModel;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

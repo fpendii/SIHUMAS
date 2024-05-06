@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\DesainControllert;
 use App\Http\Controllers\Admin\PasFotoController;
 use App\Http\Controllers\Admin\EditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +64,14 @@ Route::prefix('jasa')->group(function(){
     // Route Desain
     Route::get('desain',[DesainController::class, 'index']);
     Route::post('desain/submit',[DesainController::class, 'submit']);
+
+    // Route Pas Foto
+    Route::get('pas-foto',[PermohonanPasFotoController::class, 'index']);
+    Route::post('pas-foto/submit',[PermohonanPasFotoController::class, 'submit']);
+
+    // Route editing Foto
+    Route::get('editing-foto',[PermohonanEditFotoController::class, 'index']);
+    Route::post('editing-foto/submit',[PermohonanEditFotoController::class, 'submit']);
 
     // Route Publikasi
     Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);

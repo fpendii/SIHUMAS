@@ -22,12 +22,12 @@ class PasFotoController extends Controller
             'sidebar' => 'inbox',
             'level' => 'Admin'
         ];
-        return view('pages.admin.kelola_pasFoto.pasFoto',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_pasFoto.pasFoto',$data,compact('dataPermohonan','data'));
     }
 
     public function arsip(){
         $data = [
-            'title' => 'Pas Foto | SIHUMAS',
+            'title' => 'Arsip Pas Foto | SIHUMAS',
             'page' => 'pas-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -36,7 +36,7 @@ class PasFotoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.status','!=','pending')->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get();
 
 
-        return view('pages.admin.kelola_pasFoto.arsip_pasFoto',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_pasFoto.arsip_pasFoto',$data,compact('dataPermohonan','data'));
 
     }
 
@@ -49,11 +49,11 @@ class PasFotoController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Detail Permohonan Pas Foto | SIHUMAS',
             'page' => 'Permohonan Pas Foto' ,
             'level' => 'Admin',
         ];
-        return view('pages.admin.kelola_PasFoto.detail',$data,compact('dataPermohonan','dataPetugas'));
+        return view('pages.admin.kelola_PasFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
     }
 
     public function pilihPetugas(Request $request,$id){

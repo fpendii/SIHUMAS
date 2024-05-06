@@ -22,12 +22,12 @@ class EditFotoController extends Controller
             'sidebar' => 'inbox',
             'level' => 'Admin'
         ];
-        return view('pages.admin.kelola_editFoto.editFoto',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_editFoto.editFoto',$data,compact('dataPermohonan', 'data'));
     }
 
     public function arsip(){
         $data = [
-            'title' => 'Edit Foto | SIHUMAS',
+            'title' => 'Arsip Edit Foto | SIHUMAS',
             'page' => 'edit-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -36,7 +36,7 @@ class EditFotoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
 
 
-        return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan','data'));
 
     }
 
@@ -49,11 +49,11 @@ class EditFotoController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan Edit Foto | SIHUMAS',
+            'title' => 'Detail Permohonan Edit Foto | SIHUMAS',
             'page' => 'Permohonan Edit Foto' ,
             'level' => 'Admin',
         ];
-        return view('pages.admin.kelola_editFoto.detail',$data,compact('dataPermohonan','dataPetugas'));
+        return view('pages.admin.kelola_editFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
     }
 
     public function pilihPetugas(Request $request,$id){

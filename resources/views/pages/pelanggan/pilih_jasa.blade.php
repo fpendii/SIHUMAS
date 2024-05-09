@@ -67,7 +67,7 @@
                         </a>
                     </div>
                     <div class="col-6 box-jasa col-lg-4 col-md-6">
-                        <a href="{{ url('jasa/foto-editing') }}">
+                        <a href="{{ url('jasa/editing-foto') }}">
                             <div class="card">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="row">

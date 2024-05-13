@@ -13,7 +13,7 @@ use App\Models\PetugasPesananModel;
 class EditFotoController extends Controller
 {
     public function index(){
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
 
 
         $data = [
@@ -33,7 +33,7 @@ class EditFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
 
 
         return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan','data'));
@@ -42,7 +42,7 @@ class EditFotoController extends Controller
 
     public function detail($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get()->first();
 
         $dataPetugas = PetugasModel::all();
 

@@ -13,7 +13,7 @@ use App\Models\PetugasPesananModel;
 class DesainControllert extends Controller
 {
     public function index(){
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get();
 
 
         $data = [
@@ -22,28 +22,27 @@ class DesainControllert extends Controller
             'sidebar' => 'inbox',
             'level' => 'Admin'
         ];
-        return view('pages.admin.kelola_desain.desain',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_desain.desain',$data,compact('dataPermohonan','data'));
     }
 
     public function arsip(){
         $data = [
-            'title' => 'Desain | SIHUMAS',
+            'title' => ' Arsip Desain | SIHUMAS',
             'page' => 'desain',
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.status','!=','pending')->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.status','!=','pending')->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get();
 
 
-        return view('pages.admin.kelola_desain.arsip_desain',$data,compact('dataPermohonan'));
+        return view('pages.admin.kelola_desain.arsip_desain',$data,compact('dataPermohonan','data'));
 
     }
 
     public function detail($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get()->first();
-
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get()->first();
         $dataPetugas = PetugasModel::all();
 
         // dd(compact('dataPetugas'));
@@ -53,7 +52,7 @@ class DesainControllert extends Controller
             'page' => 'Permohonan Desain' ,
             'level' => 'Admin',
         ];
-        return view('pages.admin.kelola_desain.detail',$data,compact('dataPermohonan','dataPetugas'));
+        return view('pages.admin.kelola_desain.detail',$data,compact('dataPermohonan','dataPetugas','data'));
     }
 
     public function pilihPetugas(Request $request,$id){

@@ -19,7 +19,11 @@ use App\Http\Controllers\pelanggan\permohonan\desain;
 use App\Http\Controllers\RegistrasiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DesainControllert;
+use App\Http\Controllers\Admin\PasFotoController;
+use App\Http\Controllers\Admin\EditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +60,14 @@ Route::prefix('jasa')->group(function(){
     Route::get('desain',[DesainController::class, 'index']);
     Route::post('desain/submit',[DesainController::class, 'submit']);
 
+    // Route Pas Foto
+    Route::get('pas-foto',[PermohonanPasFotoController::class, 'index']);
+    Route::post('pas-foto/submit',[PermohonanPasFotoController::class, 'submit']);
+
+    // Route editing Foto
+    Route::get('editing-foto',[PermohonanEditFotoController::class, 'index']);
+    Route::post('editing-foto/submit',[PermohonanEditFotoController::class, 'submit']);
+
     // Route Publikasi
     Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
 });
@@ -77,6 +89,18 @@ Route::prefix('admin')->group(function(){
 
     // Ruote kelola video editing
     Route::get('video-editing', [VideoEditingController::class, 'index']);
+
+    //Route kelola pas foto
+    Route::get('pas-foto', [PasFotoController::class, 'index']);
+    Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
+    Route::get('pas-foto/{id}', [PasFotoController::class, 'detail']);
+    Route::get('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'detail']);
+
+    //Route kelola Editing foto
+    Route::get('edit-foto', [EditFotoController::class, 'index']);
+    Route::get('edit-foto/arsip', [EditFotoController::class, 'arsip']);
+    Route::get('edit-foto/{id}', [EditFotoController::class, 'detail']);
+    Route::get('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'detail']);
 
     // Ruote kelola desain
     Route::get('desain', [DesainControllert::class, 'index']);

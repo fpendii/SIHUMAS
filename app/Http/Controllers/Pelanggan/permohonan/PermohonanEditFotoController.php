@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\pelanggan\permohonan;
+namespace App\Http\Controllers\Pelanggan\permohonan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\desainModel;
+use App\Models\EditingModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
 
-class DesainController extends Controller
+class PermohonanEditFotoController extends Controller
 {
     public function index()
     {
         $data = [
-            'title' => 'Desain | SIHUMAS',
-            'page' => 'form desain',
+            'title' => 'Form Permohonan Edit Foto | SIHUMAS',
+            'page' => 'Form Edit foto',
             'level' => 'Pelanggan'
         ];
-        return view('pages.pelanggan.permohonan.desain', $data);
+        return view('pages.pelanggan.permohonan.editFoto', $data);
     }
 
     public function submit(Request $request)
@@ -26,8 +26,6 @@ class DesainController extends Controller
             'link_mentahan' => 'required',
             'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
-            'tipe_desain' => 'required',
-            'ukuran_gambar' => 'required',
         ]);
 
         // Mulai transaksi database
@@ -36,8 +34,8 @@ class DesainController extends Controller
         try {
             // Simpan data ke tabel pertama
             $pesanan = DB::table('pesanan')->insertGetId([
-                'id_pelanggan' => 2,
-                'id_jasa' => 1,
+                'id_pelanggan' => 1,
+                'id_jasa' => 2,
                 'status' => 'pending',
                 'link_mentahan' => $request->link_mentahan,
                 'keterangan' => $request->pesan,
@@ -45,11 +43,10 @@ class DesainController extends Controller
             ]);
 
             // Simpan data ke tabel kedua
-            desainModel::create([
+            EditingModel::create([
                 'id_pesanan' => $pesanan,
-                'id_jasa' => 1,
-                'tipe_desain' => $request->tipe_desain,
-                'ukuran_gambar' => $request->ukuran_gambar,
+                'id_jasa' => 5,
+                'tipe_editing' => 'foto',
             ]);
 
             // Commit transaksi jika berhasil

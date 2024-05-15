@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PetugasModel;
 use App\Models\akun;
 use Illuminate\Support\Facades\DB;
+use Termwind\Components\Raw;
 
 class AkunController extends Controller
 {
@@ -40,7 +41,6 @@ class AkunController extends Controller
         DB::transaction(function () use ($request){
 
             $password = bcrypt($request->password);
-
 
             $id_akun = DB::table('akun')->insertGetId([
                 'username' => $request->username,

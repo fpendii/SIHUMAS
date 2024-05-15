@@ -45,11 +45,6 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
-
-
-
-
-
 // Route Landing Page
 Route::get('',[LandingPageController::class, 'index']);
 

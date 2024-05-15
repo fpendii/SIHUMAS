@@ -21,7 +21,7 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt($crentials)){
-            // $request->session()->regenerate();
+            $request->session()->regenerate();
 
             return redirect('admin')->with('success','Anda berhasil login');
         }

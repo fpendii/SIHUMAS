@@ -32,7 +32,7 @@ class PeliputanController extends Controller
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('peliputan','pesanan.id_pesanan', '=', 'peliputan.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.','pelanggan.','jasa.','peliputan.')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pesanan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('peliputan','pesanan.id_pesanan', '=', 'peliputan.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','peliputan.*')->get();
     
         return view('pages.admin.kelola_liputan.liputan',$data,compact('dataPermohonan'));
 

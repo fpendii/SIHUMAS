@@ -24,7 +24,7 @@ use App\Http\Controllers\Admin\EditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
-
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +60,10 @@ Route::prefix('jasa')->group(function(){
     Route::get('desain',[DesainController::class, 'index']);
     Route::post('desain/submit',[DesainController::class, 'submit']);
 
+    // Route Peliputan
+    Route::get('liputan',[PermohonanPeliputanController::class, 'index']);
+    Route::post('liputan/submit',[PermohonanPeliputanController::class, 'submit']);
+
     // Route Pas Foto
     Route::get('pas-foto',[PermohonanPasFotoController::class, 'index']);
     Route::post('pas-foto/submit',[PermohonanPasFotoController::class, 'submit']);
@@ -83,6 +87,10 @@ Route::prefix('admin')->group(function(){
 
     // Ruote kelola peliputan
     Route::get('peliputan', [PeliputanController::class, 'index']);
+    Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
+    Route::get('peliputan/{id}', [PeliputanController::class, 'detail']);
+    Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
+    
 
     // Ruote kelola publikasi
     Route::get('publikasi', [PublikasiController::class, 'index']);

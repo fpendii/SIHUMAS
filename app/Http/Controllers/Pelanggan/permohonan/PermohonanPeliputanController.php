@@ -13,7 +13,7 @@ class PermohonanPeliputanController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Form Permohonan Peliputan | SIHUMAS',
             'page' => 'form peliputan',
             'level' => 'Pelanggan'
         ];
@@ -23,10 +23,6 @@ class PermohonanPeliputanController extends Controller
     public function submit(Request $request)
     {
         $request->validate([
-            'link_mentahan' => 'required',
-            'link_hasil' => 'required',
-            'keterangan' => 'required',
-            'tenggat_pengerjaan' => 'required',
             'jadwal_mulai' => 'required',
             'jadwal_selesai' => 'required',
         ]);
@@ -37,24 +33,25 @@ class PermohonanPeliputanController extends Controller
         try {
             // Simpan data ke tabel pertama
             $pesanan = DB::table('pesanan')->insertGetId([
-                'id_pelanggan' => 2,
-                'id_jasa' => 1,
+                'id_pelanggan' => 1,
+                'id_jasa' => 3,
                 'status' => 'pending',
-                'link_mentahan' => $request->link_mentahan,
-                'link_hasil' => $request->link_hasil,
-                'keterangan' => $request->pesan,
-                'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+              'jadwal_mulai' => $request->jadwal_mulai,
+              'jadwal_selesai' => $request->jadwal_selesai,
+              'pertanyaan_1' => $request->pertanyaan_1,
+              'pertanyaan_2' => $request->pertanyaan_2,
+              'pertanyaan_3' => $request->pertanyaan_3,
             ]);
 
             // Simpan data ke tabel kedua
-            desainModel::create([
+            peliputanModel::create([
                 'id_pesanan' => $pesanan,
-                'id_jasa' => 1,
-                'jadwal_mulai' => $request->tenggat_mulai,
-                'jadwal_selesai' => $request->tenggat_selesai,
-                'pertanyaan_1' => $request->pertanyaan_1,
-                'pertanyaan_2' => $request->pertanyaan_2,
-                'pertanyaan_3' => $request->pertanyaan_3,
+                'id_jasa' => 3,
+                'jadwal_mulai' => $request->jadwal_mulai,
+                'jadwal_selesai' => $request->jadwal_selesai,
+                
+                
+
             ]);
 
             // Commit transaksi jika berhasil

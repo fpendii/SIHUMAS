@@ -102,13 +102,13 @@ Route::prefix('admin')->group(function(){
     Route::get('pas-foto', [PasFotoController::class, 'index']);
     Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
     Route::get('pas-foto/{id}', [PasFotoController::class, 'detail']);
-    Route::get('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'detail']);
+    Route::put('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'detail']);
 
     //Route kelola Editing foto
     Route::get('edit-foto', [EditFotoController::class, 'index']);
     Route::get('edit-foto/arsip', [EditFotoController::class, 'arsip']);
     Route::get('edit-foto/{id}', [EditFotoController::class, 'detail']);
-    Route::get('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'detail']);
+    Route::put('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'detail']);
 
     // Ruote kelola desain
     Route::get('desain', [DesainControllert::class, 'index']);

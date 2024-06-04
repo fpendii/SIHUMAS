@@ -35,7 +35,7 @@ class PermohonanPasFotoController extends Controller
         try {
             // Simpan data ke tabel pertama
             $pesanan = DB::table('pesanan')->insertGetId([
-                'id_pelanggan' => 2,
+                'id_pelanggan' => 1,
                 'id_jasa' => 2,
                 'status' => 'pending',
                 'link_mentahan' => $request->link_mentahan,

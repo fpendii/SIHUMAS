@@ -15,12 +15,18 @@ class LoginController extends Controller
 
     // Proses Authentifikasi
     public function store(Request $request){
-        $crentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        $email = $request->input('email');
+        $password = $request->input('password');
 
-        if(Auth::attempt($crentials)){
+        // $crentials = $request->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required'
+        // ]);
+
+
+        if(Auth::attempt(['email' => $email ,'password'=> $password] )){
+            $level = Auth::Akun()->role;
+            dd($level);
             $request->session()->regenerate();
 
             return redirect('admin')->with('success','Anda berhasil login');

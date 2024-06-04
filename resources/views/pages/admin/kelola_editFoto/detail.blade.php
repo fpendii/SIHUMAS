@@ -41,7 +41,7 @@
                 <div class="card-content">
                     <div class="card-body">
                         <h4 class="card-title">Data Permohonan Edit Foto</h4>
-                        <form action="{{url('admin/edit_foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
+                        <form action="{{url('admin/edit-foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf
                             @method('PUT')
                             <div class="form-group">

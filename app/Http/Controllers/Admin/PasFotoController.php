@@ -64,7 +64,7 @@ class PasFotoController extends Controller
 
         $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
 
-        return redirect()->to('admin/pas_foto')->with('success', 'Data dikirim ke petugas');
+        return redirect()->to('admin/pas-foto')->with('success', 'Data dikirim ke petugas');
     }
 
 

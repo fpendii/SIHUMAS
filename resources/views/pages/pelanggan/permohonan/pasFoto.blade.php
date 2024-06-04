@@ -33,7 +33,7 @@
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="contact-info-horizontal"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan (jika tidak perlu cukup beri - )">
+                                                name="link_mentahan" placeholder="Masukkan link mentahan ">
                                             @error('ukuran_gambar')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

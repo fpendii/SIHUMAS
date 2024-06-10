@@ -22,8 +22,6 @@ class akun_seeder extends Seeder
                 'role' => 'pelanggan',
                 'password' => hash::make('pendi123'),
                 'is_active' => true,
-                'created_at' => now(),
-                'updated_at' => now(),
             ]
          ]);
     }

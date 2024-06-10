@@ -47,7 +47,8 @@ class DesainController extends Controller
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
         ]);
 
-        dd('Data berhasil ditambahkan');
+
+        return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
 
         // // Mulai transaksi database
         // DB::beginTransaction();

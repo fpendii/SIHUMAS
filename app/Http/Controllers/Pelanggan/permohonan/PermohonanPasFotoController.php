@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Pelanggan\permohonan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\PasFotoModel;
+use App\Models\JasaModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
 
@@ -26,40 +26,58 @@ class PermohonanPasFotoController extends Controller
             'link_mentahan' => 'required',
             'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
-            'jadwal_foto' => 'required',
         ]);
 
-        // Mulai transaksi database
-        DB::beginTransaction();
+        $jasa = DB::table('jasa')->insertGetId([
+            'jenis_jasa' => 'pas foto',
+            'jadwal_foto' => $request->jadwal_foto,
+         ]);
+ 
+ 
+         // Simpan data ke tabel pertama
+         DB::table('pesanan')->insert([
+            'id_pelanggan' => 1,
+            'id_jasa' => $jasa,
+            'status' => 'pending',
+            'link_mentahan' => $request->link_mentahan,
+            'pesan' => $request->pesan,
+            'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+            'created_at' => now(),
+        ]);        
+ 
+         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
 
-        try {
-            // Simpan data ke tabel pertama
-            $pesanan = DB::table('pesanan')->insertGetId([
-                'id_pelanggan' => 1,
-                'id_jasa' => 2,
-                'status' => 'pending',
-                'link_mentahan' => $request->link_mentahan,
-                'keterangan' => $request->pesan,
-                'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
-            ]);
+        // // Mulai transaksi database
+        // DB::beginTransaction();
 
-            // Simpan data ke tabel kedua
-            pasFotoModel::create([
-                'id_pesanan' => $pesanan,
-                'id_jasa' => 2,
-                'jadwal_foto' => $request->jadwal_foto,
-            ]);
+        // try {
+        //     // Simpan data ke tabel pertama
+        //     $pesanan = DB::table('pesanan')->insertGetId([
+        //         'id_pelanggan' => 1,
+        //         'id_jasa' => 2,
+        //         'status' => 'pending',
+        //         'link_mentahan' => $request->link_mentahan,
+        //         'keterangan' => $request->pesan,
+        //         'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+        //     ]);
 
-            // Commit transaksi jika berhasil
-            DB::commit();
+        //     // Simpan data ke tabel kedua
+        //     pasFotoModel::create([
+        //         'id_pesanan' => $pesanan,
+        //         'id_jasa' => 2,
+        //         'jadwal_foto' => $request->jadwal_foto,
+        //     ]);
 
-            return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
-        } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi kesalahan
-            DB::rollback();
+        //     // Commit transaksi jika berhasil
+        //     DB::commit();
 
-            // Redirect atau berikan respons gagal kepada pengguna
-            return redirect()->to('jasa')->with('error','Permohonan gagal dikirim. Mohon coba lagi');
-        }
+        //     return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
+        // } catch (\Exception $e) {
+        //     // Rollback transaksi jika terjadi kesalahan
+        //     DB::rollback();
+
+        //     // Redirect atau berikan respons gagal kepada pengguna
+        //     return redirect()->to('jasa')->with('error','Permohonan gagal dikirim. Mohon coba lagi');
+        // }
     }
 }

@@ -41,6 +41,7 @@ class PermohonanEditFotoController extends Controller
             'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+            'created_at' => now(),
         ]);
 
         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');

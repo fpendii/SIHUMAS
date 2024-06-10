@@ -63,7 +63,7 @@ class EditFotoController extends Controller
             'id_pesanan' => $id
         ]);
 
-        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
+        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
 
         return redirect()->to('admin/editing')->with('success', 'Data dikirim ke petugas');
     }

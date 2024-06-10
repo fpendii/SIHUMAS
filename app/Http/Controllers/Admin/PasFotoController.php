@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PasFotoModel;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\PetugasPesananModel;
+use Illuminate\Support\Facades\Redis;
 
 class PasFotoController extends Controller
 {
     public function index(){
         // $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get();
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('jasa.jenis_jasa','=','pas foto')->get();
 
         $data = [
             'title' => 'Pas Foto | SIHUMAS',
@@ -42,7 +42,7 @@ class PasFotoController extends Controller
 
     public function detail($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
 
         $dataPetugas = PetugasModel::all();
 
@@ -62,7 +62,7 @@ class PasFotoController extends Controller
             'id_pesanan' => $id
         ]);
 
-        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
+        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
 
         return redirect()->to('admin/pas-foto')->with('success', 'Data dikirim ke petugas');
     }

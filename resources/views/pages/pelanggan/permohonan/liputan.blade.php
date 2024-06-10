@@ -25,50 +25,64 @@
                                             <label for="jadwal-mulai">Jadwal Mulai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="jadwal-mulai" class="form-control"
-                                                name="jadwal_mulai">
+                                            <input type="date" id="jadwal-mulai" class="form-control" name="jadwal_mulai">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="jadwal-selesai">Jadwal Selesai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="jadwal-selesai" class="form-control"
-                                                name="jadwal_selesai">
+                                            <input type="date" id="jadwal-selesai" class="form-control" name="jadwal_selesai">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="link-mentahan">Mentahan</label>
+                                            <label for="dokumentasi-foto-1">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="link-mentahan"
-                                                class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan">
-                                            @error('link_mentahan')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_1" id="dokumentasi_foto_1_ya">
+                                                <label class="form-check-label" for="dokumentasi_foto_1_ya">
+                                                    Ya
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_1" id="dokumentasi_foto_1_tidak" checked>
+                                                <label class="form-check-label" for="dokumentasi_foto_1_tidak">
+                                                    Tidak
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="link-hasil">Link Hasil</label>
+                                            <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="link-hasil"
-                                                class="form-control @error('link_hasil') is-invalid @enderror"
-                                                name="link_hasil" placeholder="Masukkan link hasil">
-                                            @error('link_hasil')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_2" id="dokumentasi_foto_2_ya">
+                                                <label class="form-check-label" for="dokumentasi_foto_2_ya">
+                                                    Ya
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_2" id="dokumentasi_foto_2_tidak" checked>
+                                                <label class="form-check-label" for="dokumentasi_foto_2_tidak">
+                                                    Tidak
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="keterangan">Keterangan</label>
+                                            <label for="dokumentasi-foto-3">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" class="form-control" id="keterangan" rows="3"></textarea>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="tenggat-pengerjaan">Tenggat Pengerjaan</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="date" id="tenggat-pengerjaan" class="form-control"
-                                                name="tenggat_pengerjaan">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_3" id="dokumentasi_foto_3_ya">
+                                                <label class="form-check-label" for="dokumentasi_foto_3_ya">
+                                                    Ya
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_3" id="dokumentasi_foto_3_tidak" checked>
+                                                <label class="form-check-label" for="dokumentasi_foto_3_tidak">
+                                                    Tidak
+                                                </label>
+                                            </div>
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
@@ -83,5 +97,5 @@
             </div>
         </div>
     </section>
-    <!-- // Basic Horizontal form layout section end -->
+   
 @endsection

@@ -13,8 +13,8 @@ use App\Models\PetugasPesananModel;
 class PasFotoController extends Controller
 {
     public function index(){
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get();
-
+        // $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
 
         $data = [
             'title' => 'Pas Foto | SIHUMAS',

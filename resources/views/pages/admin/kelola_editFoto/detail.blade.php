@@ -35,7 +35,7 @@
                 <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
             </div>
             <div class="card-body">
-                <p>{{ $dataPermohonan->keterangan }}</p>
+                <p>{{ $dataPermohonan->pesan }}</p>
             </div>
             <div class="card">
                 <div class="card-content">

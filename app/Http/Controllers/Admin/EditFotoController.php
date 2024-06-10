@@ -14,7 +14,7 @@ class EditFotoController extends Controller
 {
     public function index(){
         // $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('jasa.jenis_jasa','=','edit foto')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('jasa.jenis_jasa','=','edit foto')->where( 'pesanan.status','=','pending')->get();
 
 
         $data = [
@@ -65,7 +65,7 @@ class EditFotoController extends Controller
 
         $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
 
-        return redirect()->to('admin/editing')->with('success', 'Data dikirim ke petugas');
+        return redirect()->to('admin/edit-foto')->with('success', 'Data dikirim ke petugas');
     }
 
 

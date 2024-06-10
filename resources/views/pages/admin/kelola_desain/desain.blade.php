@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="mail-message">
-                                <p class="list-group-item-text mb-0 truncate">{{ $item->keterangan }}</p>
+                                <p class="list-group-item-text mb-0 truncate">{{ $item->pesan }}</p>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
                                         <span class="bullet bullet-warning bullet-sm"></span>

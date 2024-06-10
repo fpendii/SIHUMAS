@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\PetugasPesananModel;
+use Illuminate\Support\Facades\Redis;
 
 class DesainControllert extends Controller
 {
@@ -43,7 +44,8 @@ class DesainControllert extends Controller
 
     public function detail($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('desain','pesanan.id_pesanan', '=', 'desain.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','desain.*')->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+
         $dataPetugas = PetugasModel::all();
 
         // dd(compact('dataPetugas'));
@@ -65,6 +67,13 @@ class DesainControllert extends Controller
         $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
 
         return redirect()->to('admin/desain')->with('success', 'Data dikirim ke petugas');
+    }
+
+    public function TolakPermohonan($id)
+    {
+        DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
+
+        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
     }
 
 

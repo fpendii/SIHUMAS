@@ -4,7 +4,7 @@ namespace App\Http\Controllers\pelanggan\permohonan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\desainModel;
+use App\Models\JasaModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
 
@@ -30,38 +30,65 @@ class DesainController extends Controller
             'ukuran_gambar' => 'required',
         ]);
 
-        // Mulai transaksi database
-        DB::beginTransaction();
+        $jasa = DB::table('jasa')->insertGetId([
+            'tipe_desain' => $request->tipe_desain,
+            'ukuran_gambar' => $request->ukuran_gambar,
+            'jenis_jasa' => 'desain'
+        ]);
 
-        try {
-            // Simpan data ke tabel pertama
-            $pesanan = DB::table('pesanan')->insertGetId([
-                'id_pelanggan' => 1,
-                'id_jasa' => 1,
-                'status' => 'pending',
-                'link_mentahan' => $request->link_mentahan,
-                'keterangan' => $request->pesan,
-                'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
-            ]);
 
-            // Simpan data ke tabel kedua
-            desainModel::create([
-                'id_pesanan' => $pesanan,
-                'id_jasa' => 1,
-                'tipe_desain' => $request->tipe_desain,
-                'ukuran_gambar' => $request->ukuran_gambar,
-            ]);
+        // Simpan data ke tabel pertama
+        DB::table('pesanan')->insert([
+            'id_pelanggan' => 1,
+            'id_jasa' => $jasa,
+            'status' => 'pending',
+            'link_mentahan' => $request->link_mentahan,
+            'pesan' => $request->pesan,
+            'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+        ]);
 
-            // Commit transaksi jika berhasil
-            DB::commit();
+        dd('Data berhasil ditambahkan');
 
-            return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
-        } catch (\Exception $e) {
-            // Rollback transaksi jika terjadi kesalahan
-            DB::rollback();
+        // // Mulai transaksi database
+        // DB::beginTransaction();
 
-            // Redirect atau berikan respons gagal kepada pengguna
-            return redirect()->to('jasa')->with('error','Permohonan gagal dikirim. Mohon coba lagi');
-        }
+        // try {
+
+        //     // Simpan data ke tabel kedua
+        //     JasaModel::create([
+        //         'tipe_desain' => $request->tipe_desain,
+        //         'ukuran_gambar' => $request->ukuran_gambar,
+        //     ]);
+
+        //     // Simpan data ke tabel pertama
+        //     $pesanan = DB::table('pesanan')->insertGetId([
+        //         'id_pelanggan' => 1,
+        //         'id_jasa' => 1,
+        //         'status' => 'pending',
+        //         'link_mentahan' => $request->link_mentahan,
+        //         'keterangan' => $request->pesan,
+        //         'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+        //     ]);
+
+        //     // Simpan data ke tabel kedua
+        //     JasaModel::create([
+        //         'id_pesanan' => $pesanan,
+        //         'tipe_desain' => $request->tipe_desain,
+        //         'ukuran_gambar' => $request->ukuran_gambar,
+        //     ]);
+
+        //     // Commit transaksi jika berhasil
+        //     DB::commit();
+
+        //     return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
+        // } catch (\Exception $e) {
+        //     // Rollback transaksi jika terjadi kesalahan
+
+        //     DB::rollback();
+
+        //     dd($e);
+        //     // Redirect atau berikan respons gagal kepada pengguna
+        //     return redirect()->to('jasa')->with('error','Permohonan gagal dikirim. Mohon coba lagi');
+        // }
     }
 }

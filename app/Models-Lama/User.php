@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Models;
 
 use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

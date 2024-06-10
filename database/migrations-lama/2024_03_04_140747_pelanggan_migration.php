@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_pelanggan');
             $table->bigInteger('id_akun')->unsigned();
             $table->string('nama_pelanggan');
-            // $table->timestamps();
+            $table->timestamps();
 
             $table->foreign('id_akun')->references('id_akun')->on('akun')->onDelete('cascade');
         });

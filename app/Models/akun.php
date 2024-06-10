@@ -4,13 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class akun extends Authenticatable
+class akun extends Model
 {
-    use HasFactory,AuthenticableTrait;
+    use HasFactory;
 
     protected $table = 'akun';
 
@@ -18,7 +15,5 @@ class akun extends Authenticatable
         'username', 'email', 'no_hp', 'role', 'password','is_active',
     ];
 
-    protected $hidden = [
-        'password',
-    ];
+
 }

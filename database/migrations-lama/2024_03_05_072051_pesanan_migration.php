@@ -18,8 +18,9 @@ return new class extends Migration
             $table->enum('status',['pending','proses','selesai','tidak selesai','ditolak'])->default('pending');
             $table->string('link_mentahan',200);
             $table->string('link_hasil',200)->nullable();
-            $table->text('pesan');
+            $table->text('keterangan');
             $table->date('tenggat_pengerjaan');
+            $table->timestamps();
 
             $table->foreign('id_pelanggan')->references('id_pelanggan')->on('pelanggan')->onDelete('cascade');
             $table->foreign('id_jasa')->references('id_jasa')->on('jasa')->onDelete('cascade');

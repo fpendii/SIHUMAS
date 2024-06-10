@@ -34,7 +34,7 @@ class EditFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.status','!=','pending')->where('jasa.jenis_jasa','=','edit foto')->get();
 
 
         return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan','data'));
@@ -55,6 +55,21 @@ class EditFotoController extends Controller
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_editFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
+    }
+    public function detailarsip($id){
+
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+
+        $dataPetugas = PetugasModel::all();
+
+        // dd(compact('dataPetugas'));
+
+        $data = [
+            'title' => 'Detail Permohonan Edit Foto | SIHUMAS',
+            'page' => 'Permohonan Edit Foto' ,
+            'level' => 'Admin',
+        ];
+        return view('pages.admin.kelola_editFoto.detailarsip',$data,compact('dataPermohonan','dataPetugas','data'));
     }
 
     public function pilihPetugas(Request $request,$id){

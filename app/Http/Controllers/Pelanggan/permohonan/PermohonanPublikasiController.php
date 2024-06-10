@@ -20,19 +20,28 @@ class PermohonanPublikasiController extends Controller
 
     public function submit(Request $request)
     {
-        dd($request->all());
-        $request->validate([
-            'link_mentahan' => 'required',
-            'pesan' => 'required',
-            'tenggat_pengerjaan' => 'required',
-            'tipe_desain' => 'required',
-            'ukuran_gambar' => 'required',
-        ]);
+        // $request->validate([
+        //     'pilihan_publikasi' => 'required',
+        //     'pesan' => 'required',
+        //     'tenggat_pengerjaan' => 'required',
+        //     'tag_sosmed' => 'required',
+        //     'link_ringkasan' => 'required',
+        //     'link_mentahan' => 'required',
+        //     'tenggat_pengerjaan' => 'required'
+        // ]);
+
+
+        if($request->pilihan_publikasi == 'sosial media'){
+            $publikasi = $request->platform_sosial_media;
+        } else {
+            $publikasi = $request->pilihan_publikasi;
+        }
 
         $jasa = DB::table('jasa')->insertGetId([
-            'tipe_desain' => $request->tipe_desain,
-            'ukuran_gambar' => $request->ukuran_gambar,
-            'jenis_jasa' => 'desain'
+            'pilihan_publikasi' => $publikasi,
+            'tag_sosmed' => $request->tag_sosmed,
+            'link_ringkasan_publikasi' => $request->link_ringkasan,
+            'jenis_jasa' => 'publikasi'
         ]);
 
 

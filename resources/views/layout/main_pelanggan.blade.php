@@ -19,7 +19,15 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/iconly.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-RqCSmPD2o0KiK9LYNwV63J72mvV0NlcNUWeA6K74ZvHJ7V3Cq+u0ppPwYX/QfcP8oQY1CepqDr9p6zlfKHj/8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-RqCSmPD2o0KiK9LYNwV63J72mvV0NlcNUWeA6K74ZvHJ7V3Cq+u0ppPwYX/QfcP8oQY1CepqDr9p6zlfKHj/8Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -138,7 +146,25 @@
             console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
         }
         // ]]>
+
+        // script tombol pilih sosial media
+        document.addEventListener('DOMContentLoaded', function() {
+            var publikasiSelect = document.getElementById('publikasiSelect');
+            var sosialMediaOptions = document.getElementById('sosialMediaOptions');
+
+            if (publikasiSelect && sosialMediaOptions) {
+                publikasiSelect.addEventListener('change', function() {
+                    if (this.value === 'sosial media') {
+                        sosialMediaOptions.classList.remove('hidden');
+                    } else {
+                        sosialMediaOptions.classList.add('hidden');
+                        document.getElementById('platform_sosial_media').value = ''; // Reset the select value
+                    }
+                });
+            }
+        });
     </script>
+    <script></script>
 </body>
 
 </html>

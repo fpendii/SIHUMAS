@@ -17,52 +17,70 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{ url('jasa/desain/submit') }}" method="POST" class="form form-horizontal">
+                            <form action="{{ url('jasa/publikasi/submit') }}" method="POST" class="form form-horizontal">
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Pelaksana</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="contact-info-horizontal"
-                                                class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan nama pelaksana">
-                                            @error('ukuran_gambar')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="first-name-horizontal">Tipe Desain</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <fieldset class="form-group">
-                                                <select name="tipe_desain"
-                                                    class="form-select @error('tipe_desain') is-invalid @enderror"
-                                                    id="basicSelect">
-                                                    <option value=""> --- Pilih Tipe Desain --- </option>
-                                                    <option value="poster">Poster</option>
-                                                    <option value="spanduk">Spanduk</option>
-                                                </select>
-                                                @error('tipe_desain')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </fieldset>
-                                        </div>
                                         <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
+
                                         <div class="col-md-4">
-                                            <label for="email-horizontal">Ukuran Gambar</label>
+                                            <label for="first-name-horizontal">Publikasi</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <fieldset class="form-group">
+                                                <select name="pilihan_publikasi"
+                                                    class="form-select @error('pilihan_publikasi') is-invalid @enderror"
+                                                    id="publikasiSelect">
+                                                    <option value=""> --- Pilih Publikasi --- </option>
+                                                    <option value="web">Web</option>
+                                                    <option value="sosial media">Sosial Media</option>
+                                                    <option value="media masa">Media Masa</option>
+                                                </select>
+                                                @error('pilihan_publikasi')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </fieldset>
+                                        </div>
+
+                                        <!-- Tambahkan div untuk pilihan tambahan Sosial Media -->
+                                        <div id="sosialMediaOptions" class="row hidden">
+                                            <div class="col-md-4">
+                                                <label for="sosial-media-options">Pilih Platform Sosial Media</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <fieldset class="form-group">
+                                                    <select name="platform_sosial_media" class="form-select">
+                                                        <option value=""> --- Pilih Platform --- </option>
+                                                        <option value="ig_story">Ig Story</option>
+                                                        <option value="feed_ig">Feed IG</option>
+                                                        <option value="reel_instagram">Reel Instagram</option>
+                                                        <option value="facebook">Facebook</option>
+                                                        <option value="twitter">Twitter</option>
+                                                        <option value="tiktok">Tiktok</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label for="password-horizontal">Tag Sosmed</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <textarea name="tag_sosmed" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="email-horizontal">Link Ringkasan Publikasi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="email-horizontal"
-                                                class="form-control @error('ukuran_gambar') is-invalid @enderror"
-                                                name="ukuran_gambar" placeholder="Ukuran Gambar...">
-                                            @error('ukuran_gambar')
+                                                class="form-control @error('link_ringkasan') is-invalid @enderror"
+                                                name="link_ringkasan" placeholder="Link Ringkasan Publikasi">
+                                            @error('link_ringkasan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -73,7 +91,7 @@
                                             <input type="text" id="contact-info-horizontal"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
                                                 name="link_mentahan" placeholder="Masukkan link mentahan">
-                                            @error('ukuran_gambar')
+                                            @error('link_mentahan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -97,5 +115,8 @@
             </div>
         </div>
     </section>
+
     <!-- // Basic Horizontal form layout section end -->
-@endsection
+    @endsection
+
+

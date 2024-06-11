@@ -59,10 +59,15 @@ class DesainControllert extends Controller
     }
 
     public function pilihPetugas(Request $request,$id){
-        $petugas_pesanan = PetugasPesananModel::create([
-            'id_petugas' => $request->petugas,
-            'id_pesanan' => $id
-        ]);
+        $petugas = $request->petugas;
+        $jumlahPetugas = count($petugas);
+
+        for($i = 0;$i < $jumlahPetugas; $i++){
+            $petugas_pesanan = PetugasPesananModel::create([
+                'id_petugas' => $request->petugas[$i],
+                'id_pesanan' => $id
+            ]);
+        };
 
         $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
 

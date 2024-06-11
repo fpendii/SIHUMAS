@@ -22,9 +22,9 @@ return new class extends Migration
             $table->boolean('pertanyaan_3')->nullable();
             $table->char('tipe_desain')->nullable();
             $table->char('ukuran_gambar')->nullable();
-            $table->datetime ('waktu_mulai')->nullable();
-            $table->datetime ('waktu_selesai')->nullable();
-            $table->datetime ('jadwal_foto')->nullable();
+            $table->datetime('waktu_mulai')->nullable();
+            $table->datetime('waktu_selesai')->nullable();
+            $table->datetime('jadwal_foto')->nullable();
             $table->char('jenis_jasa')->nullable();
         });
     }

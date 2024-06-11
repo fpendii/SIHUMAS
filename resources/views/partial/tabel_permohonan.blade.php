@@ -43,7 +43,7 @@
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Email Application</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Pesan Permohonan</li>
                                 </ol>
                             </nav>
                         </div>
@@ -75,8 +75,14 @@
                                                     </svg>
                                                 </div>
                                                 Inbox
-                                                <span
-                                                    class="badge bg-light-primary badge-pill badge-round float-right mt-50">5</span>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <div class="fonticon-wrap d-inline me-3">
+                                                    <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
+                                                        <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#trash" />
+                                                    </svg>
+                                                </div>
+                                                Proses
                                             </a>
                                             <a href="{{url('admin/'.$page.'/arsip')}}" class="list-group-item {{ $sidebar == 'arsip' ? 'active' : '' }}">
                                                 <div class="fonticon-wrap d-inline me-3">
@@ -85,15 +91,7 @@
                                                     </svg>
                                                 </div>
                                                 Arsip
-                                                <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">3</span>
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <div class="fonticon-wrap d-inline me-3">
-                                                    <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
-                                                        <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#trash" />
-                                                    </svg>
-                                                </div>
-                                                Trash
+
                                             </a>
                                         </div>
                                         <!-- sidebar menu  end-->

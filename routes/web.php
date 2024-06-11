@@ -92,9 +92,6 @@ Route::prefix('admin')->group(function(){
     Route::get('Peliputan/{id}', [PeliputanController::class, 'detail']);
     Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
 
-
-
-
     // Ruote kelola video editing
     Route::get('video-editing', [VideoEditingController::class, 'index']);
     Route::get('video-editing/arsip', [VideoEditingCController::class, 'arsip']);
@@ -125,6 +122,10 @@ Route::prefix('admin')->group(function(){
     // Ruote kelola publikasi
     Route::get('publikasi', [PublikasiController::class, 'index']);
     Route::get('publikasi/arsip', [PublikasiController::class, 'arsip']);
+    Route::get('publikasi/{id}', [PublikasiController::class, 'detail']);
+    Route::get('publikasi/detail-arsip/{id}', [PublikasiController::class, 'detailArsip']);
+    Route::put('publikasi/pilih-petugas/{id}', [PublikasiController::class, 'pilihPetugas']);
+
 });
 
 Route::prefix('petugas')->group(function(){

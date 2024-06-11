@@ -10,4 +10,12 @@ class PelanggaModel extends Model
     use HasFactory;
 
     protected $table = 'pelanggan';
+
+    protected $id = 'id_pelanggan';
+
+    protected $fillable = ['id_akun','nama_pelanggan'];
+
+    public $timestamps = false;
+
 }
+

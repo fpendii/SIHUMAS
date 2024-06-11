@@ -13,3 +13,5 @@ class PesananModel extends Model
 
     protected $fillable = ['id_pesanan','id_pelanggan', 'id_jasa', 'status', 'link_mentahan', 'link_hasil','pesan','tenggat_pengerjaan','created_at','updated_at'];
 }
+
+?>

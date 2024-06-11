@@ -20,15 +20,15 @@ class PermohonanPublikasiController extends Controller
 
     public function submit(Request $request)
     {
-        // $request->validate([
-        //     'pilihan_publikasi' => 'required',
-        //     'pesan' => 'required',
-        //     'tenggat_pengerjaan' => 'required',
-        //     'tag_sosmed' => 'required',
-        //     'link_ringkasan' => 'required',
-        //     'link_mentahan' => 'required',
-        //     'tenggat_pengerjaan' => 'required'
-        // ]);
+        $request->validate([
+            'pilihan_publikasi' => 'required',
+            'pesan' => 'required',
+            'tenggat_pengerjaan' => 'required',
+            'tag_sosmed' => 'required',
+            'link_ringkasan' => 'required',
+            'link_mentahan' => 'required',
+            'tenggat_pengerjaan' => 'required'
+        ]);
 
 
         if($request->pilihan_publikasi == 'sosial media'){

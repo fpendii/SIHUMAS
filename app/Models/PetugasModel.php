@@ -10,4 +10,13 @@ class PetugasModel extends Model
     use HasFactory;
 
     protected $table = 'petugas';
+
+    protected $id = 'id_petugas';
+
+    protected $fillable = ['id_akun','nama_petugas','foto'];
+
+    public $timestamps = false;
+
 }
+
+?>

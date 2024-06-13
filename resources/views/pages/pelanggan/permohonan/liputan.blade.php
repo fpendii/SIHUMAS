@@ -25,26 +25,26 @@
                                             <label for="jadwal-mulai">Jadwal Mulai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="jadwal-mulai" class="form-control" name="jadwal_mulai">
+                                            <input type="date" id="jadwal-mulai" class="form-control" name="waktu_mulai">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="jadwal-selesai">Jadwal Selesai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="jadwal-selesai" class="form-control" name="jadwal_selesai">
+                                            <input type="date" id="jadwal-selesai" class="form-control" name="waktu_selesai">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="dokumentasi-foto-1">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                                            <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_1" id="dokumentasi_foto_1_ya">
+                                                <input class="form-check-input" type="radio" name="pertanyaan_1" id="dokumentasi_foto_1_ya" value="1" required>
                                                 <label class="form-check-label" for="dokumentasi_foto_1_ya">
                                                     Ya
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_1" id="dokumentasi_foto_1_tidak" checked>
+                                                <input class="form-check-input" type="radio" name="pertanyaan_1" id="dokumentasi_foto_1_tidak" value="0" checked required>
                                                 <label class="form-check-label" for="dokumentasi_foto_1_tidak">
                                                     Tidak
                                                 </label>
@@ -55,30 +55,30 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_2" id="dokumentasi_foto_2_ya">
+                                                <input class="form-check-input" type="radio" name="pertanyaan_2" id="dokumentasi_foto_2_ya" value="1" required>
                                                 <label class="form-check-label" for="dokumentasi_foto_2_ya">
                                                     Ya
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_2" id="dokumentasi_foto_2_tidak" checked>
+                                                <input class="form-check-input" type="radio" name="pertanyaan_2" id="dokumentasi_foto_2_tidak" value="0" checked required>
                                                 <label class="form-check-label" for="dokumentasi_foto_2_tidak">
                                                     Tidak
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="dokumentasi-foto-3">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                                            <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_3" id="dokumentasi_foto_3_ya">
+                                                <input class="form-check-input" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="1" required>
                                                 <label class="form-check-label" for="dokumentasi_foto_3_ya">
                                                     Ya
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="dokumentasi_foto_3" id="dokumentasi_foto_3_tidak" checked>
+                                                <input class="form-check-input" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_tidak" value="0" checked required>
                                                 <label class="form-check-label" for="dokumentasi_foto_3_tidak">
                                                     Tidak
                                                 </label>

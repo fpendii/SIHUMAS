@@ -4,21 +4,20 @@ namespace App\Http\Controllers\pelanggan\permohonan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\peliputanModel;
 use App\Models\JasaModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
 
-class PermohonanPeliputanController extends Controller
+class PermohonanEditingVideoController extends Controller
 {
     public function index()
     {
         $data = [
-            'title' => 'Form Permohonan Peliputan | SIHUMAS',
-            'page' => 'form peliputan',
+            'title' => 'Form Permohonan Editing | SIHUMAS',
+            'page' => 'form Editing',
             'level' => 'Pelanggan'
         ];
-        return view('pages.pelanggan.permohonan.liputan', $data);
+        return view('pages.pelanggan.permohonan.editingVideo', $data);
     }
 
     // public function submit(Request $request)
@@ -71,17 +70,15 @@ class PermohonanPeliputanController extends Controller
     public function submit(Request $request)
     {
         $request->validate([
-            'waktu_mulai' => 'required',
-            'waktu_selesai' => 'required',
+            'link_mentahan' => 'required',
+            'pesan' => 'required',
+            'tenggat_pengerjaan' => 'required',
         ]);
     
         $jasa = DB::table('jasa')->insertGetId([
-            'waktu_mulai' => $request->waktu_mulai,
-            'waktu_selesai' => $request->waktu_selesai,
-            'pertanyaan_1' => $request->pertanyaan_1,
-            'pertanyaan_2' => $request->pertanyaan_2,
-            'pertanyaan_3' => $request->pertanyaan_3,
-            'jenis_jasa' => 'peliputan',
+            'link_mentahan' => $request->link_mentahan,
+            'tenggat_pengerjaan' => $request->waktu_selesai,
+            'jenis_jasa' => 'editing',
         ]);
 
         DB::table('pesanan')->insert([
@@ -89,7 +86,7 @@ class PermohonanPeliputanController extends Controller
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => null,
-            'pesan' => 'pesan',
+            'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat 
             'created_at' => now(),
             'updated_at' => now(),

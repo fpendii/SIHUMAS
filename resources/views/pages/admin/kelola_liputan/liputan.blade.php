@@ -29,7 +29,7 @@
                         <div class="media-body">
                             <div class="user-details">
                                 <div class="mail-items">
-                                    <span class="list-group-item-text text-truncate mb-0">{{ $item->nama_pelanggan }}</span>
+                                    <span class="list-group-item-text text-truncate mb-0">Nama Pelanggan</span>
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="mail-message">
-                                <p class="list-group-item-text mb-0 truncate">{{ $item->keterangan }}</p>
+                                <p class="list-group-item-text mb-0 truncate">{{ $item->pesan }}</p>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
                                         <span class="bullet bullet-warning bullet-sm"></span>

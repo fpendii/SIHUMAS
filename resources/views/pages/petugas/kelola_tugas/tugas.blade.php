@@ -21,24 +21,33 @@
         <!-- Basic Horizontal form layout section start -->
         <section id="basic-horizontal-layouts">
             <div class="row match-height">
-                @for ($i = 0; $i < 5; $i++)
-                    <div class="col-md-6 col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                Desain
-                            </div>
-                            <div class="card-body">
-                                <blockquote class="blockquote mb-0">
-                                    <p>Buatkan desain spanduk untuk diesnatalis</p>
-                                    <footer class="blockquote-footer">
-                                        Batas Waktu
-                                        <p>21-02-2023</p>
-                                    </footer>
-                                </blockquote>
-                            </div>
-                            <button type="button" class="btn btn-primary">Kerjakan</button>
+                @if ($dataPermohonan->isEmpty())
+                    <div class="col-12">
+                        <div class="alert alert-warning">
+                            No data available.
                         </div>
                     </div>
-                @endfor
+                @else
+                    @foreach ($dataPermohonan as $item)
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    {{ $item->jenis_jasa }}
+                                </div>
+                                <div class="card-body">
+                                    <blockquote class="blockquote mb-0">
+                                        <p>{{ $item->pesan }}</p>
+                                        <footer class="blockquote-footer">
+                                            Batas Waktu
+                                            <p>{{ $item->tenggat_pengerjaan }}</p>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                <button type="button" class="btn btn-primary">Kerjakan</button>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </section>
     @endsection

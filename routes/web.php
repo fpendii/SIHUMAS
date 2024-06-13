@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PeliputanController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
-use App\Http\Controllers\Admin\VideoEditingController;
+use App\Http\Controllers\Admin\EditingVideoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LupaPassword;
@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\EditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
+use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditingVideoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,10 @@ Route::prefix('jasa')->group(function(){
     Route::get('editing-foto',[PermohonanEditFotoController::class, 'index']);
     Route::post('editing-foto/submit',[PermohonanEditFotoController::class, 'submit']);
 
+     // Route editing Video
+     Route::get('editing-video',[PermohonanEditingVideoController::class, 'index']);
+     Route::post('editing-video/submit',[PermohonanEditingVideoController::class, 'submit']);
+
     // Route Publikasi
     Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
 });
@@ -88,7 +93,7 @@ Route::prefix('admin')->group(function(){
     // Ruote kelola peliputan
     Route::get('peliputan', [PeliputanController::class, 'index']);
     Route::get('Peliputan/arsip', [PeliputanController::class, 'arsip']);
-    Route::get('Peliputan/{id}', [PeliputanController::class, 'detail']);
+    Route::get('peliputan/{id}', [PeliputanController::class, 'detail']);
     Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
     
 
@@ -96,10 +101,10 @@ Route::prefix('admin')->group(function(){
     Route::get('publikasi', [PublikasiController::class, 'index']);
 
     // Ruote kelola video editing
-    Route::get('video-editing', [VideoEditingController::class, 'index']);
-    Route::get('video-editing/arsip', [VideoEditingCController::class, 'arsip']);
-    Route::get('video-editing/{id}', [VideoEditingCController::class, 'detail']);
-    Route::put('video-editing/pilih-petugas/{id}',[VideoEditingCController::class,'pilihPetugas']);
+    Route::get('video-editing', [EditingVideoController::class, 'index']);
+    Route::get('video-editing/arsip', [EditingVideoController::class, 'arsip']);
+    Route::get('video-editing/{id}', [EditingVideoController::class, 'detail']);
+    Route::put('video-editing/pilih-petugas/{id}',[EditingVideoController::class,'pilihPetugas']);
 
     //Route kelola pas foto
     Route::get('pas-foto', [PasFotoController::class, 'index']);

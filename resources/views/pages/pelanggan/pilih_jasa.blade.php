@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div class="col-6 box-jasa col-lg-4 col-md-6">
-                        <a href="{{ url('jasa/desain') }}">
+                        <a href="{{ url('jasa/video-editing') }}">
                             <div class="card">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="row">

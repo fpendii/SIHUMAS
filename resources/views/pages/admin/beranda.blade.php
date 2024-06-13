@@ -5,10 +5,6 @@
     {{ $chart->script() }}
 @endsection
 @section('content')
-
-
-
-
     <div class="page-content">
         <section class="row">
             <div class="col-12 col-lg-9">
@@ -31,6 +27,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
+                        <a href="{{ url('admin/publikasi') }}" class="card-link">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
@@ -41,11 +38,12 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Publikasi</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                        <h6 class="font-extrabold mb-0">{{$totalPublikasi}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
                         <div class="card">
@@ -65,6 +63,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
+                        <a href="{{ url('admin/desain') }}" class="card-link">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
@@ -75,11 +74,12 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Desain</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
+                                        <h6 class="font-extrabold mb-0">{{$totalDesain}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
                         <a href="{{ url('admin/pas-foto') }}" class="card-link">

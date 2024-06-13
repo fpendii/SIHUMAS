@@ -22,7 +22,24 @@ class akun_seeder extends Seeder
                 'role' => 'pelanggan',
                 'password' => hash::make('pendi123'),
                 'is_active' => true,
-            ]
+            ],
+            [
+                'username' => 'Bang Dimas',
+                'email' => 'dimas@mhs.politala.ac.id',
+                'no_hp' => '082150646254',
+                'role' => 'petugas',
+                'password' => hash::make('123'),
+                'is_active' => true,
+            ],
+            [
+                'username' => 'Alam',
+                'email' => 'alam@mhs.politala.ac.id',
+                'no_hp' => '082150646254',
+                'role' => 'petugas',
+                'password' => hash::make('123'),
+                'is_active' => true,
+            ],
          ]);
+
     }
 }

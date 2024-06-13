@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
 
 
 
@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/application-email.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
@@ -38,22 +40,21 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
                             <h3>Pesan Permohonan</h3>
-                            <p class="text-subtitle text-muted">A full inbox-ui for you to implement messaging.</p>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Email Application</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Pesan Permohonan</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
                 <section class="section content-area-wrapper">
-                    <div class="sidebar-left">
+                    <div class="sidebar-left" >
                         <div class="sidebar">
-                            <div class="sidebar-content email-app-sidebar d-flex">
+                            <div class="sidebar-content email-app-sidebar d-flex" style="width: 250px">
                                 <!-- sidebar close icon -->
                                 <span class="sidebar-close-icon">
                                     <i class="bi bi-x"></i>
@@ -61,11 +62,7 @@
                                 <!-- sidebar close icon -->
                                 <div class="email-app-menu">
                                     <div class="form-group form-group-compose">
-                                        <!-- compose button  -->
-                                        <button type="button" class="btn btn-primary btn-block my-4 compose-btn">
-                                            <i class="bi bi-plus"></i>
-                                            Compose
-                                        </button>
+                                        <div style="height: 80px"></div>
                                     </div>
                                     <div class="sidebar-menu-list ps">
                                         <!-- sidebar menu  -->
@@ -80,8 +77,12 @@
                                                     </svg>
                                                 </div>
                                                 Inbox
-                                                <span
-                                                    class="badge bg-light-primary badge-pill badge-round float-right mt-50">5</span>
+                                            </a>
+                                            <a href="{{url('admin/'.$page.'/proses')}}" class="list-group-item {{ $sidebar == 'proses' ? 'active' : '' }}">
+                                                <div class="fonticon-wrap d-inline me-3">
+                                                    <i class="bi bi-arrow-repeat icon"></i>
+                                                </div>
+                                                Proses
                                             </a>
                                             <a href="{{url('admin/'.$page.'/arsip')}}" class="list-group-item {{ $sidebar == 'arsip' ? 'active' : '' }}">
                                                 <div class="fonticon-wrap d-inline me-3">
@@ -90,15 +91,6 @@
                                                     </svg>
                                                 </div>
                                                 Arsip
-                                                <span class="badge bg-light-danger badge-pill badge-round float-right mt-50">3</span>
-                                            </a>
-                                            <a href="#" class="list-group-item">
-                                                <div class="fonticon-wrap d-inline me-3">
-                                                    <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
-                                                        <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#trash" />
-                                                    </svg>
-                                                </div>
-                                                Trash
                                             </a>
                                         </div>
                                         <!-- sidebar menu  end-->
@@ -204,7 +196,7 @@
 
                                                         <div class="form-group position-relative  mb-0 has-icon-left">
                                                             <input type="text" class="form-control"
-                                                                placeholder="Search email..">
+                                                                placeholder="Cari permohonan">
                                                             <div class="form-control-icon">
                                                                 <svg class="bi" width="1.5em" height="1.5em"
                                                                     fill="currentColor">

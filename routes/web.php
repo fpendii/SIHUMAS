@@ -26,6 +26,7 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditingVideoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
+use App\Http\Controllers\Pegawai\TugasPublikasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +65,7 @@ Route::prefix('jasa')->group(function(){
     // Route Peliputan
     Route::get('liputan',[PermohonanPeliputanController::class, 'index']);
     Route::post('liputan/submit',[PermohonanPeliputanController::class, 'submit']);
-    
+
     // Route Pas Foto
     Route::get('pas-foto',[PermohonanPasFotoController::class, 'index']);
     Route::post('pas-foto/submit',[PermohonanPasFotoController::class, 'submit']);
@@ -79,6 +80,7 @@ Route::prefix('jasa')->group(function(){
 
     // Route Publikasi
     Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
+    Route::post('publikasi/submit',[PermohonanPublikasiController::class, 'submit']);
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
@@ -95,10 +97,6 @@ Route::prefix('admin')->group(function(){
     Route::get('Peliputan/arsip', [PeliputanController::class, 'arsip']);
     Route::get('peliputan/{id}', [PeliputanController::class, 'detail']);
     Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
-    
-
-    // Ruote kelola publikasi
-    Route::get('publikasi', [PublikasiController::class, 'index']);
 
     // Ruote kelola video editing
     Route::get('video-editing', [EditingVideoController::class, 'index']);
@@ -110,19 +108,34 @@ Route::prefix('admin')->group(function(){
     Route::get('pas-foto', [PasFotoController::class, 'index']);
     Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
     Route::get('pas-foto/{id}', [PasFotoController::class, 'detail']);
-    Route::put('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'detail']);
+    Route::get('pas-foto/{id}', [PasFotoController::class, 'detailarsip']);
+    Route::put('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'pilihpetugas']);
 
     //Route kelola Editing foto
     Route::get('edit-foto', [EditFotoController::class, 'index']);
     Route::get('edit-foto/arsip', [EditFotoController::class, 'arsip']);
     Route::get('edit-foto/{id}', [EditFotoController::class, 'detail']);
-    Route::put('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'detail']);
+    Route::get('edit-foto/{id}', [EditFotoController::class, 'detailarsip']);
+    Route::put('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'pilihPetugas']);
 
     // Ruote kelola desain
-    Route::get('desain', [DesainControllert::class, 'index']);
+    Route::get('desain', [DesainControllert::class, 'index'])->name('kembali');
+    Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
-    Route::get('desain/{id}', [DesainControllert::class, 'detail']);
+    Route::get('desain/detail-arsip/{id}', [DesainControllert::class, 'detailArsip']);
+    Route::get('desain/proses', [DesainControllert::class, 'proses']);
     Route::put('desain/pilih-petugas/{id}',[DesainControllert::class,'pilihPetugas']);
+    Route::put('desain/tolak/{id}',[DesainControllert::class,'tolakPermohonan']);
+
+    // Ruote kelola publikasi
+    Route::get('publikasi', [PublikasiController::class, 'index']);
+    Route::get('publikasi/detail/{id}', [PublikasiController::class, 'detail']);
+    Route::get('publikasi/arsip', [PublikasiController::class, 'arsip']);
+    Route::get('publikasi/detail-arsip/{id}', [PublikasiController::class, 'detailArsip']);
+    Route::put('publikasi/pilih-petugas/{id}', [PublikasiController::class, 'pilihPetugas']);
+    Route::get('publikasi/proses', [PublikasiController::class, 'proses']);
+    Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
+
 });
 
 Route::prefix('petugas')->group(function(){
@@ -132,6 +145,11 @@ Route::prefix('petugas')->group(function(){
     // Route Kelola Tugas
     Route::get('tugas', [TugasController::class, 'index']);
 
+    Route::get('tugas/publikasi/detail-tugas/{id}', [TugasPublikasiController::class, 'detailTugas']);
+    Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
+
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);
+
 });
+

@@ -21,6 +21,7 @@
         <!-- Basic Horizontal form layout section start -->
         <section id="basic-horizontal-layouts">
             <div class="row match-height">
+<<<<<<< HEAD
                 @if ($dataPermohonan->isEmpty())
                     <div class="col-12">
                         <div class="alert alert-warning">
@@ -49,5 +50,27 @@
                     @endforeach
                 @endif
             </div>
+=======
+                @foreach ($petugas_pesanan as $item)
+                    <div class="col-md-6 col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                {{$item->jenis_jasa}}
+                            </div>
+                            <div class="card-body">
+                                <blockquote class="blockquote mb-0">
+                                    <p>{{$item->pesan}}</p>
+                                    <footer class="blockquote-footer">
+                                        Batas Waktu
+                                        <p>{{$item->tenggat_pengerjaan}}</p>
+                                    </footer>
+                                </blockquote>
+                            </div>
+                            <a href="tugas/{{$item->jenis_jasa}}/detail-tugas/{{$item->id_pesanan}}" class="btn btn-primary block" >Kerjakan</a>
+                        </div>
+                    </div>
+                @endforeach
+
+>>>>>>> e7710443a88a17716aab165e2ced744c4a084f3d
         </section>
     @endsection

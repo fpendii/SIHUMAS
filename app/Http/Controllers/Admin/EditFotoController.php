@@ -3,17 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\EditingModel;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\PetugasPesananModel;
+use Illuminate\Support\Facades\Redis;
 
 class EditFotoController extends Controller
 {
     public function index(){
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        // $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('jasa.jenis_jasa','=','edit foto')->where( 'pesanan.status','=','pending')->get();
 
 
         $data = [
@@ -33,7 +34,7 @@ class EditFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.status','!=','pending')->where('editing.tipe_editing','=','foto')->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.status','!=','pending')->where('jasa.jenis_jasa','=','edit foto')->get();
 
 
         return view('pages.admin.kelola_editFoto.arsip_editFoto',$data,compact('dataPermohonan','data'));
@@ -42,7 +43,7 @@ class EditFotoController extends Controller
 
     public function detail($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('editing','pesanan.id_pesanan', '=', 'editing.id_pesanan')->where('pesanan.id_pesanan',$id)->select('pesanan.*','pelanggan.*','jasa.*','editing.*')->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
 
         $dataPetugas = PetugasModel::all();
 
@@ -55,6 +56,21 @@ class EditFotoController extends Controller
         ];
         return view('pages.admin.kelola_editFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
     }
+    public function detailarsip($id){
+
+        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+
+        $dataPetugas = PetugasModel::all();
+
+        // dd(compact('dataPetugas'));
+
+        $data = [
+            'title' => 'Detail Permohonan Edit Foto | SIHUMAS',
+            'page' => 'Permohonan Edit Foto' ,
+            'level' => 'Admin',
+        ];
+        return view('pages.admin.kelola_editFoto.detailarsip',$data,compact('dataPermohonan','dataPetugas','data'));
+    }
 
     public function pilihPetugas(Request $request,$id){
         $petugas_pesanan = PetugasPesananModel::create([
@@ -62,9 +78,9 @@ class EditFotoController extends Controller
             'id_pesanan' => $id
         ]);
 
-        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses']);
+        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
 
-        return redirect()->to('admin/editing')->with('success', 'Data dikirim ke petugas');
+        return redirect()->to('admin/edit-foto')->with('success', 'Data dikirim ke petugas');
     }
 
 

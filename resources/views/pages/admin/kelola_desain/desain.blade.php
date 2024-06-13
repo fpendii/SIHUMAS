@@ -1,18 +1,16 @@
 @extends('partial.tabel_permohonan')
 
 @section('content')
-    <div class="email-user-list list-group ps ps--active-y">
-        <ul class="users-list-wrapper media-list">
+<div class="container">
+
+
+    <div  class="email-user-list list-group ps ps--active-y">
+        <ul class="users-list-wrapper media-list" style="width: 96%">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/desain/'.$item->id_pesanan)}}">
+                <a href="{{url('admin/desain/detail/'.$item->id_pesanan)}}"style="width: 10%">
                     <li class="media mail-read">
                         <div class="user-action">
-                            <div class="checkbox-con me-3">
-                                <div class="checkbox checkbox-shadow checkbox-sm">
-                                    <input type="checkbox" id="checkboxsmall12" class='form-check-input'>
-                                    <label for="checkboxsmall12"></label>
-                                </div>
-                            </div>
+
                             <span class="favorite">
 
                                 <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
@@ -33,12 +31,12 @@
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
-                                        <span class="mail-date">{{ $item->created_at }}</span>
+                                        <span class="mail-date">{{ $item->time_ago }}</span>
                                     </span>
                                 </div>
                             </div>
                             <div class="mail-message">
-                                <p class="list-group-item-text mb-0 truncate">{{ $item->keterangan }}</p>
+                                <p class="list-group-item-text mb-0 truncate">{{ $item->pesan }}</p>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
                                         <span class="bullet bullet-warning bullet-sm"></span>
@@ -51,4 +49,5 @@
             @endforeach
         </ul>
     </div>
+</div>
 @endsection

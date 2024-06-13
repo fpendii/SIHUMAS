@@ -15,17 +15,18 @@ return new class extends Migration
             $table->id('id_jasa');
             $table->char('pilihan_publikasi')->nullable();
             $table->char('catatan_redaktur')->nullable();
-            $table->char('tag_posmed')->nullable();
+            $table->char('tag_sosmed')->nullable();
             $table->char('link_ringkasan_publikasi')->nullable();
             $table->boolean('pertanyaan_1')->nullable();
             $table->boolean('pertanyaan_2')->nullable();
             $table->boolean('pertanyaan_3')->nullable();
             $table->char('tipe_desain')->nullable();
             $table->char('ukuran_gambar')->nullable();
-            $table->date('waktu_mulai')->nullable();
-            $table->date('waktu_selesai')->nullable();
-            $table->date('jadwal_foto')->nullable();
+            $table->datetime('waktu_mulai')->nullable();
+            $table->datetime('waktu_selesai')->nullable();
+            $table->datetime('jadwal_foto')->nullable();
             $table->char('jenis_jasa')->nullable();
+            $table->char('tema')->nullable();
         });
     }
 

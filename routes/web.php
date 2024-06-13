@@ -139,7 +139,9 @@ Route::prefix('petugas')->group(function(){
 
     // Route Kelola Tugas
     Route::get('tugas', [TugasController::class, 'index']);
+
     Route::get('tugas/publikasi/detail-tugas/{id}', [TugasPublikasiController::class, 'detailTugas']);
+    Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);

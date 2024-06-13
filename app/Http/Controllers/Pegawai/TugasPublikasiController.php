@@ -23,4 +23,8 @@ class TugasPublikasiController extends Controller
 
         return view('pages.petugas.kelola_tugas.tugas_publikasi',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
     }
+
+    public function submitTugas($id){
+        dd('ini babi');
+    }
 }

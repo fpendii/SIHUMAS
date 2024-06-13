@@ -90,11 +90,11 @@
                             </div>
                         </div>
                         <div class="form-actions d-flex justify-content-end grid gap-1">
-                            <form action="">
+                            <form action="{{ url('petugas/tugas/publikasi/submit/' . $dataPermohonan->id_pesanan) }}">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
 
-                            <a href="/admin/publikasi/proses" class="btn btn-secondary">Kembali</a>
+                            <a href="/petugas/tugas" class="btn btn-secondary">Kembali</a>
                         </div>
 
                     </div>

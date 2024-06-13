@@ -36,43 +36,7 @@
                                     </footer>
                                 </blockquote>
                             </div>
-                            <button type="button" class="btn btn-primary block" data-bs-toggle="modal"
-                            data-bs-target="#default">Kerjakan</button>
-                            <div class="card">
-                                <div class="card-body">
-                                    <!--Basic Modal -->
-                                    <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
-                                        aria-labelledby="myModalLabel1" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
-                                                    <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label for="basicInput">Link Hasil</label>
-                                                        <input type="text" class="form-control" id="basicInput" placeholder="Masukkan Link Hasil">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn" data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Batal</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ms-1" data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Kirim</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="tugas/{{$item->jenis_jasa}}/detail-tugas/{{$item->id_pesanan}}" class="btn btn-primary block" >Kerjakan</a>
                         </div>
                     </div>
                 @endforeach

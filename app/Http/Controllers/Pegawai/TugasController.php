@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PetugasPesananModel;
 use App\Models\PetugasModel;
+use Illuminate\Support\Facades\DB;
 
 class TugasController extends Controller
 {
@@ -22,4 +23,5 @@ class TugasController extends Controller
         $petugas_pesanan = PetugasPesananModel::join('pesanan','petugas_pesanan.id_pesanan','=','pesanan.id_pesanan')->where('id_petugas','=',$id_petugas)->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
         return view('pages.petugas.kelola_tugas.tugas',$data,compact('petugas_pesanan'));
     }
+
 }

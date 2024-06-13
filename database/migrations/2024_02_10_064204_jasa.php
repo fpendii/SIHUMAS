@@ -26,6 +26,7 @@ return new class extends Migration
             $table->datetime('waktu_selesai')->nullable();
             $table->datetime('jadwal_foto')->nullable();
             $table->char('jenis_jasa')->nullable();
+            $table->char('tema')->nullable();
         });
     }
 

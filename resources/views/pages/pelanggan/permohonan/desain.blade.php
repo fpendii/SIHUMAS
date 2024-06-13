@@ -22,14 +22,13 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="first-name-horizontal">Tipe Desain</label>
+                                            <label for="tipe">Tipe Desain</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-
                                             <fieldset class="form-group">
                                                 <select name="tipe_desain"
                                                     class="form-select @error('tipe_desain') is-invalid @enderror"
-                                                    id="basicSelect">
+                                                    id="tipe">
                                                     <option value=""> --- Pilih Tipe Desain --- </option>
                                                     <option value="poster">Poster</option>
                                                     <option value="spanduk">Spanduk</option>
@@ -38,19 +37,24 @@
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
                                             </fieldset>
-
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="password-horizontal">Pesan</label>
+                                            <label for="tema">Tema Desain</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <input name="tema" class="form-control" id="tema" rows="3"></input>
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="email-horizontal">Ukuran Gambar</label>
+                                            <label for="pesan">Pesan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="email-horizontal"
+                                            <textarea name="pesan" class="form-control" id="pesan" rows="3"></textarea>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="ukuran_gambar">Ukuran Gambar</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="ukuran_gambar"
                                                 class="form-control @error('ukuran_gambar') is-invalid @enderror"
                                                 name="ukuran_gambar" placeholder="Ukuran Gambar...">
                                             @error('ukuran_gambar')
@@ -58,10 +62,10 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Mentahan</label>
+                                            <label for="mentahan">Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="contact-info-horizontal"
+                                            <input type="text" id="mentahan"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
                                                 name="link_mentahan" placeholder="Masukkan link mentahan">
                                             @error('ukuran_gambar')
@@ -69,10 +73,10 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Tenggat Pengerjaan</label>
+                                            <label for="tenggat">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="contact-info-horizontal" class="form-control"
+                                            <input type="date" id="tenggat" class="form-control"
                                                 name="tenggat_pengerjaan">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">

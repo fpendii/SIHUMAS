@@ -4,7 +4,7 @@
     <div class="email-user-list list-group ps ps--active-y">
         <ul class="users-list-wrapper media-list">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/desain/detail-arsip/'.$item->id_pesanan)}}">
+                <a href="{{url('admin/publikasi/detail-proses/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <div class="checkbox-con me-3">
@@ -14,13 +14,9 @@
                                 </div>
                             </div>
                             <span class="favorite">
-                                @if ($item->status == 'ditolak')
-                                    <i class="bi bi-x-circle icon"></i>
-                                @elseif ($item->status == 'selesai')
-                                    <i class="bi bi-check-circle icon"></i>
-                                @endif
-
-
+                                <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
+                                    <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#star" />
+                                </svg>
                             </span>
                         </div>
                         <div class="pr-50">
@@ -36,7 +32,7 @@
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
-                                        <span class="mail-date">{{ $item->created_at }}</span>
+                                        <span class="mail-date">{{ $item->time_ago }}</span>
                                     </span>
                                 </div>
                             </div>

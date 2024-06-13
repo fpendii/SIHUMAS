@@ -4,7 +4,7 @@
     <div class="email-user-list list-group ps ps--active-y">
         <ul class="users-list-wrapper media-list">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/publikasi/'.$item->id_pesanan)}}">
+                <a href="{{url('admin/publikasi/detail/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <div class="checkbox-con me-3">
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
-                                        <span class="mail-date">{{ $item->created_at }}</span>
+                                        <span class="mail-date">{{ $item->time_ago }}</span>
                                     </span>
                                 </div>
                             </div>

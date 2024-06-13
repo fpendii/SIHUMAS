@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/application-email.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
@@ -50,9 +52,9 @@
                     </div>
                 </div>
                 <section class="section content-area-wrapper">
-                    <div class="sidebar-left">
+                    <div class="sidebar-left" >
                         <div class="sidebar">
-                            <div class="sidebar-content email-app-sidebar d-flex">
+                            <div class="sidebar-content email-app-sidebar d-flex" style="width: 250px">
                                 <!-- sidebar close icon -->
                                 <span class="sidebar-close-icon">
                                     <i class="bi bi-x"></i>
@@ -76,11 +78,9 @@
                                                 </div>
                                                 Inbox
                                             </a>
-                                            <a href="#" class="list-group-item">
+                                            <a href="{{url('admin/'.$page.'/proses')}}" class="list-group-item {{ $sidebar == 'proses' ? 'active' : '' }}">
                                                 <div class="fonticon-wrap d-inline me-3">
-                                                    <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
-                                                        <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#trash" />
-                                                    </svg>
+                                                    <i class="bi bi-arrow-repeat icon"></i>
                                                 </div>
                                                 Proses
                                             </a>
@@ -91,7 +91,6 @@
                                                     </svg>
                                                 </div>
                                                 Arsip
-
                                             </a>
                                         </div>
                                         <!-- sidebar menu  end-->

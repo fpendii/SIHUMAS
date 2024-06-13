@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\JasaModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class DesainController extends Controller
 {
@@ -22,18 +23,22 @@ class DesainController extends Controller
 
     public function submit(Request $request)
     {
+
+
         $request->validate([
             'link_mentahan' => 'required',
             'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
             'tipe_desain' => 'required',
             'ukuran_gambar' => 'required',
+            'tema' => 'required',
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
             'tipe_desain' => $request->tipe_desain,
             'ukuran_gambar' => $request->ukuran_gambar,
-            'jenis_jasa' => 'desain'
+            'jenis_jasa' => 'desain',
+            'tema' => $request->tema,
         ]);
 
 
@@ -49,7 +54,6 @@ class DesainController extends Controller
         ]);
 
 
-        return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
-
+        return redirect()->to('jasa')->with('success', 'Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
     }
 }

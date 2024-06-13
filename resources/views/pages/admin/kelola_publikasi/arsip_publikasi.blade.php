@@ -14,9 +14,11 @@
                                 </div>
                             </div>
                             <span class="favorite">
-                                <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
-                                    <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#star" />
-                                </svg>
+                                @if ($item->status == 'ditolak')
+                                <i class="bi bi-x-circle icon"></i>
+                            @elseif ($item->status == 'selesai')
+                                <i class="bi bi-check-circle icon"></i>
+                            @endif
                             </span>
                         </div>
                         <div class="pr-50">
@@ -32,7 +34,7 @@
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
-                                        <span class="mail-date">{{ $item->created_at }}</span>
+                                        <span class="mail-date">{{ $item->time_ago }}</span>
                                     </span>
                                 </div>
                             </div>

@@ -25,6 +25,7 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
+use App\Http\Controllers\Pegawai\TugasPublikasiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -114,17 +115,21 @@ Route::prefix('admin')->group(function(){
 
     // Ruote kelola desain
     Route::get('desain', [DesainControllert::class, 'index'])->name('kembali');
+    Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
-    Route::get('desain/{id}', [DesainControllert::class, 'detail']);
+    Route::get('desain/detail-arsip/{id}', [DesainControllert::class, 'detailArsip']);
+    Route::get('desain/proses', [DesainControllert::class, 'proses']);
     Route::put('desain/pilih-petugas/{id}',[DesainControllert::class,'pilihPetugas']);
     Route::put('desain/tolak/{id}',[DesainControllert::class,'tolakPermohonan']);
 
     // Ruote kelola publikasi
     Route::get('publikasi', [PublikasiController::class, 'index']);
+    Route::get('publikasi/detail/{id}', [PublikasiController::class, 'detail']);
     Route::get('publikasi/arsip', [PublikasiController::class, 'arsip']);
-    Route::get('publikasi/{id}', [PublikasiController::class, 'detail']);
     Route::get('publikasi/detail-arsip/{id}', [PublikasiController::class, 'detailArsip']);
     Route::put('publikasi/pilih-petugas/{id}', [PublikasiController::class, 'pilihPetugas']);
+    Route::get('publikasi/proses', [PublikasiController::class, 'proses']);
+    Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
 
 });
 
@@ -134,8 +139,10 @@ Route::prefix('petugas')->group(function(){
 
     // Route Kelola Tugas
     Route::get('tugas', [TugasController::class, 'index']);
+    Route::get('tugas/publikasi/detail-tugas/{id}', [TugasPublikasiController::class, 'detailTugas']);
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);
+
 });
 

@@ -27,6 +27,7 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditingVideoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 use App\Http\Controllers\Pegawai\TugasPublikasiController;
+use App\Http\Controllers\Pegawai\TugasDesainController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -146,6 +147,9 @@ Route::prefix('petugas')->group(function(){
     Route::get('tugas', [TugasController::class, 'index']);
 
     Route::get('tugas/publikasi/detail-tugas/{id}', [TugasPublikasiController::class, 'detailTugas']);
+    Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
+
+    Route::get('tugas/desain/detail-tugas/{id}', [TugasDesainController::class, 'detailTugas']);
     Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
 
     // Route Kelola Asip Tugas

@@ -17,10 +17,14 @@ class TugasDesainController extends Controller
         $dataPetugas = PetugasModel::all();
         $data = [
             'title' => 'Permohonan Desain | SIHUMAS',
-            'page' => 'Permohonan Desain' ,
+            'page' => 'desain' ,
             'level' => 'Admin',
         ];
 
         return view('pages.petugas.kelola_tugas.tugas_desain',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
+    }
+
+    public function submitTugas($id){
+        dd('ini babi');
     }
 }

@@ -24,6 +24,7 @@ class TugasController extends Controller
         // Mengambil data pesanan yang terkait dengan petugas
         $petugas_pesanan = PetugasPesananModel::join('pesanan', 'petugas_pesanan.id_pesanan', '=', 'pesanan.id_pesanan')
             ->where('id_petugas', '=', $id_petugas)
+            ->where('status', '=', 'proses')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
             ->get()
             ;

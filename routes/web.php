@@ -150,7 +150,7 @@ Route::prefix('petugas')->group(function(){
     Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
 
     Route::get('tugas/desain/detail-tugas/{id}', [TugasDesainController::class, 'detailTugas']);
-    Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
+    Route::get('tugas/desain/submit/{id}', [TugasDesainController::class, 'submitTugas']);
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);

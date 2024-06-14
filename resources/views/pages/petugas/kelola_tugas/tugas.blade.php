@@ -21,6 +21,18 @@
         <!-- Basic Horizontal form layout section start -->
         <section id="basic-horizontal-layouts">
             <div class="row match-height">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible show fade">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-dangert alert-dismissible show fade">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 @if ($petugas_pesanan->isEmpty())
                     <div class="col-12">
                         <div class="alert alert-warning">
@@ -43,7 +55,8 @@
                                         </footer>
                                     </blockquote>
                                 </div>
-                                <a href="tugas/{{ $item->jenis_jasa }}/detail-tugas/{{ $item->id_pesanan }}" class="btn btn-primary block">Kerjakan</a>
+                                <a href="tugas/{{ $item->jenis_jasa }}/detail-tugas/{{ $item->id_pesanan }}"
+                                    class="btn btn-primary block">Kerjakan</a>
                             </div>
                         </div>
                     @endforeach

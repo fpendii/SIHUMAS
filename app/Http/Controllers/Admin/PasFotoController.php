@@ -50,7 +50,7 @@ class PasFotoController extends Controller
 
         $data = [
             'title' => 'Detail Permohonan Pas Foto | SIHUMAS',
-            'page' => 'Permohonan Pas Foto' ,
+            'page' => 'pas-foto' ,
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_PasFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
@@ -80,6 +80,13 @@ class PasFotoController extends Controller
         $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
 
         return redirect()->to('admin/pas-foto')->with('success', 'Data dikirim ke petugas');
+    }
+
+    public function TolakPermohonan($id)
+    {
+        DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
+
+        return redirect()->to('admin/pas-foto')->with('success', 'Pesanan ditolak');
     }
 
 

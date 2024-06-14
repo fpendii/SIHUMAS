@@ -40,39 +40,40 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan Pas Foto</h4>
-                        <form action="{{url('admin/pas-foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
-                            </div>
+                        <h4 class="card-title">Data Permohonan</h4>
+                        <p class="card-text">{{ $dataPermohonan->jenis_jasa }}</p>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"
                                     value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                            <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Hasil</label>
                                 <input type="text" id="feedback4" class="form-control"
                                     placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
                             </div>
+                            <div class="form-group">
+                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
+                                <input type="text" id="feedback2" class="form-control"
+                                    value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
                             </div>
-                            <div class="form-actions d-flex justify-content-end grid gap-1">
+                            <div class="form-group">
+                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                <input type="text" id="feedback2" class="form-control"
+                                    value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                            </div>
+                        </div>
+                        <div class="form-actions d-flex justify-content-end grid gap-1">
 
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    ACC
-                                </button>
-
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                ACC
+                            </button>
+                            <form action="{{ url('admin/pas-foto/pilih-petugas/' . $dataPermohonan->id_pesanan) }}"
+                                class="form" method="post">
+                                @csrf
+                                @method('PUT')
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -95,17 +96,21 @@
                                                                     $i = 1;
                                                                 @endphp
                                                                 @foreach ($dataPetugas as $item)
-
                                                                     <li class="d-inline-block me-2 mb-1">
                                                                         <div class="form-check">
                                                                             <div class="checkbox">
-                                                                                <input name="petugas" value="{{$item->id_petugas}}" type="checkbox" id="checkbox{{ $i }}" class="form-check-input" checked>
-                                                                                <label for="checkbox{{ $i }}">{{$item->nama_petugas}}</label>
+                                                                                <input name="petugas[]"
+                                                                                    value="{{ $item->id_petugas }}"
+                                                                                    type="checkbox"
+                                                                                    id="checkbox{{ $i }}"
+                                                                                    class="form-check-input" checked>
+                                                                                <label
+                                                                                    for="checkbox{{ $i }}">{{ $item->nama_petugas }}</label>
                                                                             </div>
                                                                         </div>
                                                                     </li>
                                                                     @php
-                                                                        $i++
+                                                                        $i++;
                                                                     @endphp
                                                                 @endforeach
 
@@ -123,11 +128,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                {{-- end modal --}}
-                                <button type="reset" class="btn btn-danger me-1">Tolak</button>
-                                <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
-                            </div>
-                        </form>
+                            </form>
+                            {{-- end modal --}}
+                            <form action="{{ url('admin/pas-foto/tolak/' . $dataPermohonan->id_pesanan) }}"
+                                method="post" style="display:inline;">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger me-1">Tolak</button>
+                            </form>
+                            <a href="{{url('admin/pas-foto')}}" class="btn btn-secondary">Kembali</a>
+                        </div>
+
                     </div>
                 </div>
             </div>

@@ -108,9 +108,10 @@ Route::prefix('admin')->group(function(){
     //Route kelola pas foto
     Route::get('pas-foto', [PasFotoController::class, 'index']);
     Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
-    Route::get('pas-foto/{id}', [PasFotoController::class, 'detail']);
-    Route::get('pas-foto/{id}', [PasFotoController::class, 'detailarsip']);
+    Route::get('pas-foto/detail-arsip/{id}', [PasFotoController::class, 'detailArsip']);
+    Route::get('pas-foto/detail/{id}', [PasFotoController::class, 'detail']);
     Route::put('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'pilihpetugas']);
+    Route::put('pas-foto/tolak/{id}',[PasFotoController::class,'tolakPermohonan']);
 
     //Route kelola Editing foto
     Route::get('edit-foto', [EditFotoController::class, 'index']);

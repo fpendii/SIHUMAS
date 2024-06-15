@@ -97,7 +97,7 @@
                         <div class="col-lg-3 col-md-3 col-12">
                             <!-- Start Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="template_landing_page/img/logo.png" alt="#"></a>
+                                <a href="index.html"><img width="200px" src="images/silamas.png" alt="#"></a>
                             </div>
                             <!-- End Logo -->
                             <!-- Mobile Nav -->

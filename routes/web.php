@@ -13,7 +13,7 @@ use App\Http\Controllers\Pegawai\ArsipTugasController;
 use App\Http\Controllers\Pegawai\PetugasController;
 use App\Http\Controllers\Pegawai\TugasController;
 use App\Http\Controllers\pelanggan\permohonan\DesainController;
-use App\Http\Controllers\Pelanggan\LandingPageController;
+use App\Http\Controllers\LandingPage\LandingPageController;
 use App\Http\Controllers\Pelanggan\PermohonanController;
 use App\Http\Controllers\pelanggan\permohonan\desain;
 use App\Http\Controllers\RegistrasiController;
@@ -53,7 +53,10 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 // Route Landing Page
-Route::get('',[LandingPageController::class, 'index']);
+Route::get('',[LandingPageController::class, 'home']);
+Route::get('home',[LandingPageController::class, 'home']);
+Route::get('tentang-kami',[LandingPageController::class, 'tentangKami']);
+Route::get('layanan',[LandingPageController::class, 'layanan']);
 
 // Route Pelanggan
 Route::prefix('jasa')->group(function(){

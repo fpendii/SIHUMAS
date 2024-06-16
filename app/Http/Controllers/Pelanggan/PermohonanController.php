@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class PermohonanController extends Controller
 {
     public function index(){
+        
         $data = [
             'title' => 'Jasa | Humas',
             'page' => 'Pilih Jasa',

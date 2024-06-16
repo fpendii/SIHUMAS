@@ -101,12 +101,6 @@
                         <span>Logout</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">
-                    <a href="{{ url('login') }}" class='sidebar-link '>
-                        <i class="bi bi-box-arrow-right"></i>
-                        <span>Login</span>
-                    </a>
-                </li>
             </ul>
 
         </div>

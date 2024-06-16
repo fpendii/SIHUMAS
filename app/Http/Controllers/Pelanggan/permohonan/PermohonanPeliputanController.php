@@ -50,8 +50,8 @@ class PermohonanPeliputanController extends Controller
     //             'id_jasa' => 3,
     //             'jadwal_mulai' => $request->jadwal_mulai,
     //             'jadwal_selesai' => $request->jadwal_selesai,
-                
-                
+
+
 
     //         ]);
 
@@ -70,11 +70,12 @@ class PermohonanPeliputanController extends Controller
 
     public function submit(Request $request)
     {
+        
         $request->validate([
             'waktu_mulai' => 'required',
             'waktu_selesai' => 'required',
         ]);
-    
+
         $jasa = DB::table('jasa')->insertGetId([
             'waktu_mulai' => $request->waktu_mulai,
             'waktu_selesai' => $request->waktu_selesai,
@@ -90,13 +91,13 @@ class PermohonanPeliputanController extends Controller
             'status' => 'pending',
             'link_mentahan' => null,
             'pesan' => 'pesan',
-            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat 
+            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        
-    
+
+
         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
     }
-    
+
 }

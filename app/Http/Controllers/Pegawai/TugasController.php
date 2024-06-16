@@ -6,14 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PetugasPesananModel;
 use App\Models\PetugasModel;
+use App\Models\akun;
 use Illuminate\Support\Facades\DB;
 
 class TugasController extends Controller
 {
     public function index()
     {
-        $id_petugas = 1; // Pastikan Anda menyesuaikan ID petugas sesuai kebutuhan
-        // Data yang akan dikirim ke view
+        $petugas = Akun::join('petugas', 'akun.id_akun', '=', 'petugas.id_akun')
+            ->where('akun.id_akun', session('id_akun'))
+            ->first();
+        $id_petugas = $petugas->id_petugas;
         $data = [
             'title' => 'Tugas | SIHUMAS',
             'page' => 'Tugas',
@@ -26,8 +29,7 @@ class TugasController extends Controller
             ->where('id_petugas', '=', $id_petugas)
             ->where('status', '=', 'proses')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-            ->get()
-            ;
+            ->get();
 
         // Mengirim data ke view
         return view('pages.petugas.kelola_tugas.tugas', $data, compact('petugas_pesanan'));

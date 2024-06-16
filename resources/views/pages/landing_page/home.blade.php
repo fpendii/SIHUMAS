@@ -104,9 +104,7 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="text">
-                                    <h1>Sistem Informasi <span>Permohonan</span> Jasa <span>Humas Politeknik Negeri
-                                            Tanah
-                                            Laut</span></h1>
+                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah Laut</span></h1>
                                     <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
                                         dengan segera mewujudkannya untuk Anda </p>
                                     <div class="button">
@@ -124,9 +122,7 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="text">
-                                    <h1>Sistem Informasi <span>Permohonan</span> Jasa <span>Humas Politeknik Negeri
-                                            Tanah
-                                            Laut</span></h1>
+                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah Laut</span></h1>
                                     <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
                                         dengan segera mewujudkannya untuk Anda </p>
                                     <div class="button">
@@ -138,7 +134,6 @@
                     </div>
                 </div>
                 <!-- End Single Slider -->
-
             </div>
         </section>
         <!--/ End Slider Area -->
@@ -156,38 +151,47 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-3 col-12">
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
                                 <i class="icofont icofont-ambulance-cross"></i>
                             </div>
-                            <h3>Peliputan</h3>
-                            <p>Peliputan adalah kegiatan jurnalisme atau media yang melibatkan pengumpulan,
-                                penyuntingan, dan penyampaian informasi atau berita melalui berbagai media seperti
-                                tulisan, foto, video, atau audio.</p>
+                            <h3>Pertama</h3>
+                            <p>Login Menggunakan akun Politala</p>
                         </div>
                         <!-- End Single features -->
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-3 col-12">
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
                                 <i class="icofont icofont-medical-sign-alt"></i>
                             </div>
-                            <h3>Enriched Pharmecy</h3>
-                            <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                            <h3>Kedua</h3>
+                            <p>Pilih Jasa yang tersedia di SILAMAS</p>
                         </div>
                         <!-- End Single features -->
                     </div>
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-3 col-12">
                         <!-- Start Single features -->
                         <div class="single-features last">
                             <div class="signle-icon">
                                 <i class="icofont icofont-stethoscope"></i>
                             </div>
-                            <h3>Medical Treatment</h3>
-                            <p>Lorem ipsum sit, consectetur adipiscing elit. Maecenas mi quam vulputate.</p>
+                            <h3>Ketika</h3>
+                            <p>Lengkapi Form jasa yang ditentukan</p>
+                        </div>
+                        <!-- End Single features -->
+                    </div>
+                    <div class="col-lg-3 col-12">
+                        <!-- Start Single features -->
+                        <div class="single-features last">
+                            <div class="signle-icon">
+                                <i class="icofont icofont-stethoscope"></i>
+                            </div>
+                            <h3>Keempat</h3>
+                            <p>Tunggu Konfirmasi dari Pihak Silamas</p>
                         </div>
                         <!-- End Single features -->
                     </div>

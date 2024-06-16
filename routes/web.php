@@ -57,7 +57,7 @@ Route::get('tentang-kami',[LandingPageController::class, 'tentangKami']);
 Route::get('layanan',[LandingPageController::class, 'layanan']);
 
 // Route Pelanggan
-Route::prefix('jasa')->group(function(){
+Route::prefix('jasa')->middleware('pelanggan')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
 
     // Route Desain

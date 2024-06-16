@@ -13,6 +13,8 @@ class akun extends Model implements Authenticatable
 
     protected $table = 'akun';
 
+    protected $primaryKey = 'id_akun'; // Pastikan huruf kecil dan benar
+
     protected $fillable = [
         'username', 'email', 'no_hp', 'role', 'password','is_active',
     ];

@@ -31,6 +31,7 @@ class PermohonanPublikasiController extends Controller
         ]);
 
 
+
         if($request->pilihan_publikasi == 'sosial media'){
             $publikasi = $request->platform_sosial_media;
         } else {
@@ -44,10 +45,14 @@ class PermohonanPublikasiController extends Controller
             'jenis_jasa' => 'publikasi'
         ]);
 
+        $pelanggan = DB::table('akun')
+        ->where('akun.id_akun', session('id_akun'))
+        ->join('pelanggan', 'akun.id_akun', '=', 'pelanggan.id_akun')
+        ->first();
 
         // Simpan data ke tabel pertama
         DB::table('pesanan')->insert([
-            'id_pelanggan' => 1,
+            'id_pelanggan' => $pelanggan->id_pelanggan,
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
@@ -55,7 +60,6 @@ class PermohonanPublikasiController extends Controller
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             'created_at' => now()
         ]);
-
 
         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
 

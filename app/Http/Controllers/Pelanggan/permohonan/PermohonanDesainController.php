@@ -9,7 +9,7 @@ use App\Models\PesananModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 
-class DesainController extends Controller
+class PermohonanDesainController extends Controller
 {
     public function index()
     {

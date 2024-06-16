@@ -9,7 +9,7 @@ use App\Http\Controllers\Admin\EditingVideoController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
 use App\Http\Controllers\Pegawai\PetugasController;
 use App\Http\Controllers\Pegawai\TugasController;
-use App\Http\Controllers\pelanggan\permohonan\DesainController;
+use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainControllerDesainController;
 use App\Http\Controllers\LandingPage\LandingPageController;
 use App\Http\Controllers\Pelanggan\PermohonanController;
 use App\Http\Controllers\pelanggan\permohonan\desain;
@@ -26,6 +26,8 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditingVideoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
+use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +39,7 @@ use App\Http\Controllers\Pegawai\TugasDesainController;
 |
 */
 
-Route::group(['middleware' => 'guest'], function(){
+
     Route::get('/login',[AuthController::class, 'login'])->name('login');
     Route::post('/login/store',[AuthController::class, 'store']);
 
@@ -47,7 +49,7 @@ Route::group(['middleware' => 'guest'], function(){
 
     Route::get('lupa-password',[AuthController::class, 'lupaPassword']);
     Route::get('logout',[AuthController::class, 'logout']);
-});
+
 
 
 // Route Landing Page
@@ -61,8 +63,8 @@ Route::prefix('jasa')->middleware('pelanggan')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
 
     // Route Desain
-    Route::get('desain',[DesainController::class, 'index']);
-    Route::post('desain/submit',[DesainController::class, 'submit']);
+    Route::get('desain',[PermohonanDesainController::class, 'index']);
+    Route::post('desain/submit',[PermohonanDesainController::class, 'submit']);
 
     // Route Peliputan
     Route::get('liputan',[PermohonanPeliputanController::class, 'index']);
@@ -123,13 +125,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::put('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'pilihPetugas']);
 
     // Route Kelola Desain
-    Route::get('desain', [DesainController::class, 'index']);
-    Route::get('desain/detail/{id}', [DesainController::class, 'detail']);
-    Route::get('desain/arsip', [DesainController::class, 'arsip']);
-    Route::get('desain/detail-arsip/{id}', [DesainController::class, 'detailArsip']);
-    Route::get('desain/proses', [DesainController::class, 'proses']);
-    Route::put('desain/pilih-petugas/{id}', [DesainController::class, 'pilihPetugas']);
-    Route::put('desain/tolak/{id}', [DesainController::class, 'tolakPermohonan']);
+    Route::get('desain', [DesainControllert::class, 'index']);
+    Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
+    Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
+    Route::get('desain/detail-arsip/{id}', [DesainControllert::class, 'detailArsip']);
+    Route::get('desain/proses', [DesainControllert::class, 'proses']);
+    Route::put('desain/pilih-petugas/{id}', [DesainControllert::class, 'pilihPetugas']);
+    Route::put('desain/tolak/{id}', [DesainControllert::class, 'tolakPermohonan']);
 
     // Route Kelola Publikasi
     Route::get('publikasi', [PublikasiController::class, 'index']);

@@ -21,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+
     ];
 
     /**
@@ -69,5 +70,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         //...
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin' => \App\Http\Middleware\isAdmin::class,
+        'petugas' => \App\Http\Middleware\IsPetugas::class,
     ];
 }

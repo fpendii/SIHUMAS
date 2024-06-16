@@ -62,7 +62,7 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="auth-login.html">Logout</a></li>
+                                    <li><a class="dropdown-item" href="{{url('logout')}}">Logout</a></li>
                                 </ul>
                             </div>
 

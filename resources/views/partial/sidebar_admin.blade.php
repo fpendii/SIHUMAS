@@ -5,6 +5,8 @@
                 <div class="logo">
                     <a href="index.html"><img src="/template/dist/assets/compiled/svg/logo.svg" alt="Logo"
                             srcset=""></a>
+
+
                 </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -45,6 +47,7 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
+
 
                 <li class="sidebar-item {{ $page == 'Beranda' ? 'active' : '' }} ">
                     <a href="{{ url('admin') }}" class='sidebar-link '>

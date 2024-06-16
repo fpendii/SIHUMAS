@@ -20,7 +20,7 @@ class akun_seeder extends Seeder
                 'email' => 'nurependi@mhs.politala.ac.id',
                 'no_hp' => '082150646254',
                 'role' => 'pelanggan',
-                'password' => hash::make('pendi123'),
+                'password' => hash::make('123'),
                 'is_active' => true,
             ],
             [
@@ -35,7 +35,7 @@ class akun_seeder extends Seeder
                 'username' => 'Alam',
                 'email' => 'alam@mhs.politala.ac.id',
                 'no_hp' => '082150646254',
-                'role' => 'petugas',
+                'role' => 'admin',
                 'password' => hash::make('123'),
                 'is_active' => true,
             ],

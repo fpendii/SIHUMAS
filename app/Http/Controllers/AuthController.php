@@ -28,15 +28,14 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
             $user = Auth::user();
+            $role = Auth::user()->role;
+            $username = Auth::user()->username;
+            $id_akun = Auth::user()->id_akun;
 
-            // Simpan data pengguna ke dalam session
-            session([
-                'user_id' => $user->id_akun,
-                'username' => $user->name,
-                'level' => $user->role,
-            ]);
+            $request->session()->put('role',$role);
+            $request->session()->put('username',$username);
+            $request->session()->put('id_akun',$id_akun);
 
             if ($user->role == 'admin') {
                 return redirect()->intended('admin')->with('success', 'Login berhasil!');
@@ -53,9 +52,12 @@ class AuthController extends Controller
         return redirect()->back()->with('loginError', 'The provided credentials do not match our records.');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        return view('pages.auth.login');
+        Auth::logout();
+        $request->session()->invalidate(); // Mematikan sesi
+        $request->session()->regenerateToken(); // Membuat token sesi yang baru
+        return redirect('/login')->with('success', 'Logout berhasil!');
     }
 
     public function lupaPassword()

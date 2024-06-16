@@ -30,78 +30,82 @@
 
 
     <div class="container">
-        <div class="card mt-5">
+        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+            <div class="card mt-5">
 
-            <div class="card-header">
-                <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
-                <input type="text" id="feedback1" class="form-control mb-5" placeholder="Masukkan Link Hasil" name="link_hasil">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
-            </div>
-            <div class="card-body">
-                <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan {{ $dataPermohonan->jenis_jasa }}</h4>
-                        <div class="form-body">
+                <div class="card-header">
+                    <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
+                    <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
+                        placeholder="Masukkan Link Hasil" name="link_hasil">
+                    @error('link_hasil')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                    <h4 class="card-title mt-5"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>{{ $dataPermohonan->pesan }}</p>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Permohonan {{ $dataPermohonan->jenis_jasa }}</h4>
+                            <div class="form-body">
 
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
-                                <div class="list-group">
-                                    @foreach ($dataPetugasPesanan as $item)
-                                        <span class="list-group-item">
-                                            {{ $item->nama_petugas }}
-                                        </span>
-                                    @endforeach
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
+                                    <div class="list-group">
+                                        @foreach ($dataPetugasPesanan as $item)
+                                            <span class="list-group-item">
+                                                {{ $item->nama_petugas }}
+                                            </span>
+                                        @endforeach
 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Pilihan Publikasi</label>
+                                    <input type="text" id="feedback1" class="form-control"
+                                        value="{{ $dataPermohonan->pilihan_publikasi }}" placeholder="Name"
+                                        name="pilihan_publikasi" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Catatan Redaktur</label>
+                                    <input type="text" id="feedback1" class="form-control"
+                                        value="{{ $dataPermohonan->catatan_redaktur }}" name="name" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
+                                    <input type="text" id="feedback4" class="form-control"
+                                        value="{{ $dataPermohonan->link_ringkasan_publikasi }}" name="LastName"
+                                        readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                    <input type="text" id="feedback4" class="form-control"
+                                        placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback2" class="sr-only">Tag Sosmed</label>
+                                    <input type="text" id="feedback2" class="form-control"
+                                        placeholder="{{ $dataPermohonan->tag_sosmed }}" name="email" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                    <input type="text" id="feedback2" class="form-control"
+                                        placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email"
+                                        readonly>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Pilihan Publikasi</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->pilihan_publikasi }}" placeholder="Name"
-                                    name="pilihan_publikasi" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Catatan Redaktur</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->catatan_redaktur }}" name="name" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_ringkasan_publikasi }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tag Sosmed</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tag_sosmed }}" name="email" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                        </div>
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-                            <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+                            <div class="form-actions d-flex justify-content-end grid gap-1">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                                <a href="/petugas/tugas" class="btn btn-secondary">Kembali</a>
+                            </div>
 
-
-                            <a href="/petugas/tugas" class="btn btn-secondary">Kembali</a>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
+        </form>
+    </div>
     </div>
 
 

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DesainControllert;
 use App\Http\Controllers\Admin\PasFotoController;
 use App\Http\Controllers\Admin\EditFotoController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPublikasiController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPasFotoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditFotoController;
@@ -40,15 +41,15 @@ use App\Http\Controllers\Pegawai\TugasDesainController;
 */
 
 Route::group(['middleware' => 'guest'], function(){
-    Route::get('/login',[LoginController::class, 'index'])->name('login');
-    Route::post('/login',[LoginController::class, 'store']);
+    Route::get('/login',[AuthController::class, 'login'])->name('login');
+    Route::post('/login/store',[AuthController::class, 'store']);
 
-    Route::get('registrasi',[RegistrasiController::class, 'index']);
-    Route::post('registrasi',[RegistrasiController::class, 'create']);
+    Route::get('registrasi',[AuthController::class, 'regitrasi']);
+    Route::post('registrasi',[AuthController::class, 'create']);
 
 
-    Route::get('lupa-password',[LupaPassword::class, 'index']);
-    Route::get('logout',[LogoutController::class, 'index']);
+    Route::get('lupa-password',[AuthController::class, 'lupaPassword']);
+    Route::get('logout',[AuthController::class, 'logout']);
 });
 
 

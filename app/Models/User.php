@@ -13,4 +13,8 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $table = 'akun';
+
+    protected $fillable = [
+        'username', 'email', 'no_hp', 'role', 'password','is_active',
+    ];
 }

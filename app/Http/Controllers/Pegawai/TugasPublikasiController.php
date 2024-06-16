@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\PesananModel;
+use Illuminate\Support\Facades\Validator;
 
 class TugasPublikasiController extends Controller
 {
@@ -26,8 +27,22 @@ class TugasPublikasiController extends Controller
         return view('pages.petugas.kelola_tugas.tugas_publikasi', $data, compact('dataPermohonan', 'dataPetugas', 'dataPetugasPesanan'));
     }
 
-    public function submitTugas($id)
+    public function submitTugas($id,Request $request)
     {
+        $messages = [
+            'required' => 'Link Hasil Wajib Diisi.',
+            'url' => 'Link yang dimasukkan tidak valid'
+        ];
+
+        // Validasi input
+        $validator = Validator::make(request()->all(), [
+            'link_hasil' => 'required|url',
+        ],$messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         // Temukan pesanan berdasarkan ID
         $dataPermohonan = PesananModel::findOrFail($id);
 

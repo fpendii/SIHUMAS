@@ -41,9 +41,9 @@ class PermohonanDesainController extends Controller
             'tema' => $request->tema,
         ]);
 
-        $akun = DB::table('akun')
-        ->where('akun.id_akun', session('id_akun'))
-        ->first();
+            $akun = DB::table('akun')
+            ->where('akun.id_akun', session('id_akun'))
+            ->first();
 
 
         // Simpan data ke tabel pertama

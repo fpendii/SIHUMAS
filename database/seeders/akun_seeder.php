@@ -32,6 +32,14 @@ class akun_seeder extends Seeder
                 'is_active' => true,
             ],
             [
+                'username' => 'ferdi',
+                'email' => 'ferdi.nurrahman@mhs.politala.ac.id',
+                'no_hp' => '083142170067',
+                'role' => 'pelanggan',
+                'password' => hash::make('123'),
+                'is_active' => true,
+            ],
+            [
                 'username' => 'Bang Dimas',
                 'email' => 'dimas@mhs.politala.ac.id',
                 'no_hp' => '082150646254',

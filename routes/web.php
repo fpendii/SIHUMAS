@@ -43,7 +43,7 @@ use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
     Route::get('/login',[AuthController::class, 'login'])->name('login');
     Route::post('/login/store',[AuthController::class, 'store']);
 
-    Route::get('registrasi',[AuthController::class, 'regitrasi']);
+    Route::get('registrasi',[AuthController::class, 'registrasi']);
     Route::post('registrasi',[AuthController::class, 'create']);
 
 
@@ -112,9 +112,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     // Route Kelola Pas Foto
     Route::get('pas-foto', [PasFotoController::class, 'index']);
+    Route::get('pas-foto/detail/{id}', [PasFotoController::class, 'detail']);
     Route::get('pas-foto/arsip', [PasFotoController::class, 'arsip']);
     Route::get('pas-foto/detail-arsip/{id}', [PasFotoController::class, 'detailArsip']);
-    Route::get('pas-foto/detail/{id}', [PasFotoController::class, 'detail']);
+    Route::get('pas-foto/proses', [PasFotoController::class, 'proses']);
+    Route::get('pas-foto/detail-proses/{id}', [PasFotoController::class, 'detailProses']);
     Route::put('pas-foto/pilih-petugas/{id}', [PasFotoController::class, 'pilihPetugas']);
     Route::put('pas-foto/tolak/{id}', [PasFotoController::class, 'tolakPermohonan']);
 

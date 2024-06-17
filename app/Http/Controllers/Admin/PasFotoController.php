@@ -6,15 +6,21 @@ use App\Http\Controllers\Controller;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\PetugasModel;
+use App\Models\akun;
 use App\Models\PetugasPesananModel;
 use Illuminate\Support\Facades\Redis;
+use Carbon\Carbon;
+
 
 class PasFotoController extends Controller
 {
-    public function index(){
-        // $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->join('pas_foto','pesanan.id_pesanan', '=', 'pas_foto.id_pesanan')->where('pesanan.status','=','pending')->select('pesanan.*','pelanggan.*','jasa.*','pas_foto.*')->get();
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('jasa.jenis_jasa','=','pas foto')->where('pesanan.status','=','pending')->get();
+    public function index()
+    {
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'pas foto')->orderBy('created_at', 'desc')->get();
+
+        foreach ($dataPermohonan as $item) {
+            $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
+        }
 
         $data = [
             'title' => 'Pas Foto | SIHUMAS',
@@ -24,8 +30,8 @@ class PasFotoController extends Controller
         ];
         return view('pages.admin.kelola_pasFoto.pasFoto',$data,compact('dataPermohonan','data'));
     }
-
-    public function arsip(){
+    public function arsip()
+    {
         $data = [
             'title' => 'Arsip Pas Foto | SIHUMAS',
             'page' => 'pas-foto',
@@ -33,51 +39,107 @@ class PasFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.status','!=','pending')->where('jasa.jenis_jasa','=','pas foto')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
 
 
-        return view('pages.admin.kelola_pasFoto.arsip_pasFoto',$data,compact('dataPermohonan','data'));
-
+        return view('pages.admin.kelola_desain.arsip_desain', $data, compact('dataPermohonan', 'data'));
     }
 
-    public function detail($id){
+    public function proses()
+    {
+        $data = [
+            'title' => 'pas foto | SIHUMAS',
+            'page' => 'pas-foto',
+            'sidebar' => 'proses',
+            'level' => 'Admin',
+            'dataPermohonan' => DB::table('pesanan')
+                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+                ->where('pesanan.status', '=', 'proses')
+                ->where('jasa.jenis_jasa', '=', 'pas foto') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
+                ->orderByDesc('pesanan.created_at') // menambahkan prefix 'pesanan.' untuk kolom 'created_at'
+                ->get()
+                ->toArray(),
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+        ];
 
-        $dataPetugas = PetugasModel::all();
+        foreach ($data['dataPermohonan'] as $item) {
+            $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
+        }
 
-        // dd(compact('dataPetugas'));
+        return view('pages.admin.kelola_pasFoto.proses_pasFoto', $data);
+    }
+
+    public function detailProses($id){
+
+        $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
+
+        $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Detail Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Detail Proses Permohonan Pas Foto | SIHUMAS',
             'page' => 'pas-foto' ,
             'level' => 'Admin',
         ];
-        return view('pages.admin.kelola_PasFoto.detail',$data,compact('dataPermohonan','dataPetugas','data'));
+        return view('pages.admin.kelola_pasFoto.detail_proses_pasFoto',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
     }
-    public function detailarsip($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan','pesanan.id_pelanggan','=','pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+    public function detail($id)
+    {
 
-        $dataPetugas = PetugasModel::all();
+        $dataPermohonan = DB::table('pesanan')
+            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+            ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
+            ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
+            ->first();
+
+
+        $dataPetugas = akun::where('role','=','petugas')->get();
 
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Detail Arsip Permohonan Pas Foto | SIHUMAS',
-            'page' => 'Arsip Permohonan Pas Foto' ,
+            'title' => 'Permohonan Pas Foto | SIHUMAS',
+            'page' => 'pas-foto',
             'level' => 'Admin',
         ];
-        return view('pages.admin.kelola_PasFoto.detailarsip',$data,compact('dataPermohonan','dataPetugas','data'));
+        return view('pages.admin.kelola_pasFoto.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
     }
 
-    public function pilihPetugas(Request $request,$id){
-        $petugas_pesanan = PetugasPesananModel::create([
-            'id_petugas' => $request->petugas,
-            'id_pesanan' => $id
-        ]);
+    public function detailArsip($id)
+    {
 
-        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan',$id)->update(['status' => 'proses','updated_at' => now()]);
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
+
+        $dataPetugas = akun::where('role','=','petugas')->get();
+
+
+        // dd(compact('dataPetugas'));
+
+        $data = [
+            'title' => 'Permohonan Pas Foto | SIHUMAS',
+            'page' => 'pas-foto',
+            'level' => 'Admin',
+        ];
+
+        return view('pages.admin.kelola_pasFoto.detail_arsip_pasFoto', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
+    }
+
+    public function pilihPetugas(Request $request, $id)
+    {
+        $petugas = $request->petugas;
+        $jumlahPetugas = count($petugas);
+
+        for ($i = 0; $i < $jumlahPetugas; $i++) {
+            $petugas_pesanan = PetugasPesananModel::create([
+                'id_petugas' => $request->petugas[$i],
+                'id_pesanan' => $id
+            ]);
+        };
+
+        $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan', $id)->update(['status' => 'proses']);
 
         return redirect()->to('admin/pas-foto')->with('success', 'Data dikirim ke petugas');
     }
@@ -86,8 +148,6 @@ class PasFotoController extends Controller
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
 
-        return redirect()->to('admin/pas-foto')->with('success', 'Pesanan ditolak');
+        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
     }
-
-
 }

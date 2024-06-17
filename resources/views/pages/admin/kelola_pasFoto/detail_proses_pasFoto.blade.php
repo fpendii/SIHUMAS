@@ -32,7 +32,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -40,14 +40,19 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan Pas Foto</h4>
-                        <form action="{{url('admin/pas-foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
-                            @csrf
-                            @method('PUT')
+                        <h4 class="card-title">Data Permohonan</h4>
+                        <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
+
+                        <div class="form-body">
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                                <label for="feedback1" class="sr-only">Tema</label>
+                                <input type="text" id="feedback1" class="form-control"
+                                    value="{{ $dataPermohonan->tema }}" name="tema" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback1" class="sr-only">Ukuran Gambar</label>
+                                <input type="text" id="feedback1" class="form-control"
+                                    value="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
@@ -57,77 +62,15 @@
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                    value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Hasil</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
-                            </div>
-                            </div>
-                            <div class="form-actions d-flex justify-content-end grid gap-1">
-
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    ACC
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Petugas</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Pilih Petugas Yang Mengerjakan</h4>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <ul class="list-unstyled mb-0 d-flex flex-column">
-                                                                @php
-                                                                    $i = 1;
-                                                                @endphp
-                                                                @foreach ($dataPetugas as $item)
-
-                                                                    <li class="d-inline-block me-2 mb-1">
-                                                                        <div class="form-check">
-                                                                            <div class="checkbox">
-                                                                                <input name="petugas" value="{{$item->id_petugas}}" type="checkbox" id="checkbox{{ $i }}" class="form-check-input" checked>
-                                                                                <label for="checkbox{{ $i }}">{{$item->nama_petugas}}</label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </li>
-                                                                    @php
-                                                                        $i++
-                                                                    @endphp
-                                                                @endforeach
+                        </div>
+                        <div class="form-actions d-flex justify-content-end grid gap-1">
 
 
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-primary">Kirim</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- end modal --}}
-                                <button type="reset" class="btn btn-danger me-1">Tolak</button>
-                                <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
-                            </div>
-                        </form>
+                            <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
+                        </div>
+
                     </div>
                 </div>
             </div>

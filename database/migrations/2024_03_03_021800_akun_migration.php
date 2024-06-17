@@ -20,6 +20,8 @@ return new class extends Migration
             $table->enum('role', ['admin', 'koordinator','petugas','redaktur','pelanggan']);
             $table->string('password');
             $table->boolean('is_active');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             // $table->timestamps();
         });
 

@@ -15,7 +15,7 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/pas-foto') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('admin/pas-foto/arsip') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
                 <img src="/template/dist/assets/compiled/svg/logo.svg">
             </a>
@@ -44,7 +44,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
-                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                                <input type="text" id="feedback2" class="form-control"
+                                value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>

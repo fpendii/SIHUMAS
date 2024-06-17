@@ -34,13 +34,7 @@ class PasFotoController extends Controller
     public function detail($id)
     {
 
-        $dataPermohonan = DB::table('pesanan')
-            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-            ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
-            ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
-            ->first();
-
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->select('pesanan.*', 'akun.*', 'jasa.*')->first();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
@@ -64,10 +58,10 @@ class PasFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->where('jasa.jenis_jasa', '=', 'pas foto')->get();
 
 
-        return view('pages.admin.kelola_desain.arsip_desain', $data, compact('dataPermohonan', 'data'));
+        return view('pages.admin.kelola_pasfoto.arsip_pasFoto', $data, compact('dataPermohonan', 'data'));
     }
 
     public function proses()
@@ -114,12 +108,10 @@ class PasFotoController extends Controller
     public function detailArsip($id)
     {
 
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->select('pesanan.*', 'akun.*', 'jasa.*')->first();
+        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
-
-
-        // dd(compact('dataPetugas'));
 
         $data = [
             'title' => 'Permohonan Pas Foto | SIHUMAS',
@@ -127,7 +119,7 @@ class PasFotoController extends Controller
             'level' => 'Admin',
         ];
 
-        return view('pages.admin.kelola_pasFoto.detail_arsip_pasFoto', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
+        return view('pages.admin.kelola_pasFoto.detail_arsip_pasFoto', $data, compact('dataPermohonan', 'dataPetugas', 'dataPetugasPesanan'));
     }
 
     public function pilihPetugas(Request $request, $id)

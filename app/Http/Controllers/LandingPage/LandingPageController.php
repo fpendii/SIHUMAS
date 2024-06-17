@@ -24,6 +24,7 @@ class LandingPageController extends Controller
     }
 
     public function layanan(){
+        
         $data = [
             'title' => 'Layanan | SILAMAS',
             'page' => 'layanan'

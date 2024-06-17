@@ -32,7 +32,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -48,7 +48,7 @@
                                 <div class="list-group">
                                     @foreach ($dataPetugasPesanan as $item)
                                         <span class="list-group-item">
-                                            {{ $item->nama_petugas }}
+                                            {{ $item->username }}
                                         </span>
                                     @endforeach
 

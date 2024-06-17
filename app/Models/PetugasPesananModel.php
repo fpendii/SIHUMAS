@@ -11,7 +11,7 @@ class PetugasPesananModel extends Model
 
     protected $table = 'petugas_pesanan';
 
-    protected $fillable = ['id_petugas','id_pesanan'];
+    protected $fillable = ['id_akun','id_pesanan'];
 
     public $timestamps = false;
 }

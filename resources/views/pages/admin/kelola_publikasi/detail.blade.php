@@ -32,7 +32,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -111,12 +111,12 @@
                                                                         <div class="form-check">
                                                                             <div class="checkbox">
                                                                                 <input name="petugas[]"
-                                                                                    value="{{ $item->id_petugas }}"
+                                                                                    value="{{ $item->id_akun }}"
                                                                                     type="checkbox"
                                                                                     id="checkbox{{ $i }}"
                                                                                     class="form-check-input" checked>
                                                                                 <label
-                                                                                    for="checkbox{{ $i }}">{{ $item->nama_petugas }}</label>
+                                                                                    for="checkbox{{ $i }}">{{ $item->username }}</label>
                                                                             </div>
                                                                         </div>
                                                                     </li>

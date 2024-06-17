@@ -59,7 +59,7 @@ Route::get('tentang-kami',[LandingPageController::class, 'tentangKami']);
 Route::get('layanan',[LandingPageController::class, 'layanan']);
 
 // Route Pelanggan
-Route::prefix('jasa')->middleware('pelanggan')->group(function(){
+Route::prefix('jasa')->middleware('auth')->group(function(){
     Route::get('',[PermohonanController::class, 'index']);
 
     // Route Desain
@@ -130,6 +130,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
     Route::get('desain/detail-arsip/{id}', [DesainControllert::class, 'detailArsip']);
     Route::get('desain/proses', [DesainControllert::class, 'proses']);
+    Route::get('desain/detail-proses/{id}', [DesainControllert::class, 'detailProses']);
     Route::put('desain/pilih-petugas/{id}', [DesainControllert::class, 'pilihPetugas']);
     Route::put('desain/tolak/{id}', [DesainControllert::class, 'tolakPermohonan']);
 

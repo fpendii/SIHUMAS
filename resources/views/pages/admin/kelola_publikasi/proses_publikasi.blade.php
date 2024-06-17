@@ -28,7 +28,7 @@
                         <div class="media-body">
                             <div class="user-details">
                                 <div class="mail-items">
-                                    <span class="list-group-item-text text-truncate mb-0">{{ $item->nama_pelanggan }}</span>
+                                    <span class="list-group-item-text text-truncate mb-0">{{ $item->username }}</span>
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">

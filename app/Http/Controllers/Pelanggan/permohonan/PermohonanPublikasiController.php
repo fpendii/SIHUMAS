@@ -45,14 +45,13 @@ class PermohonanPublikasiController extends Controller
             'jenis_jasa' => 'publikasi'
         ]);
 
-        $pelanggan = DB::table('akun')
+        $akun = DB::table('akun')
         ->where('akun.id_akun', session('id_akun'))
-        ->join('pelanggan', 'akun.id_akun', '=', 'pelanggan.id_akun')
         ->first();
 
         // Simpan data ke tabel pertama
         DB::table('pesanan')->insert([
-            'id_pelanggan' => $pelanggan->id_pelanggan,
+            'id_akun' => $akun->id_akun,
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,

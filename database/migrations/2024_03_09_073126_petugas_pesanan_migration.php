@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('petugas_pesanan', function (Blueprint $table) {
             $table->id('id_petugas_pesanan');
-            $table->bigInteger('id_petugas')->unsigned();
+            $table->bigInteger('id_akun')->unsigned();
             $table->bigInteger('id_pesanan')->unsigned();
-            $table->foreign('id_petugas')->references('id_petugas')->on('petugas')->onDelete('cascade');
+            $table->foreign('id_akun')->references('id_akun')->on('akun')->onDelete('cascade');
             $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan')->onDelete('cascade');
         });
     }

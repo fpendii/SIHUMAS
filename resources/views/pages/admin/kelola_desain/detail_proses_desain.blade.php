@@ -21,7 +21,7 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/publikasi/arsip') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('admin/desain') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
                 <img src="/template/dist/assets/compiled/svg/logo.svg">
             </a>
@@ -40,54 +40,35 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan {{ $dataPermohonan->jenis_jasa }}</h4>
+                        <h4 class="card-title">Data Permohonan</h4>
+                        <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
+
                         <div class="form-body">
-
                             <div class="form-group">
-                                <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
-                                <div class="list-group">
-                                    @foreach ($dataPetugasPesanan as $item)
-                                        <span class="list-group-item">
-                                            {{ $item->username }}
-                                        </span>
-                                    @endforeach
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Pilihan Publikasi</label>
+                                <label for="feedback1" class="sr-only">Tema</label>
                                 <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->pilihan_publikasi }}" placeholder="Name"
-                                    name="pilihan_publikasi" readonly>
+                                    value="{{ $dataPermohonan->tema }}" name="tema" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback1" class="sr-only">Catatan Redaktur</label>
+                                <label for="feedback1" class="sr-only">Ukuran Gambar</label>
                                 <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->catatan_redaktur }}" name="name" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_ringkasan_publikasi }}" name="LastName" readonly>
+                                    value="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"
-                                    placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tag Sosmed</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tag_sosmed }}" name="email" readonly>
+                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                    value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
                         </div>
                         <div class="form-actions d-flex justify-content-end grid gap-1">
-                            <a href="/admin/publikasi/proses" class="btn btn-secondary">Kembali</a>
+
+
+                            <a href="{{ url('admin/desain') }}" class="btn btn-secondary">Kembali</a>
                         </div>
 
                     </div>

@@ -125,9 +125,13 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     // Route Kelola Editing Foto
     Route::get('edit-foto', [EditFotoController::class, 'index']);
+    Route::get('edit-foto/detail/{id}', [EditFotoController::class, 'detail']);
     Route::get('edit-foto/arsip', [EditFotoController::class, 'arsip']);
-    Route::get('edit-foto/{id}', [EditFotoController::class, 'detail']);
+    Route::get('edit-foto/detail-arsip/{id}', [EditFotoController::class, 'detailArsip']);
+    Route::get('edit-foto/proses', [EditFotoController::class, 'proses']);
+    Route::get('edit-foto/detail-proses/{id}', [EditFotoController::class, 'detailProses']);
     Route::put('edit-foto/pilih-petugas/{id}', [EditFotoController::class, 'pilihPetugas']);
+    Route::put('edit-foto/tolak/{id}', [EditFotoController::class, 'tolakPermohonan']);
 
     // Route Kelola Desain
     Route::get('desain', [DesainControllert::class, 'index']);

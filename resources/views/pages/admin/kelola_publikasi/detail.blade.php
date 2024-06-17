@@ -56,13 +56,13 @@
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Dokumentasi Publikasi</label>
                                 <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_dokumntasi_publikasi }}" name="LastName" readonly>
+                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"
                                     placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tag Sosmed</label>
                                 <input type="text" id="feedback2" class="form-control"

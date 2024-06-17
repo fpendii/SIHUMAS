@@ -40,10 +40,15 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan Edit Foto</h4>
+                        <h4 class="card-title">Data Permohonan edit Foto</h4>
                         <form action="{{url('admin/edit-foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf
                             @method('PUT')
+                            <div class="form-group">
+                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
+                                <input type="text" id="feedback2" class="form-control"
+                                placeholder="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                            </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"

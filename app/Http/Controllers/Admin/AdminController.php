@@ -14,6 +14,8 @@ class AdminController extends Controller
 
         $PermohonanDesain = DB::table('pesanan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->where('jenis_jasa','=','desain')->get()->toArray();
         $PermohonanPublikasi = DB::table('pesanan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->where('jenis_jasa','=','publikasi')->get()->toArray();
+        $PermohonanPasFoto = DB::table('pesanan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->where('jenis_jasa','=','pas foto')->get()->toArray();
+        $PermohonanEditFoto = DB::table('pesanan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->where('jenis_jasa','=','pas foto')->get()->toArray();
 
         $data = [
             'title' => 'Beranda | SIHUMAS',
@@ -21,7 +23,10 @@ class AdminController extends Controller
             'chart' => $chart->build(),
             'level' => 'Admin',
             'totalDesain' => count($PermohonanDesain),
-            'totalPublikasi' => count($PermohonanPublikasi)
+            'totalPublikasi' => count($PermohonanPublikasi),
+            'totalpasFoto' => count($PermohonanPasFoto),
+            'totaleditFoto' => count($PermohonanEditFoto),
+
         ];
 
         return view('pages.admin.beranda',$data);

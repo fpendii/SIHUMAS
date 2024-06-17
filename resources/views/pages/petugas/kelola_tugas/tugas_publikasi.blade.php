@@ -40,7 +40,7 @@
                     @error('link_hasil')
                         <p class="invalid-feedback">{{ $message }}</p>
                     @enderror
-                    <h4 class="card-title mt-5"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                    <h4 class="card-title mt-5"></i>{{ $dataPermohonan->username }}</h4>
                 </div>
                 <div class="card-body">
                     <p>{{ $dataPermohonan->pesan }}</p>
@@ -56,7 +56,7 @@
                                     <div class="list-group">
                                         @foreach ($dataPetugasPesanan as $item)
                                             <span class="list-group-item">
-                                                {{ $item->nama_petugas }}
+                                                {{ $item->username }}
                                             </span>
                                         @endforeach
 

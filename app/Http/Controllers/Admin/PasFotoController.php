@@ -30,6 +30,31 @@ class PasFotoController extends Controller
         ];
         return view('pages.admin.kelola_pasFoto.pasFoto',$data,compact('dataPermohonan','data'));
     }
+
+    public function detail($id)
+    {
+
+        $dataPermohonan = DB::table('pesanan')
+            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+            ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
+            ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
+            ->first();
+
+
+        $dataPetugas = akun::where('role','=','petugas')->get();
+
+        // dd(compact('dataPetugas'));
+
+        $data = [
+            'title' => 'Detail Permohonan Pas Foto | SIHUMAS',
+            'page' => 'pas-foto',
+            'level' => 'Admin',
+        ];
+        return view('pages.admin.kelola_pasFoto.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
+    }
+
+
     public function arsip()
     {
         $data = [
@@ -85,28 +110,6 @@ class PasFotoController extends Controller
         return view('pages.admin.kelola_pasFoto.detail_proses_pasFoto',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
     }
 
-    public function detail($id)
-    {
-
-        $dataPermohonan = DB::table('pesanan')
-            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-            ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
-            ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
-            ->first();
-
-
-        $dataPetugas = akun::where('role','=','petugas')->get();
-
-        // dd(compact('dataPetugas'));
-
-        $data = [
-            'title' => 'Permohonan Pas Foto | SIHUMAS',
-            'page' => 'pas-foto',
-            'level' => 'Admin',
-        ];
-        return view('pages.admin.kelola_pasFoto.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
-    }
 
     public function detailArsip($id)
     {

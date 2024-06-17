@@ -32,7 +32,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
                                 <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                                value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
@@ -57,126 +57,139 @@
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Hasil</label>
                                 <input type="text" id="feedback4" class="form-control"
-                                    placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
+                                    placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
                             </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
 
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    ACC
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Petugas</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title">Pilih Petugas Yang Mengerjakan</h4>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <div class="card-body">
-                                                            <ul class="list-unstyled mb-0 d-flex flex-column">
-                                                                @php
-                                                                    $i = 1;
-                                                                @endphp
-                                                                @foreach ($dataPetugas as $item)
-
-                                                                    <li class="d-inline-block me-2 mb-1">
-                                                                        <div class="form-check">
-                                                                            <div class="checkbox">
-                                                                                <input name="petugas" value="{{$item->id_petugas}}" type="checkbox" id="checkbox{{ $i }}" class="form-check-input" checked>
-                                                                                <label for="checkbox{{ $i }}">{{$item->nama_petugas}}</label>
-                                                                            </div>
+                                 <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            ACC
+                        </button>
+                        <form action="{{ url('admin/pas-foto/pilih-petugas/' . $dataPermohonan->id_pesanan) }}"
+                            class="form" method="post">
+                            @csrf
+                            @method('PUT')
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Petugas</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Pilih Petugas Yang Mengerjakan</h4>
+                                                </div>
+                                                <div class="card-content">
+                                                    <div class="card-body">
+                                                        <ul class="list-unstyled mb-0 d-flex flex-column">
+                                                            @php
+                                                                $i = 1;
+                                                            @endphp
+                                                            @foreach ($dataPetugas as $item)
+                                                                <li class="d-inline-block me-2 mb-1">
+                                                                    <div class="form-check">
+                                                                        <div class="checkbox">
+                                                                            <input name="petugas[]"
+                                                                                value="{{ $item->id_akun }}"
+                                                                                type="checkbox"
+                                                                                id="checkbox{{ $i }}"
+                                                                                class="form-check-input" checked>
+                                                                            <label
+                                                                                for="checkbox{{ $i }}">{{ $item->username }}</label>
                                                                         </div>
-                                                                    </li>
-                                                                    @php
-                                                                        $i++
-                                                                    @endphp
-                                                                @endforeach
+                                                                    </div>
+                                                                </li>
+                                                                @php
+                                                                    $i++;
+                                                                @endphp
+                                                            @endforeach
 
 
-                                                            </ul>
-                                                        </div>
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-primary">Kirim</button>
-                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Kirim</button>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- end modal --}}
-                                <button type="reset" class="btn btn-danger me-1">Tolak</button>
-                                <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>
+                        {{-- end modal --}}
+                        <form action="{{ url('admin/pas-foto/tolak/' . $dataPermohonan->id_pesanan) }}"
+                            method="post" style="display:inline;">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-danger me-1">Tolak</button>
+                        </form>
+                        <a href="{{url('admin/pas-foto')}}" class="btn btn-secondary">Kembali</a>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
-    <script src="/template/dist/assets/compiled/js/app.js"></script>
+<script src="/template/dist/assets/compiled/js/app.js"></script>
 
-    <!-- Code injected by live-server -->
-    <script>
-        // <![CDATA[  <-- For SVG support
-        if ('WebSocket' in window) {
-            (function() {
-                function refreshCSS() {
-                    var sheets = [].slice.call(document.getElementsByTagName("link"));
-                    var head = document.getElementsByTagName("head")[0];
-                    for (var i = 0; i < sheets.length; ++i) {
-                        var elem = sheets[i];
-                        var parent = elem.parentElement || head;
-                        parent.removeChild(elem);
-                        var rel = elem.rel;
-                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() ==
-                            "stylesheet") {
-                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date()
-                                .valueOf());
-                        }
-                        parent.appendChild(elem);
+<!-- Code injected by live-server -->
+<script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+        (function() {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elem.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elem.rel;
+                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() ==
+                        "stylesheet") {
+                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date()
+                            .valueOf());
                     }
+                    parent.appendChild(elem);
                 }
-                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-                var address = protocol + window.location.host + window.location.pathname + '/ws';
-                var socket = new WebSocket(address);
-                socket.onmessage = function(msg) {
-                    if (msg.data == 'reload') window.location.reload();
-                    else if (msg.data == 'refreshcss') refreshCSS();
-                };
-                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-                    console.log('Live reload enabled.');
-                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-                }
-            })();
-        } else {
-            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-        }
-        // ]]>
-    </script>
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function(msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    } else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+</script>
 </body>
 
 </html>

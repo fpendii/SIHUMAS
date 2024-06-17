@@ -8,16 +8,17 @@ use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\Validator;
+use App\Models\akun;
 
 class TugasPublikasiController extends Controller
 {
     public function detailTugas($id)
     {
 
-        $dataPermohonan = DB::table('pesanan')->join('pelanggan', 'pesanan.id_pelanggan', '=', 'pelanggan.id_pelanggan')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
-        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('petugas', 'petugas_pesanan.id_petugas', '=', 'petugas.id_petugas')->where('id_pesanan', '=', $dataPermohonan->id_pesanan)->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
+        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun', 'petugas_pesanan.id_akun', '=', 'akun.id_akun')->where('id_pesanan', '=', $dataPermohonan->id_pesanan)->get();
 
-        $dataPetugas = PetugasModel::all();
+        $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
         $data = [
             'title' => 'Permohonan Publikasi | SIHUMAS',
             'page' => 'publikasi',

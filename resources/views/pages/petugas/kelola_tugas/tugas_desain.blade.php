@@ -30,53 +30,71 @@
 
 
     <div class="container">
-        <div class="card mt-5">
-            <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->nama_pelanggan }}</h4>
-            </div>
-            <div class="card-body">
-                <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
-                        <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
+        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
+                    <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
+                        placeholder="Masukkan Link Hasil" name="link_hasil">
+                    @error('link_hasil')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                    <h4 class="card-title mt-5"></i>{{ $dataPermohonan->username }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>{{ $dataPermohonan->pesan }}</p>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            <h4 class="card-title">Data Permohonan</h4>
+                            <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
+                            <div class="form-group">
+                                <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
+                                <div class="list-group">
+                                    @foreach ($dataPetugasPesanan as $item)
+                                        <span class="list-group-item">
+                                            {{ $item->username }}
+                                        </span>
+                                    @endforeach
 
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Tema</label>
-                                <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->tema}}"
-                                    name="tema" readonly>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Ukuran Gambar</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Tema</label>
+                                    <input type="text" id="feedback1" class="form-control"
+                                        value="{{ $dataPermohonan->tema }}" name="tema" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Ukuran Gambar</label>
+                                    <input type="text" id="feedback1" class="form-control"
+                                        value="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                    <input type="text" id="feedback4" class="form-control"
+                                        value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                    <input type="text" id="feedback2" class="form-control"
+                                        value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                        </div>
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-                            {{-- end modal --}}
-                            <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+                            <div class="form-actions d-flex justify-content-end grid gap-1">
+                                {{-- end modal --}}
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                            <a href="{{url('admin/desain')}}" class="btn btn-secondary">Kembali</a>
-                        </div>
 
+                                <a href="{{ url('admin/desain') }}" class="btn btn-secondary">Kembali</a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
 

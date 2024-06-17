@@ -21,7 +21,7 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/pas-foto') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('admin/edit-foto') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
                 <img src="/template/dist/assets/compiled/svg/logo.svg">
             </a>
@@ -32,15 +32,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
-            </div>
-            <div class="card-body">
-                <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
+                <h4 class="card-title">Data Permohonan</h4>
                         <div class="form-body">
                             <div class="form-group">
                                 <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
@@ -51,11 +43,6 @@
                                         </span>
                                     @endforeach
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
@@ -76,7 +63,7 @@
                         <div class="form-actions d-flex justify-content-end grid gap-1">
 
 
-                            <a href="{{ url('admin/pas-foto') }}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{ url('admin/edit-foto') }}" class="btn btn-secondary">Kembali</a>
                         </div>
 
                     </div>

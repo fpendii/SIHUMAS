@@ -32,10 +32,13 @@ class PermohonanEditFotoController extends Controller
            'jenis_jasa' => 'edit foto',
         ]);
 
+        $akun = DB::table('akun')
+         ->where('akun.id_akun', session('id_akun'))
+         ->first();
 
         // Simpan data ke tabel pertama
         DB::table('pesanan')->insert([
-            'id_pelanggan' => 1,
+            'id_akun' => $akun->id_akun,
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,

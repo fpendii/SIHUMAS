@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\akun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -69,6 +71,24 @@ class AuthController extends Controller
     public function registrasi()
     {
         return view('pages.auth.registrasi');
+    }
+
+    public function registerProses(Request $request){
+        $akun = akun::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'nama' => $request->nama,
+            'no_hp' => $request->no_hp,
+            'password' => Hash::make($request->password),
+            'role' => 'pelanggan',
+            'is_active' => 1
+        ]);
+
+        event(new Registered($akun));
+
+        Auth::login($akun);
+
+        return redirect('email/verify');
     }
 
     protected function validator(array $data)

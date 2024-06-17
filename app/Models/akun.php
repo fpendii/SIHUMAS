@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class akun extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory,AuthenticableTrait;
+    use HasFactory,AuthenticableTrait,Notifiable;
 
     protected $table = 'akun';
 
@@ -19,6 +20,8 @@ class akun extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'username', 'email', 'nama','no_hp', 'role', 'password','is_active', 'email_verified_at'
     ];
+
+    public $timestamps = false;
 
 
 }

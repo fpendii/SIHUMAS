@@ -28,6 +28,7 @@ use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\SendEmail\TesEmail;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,53 +42,66 @@ use App\Http\Controllers\SendEmail\TesEmail;
 */
 
 
-    Route::get('send-email',[TesEmail::class, 'index']);
+Route::get('send-email', [TesEmail::class, 'index']);
 
-    Route::get('/login',[AuthController::class, 'login'])->name('login');
-    Route::post('/login/store',[AuthController::class, 'store']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login/store', [AuthController::class, 'store']);
 
-    Route::get('registrasi',[AuthController::class, 'registrasi']);
-    Route::post('registrasi',[AuthController::class, 'create']);
+// Registrasi
+Route::get('registrasi', [AuthController::class, 'registrasi']);
+Route::post('registrasi', [AuthController::class, 'registerProses']);
+Route::get('email/verify', function () {
+    return view('pages.auth.verify-email');
+})->middleware('auth')->name('verification.notice');
 
 
-    Route::get('lupa-password',[AuthController::class, 'lupaPassword']);
-    Route::get('logout',[AuthController::class, 'logout']);
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+
+    return redirect('/jasa');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+
+
+Route::get('lupa-password', [AuthController::class, 'lupaPassword']);
+Route::get('logout', [AuthController::class, 'logout']);
 
 
 
 // Route Landing Page
-Route::get('',[LandingPageController::class, 'home']);
-Route::get('home',[LandingPageController::class, 'home']);
-Route::get('tentang-kami',[LandingPageController::class, 'tentangKami']);
-Route::get('layanan',[LandingPageController::class, 'layanan']);
+Route::get('', [LandingPageController::class, 'home']);
+Route::get('home', [LandingPageController::class, 'home']);
+Route::get('tentang-kami', [LandingPageController::class, 'tentangKami']);
+Route::get('layanan', [LandingPageController::class, 'layanan']);
 
 // Route Pelanggan
-Route::prefix('jasa')->middleware('auth')->group(function(){
-    Route::get('',[PermohonanController::class, 'index']);
+Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('', [PermohonanController::class, 'index']);
 
     // Route Desain
-    Route::get('desain',[PermohonanDesainController::class, 'index']);
-    Route::post('desain/submit',[PermohonanDesainController::class, 'submit']);
+    Route::get('desain', [PermohonanDesainController::class, 'index']);
+    Route::post('desain/submit', [PermohonanDesainController::class, 'submit']);
 
     // Route Peliputan
-    Route::get('liputan',[PermohonanPeliputanController::class, 'index']);
-    Route::post('liputan/submit',[PermohonanPeliputanController::class, 'submit']);
+    Route::get('liputan', [PermohonanPeliputanController::class, 'index']);
+    Route::post('liputan/submit', [PermohonanPeliputanController::class, 'submit']);
 
     // Route Pas Foto
-    Route::get('pas-foto',[PermohonanPasFotoController::class, 'index']);
-    Route::post('pas-foto/submit',[PermohonanPasFotoController::class, 'submit']);
+    Route::get('pas-foto', [PermohonanPasFotoController::class, 'index']);
+    Route::post('pas-foto/submit', [PermohonanPasFotoController::class, 'submit']);
 
     // Route editing Foto
-    Route::get('editing-foto',[PermohonanEditFotoController::class, 'index']);
-    Route::post('editing-foto/submit',[PermohonanEditFotoController::class, 'submit']);
+    Route::get('editing-foto', [PermohonanEditFotoController::class, 'index']);
+    Route::post('editing-foto/submit', [PermohonanEditFotoController::class, 'submit']);
 
-     // Route editing Video
-     Route::get('editing-video',[PermohonanEditingVideoController::class, 'index']);
-     Route::post('editing-video/submit',[PermohonanEditingVideoController::class, 'submit']);
+    // Route editing Video
+    Route::get('editing-video', [PermohonanEditingVideoController::class, 'index']);
+    Route::post('editing-video/submit', [PermohonanEditingVideoController::class, 'submit']);
 
     // Route Publikasi
-    Route::get('publikasi',[PermohonanPublikasiController::class, 'index']);
-    Route::post('publikasi/submit',[PermohonanPublikasiController::class, 'submit']);
+    Route::get('publikasi', [PermohonanPublikasiController::class, 'index']);
+    Route::post('publikasi/submit', [PermohonanPublikasiController::class, 'submit']);
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
@@ -151,12 +165,11 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::put('publikasi/pilih-petugas/{id}', [PublikasiController::class, 'pilihPetugas']);
     Route::get('publikasi/proses', [PublikasiController::class, 'proses']);
     Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
-
 });
 
 
 
-Route::prefix('petugas')->middleware('petugas')->group(function(){
+Route::prefix('petugas')->middleware('petugas')->group(function () {
 
     Route::get('', [PetugasController::class, 'index']);
 
@@ -171,6 +184,4 @@ Route::prefix('petugas')->middleware('petugas')->group(function(){
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);
-
 });
-

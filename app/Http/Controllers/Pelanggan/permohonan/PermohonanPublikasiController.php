@@ -25,7 +25,6 @@ class PermohonanPublikasiController extends Controller
             'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
             'tag_sosmed' => 'required',
-            'link_ringkasan' => 'required',
             'link_mentahan' => 'required',
             'tenggat_pengerjaan' => 'required'
         ]);
@@ -41,7 +40,6 @@ class PermohonanPublikasiController extends Controller
         $jasa = DB::table('jasa')->insertGetId([
             'pilihan_publikasi' => $publikasi,
             'tag_sosmed' => $request->tag_sosmed,
-            'link_ringkasan_publikasi' => $request->link_ringkasan,
             'jenis_jasa' => 'publikasi'
         ]);
 

@@ -66,9 +66,9 @@
                                     value="{{ $dataPermohonan->catatan_redaktur }}" name="name" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
+                                <label for="feedback4" class="sr-only">Link Dokumentasi Publikasi</label>
                                 <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_ringkasan_publikasi }}" name="LastName" readonly>
+                                    value="{{ $dataPermohonan->link_dokumentasi_publikasi }}" name="LastName" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>

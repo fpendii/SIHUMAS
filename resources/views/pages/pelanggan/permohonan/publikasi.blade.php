@@ -73,24 +73,24 @@
                                         <div class="col-md-8 form-group">
                                             <textarea name="tag_sosmed" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                        <div class="col-md-4">
-                                            <label for="email-horizontal">Link Ringkasan Publikasi</label>
+                                        {{-- <div class="col-md-4">
+                                            <label for="email-horizontal">Link Dokumentasi Publikasi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="email-horizontal"
-                                                class="form-control @error('link_ringkasan') is-invalid @enderror"
-                                                name="link_ringkasan" placeholder="Link Ringkasan Publikasi">
-                                            @error('link_ringkasan')
+                                                class="form-control @error('link_dokumentasi') is-invalid @enderror"
+                                                name="link_dokumentasi" placeholder="Masukkan link dokumentasi">
+                                            @error('link_dokumentasi')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Mentahan</label>
+                                            <label for="contact-info-horizontal">Link Dokumentasi Publikasi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="contact-info-horizontal"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan">
+                                                name="link_mentahan" placeholder="Masukkan link dokumentasi">
                                             @error('link_mentahan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -100,7 +100,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="contact-info-horizontal" class="form-control"
-                                                name="tenggat_pengerjaan">
+                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

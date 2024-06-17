@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('akun', function (Blueprint $table) {
             $table->id('id_akun');
             $table->string('username')->unique();
+            $table->string('nama');
             $table->string('email')->unique();
             $table->string('no_hp');
             $table->enum('role', ['admin', 'koordinator','petugas','redaktur','pelanggan']);

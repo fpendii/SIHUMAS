@@ -137,7 +137,7 @@ class PasFotoController extends Controller
 
         for ($i = 0; $i < $jumlahPetugas; $i++) {
             $petugas_pesanan = PetugasPesananModel::create([
-                'id_petugas' => $request->petugas[$i],
+                'id_akun' => $request->petugas[$i],
                 'id_pesanan' => $id
             ]);
         };

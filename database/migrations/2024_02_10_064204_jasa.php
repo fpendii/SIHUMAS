@@ -16,6 +16,7 @@ return new class extends Migration
             $table->char('pilihan_publikasi')->nullable();
             $table->char('catatan_redaktur')->nullable();
             $table->char('tag_sosmed')->nullable();
+            $table->char('link_dokumentasi_publikasi')->nullable();
             $table->char('link_ringkasan_publikasi')->nullable();
             $table->boolean('pertanyaan_1')->nullable();
             $table->boolean('pertanyaan_2')->nullable();

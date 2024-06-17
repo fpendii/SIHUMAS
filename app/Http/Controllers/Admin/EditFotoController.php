@@ -67,7 +67,7 @@ class EditFotoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
 
 
-        return view('pages.admin.kelola_desain.arsip_desain', $data, compact('dataPermohonan', 'data'));
+        return view('pages.admin.kelola_editFoto.arsip_editFoto', $data, compact('dataPermohonan', 'data'));
     }
 
     public function proses()
@@ -115,7 +115,7 @@ class EditFotoController extends Controller
     {
 
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
-
+        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
         $dataPetugas = akun::where('role','=','petugas')->get();
 
 
@@ -127,7 +127,7 @@ class EditFotoController extends Controller
             'level' => 'Admin',
         ];
 
-        return view('pages.admin.kelola_editFoto.detail_arsip_editFoto', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
+        return view('pages.admin.kelola_editFoto.detail_arsip_editFoto', $data, compact('dataPermohonan', 'dataPetugas', 'dataPetugasPesanan'));
     }
 
     public function pilihPetugas(Request $request, $id)

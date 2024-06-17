@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -33,9 +34,9 @@ class AuthController extends Controller
             $username = Auth::user()->username;
             $id_akun = Auth::user()->id_akun;
 
-            $request->session()->put('role',$role);
-            $request->session()->put('username',$username);
-            $request->session()->put('id_akun',$id_akun);
+            $request->session()->put('role', $role);
+            $request->session()->put('username', $username);
+            $request->session()->put('id_akun', $id_akun);
 
             if ($user->role == 'admin') {
                 return redirect()->intended('admin')->with('success', 'Login berhasil!');
@@ -70,43 +71,12 @@ class AuthController extends Controller
         return view('pages.auth.registrasi');
     }
 
-    public function create(Request $request)
-{
-    // Validasi awal
-    $validatedData = $request->validate([
-        'email' => ['required', 'email:dns', 'unique:akun'],
-        'username' => ['required', 'unique:akun'],
-        'password' => ['required', 'min:5', 'max:255'],
-        'no_hp' => ['required', 'min:12', 'numeric'],
-        'nama' => ['required']
-    ]);
-
-    // Pengecekan domain email
-    if (!str_ends_with($request->email, '@politala.ac.id')) {
-        return redirect()->back()->withErrors(['email' => 'Akun email anda bukan email politala'])->withInput();
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:akun', 'regex:/(.*)@mhs\.polital\.ac\.id$/i'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
-
-    // Hashing password
-    $password = bcrypt($request->password);
-
-    // Menyimpan data akun ke dalam tabel 'akun'
-    $id_akun = DB::table('akun')->insertGetId([
-        'username' => $request->username,
-        'email' => $request->email,
-        'no_hp' => $request->no_hp,
-        'role' => 'pelanggan',
-        'password' => $password,
-        'is_active' => false,
-    ]);
-
-    // Menyimpan data pelanggan ke dalam tabel 'pelanggan'
-    DB::table('pelanggan')->insert([
-        'id_akun' => $id_akun,
-        'nama_pelanggan' => $request->nama
-    ]);
-
-    // Redirect ke halaman login dengan pesan sukses
-    return redirect()->to('login')->with('success', 'Anda berhasil registrasi!! Silahkan lakukan login');
-}
-
 }

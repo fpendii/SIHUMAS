@@ -27,6 +27,7 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
+use App\Http\Controllers\SendEmail\TesEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 |
 */
 
+
+    Route::get('send-email',[TesEmail::class, 'index']);
 
     Route::get('/login',[AuthController::class, 'login'])->name('login');
     Route::post('/login/store',[AuthController::class, 'store']);

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class akun extends Model implements Authenticatable
+class akun extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory,AuthenticableTrait;
 
@@ -16,7 +17,7 @@ class akun extends Model implements Authenticatable
     protected $primaryKey = 'id_akun'; // Pastikan huruf kecil dan benar
 
     protected $fillable = [
-        'username', 'email', 'no_hp', 'role', 'password','is_active',
+        'username', 'email', 'nama','no_hp', 'role', 'password','is_active', 'email_verified_at'
     ];
 
 

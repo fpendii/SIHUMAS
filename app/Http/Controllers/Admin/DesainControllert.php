@@ -135,8 +135,8 @@ class DesainControllert extends Controller
         $jumlahPetugas = count($petugas);
 
         for ($i = 0; $i < $jumlahPetugas; $i++) {
-            $petugas_pesanan = PetugasPesananModel::create([
-                'id_petugas' => $request->petugas[$i],
+            PetugasPesananModel::create([
+                'id_akun' => $request->petugas[$i],
                 'id_pesanan' => $id
             ]);
         };

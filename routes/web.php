@@ -43,7 +43,7 @@ use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
     Route::get('/login',[AuthController::class, 'login'])->name('login');
     Route::post('/login/store',[AuthController::class, 'store']);
 
-    Route::get('registrasi',[AuthController::class, 'regitrasi']);
+    Route::get('registrasi',[AuthController::class, 'registrasi']);
     Route::post('registrasi',[AuthController::class, 'create']);
 
 

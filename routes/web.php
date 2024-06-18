@@ -42,8 +42,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 */
 
 
-Route::get('send-email', [TesEmail::class, 'index']);
-
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login/store', [AuthController::class, 'store']);
 
@@ -58,7 +56,7 @@ Route::get('email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
-    return redirect('/jasa');
+    return redirect('/login');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 
@@ -105,7 +103,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
-Route::prefix('admin')->middleware('admin')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     // Halaman Dashboard Admin
     Route::get('', [AdminController::class, 'index'])->name('admin');
@@ -169,7 +167,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
 
 
-Route::prefix('petugas')->middleware('petugas')->group(function () {
+Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('', [PetugasController::class, 'index']);
 

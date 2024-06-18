@@ -21,8 +21,6 @@ class AuthController extends Controller
     // Proses Authentifikasi
     public function store(Request $request)
     {
-
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -40,10 +38,14 @@ class AuthController extends Controller
             $request->session()->put('username', $username);
             $request->session()->put('id_akun', $id_akun);
 
+            event(new Registered($user));
+
             if ($user->role == 'admin') {
                 return redirect()->intended('admin')->with('success', 'Login berhasil!');
+
             } elseif ($user->role == 'petugas') {
                 return redirect()->intended('petugas')->with('success', 'Login berhasil!');
+
             } else {
                 // Default redirection for other roles
                 return redirect()->intended('jasa')->with('success', 'Login berhasil!');
@@ -73,7 +75,8 @@ class AuthController extends Controller
         return view('pages.auth.registrasi');
     }
 
-    public function registerProses(Request $request){
+    public function registerProses(Request $request)
+    {
         $akun = akun::create([
             'username' => $request->username,
             'email' => $request->email,

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\akun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -19,8 +21,6 @@ class AuthController extends Controller
     // Proses Authentifikasi
     public function store(Request $request)
     {
-
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -38,10 +38,14 @@ class AuthController extends Controller
             $request->session()->put('username', $username);
             $request->session()->put('id_akun', $id_akun);
 
+            event(new Registered($user));
+
             if ($user->role == 'admin') {
                 return redirect()->intended('admin')->with('success', 'Login berhasil!');
+
             } elseif ($user->role == 'petugas') {
                 return redirect()->intended('petugas')->with('success', 'Login berhasil!');
+
             } else {
                 // Default redirection for other roles
                 return redirect()->intended('jasa')->with('success', 'Login berhasil!');
@@ -69,6 +73,25 @@ class AuthController extends Controller
     public function registrasi()
     {
         return view('pages.auth.registrasi');
+    }
+
+    public function registerProses(Request $request)
+    {
+        $akun = akun::create([
+            'username' => $request->username,
+            'email' => $request->email,
+            'nama' => $request->nama,
+            'no_hp' => $request->no_hp,
+            'password' => Hash::make($request->password),
+            'role' => 'pelanggan',
+            'is_active' => 1
+        ]);
+
+        event(new Registered($akun));
+
+        Auth::login($akun);
+
+        return redirect('email/verify');
     }
 
     protected function validator(array $data)

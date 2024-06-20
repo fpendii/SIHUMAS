@@ -4,7 +4,7 @@
     <div class="email-user-list list-group ps ps--active-y">
         <ul class="users-list-wrapper media-list">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/video-editing/'.$item->id_pesanan)}}">
+                <a href="{{url('admin/editing-video/detail-proses/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <div class="checkbox-con me-3">
@@ -14,9 +14,13 @@
                                 </div>
                             </div>
                             <span class="favorite">
-                                <svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
-                                    <use xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#star" />
-                                </svg>
+                                @if ($item->status == 'ditolak')
+                                    <i class="bi bi-x-circle icon"></i>
+                                @elseif ($item->status == 'selesai')
+                                    <i class="bi bi-check-circle icon"></i>
+                                @endif
+
+
                             </span>
                         </div>
                         <div class="pr-50">
@@ -28,7 +32,7 @@
                         <div class="media-body">
                             <div class="user-details">
                                 <div class="mail-items">
-                                    <span class="list-group-item-text text-truncate mb-0">{{ $item->nama_pelanggan }}</span>
+                                    <span class="list-group-item-text text-truncate mb-0">{{ $item->username }}</span>
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
@@ -37,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="mail-message">
-                                <p class="list-group-item-text mb-0 truncate">{{ $item->keterangan }}</p>
+                                <p class="list-group-item-text mb-0 truncate">{{ $item->pesan }}</p>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
                                         <span class="bullet bullet-warning bullet-sm"></span>

@@ -22,37 +22,18 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="first-name-horizontal">Tipe Editing</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-
-                                            <fieldset class="form-group">
-                                                <select name="tipe_desain"
-                                                    class="form-select @error('tipe_editing') is-invalid @enderror"
-                                                    id="basicSelect">
-                                                    <option value=""> --- Pilih Tipe Editing --- </option>
-                                                    <option value="poster">Foto</option>
-                                                    <option value="spanduk">Video</option>
-                                                </select>
-                                                @error('tipe_desain')
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </fieldset>
-                                        </div>
-                                        <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                        
                                         <div class="col-md-4">
                                             <label for="contact-info-horizontal">Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="contact-info-horizontal"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan">
+                                                name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
                                             @error('ukuran_gambar')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -62,12 +43,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="contact-info-horizontal" class="form-control"
-                                                name="tenggat_pengerjaan">
+                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button>
                                         </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -75,5 +58,5 @@
             </div>
         </div>
     </section>
-   
+    <!-- // Basic Horizontal form layout section end -->
 @endsection

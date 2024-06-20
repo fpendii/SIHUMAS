@@ -4,7 +4,7 @@
     <div class="email-user-list list-group ps ps--active-y">
         <ul class="users-list-wrapper media-list">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/peliputan/detail/'.$item->id_pesanan)}}">
+                <a href="{{url('admin/editing-video/detail/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <div class="checkbox-con me-3">

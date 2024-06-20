@@ -3,9 +3,9 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PeliputanController;
+use App\Http\Controllers\Admin\EditingVideoController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
-use App\Http\Controllers\Admin\EditingVideoController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
 use App\Http\Controllers\Pegawai\PetugasController;
 use App\Http\Controllers\Pegawai\TugasController;
@@ -26,6 +26,8 @@ use App\Http\Controllers\Pelanggan\permohonan\PermohonanEditingVideoController;
 use App\Http\Controllers\Pelanggan\permohonan\PermohonanPeliputanController;
 use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
+use App\Http\Controllers\Pegawai\TugasPeliputanController;
+use App\Http\Controllers\Pegawai\TugasEditingVideoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\SendEmail\TesEmail;
 
@@ -101,17 +103,39 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
     Route::post('kelola-akun/simpan', [AkunController::class, 'simpan']);
 
-    // Route Kelola Peliputan
-    Route::get('peliputan', [PeliputanController::class, 'index']);
-    Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
-    Route::get('peliputan/{id}', [PeliputanController::class, 'detail']);
-    Route::put('peliputan/pilih-petugas/{id}', [PeliputanController::class, 'pilihPetugas']);
+    
+   // Ruote kelola peliputan
+   Route::get('peliputan', [PeliputanController::class, 'index']);
+   Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
+   Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
+   Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
+   Route::get('peliputan/proses', [PeliputanController::class, 'proses']);
+   Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
+//    Route::put('peliputan/tolak/{id}',[PeliputanController::class,'tolakPermohonan']);
+Route::put('admin/peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
 
-    // Route Kelola Video Editing
-    Route::get('video-editing', [EditingVideoController::class, 'index']);
-    Route::get('video-editing/arsip', [EditingVideoController::class, 'arsip']);
-    Route::get('video-editing/{id}', [EditingVideoController::class, 'detail']);
-    Route::put('video-editing/pilih-petugas/{id}', [EditingVideoController::class, 'pilihPetugas']);
+   
+
+   // Ruote kelola editing video
+    Route::get('editing-video', [EditingVideoController::class, 'index']);
+     Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
+     Route::get('editing-video/arsip', [EditingVideoController::class, 'arsip']);
+     Route::get('editing-video/detail-arsip/{id}', [EditingVideoController::class, 'detailArsip']);
+     Route::get('editing-video/proses', [EditingVideoController::class, 'proses']);
+     Route::get('editing-video/detail-proses/{id}', [EditingVideoController::class, 'detailProses']);
+     Route::put('editing-video/pilih-petugas/{id}',[EditingVideoController::class,'pilihPetugas']);
+    Route::put('editing-video/tolak/{id}',[EditingVideoController::class,'tolakPermohonan']);
+
+
+    Route::get('desain', [DesainControllert::class, 'index']);
+    Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
+    Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
+    Route::get('desain/detail-arsip/{id}', [DesainControllert::class, 'detailArsip']);
+    Route::get('desain/proses', [DesainControllert::class, 'proses']);
+    Route::get('desain/detail-proses/{id}', [DesainControllert::class, 'detailProses']);
+    Route::put('desain/pilih-petugas/{id}', [DesainControllert::class, 'pilihPetugas']);
+    Route::put('desain/tolak/{id}', [DesainControllert::class, 'tolakPermohonan']);
+
 
     // Route Kelola Pas Foto
     Route::get('pas-foto', [PasFotoController::class, 'index']);
@@ -168,6 +192,13 @@ Route::prefix('petugas')->middleware('petugas')->group(function(){
 
     Route::get('tugas/desain/detail-tugas/{id}', [TugasDesainController::class, 'detailTugas']);
     Route::get('tugas/desain/submit/{id}', [TugasDesainController::class, 'submitTugas']);
+
+    Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
+    Route::put('tugas/peliputan/submit{id}', [TugasPeliputanController::class, 'submitTugas']);
+    
+    Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
+    Route::put('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
+
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);

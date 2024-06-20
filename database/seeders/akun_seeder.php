@@ -23,6 +23,7 @@ class akun_seeder extends Seeder
                 'role' => 'pelanggan',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
                 'username' => 'pendi2',
@@ -32,6 +33,7 @@ class akun_seeder extends Seeder
                 'role' => 'pelanggan',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
                 'username' => 'ferdi',
@@ -41,6 +43,7 @@ class akun_seeder extends Seeder
                 'role' => 'pelanggan',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
                 'username' => 'Bang Dimas',
@@ -50,6 +53,7 @@ class akun_seeder extends Seeder
                 'role' => 'petugas',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
                 'username' => 'Bang Dimas 2',
@@ -59,6 +63,7 @@ class akun_seeder extends Seeder
                 'role' => 'petugas',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
                 'username' => 'Alam',
@@ -68,6 +73,7 @@ class akun_seeder extends Seeder
                 'role' => 'admin',
                 'password' => hash::make('123'),
                 'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
             ],
          ]);
 

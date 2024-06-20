@@ -165,7 +165,12 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
 });
 
-
+                  // Route Redaktur
+Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+    
+    Route::get('', [RedakturController::class, 'index']);
+})
+;
 
 Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 

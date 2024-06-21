@@ -105,7 +105,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
-Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function () {
 
     // Halaman Dashboard Admin
     Route::get('', [AdminController::class, 'index'])->name('admin');
@@ -115,7 +115,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
     Route::post('kelola-akun/simpan', [AkunController::class, 'simpan']);
 
-    
+
    // Ruote kelola peliputan
    Route::get('peliputan', [PeliputanController::class, 'index']);
    Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
@@ -126,7 +126,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 //    Route::put('peliputan/tolak/{id}',[PeliputanController::class,'tolakPermohonan']);
 Route::put('admin/peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
 
-   
+
 
    // Ruote kelola editing video
     Route::get('editing-video', [EditingVideoController::class, 'index']);
@@ -191,7 +191,7 @@ Route::put('admin/peliputan/tolak/{id}', [PeliputanController::class, 'tolakPerm
 
                   // Route Redaktur
 Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
-    
+
     Route::get('', [RedakturController::class, 'index']);
 })
 ;
@@ -211,7 +211,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
     Route::put('tugas/peliputan/submit{id}', [TugasPeliputanController::class, 'submitTugas']);
-    
+
     Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
     Route::put('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
 

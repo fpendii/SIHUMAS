@@ -25,29 +25,28 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Title</th>
+                                <th>Layanan</th>
                                 <th>Pengaju</th>
-                                <th>Jenis</th>
                                 <th>Status</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @for ($i = 1; $i <= 3; $i++)
+                            @foreach ($ArsipTugas as $item)
                                 <tr>
-                                    <td>{{ $i }}</td>
-                                    <td class="col-4">Desain poster acara diesnatalis</td>
-                                    <td>Ferdi Nurrahmah</td>
-                                    <td>Poster</td>
-                                    <td class="col-1">
-                                        <span class="badge bg-success">Selesai</span>
-                                    </td>
-                                    <td class="col-1">
-                                        <a href="#" class="btn btn-info btn-sm">Info</a>
+                                    <td></td>
+                                    <td class="col-4">{{$item->jenis_jasa}}</td>
+                                    <td>{{$item->nama}}</td>
+                                    <td class="col-2">
+                                        @if ($item->status == 'selesai')
+                                            <span class="badge bg-success">{{$item->status}}</span>
+                                        @else
+                                        <span class="badge bg-danger">{{$item->status}}</span>
+                                        @endif
+
                                     </td>
                                 </tr>
-                            @endfor
+                            @endforeach
 
                         </tbody>
                     </table>

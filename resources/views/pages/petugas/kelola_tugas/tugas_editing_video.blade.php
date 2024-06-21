@@ -11,17 +11,18 @@
 <body>
     <div class="container">
         <form action="{{ url('petugas/tugas/editing-video/submit/' . $dataPermohonan->id_pesanan) }}" method="POST">
+
             @csrf
             <div class="card mt-5">
                 <div class="card-header">
                     <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
                     <div class="form-group">
-                        <label for="link_mentahan">Link Mentahan</label>
-                        <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror"
-                               name="link_mentahan" value="{{ old('link_mentahan') }}" required>
-                        @error('link_mentahan')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
+                        placeholder="Masukkan Link Hasil" name="link_hasil">
+                    @error('link_hasil')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+
                     <h4 class="card-title mt-5">{{ $dataPermohonan->username }}</h4>
                 </div>
                 <div class="card-body">

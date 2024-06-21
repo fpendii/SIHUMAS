@@ -32,32 +32,61 @@ class TugasEditingVideoController extends Controller
         return view('pages.petugas.kelola_tugas.tugas_editing_video', compact('dataPermohonan', 'dataPetugasPesanan'))->with($data);
     }
 
+    // public function submitTugas(Request $request, $id)
+    // {
+    //     $messages = [
+    //         'required' => 'Link Hasil Wajib Diisi.',
+    //         'url' => 'Link yang dimasukkan tidak valid'
+    //     ];
+    
+    //     $validator = Validator::make($request->all(), [
+    //         'link_hasil' => 'required|url',
+    //     ], $messages);
+
+    //     if ($validator->fails()) {
+    //         return redirect()->back()->withErrors($validator)->withInput();
+    //     }
+    
+    //     $dataPermohonan = PesananModel::findOrFail($id);
+    
+    //     $updateSuccessful = $dataPermohonan->update([
+    //         'status' => 'selesai',
+    //         'link_hasil' => $request->input('link_hasil')
+    //     ]);
+    
+    //     if (!$updateSuccessful) {
+    //         return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
+    //     }
+    
+    //     return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+    // }
     public function submitTugas(Request $request, $id)
-    {
-        $messages = [
-            'required' => 'Link Hasil Wajib Diisi.',
-            'url' => 'Link yang dimasukkan tidak valid'
-        ];
-    
-        $validator = Validator::make($request->all(), [
-            'link_hasil' => 'required|url',
-        ], $messages);
-    
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-    
-        $dataPermohonan = PesananModel::findOrFail($id);
-    
-        $updateSuccessful = $dataPermohonan->update([
-            'status' => 'selesai',
-            'link_hasil' => $request->input('link_hasil')
-        ]);
-    
-        if (!$updateSuccessful) {
-            return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
-        }
-    
-        return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+{
+    $messages = [
+        'required' => 'Link Hasil Wajib Diisi.',
+        'url' => 'Link yang dimasukkan tidak valid'
+    ];
+
+    $validator = Validator::make($request->all(), [
+        'link_hasil' => 'required|url',
+    ], $messages);
+
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    $dataPermohonan = PesananModel::findOrFail($id);
+
+    $updateSuccessful = $dataPermohonan->update([
+        'status' => 'selesai',
+        'link_hasil' => $request->input('link_hasil')
+    ]);
+
+    if (!$updateSuccessful) {
+        return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
+    }
+
+    return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+}
+
 }

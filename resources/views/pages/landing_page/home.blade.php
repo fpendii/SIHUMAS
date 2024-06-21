@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="template_landing_page/style.css">
     <link rel="stylesheet" href="template_landing_page/css/responsive.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -139,7 +142,7 @@
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
-                                <i class="icofont icofont-ambulance-cross"></i>
+                                <i class="bi bi-1-circle"></i>
                             </div>
                             <h3>Pertama</h3>
                             <p>Login Menggunakan akun Politala</p>
@@ -352,6 +355,7 @@
         <script src="template_landing_page/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="template_landing_page/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

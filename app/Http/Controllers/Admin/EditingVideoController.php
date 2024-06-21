@@ -55,7 +55,7 @@ class EditingVideoController extends Controller
                 ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
                 ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
                 ->where('pesanan.status', '=', 'proses')
-                ->where('jasa.jenis_jasa', '=', 'editing-video') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
+                ->where('jasa.jenis_jasa', '=', 'editing video') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
                 ->orderByDesc('pesanan.created_at') // menambahkan prefix 'pesanan.' untuk kolom 'created_at'
                 ->get()
                 ->toArray(),
@@ -67,6 +67,7 @@ class EditingVideoController extends Controller
 
         return view('pages.admin.kelola_editing_video.proses_editing_video', $data);
     }
+
 
     public function detailProses($id){
         
@@ -112,8 +113,6 @@ class EditingVideoController extends Controller
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
-        // dd(compact('dataPetugas'));
-
         $data = [
             'title' => 'Permohonan  Editing Video| SIHUMAS',
             'page' => 'Permohonan  Editing Video',
@@ -139,13 +138,14 @@ public function pilihPetugas(Request $request, $id)
 
     $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan', $id)->update(['status' => 'proses']);
 
-    return redirect()->to('admin/peliputan')->with('success', 'Data dikirim ke petugas');
+    return redirect()->to('admin/editing-video')->with('success', 'Data dikirim ke petugas');
 }
 
-public function TolakPermohonan($id)
+public function tolakPermohonan($id)
 {
     DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
 
-    return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+    // return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+    return redirect()->to('admin/editing-video')->with('success', 'Pesanan ditolak');
 }
 }

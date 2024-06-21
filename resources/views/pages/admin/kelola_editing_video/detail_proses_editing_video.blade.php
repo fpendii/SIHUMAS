@@ -31,7 +31,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <span class="list-group-item-text text-truncate mb-0">{{ $item->username }}</span>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -45,17 +45,20 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control"value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
+                                <label for="link_mentahan">Link Mentahan</label>
+                                <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror"
+                                       name="link_mentahan" value="{{ old('link_mentahan') }}" required>
+                                @error('link_mentahan')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Hasil</label>
                                 <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
-                            </div>
+                            </div> --}}
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 

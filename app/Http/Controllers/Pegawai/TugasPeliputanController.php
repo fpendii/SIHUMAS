@@ -29,30 +29,34 @@ class TugasPeliputanController extends Controller
     }
 
 
-    public function submitTugas(Request $request, $id)
-    {
+    public function submitTugas(Request $request, $id) {
         $messages = [
             'required' => 'Link Hasil Wajib Diisi.',
             'url' => 'Link yang dimasukkan tidak valid'
         ];
-
-        // Validasi request disini jika diperlukan
-        $request->validate([
-            'link_mentahan' => 'required',
-            'link_hasil' => 'required',
+    
+        $validator = Validator::make($request->all(), [
+            'link_hasil' => 'required|url',
         ], $messages);
-
-        // Temukan pesanan berdasarkan ID
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
         $dataPermohonan = PesananModel::findOrFail($id);
-
-        // Update data pesanan
-        $dataPermohonan->update([
-            'link_mentahan' => $request->link_mentahan,
-            'link_hasil' => $request->link_hasil,
+    
+        $updateSuccessful = $dataPermohonan->update([
             'status' => 'selesai',
+            'link_hasil' => $request->input('link_hasil')
         ]);
-
-        // Redirect dengan pesan sukses
-        return redirect()->to('petugas/tugas')->with('success', 'Tugas berhasil diselesaikan');
+    
+        if (!$updateSuccessful) {
+            return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
+        }
+    
+        return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
     }
+    
+    
+    
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Pegawai;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\PetugasModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,20 +12,25 @@ class TugasEditingVideoController extends Controller
 {
     public function detailTugas($id)
     {
-        $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
-        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
+        $dataPermohonan = DB::table('pesanan')
+            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+            ->where('pesanan.id_pesanan', $id)
+            ->first();
 
-        $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
+        $dataPetugasPesanan = DB::table('petugas_pesanan')
+            ->join('akun', 'petugas_pesanan.id_akun', '=', 'akun.id_akun')
+            ->where('id_pesanan', '=', $dataPermohonan->id_pesanan)
+            ->get();
 
         $data = [
-            'title' => 'Permohonan Editing Video| SIHUMAS',
-            'page' => 'editing video' ,
+            'title' => 'Permohonan Editing Video | SIHUMAS',
+            'page' => 'editing-video',
             'level' => 'Admin',
         ];
 
-        return view('pages.petugas.kelola_tugas.tugas_editing_video', $data, compact('dataPermohonan', 'dataPetugas', 'dataPetugasPesanan'));
+        return view('pages.petugas.kelola_tugas.tugas_editing_video', compact('dataPermohonan', 'dataPetugasPesanan'))->with($data);
     }
-
 
     public function submitTugas(Request $request, $id)
     {
@@ -35,24 +39,25 @@ class TugasEditingVideoController extends Controller
             'url' => 'Link yang dimasukkan tidak valid'
         ];
     
-        // Validasi request disini jika diperlukan
-        $request->validate([
-            'link_mentahan' => 'required',
-            'link_hasil' => 'required',
+        $validator = Validator::make($request->all(), [
+            'link_hasil' => 'required|url',
         ], $messages);
     
-        // Temukan pesanan berdasarkan ID
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
         $dataPermohonan = PesananModel::findOrFail($id);
     
-        // Update data pesanan
-        $dataPermohonan->update([
-            'link_mentahan' => $request->link_mentahan,
-            'link_hasil' => $request->link_hasil,
+        $updateSuccessful = $dataPermohonan->update([
             'status' => 'selesai',
+            'link_hasil' => $request->input('link_hasil')
         ]);
     
-        // Redirect dengan pesan sukses
-        return redirect()->route('petugas.tugas')->with('success', 'Tugas berhasil diselesaikan');
-    }
+        if (!$updateSuccessful) {
+            return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
+        }
     
+        return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+    }
 }

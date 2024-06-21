@@ -10,6 +10,7 @@
             <div class="col-12 col-lg-9">
                 <div class="row">
                     <div class="col-6 col-lg-3 col-md-6">
+                        <a href="{{ url('admin/peliputan') }}" class="card-link">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
@@ -20,11 +21,12 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Peliputan</h6>
-                                        <h6 class="font-extrabold mb-0">112.000</h6>
+                                        <h6 class="font-extrabold mb-0">{{$totalpeliputan}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
                         <a href="{{ url('admin/publikasi') }}" class="card-link">
@@ -46,6 +48,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
+                        <a href="{{ url('admin/editing-video') }}" class="card-link">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
@@ -55,12 +58,13 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Video Editing</h6>
-                                        <h6 class="font-extrabold mb-0">80.000</h6>
+                                        <h6 class="text-muted font-semibold">Editing Video </h6>
+                                        <h6 class="font-extrabold mb-0">{{$totaleditingvideo}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
                         <a href="{{ url('admin/desain') }}" class="card-link">

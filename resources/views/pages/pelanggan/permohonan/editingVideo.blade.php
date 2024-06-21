@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button>
+                                            <a href="{{url('jasa')}}" class="btn btn-light-secondary me-1 mb-1">Batal</a>
                                         </div>
                                     </div>
                                 </div>

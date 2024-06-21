@@ -44,10 +44,10 @@
                                         <label for="feedback1" class="sr-only">Waktu Selesai</label>
                                         <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="feedback4" class="sr-only">Link Mentahan</label>
                                         <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
-                                    </div>
+                                    </div> --}}
                                 <div class="form-group">
                                     <label for="feedback2" class="sr-only">Pertanyaan 1</label>
                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
@@ -66,6 +66,7 @@
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         ACC
                                     </button>
+                                </form>
                                     <form action="{{ url('admin/peliputan/tolak/' . $dataPermohonan->id_pesanan) }}"
                                         method="post" style="display:inline;">
                                         @csrf
@@ -74,7 +75,6 @@
                                     </form>
                                     <a href="{{ url('admin/peliputan') }}" class="btn btn-secondary">Kembali</a>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

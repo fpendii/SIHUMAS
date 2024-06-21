@@ -51,17 +51,18 @@
                                         <input type="text" id="feedback2" class="form-control" value="{{  $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="feedback4" class="col-sm-3 col-form-label">Link Hasil</label>
                                     <div class="col-sm-9">
                                         <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{  $dataPermohonan->link_hasil }}" name="link_hasil" readonly>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <div class="form-actions d-flex justify-content-end gap-1">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         ACC
                                     </button>
+                                </form>
                                     <form action="{{ url('admin/editing-video/tolak/' . $dataPermohonan->id_pesanan) }}"
                                         method="post" style="display:inline;">
                                         @csrf
@@ -70,7 +71,6 @@
                                     </form>
                                     <a href="{{ url('admin/editing-video') }}" class="btn btn-secondary">Kembali</a>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>

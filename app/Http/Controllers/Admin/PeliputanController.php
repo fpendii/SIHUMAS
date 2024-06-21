@@ -147,7 +147,8 @@ class PeliputanController extends Controller
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
     
-        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+        //return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+        return redirect()->to('admin/peliputan')->with('success', 'Pesanan ditolak');
     }
     
 }

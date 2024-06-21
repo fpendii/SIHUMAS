@@ -51,7 +51,8 @@
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl @error('no_hp') is-invalid @enderror" placeholder="Nomer Handphone" name="no_hp" value="{{old('no_hp')}}">
+                            <input type="text" class="form-control form-control-xl @error('no_hp') is-invalid @enderror" placeholder="Nomor Handphone" name="no_hp" value="{{old('no_hp')}}">
+                            <p><small class="text-muted">Silakan masukkan nomor handphone aktif yang terhubung dengan WhatsApp.</small></p>
                             @error('no_hp')
                                 <div class="invalid-feedback">{{$message}}</div>
                             @enderror

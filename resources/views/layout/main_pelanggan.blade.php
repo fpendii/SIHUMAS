@@ -38,7 +38,7 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="index.html"><img src="/template/dist/assets/compiled/svg/logo.svg"
+                            <a href="#"><img src="/images/silamas.png"
                                     alt="Logo"></a>
                         </div>
                         <div class="header-top-right">

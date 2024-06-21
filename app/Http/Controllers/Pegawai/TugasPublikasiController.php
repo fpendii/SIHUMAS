@@ -49,7 +49,8 @@ class TugasPublikasiController extends Controller
 
         // Update status pesanan dan periksa apakah update berhasil
         $updateSuccessful = $dataPermohonan->update([
-            'status' => 'selesai'
+            'status' => 'selesai',
+            'link_hasil' =>$request->link_hasil
         ]);
 
         if (!$updateSuccessful) { // Menggunakan ! untuk mengecek apakah false

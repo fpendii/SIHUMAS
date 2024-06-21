@@ -28,7 +28,7 @@ class TugasDesainController extends Controller
         return view('pages.petugas.kelola_tugas.tugas_desain',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
     }
 
-    public function submitTugas($id){
+    public function submitTugas($id,Request $request){
         $messages = [
             'required' => 'Link Hasil Wajib Diisi.',
             'url' => 'Link yang dimasukkan tidak valid'
@@ -48,7 +48,8 @@ class TugasDesainController extends Controller
 
         // Update status pesanan dan periksa apakah update berhasil
         $updateSuccessful = $dataPermohonan->update([
-            'status' => 'selesai'
+            'status' => 'selesai',
+            'link_hasil' => $request->link_hasil
         ]);
 
         if (!$updateSuccessful) { // Menggunakan ! untuk mengecek apakah false

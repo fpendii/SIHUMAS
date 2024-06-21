@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="template_landing_page/style.css">
     <link rel="stylesheet" href="template_landing_page/css/responsive.css">
 
+
 </head>
 
 <body>
@@ -139,7 +140,7 @@
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
-                                <i class="icofont icofont-ambulance-cross"></i>
+                                <i class="icofont-login"></i>
                             </div>
                             <h3>Pertama</h3>
                             <p>Login Menggunakan akun Politala</p>
@@ -150,7 +151,7 @@
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
-                                <i class="icofont icofont-medical-sign-alt"></i>
+                                <i class="icofont-hand-drag1"></i>
                             </div>
                             <h3>Kedua</h3>
                             <p>Pilih Jasa yang tersedia di SILAMAS</p>
@@ -161,7 +162,7 @@
                         <!-- Start Single features -->
                         <div class="single-features last">
                             <div class="signle-icon">
-                                <i class="icofont icofont-stethoscope"></i>
+                                <i class="icofont-file-document"></i>
                             </div>
                             <h3>Ketika</h3>
                             <p>Lengkapi Form jasa yang ditentukan</p>
@@ -172,7 +173,7 @@
                         <!-- Start Single features -->
                         <div class="single-features last">
                             <div class="signle-icon">
-                                <i class="icofont icofont-stethoscope"></i>
+                                <i class="icofont-ui-text-loading"></i>
                             </div>
                             <h3>Keempat</h3>
                             <p>Tunggu Konfirmasi dari Pihak Silamas</p>
@@ -352,6 +353,7 @@
         <script src="template_landing_page/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="template_landing_page/js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

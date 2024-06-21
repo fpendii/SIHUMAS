@@ -140,7 +140,7 @@
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
-                                <i class="bi bi-1-circle"></i>
+                                <i class="icofont-login"></i>
                             </div>
                             <h3>Pertama</h3>
                             <p>Login Menggunakan akun Politala</p>
@@ -151,7 +151,7 @@
                         <!-- Start Single features -->
                         <div class="single-features">
                             <div class="signle-icon">
-                                <i class="icofont icofont-medical-sign-alt"></i>
+                                <i class="icofont-hand-drag1"></i>
                             </div>
                             <h3>Kedua</h3>
                             <p>Pilih Jasa yang tersedia di SILAMAS</p>
@@ -162,7 +162,7 @@
                         <!-- Start Single features -->
                         <div class="single-features last">
                             <div class="signle-icon">
-                                <i class="icofont icofont-stethoscope"></i>
+                                <i class="icofont-file-document"></i>
                             </div>
                             <h3>Ketika</h3>
                             <p>Lengkapi Form jasa yang ditentukan</p>
@@ -173,7 +173,7 @@
                         <!-- Start Single features -->
                         <div class="single-features last">
                             <div class="signle-icon">
-                                <i class="icofont icofont-stethoscope"></i>
+                                <i class="icofont-ui-text-loading"></i>
                             </div>
                             <h3>Keempat</h3>
                             <p>Tunggu Konfirmasi dari Pihak Silamas</p>

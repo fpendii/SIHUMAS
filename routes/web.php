@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PeliputanController;
 use App\Http\Controllers\Admin\EditingVideoController;
+use App\Http\Controllers\Redaktur\RedakturController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
@@ -196,8 +197,7 @@ Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function
 Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('', [RedakturController::class, 'index']);
-})
-;
+});
 
 
 

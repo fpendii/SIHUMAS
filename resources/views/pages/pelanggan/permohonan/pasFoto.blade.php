@@ -42,30 +42,24 @@
                                             <label for="jadwal_foto">Tanggal Pengambilan Foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="datetime-local" id="jadwal_foto" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" required>
+                                            <input type="datetime-local" id="jadwal_foto" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" placeholder="Pilih tanggal dan waktu pengambilan foto " required>
                                         </div>
                                         
                                         <div class="col-md-4">
                                             <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" required>
+                                            <input type="date" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                                         </div>
                                         
                                         <script>
                                             document.getElementById('jadwal_foto').addEventListener('change', function() {
                                                 var jadwalFoto = new Date(this.value);
-                                                jadwalFoto.setDate(jadwalFoto.getDate() + 1); // Tambah 1 hari
-                                                
-                                                var year = jadwalFoto.getFullYear();
-                                                var month = ('0' + (jadwalFoto.getMonth() + 1)).slice(-2); // Tambah 1 karena bulan dimulai dari 0
-                                                var day = ('0' + jadwalFoto.getDate()).slice(-2);
-                                        
-                                                var minDate = year + '-' + month + '-' + day;
-                                                
-                                                document.getElementById('tenggat_pengerjaan').setAttribute('min', minDate);
+                                                var tenggatPengerjaan = document.getElementById('tenggat_pengerjaan');
+                                                var minDate = jadwalFoto.toISOString().split('T')[0];
+                                                tenggatPengerjaan.min = minDate;
                                             });
-                                        </script>
+                                        </script>                                        
                                         
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

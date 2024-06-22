@@ -34,6 +34,8 @@
             @include('partial.sidebar_admin')
         @elseif ($level == 'Petugas')
             @include('partial.sidebar_petugas')
+        @elseif ($level == 'Redaktur')
+            @include('partial.sidebar_redaktur')
         @endif
         {{-- End Sidebar --}}
 

@@ -28,6 +28,8 @@ use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
 use App\Http\Controllers\Pegawai\TugasPeliputanController;
 use App\Http\Controllers\Pegawai\TugasEditingVideoController;
+use App\Http\Controllers\Pegawai\TugasEditFotoController;
+use App\Http\Controllers\Pegawai\TugasPasFotoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\SendEmail\TesEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;

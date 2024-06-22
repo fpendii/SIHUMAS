@@ -4,7 +4,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="/template/dist/assets/compiled/svg/logo.svg" alt="Logo"
+                    <a href=""><img src="/template/dist/assets/compiled/svg/logo.svg" alt="Logo"
                             srcset=""></a>
                 </div>
 
@@ -48,25 +48,26 @@
                 <li class="sidebar-title">Menu</li>
 
                 <li class="sidebar-item {{ $page == 'Beranda' ? 'active' : '' }} ">
-                    <a href="{{ url('petugas') }}" class='sidebar-link '>
+                    <a href="{{ url('redaktur') }}" class='sidebar-link '>
                         <i class="bi bi-house-door-fill"></i>
                         <span>Beranda</span>
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ $page == 'Tugas' ? 'active' : '' }} ">
-                    <a href="{{ url('petugas/tugas') }}" class='sidebar-link '>
+                <li class="sidebar-item {{ $page == 'Periksa Publikasi' ? 'active' : '' }}">
+                    <a href="{{ url('redaktur/periksa_publikasi') }}" class='sidebar-link '>
                         <i class="bi bi-card-list"></i>
-                        <span>Tugas</span>
+                        <span>Periksa Publikasi</span>
                     </a>
                 </li>
-
-                <li class="sidebar-item {{ $page == 'Arsip Tugas' ? 'active' : '' }} ">
+                
+                
+                {{-- <li class="sidebar-item {{ $page == 'Arsip Tugas' ? 'active' : '' }} ">
                     <a href="{{ url('petugas/arsip-tugas') }}" class='sidebar-link '>
                         <i class="bi bi-archive"></i>
                         <span>Arsip Tugas</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">
                     <a href="{{ url('logout') }}" class='sidebar-link '>

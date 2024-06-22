@@ -194,10 +194,13 @@ Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function
 
 
                   // Route Redaktur
+// Route Redaktur
 Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
-
     Route::get('', [RedakturController::class, 'index']);
+    // Route periksa
+    Route::get('periksa_publikasi', [RedakturController::class, 'periksaPublikasi']);
 });
+
 
 
 

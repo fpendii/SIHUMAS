@@ -16,7 +16,7 @@ class EditFotoController extends Controller
 {
     public function index()
     {
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'edit foto')->orderBy('created_at', 'desc')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'edit_foto')->orderBy('created_at', 'desc')->get();
 
         foreach ($dataPermohonan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
@@ -81,7 +81,7 @@ class EditFotoController extends Controller
                 ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
                 ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
                 ->where('pesanan.status', '=', 'proses')
-                ->where('jasa.jenis_jasa', '=', 'edit foto') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
+                ->where('jasa.jenis_jasa', '=', 'edit_foto') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
                 ->orderByDesc('pesanan.created_at') // menambahkan prefix 'pesanan.' untuk kolom 'created_at'
                 ->get()
                 ->toArray(),

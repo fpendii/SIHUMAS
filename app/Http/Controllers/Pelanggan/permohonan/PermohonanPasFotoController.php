@@ -29,7 +29,7 @@ class PermohonanPasFotoController extends Controller
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
-            'jenis_jasa' => 'pas foto',
+            'jenis_jasa' => 'pas_foto',
             'jadwal_foto' => $request->jadwal_foto,
          ]);
  

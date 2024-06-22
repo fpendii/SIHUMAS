@@ -29,7 +29,7 @@ class PermohonanEditFotoController extends Controller
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
-           'jenis_jasa' => 'edit foto',
+           'jenis_jasa' => 'edit_foto',
         ]);
 
         $akun = DB::table('akun')

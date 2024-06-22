@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
-                        <a href="{{ url('pegawai/pas-foto') }}" class="card-link">
+                        <a href="{{ url('petugas/tugas') }}" class="card-link">
                             <div class="card">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="row">
@@ -59,6 +59,7 @@
                         </a>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">
+                        <a href="{{ url('petugas/tugas') }}" class="card-link">
                         <div class="card">
                             <div class="card-body px-4 py-4-5">
                                 <div class="row">
@@ -73,6 +74,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </a>
                         </div>
                     </div>
                     <div class="col-6 col-lg-3 col-md-6">

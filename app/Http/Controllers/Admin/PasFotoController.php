@@ -16,7 +16,7 @@ class PasFotoController extends Controller
 {
     public function index()
     {
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'pas foto')->orderBy('created_at', 'desc')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'pas_foto')->orderBy('created_at', 'desc')->get();
 
         foreach ($dataPermohonan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
@@ -58,7 +58,7 @@ class PasFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->where('jasa.jenis_jasa', '=', 'pas foto')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->where('jasa.jenis_jasa', '=', 'pas_foto')->get();
 
 
         return view('pages.admin.kelola_pasfoto.arsip_pasFoto', $data, compact('dataPermohonan', 'data'));
@@ -75,7 +75,7 @@ class PasFotoController extends Controller
                 ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
                 ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
                 ->where('pesanan.status', '=', 'proses')
-                ->where('jasa.jenis_jasa', '=', 'pas foto') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
+                ->where('jasa.jenis_jasa', '=', 'pas_foto') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
                 ->orderByDesc('pesanan.created_at') // menambahkan prefix 'pesanan.' untuk kolom 'created_at'
                 ->get()
                 ->toArray(),

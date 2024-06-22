@@ -218,10 +218,10 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
     Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
     Route::get('tugas/peliputan/submit/{id}', [TugasPeliputanController::class, 'submitTugas']);
 
-    Route::get('tugas/edit-foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
+    Route::get('tugas/edit_foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
     Route::get('tugas/edit-foto/submit/{id}', [TugasEditFotoController::class, 'submitTugas']);
     
-    Route::get('tugas/pas-foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
+    Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
     Route::get('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
     // Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);

@@ -10,25 +10,16 @@
     }
 </style>
 
+@notifyCss
+
 @section('content')
     <div class="page-heading">
         <h3>Jasa Yang Tersedia Di Humas</h3>
+
     </div>
     <div class="page-content">
         <section class="row">
             <div class="">
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible show fade">
-                        {{ session('success') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-dangert alert-dismissible show fade">
-                        {{ session('error') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif
                 <div class="row">
                     <div class="col-6 box-jasa col-lg-4 col-md-6">
                         <a href="{{ url('jasa/desain') }}">
@@ -144,7 +135,7 @@
 
                 <div class="row">
 
-                    <div >
+                    <div>
                         <div class="card">
                             <div class="card-header">
                                 <h4>Arsip Permohonan</h4>
@@ -154,40 +145,31 @@
                                     <table class="table table-hover table-lg">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Comment</th>
+                                                <th>Layanan Permohonan</th>
+                                                <th>Pesan</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="template/dist/assets/compiled/jpg/5.jpg">
+                                            @foreach ($PermohonanPelanggan as $item)
+                                                <tr>
+                                                    <td class="col-3">
+                                                        <div class="d-flex align-items-center">
+                                                            <p class="font-bold ms-3 mb-0">{{$item->jenis_jasa}}</p>
                                                         </div>
-                                                        <p class="font-bold ms-3 mb-0">Cantik</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Congratulations on your graduation!
-                                                    </p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="col-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="avatar avatar-md">
-                                                            <img src="template/dist/assets/compiled/jpg/2.jpg">
-                                                        </div>
-                                                        <p class="font-bold ms-3 mb-0">Ganteng</p>
-                                                    </div>
-                                                </td>
-                                                <td class="col-auto">
-                                                    <p class=" mb-0">Wow amazing design! Can you make
-                                                        another tutorial for
-                                                        this design?</p>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td class="col-auto">
+                                                        <p class=" mb-0">{{$item->pesan}}
+                                                        </p>
+                                                    </td>
+
+                                                    <td class="col-2 text-right">
+                                                        <span class="float-right">
+                                                            <span style="font-size: 12px" class="mail-date">{{ $item->time_ago }}</span>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -199,6 +181,7 @@
 
         </section>
     </div>
-
+    <x-notify::notify />
     </div>
 @endsection
+@notifyJs

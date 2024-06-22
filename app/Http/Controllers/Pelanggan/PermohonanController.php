@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Pelanggan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Carbon;
 
 class PermohonanController extends Controller
 {
@@ -16,6 +18,13 @@ class PermohonanController extends Controller
             'hak_akses' => 'Pelanggan'
         ];
 
-        return view('pages.pelanggan.pilih_jasa',$data);
+        $PermohonanPelanggan = DB::table('pesanan')->where('id_akun',session('id_akun'))->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
+
+        foreach ($PermohonanPelanggan as $item) {
+            $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
+        }
+
+
+        return view('pages.pelanggan.pilih_jasa',$data,compact('PermohonanPelanggan'));
     }
 }

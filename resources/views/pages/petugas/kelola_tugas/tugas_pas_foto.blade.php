@@ -64,7 +64,7 @@
                             </div>
                             <div class="form-actions d-flex justify-content-end gap-1">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('admin/petugas') }}" class="btn btn-secondary">Kembali</a>
+                                <a href="{{ url('petugas/tugas') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </div>
                     </div>

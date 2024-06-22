@@ -42,11 +42,17 @@
                             </div>
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label for="link_mentahan">Link Mentahan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="link_mentahan" class="form-control" name="link_mentahan" value="{{ $dataPermohonan->link_mentahan }}" readonly>
+                                    </div> --}}
+                                    <div class="col-md-4">
+                                        <label for="link_mentahan">Tanggal Pengambilan Foto</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="link_mentahan" class="form-control" name="link_mentahan" value="{{ $dataPermohonan->jadwal_foto }}" readonly>
                                     </div>
                                     <div class="col-md-4">
                                         <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>

@@ -27,7 +27,7 @@
                                         <div class="col-md-8 form-group">
                                             <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="contact-info-horizontal">Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -37,7 +37,7 @@
                                             @error('ukuran_gambar')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4">
                                             <label for="contact-info-horizontal">Tanggal Pengambilan Foto</label>
                                         </div>

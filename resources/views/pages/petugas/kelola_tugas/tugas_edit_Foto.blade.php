@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ url('petugas/tugas/editing-video/submit/' . $dataPermohonan->id_pesanan) }}" method="POST">
+        <form action="{{ url('petugas/tugas/edit-foto/submit/' . $dataPermohonan->id_pesanan) }}" method="POST">
 
             @csrf
             <div class="card mt-5">

@@ -50,7 +50,7 @@
 
 <body>
 
-    
+
 
 
     <!-- Header Area -->
@@ -105,8 +105,7 @@
                             <i class="icofont-ruler-pencil"></i>
 
                             <h4>Desain</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                                imperdiet. </p>
+                            <p>ingkatkan branding Anda dengan desain brosur, poster, spanduk, dan media promosi lainnya yang menarik dan profesional. Dapatkan pula jasa editing foto dan video untuk mempercantik konten Anda.</p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -115,8 +114,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-edit"></i>
                             <h4>Editing Foto</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                                imperdiet. </p>
+                            <p>Buat foto Anda lebih menarik dan profesional dengan jasa editing foto SILAMAS. Kami menawarkan koreksi warna, pencahayaan, kontras, efek, dan filter untuk mempercantik foto Anda. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -125,8 +123,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-camera"></i>
                             <h4>Pas Foto</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                                imperdiet. </p>
+                            <p>Cepat dan mudah buat pas foto untuk KTP, SIM, paspor, dan berbagai keperluan lainnya di SILAMAS. Kami memastikan pas foto Anda sesuai standar dan siap dalam waktu singkat. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -135,9 +132,7 @@
                         <div class="single-service">
                             <i class="icofont-video"></i>
                             <h4>Peliputan</h4>
-                            <p>Peliputan adalah kegiatan jurnalisme atau media yang melibatkan pengumpulan,
-                                penyuntingan, dan penyampaian informasi atau berita melalui berbagai media seperti
-                                tulisan, foto, video, atau audio. </p>
+                            <p>Abadikan momen spesial Anda dengan jasa peliputan profesional dari SILAMAS. Kami menyediakan foto, video, dan audio untuk dokumentasi acara seminar, konferensi, dan berbagai acara lainnya. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -146,8 +141,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-newspaper"></i>
                             <h4>Pemberitaan dan Publikasi</h4>
-                            <p>Pemberitaan dan publikasi adalah proses menyebarkan informasi atau berita kepada khalayak
-                                melalui media cetak, elektronik, online, atau platform lainnya. </p>
+                            <p>ebarkan informasi atau berita Anda kepada khalayak yang lebih luas dengan bantuan SILAMAS. Kami siap menulis artikel berita yang menarik dan informatif serta mempublikasikannya di berbagai media. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -156,8 +150,7 @@
                         <div class="single-service">
                             <i class="icofont-video-alt"></i>
                             <h4>Editing Video</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec luctus dictum eros ut
-                                imperdiet. </p>
+                            <p>Buat video yang menarik dan profesional dengan jasa editing video SILAMAS. Kami menambahkan musik, efek, transisi, dan sentuhan kreatif lainnya sesuai kebutuhan dan target audience Anda. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -167,109 +160,7 @@
         <!--/ End service -->
 
         <!-- Footer Area -->
-        <footer id="footer" class="footer ">
-            <!-- Footer Top -->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>About Us</h2>
-                                <p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut
-                                    labore dolore magna.</p>
-                                <!-- Social -->
-                                <ul class="social">
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-vimeo"></i></a></li>
-                                    <li><a href="#"><i class="icofont-pinterest"></i></a></li>
-                                </ul>
-                                <!-- End Social -->
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer f-link">
-                                <h2>Quick Links</h2>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Home</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>About Us</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Services</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Our
-                                                    Cases</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Other Links</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Consuling</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Finance</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Testimonials</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>FAQ</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>Open Hours</h2>
-                                <p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.
-                                </p>
-                                <ul class="time-sidual">
-                                    <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-                                    <li class="day">Saturday <span>9.00-18.30</span></li>
-                                    <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>Newsletter</h2>
-                                <p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit
-                                    amet, consectetur adipisicing elit,</p>
-                                <form action="mail/mail.php" method="get" target="_blank"
-                                    class="newsletter-inner">
-                                    <input name="email" placeholder="Email Address" class="common-input"
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Your email address'" required=""
-                                        type="email">
-                                    <button class="button"><i class="icofont icofont-paper-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ End Footer Top -->
-            <!-- Copyright -->
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <div class="copyright-content">
-                                <p>© Copyright 2018 | All Rights Reserved by <a href="https://www.wpthemesgrid.com"
-                                        target="_blank">wpthemesgrid.com</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ End Copyright -->
-        </footer>
+        @include('partial/footer_landing_page')
         <!--/ End Footer Area -->
 
         <!-- jquery Min JS -->

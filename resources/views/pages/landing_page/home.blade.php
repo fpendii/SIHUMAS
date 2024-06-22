@@ -89,7 +89,8 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="text">
-                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah Laut</span></h1>
+                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah
+                                            Laut</span></h1>
                                     <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
                                         dengan segera mewujudkannya untuk Anda </p>
                                     <div class="button">
@@ -107,7 +108,8 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="text">
-                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah Laut</span></h1>
+                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah
+                                            Laut</span></h1>
                                     <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
                                         dengan segera mewujudkannya untuk Anda </p>
                                     <div class="button">
@@ -131,7 +133,6 @@
                     <div class="col-lg-12">
                         <div class="section-title">
                             <h2>Langkah-langkah melakukan Permohonan</h2>
-
                         </div>
                     </div>
                 </div>
@@ -143,7 +144,7 @@
                                 <i class="icofont-login"></i>
                             </div>
                             <h3>Pertama</h3>
-                            <p>Login Menggunakan akun Politala</p>
+                            <p>Login menggunakan akun SILAMAS</p>
                         </div>
                         <!-- End Single features -->
                     </div>
@@ -154,18 +155,18 @@
                                 <i class="icofont-hand-drag1"></i>
                             </div>
                             <h3>Kedua</h3>
-                            <p>Pilih Jasa yang tersedia di SILAMAS</p>
+                            <p>Pilih jasa yang Anda inginkan dari daftar yang tersedia</p>
                         </div>
                         <!-- End Single features -->
                     </div>
                     <div class="col-lg-3 col-12">
                         <!-- Start Single features -->
-                        <div class="single-features last">
+                        <div class="single-features">
                             <div class="signle-icon">
                                 <i class="icofont-file-document"></i>
                             </div>
-                            <h3>Ketika</h3>
-                            <p>Lengkapi Form jasa yang ditentukan</p>
+                            <h3>Ketiga</h3>
+                            <p>Lengkapi formulir sesuai dengan jasa yang Anda pilih</p>
                         </div>
                         <!-- End Single features -->
                     </div>
@@ -176,7 +177,7 @@
                                 <i class="icofont-ui-text-loading"></i>
                             </div>
                             <h3>Keempat</h3>
-                            <p>Tunggu Konfirmasi dari Pihak Silamas</p>
+                            <p>Tunggu konfirmasi dari tim SILAMAS</p>
                         </div>
                         <!-- End Single features -->
                     </div>
@@ -194,10 +195,12 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-12">
                         <div class="content">
-                            <h2>Ada masalah atau pertanyaan?</h2>
+                            <h2>Jika Anda memiliki pertanyaan, silakan hubungi kami</h2>
                             <div class="button mt-2">
-                                <a href="#" class="btn">Contact Now</a>
-
+                                <a class="btn" href="https://wa.me/{{$no_hp}}"
+                                    class="whatsapp-button" target="_blank">
+                                    Contact Now
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -207,110 +210,8 @@
         <!--/ End Call to action -->
 
 
-        <!-- Footer Area -->
-        <footer id="footer" class="footer ">
-            <!-- Footer Top -->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>About Us</h2>
-                                <p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut
-                                    labore dolore magna.</p>
-                                <!-- Social -->
-                                <ul class="social">
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-google-plus"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-vimeo"></i></a></li>
-                                    <li><a href="#"><i class="icofont-pinterest"></i></a></li>
-                                </ul>
-                                <!-- End Social -->
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer f-link">
-                                <h2>Quick Links</h2>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Home</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>About Us</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Services</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Our
-                                                    Cases</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Other Links</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-12">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Consuling</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Finance</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Testimonials</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>FAQ</a></li>
-                                            <li><a href="#"><i class="fa fa-caret-right"
-                                                        aria-hidden="true"></i>Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>Open Hours</h2>
-                                <p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.
-                                </p>
-                                <ul class="time-sidual">
-                                    <li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-                                    <li class="day">Saturday <span>9.00-18.30</span></li>
-                                    <li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-12">
-                            <div class="single-footer">
-                                <h2>Newsletter</h2>
-                                <p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit
-                                    amet, consectetur adipisicing elit,</p>
-                                <form action="mail/mail.php" method="get" target="_blank"
-                                    class="newsletter-inner">
-                                    <input name="email" placeholder="Email Address" class="common-input"
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Your email address'" required=""
-                                        type="email">
-                                    <button class="button"><i class="icofont icofont-paper-plane"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ End Footer Top -->
-            <!-- Copyright -->
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <div class="copyright-content">
-                                <p>© Copyright 2018 | All Rights Reserved by <a href="https://www.wpthemesgrid.com"
-                                        target="_blank">wpthemesgrid.com</a> </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ End Copyright -->
-        </footer>
+            @include('partial/footer_landing_page')
+
         <!--/ End Footer Area -->
 
         <!-- jquery Min JS -->
@@ -353,7 +254,9 @@
         <script src="template_landing_page/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="template_landing_page/js/main.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

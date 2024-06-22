@@ -25,7 +25,7 @@
                                             <label for="password-horizontal">Pesan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="contact-info-horizontal">Mentahan</label>
@@ -33,8 +33,8 @@
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="contact-info-horizontal"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan seperti link foto, logo, dll yang diperlukan dalam edit foto">
-                                            @error('ukuran_gambar')
+                                                name="link_mentahan" placeholder="Masukkan link mentahan seperti link foto, logo, dll yang diperlukan dalam edit foto" required>
+                                            @error('link_mentahan')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="contact-info-horizontal" class="form-control"
-                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

@@ -33,10 +33,13 @@ class AuthController extends Controller
         $role = $user->role;
         $username = $user->username;
         $id_akun = $user->id_akun;
+        $nama = $user->nama;
 
         $request->session()->put('role', $role);
         $request->session()->put('username', $username);
         $request->session()->put('id_akun', $id_akun);
+        $request->session()->put('nama', $nama);
+
 
         event(new Registered($user));
 

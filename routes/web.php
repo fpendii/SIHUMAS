@@ -29,6 +29,7 @@ use App\Http\Controllers\Pegawai\TugasDesainController;
 use App\Http\Controllers\Pegawai\TugasPeliputanController;
 use App\Http\Controllers\Pegawai\TugasEditingVideoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
+use App\Http\Controllers\Koordinator\KoordinatorController;
 use App\Http\Controllers\SendEmail\TesEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -105,7 +106,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 });
 
 // <<<<<< ========== Route Admin ========== >>>>>>
-Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function () {
+    Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function () {
 
     // Halaman Dashboard Admin
     Route::get('', [AdminController::class, 'index'])->name('admin');
@@ -121,14 +122,16 @@ Route::prefix('admin')->middleware(['auth', 'verified','admin'])->group(function
    Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
    Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
    Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
-   Route::get('peliputan/proses', [PeliputanController::class, 'proses']);
+   Route::get('Peliputan/proses', [PeliputanController::class, 'proses']);
+   Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
    Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
     Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
 
 
 
    // Ruote kelola editing video
-    Route::get('editing-video', [EditingVideoController::class, 'index']);
+    // Route::get('editing-video', [EditingVideoController::class, 'index']);
+    Route::get('video-editing', [EditingVideoController::class, 'index']);
      Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
      Route::get('editing-video/arsip', [EditingVideoController::class, 'arsip']);
      Route::get('editing-video/detail-arsip/{id}', [EditingVideoController::class, 'detailArsip']);
@@ -221,4 +224,27 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);
+});
+
+
+        // Route Koordinator
+         Route::prefix('koordinator')->group(function ()
+         {
+
+            Route::get('', [KoordinatorController::class, 'index']);
+
+            // Route Kelola Peliputan
+    Route::get('peliputan', [PeliputanController::class, 'index']);
+   Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
+   Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
+   Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
+   Route::get('Peliputan/proses', [PeliputanController::class, 'proses']);
+   Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
+    Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
+    Route::get('peliputan/detail-tolak/{id}', [PeliputanController::class, 'detailTolak']);
+
+
+
+
+
 });

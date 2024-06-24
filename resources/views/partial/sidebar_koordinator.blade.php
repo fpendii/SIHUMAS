@@ -50,7 +50,7 @@
 
 
                 <li class="sidebar-item {{ $page == 'Beranda' ? 'active' : '' }} ">
-                    <a href="{{ url('admin') }}" class='sidebar-link '>
+                    <a href="{{ url('koordinator') }}" class='sidebar-link '>
                         <i class="bi bi-house-door-fill"></i>
                         <span>Beranda</span>
                     </a>
@@ -64,35 +64,29 @@
                     </a>
                     <ul class="submenu">
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/peliputan') }}" class="submenu-link">Peliputan</a>
+                            <a href="{{ url('koordinator/peliputan') }}" class="submenu-link">Peliputan</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/publikasi') }}" class="submenu-link">Publikasi</a>
+                            <a href="{{ url('koordinator/publikasi') }}" class="submenu-link">Publikasi</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/editing-video') }}" class="submenu-link">Editing Video</a>
+                            <a href="{{ url('koordinator/editing-video') }}" class="submenu-link">Editing Video</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/video-foto') }}" class="submenu-link">Editing Foto</a>
+                            <a href="{{ url('koordinator/video-foto') }}" class="submenu-link">Editing Foto</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/pas-foto') }}" class="submenu-link">Pas Foto</a>
+                            <a href="{{ url('koordinator/pas-foto') }}" class="submenu-link">Pas Foto</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ url('admin/desain') }}" class="submenu-link">Desain</a>
+                            <a href="{{ url('koordinator/desain') }}" class="submenu-link">Desain</a>
                         </li>
                     </ul>
                 </li>
                 <li class="sidebar-item {{ $page == 'Laporan Bulanan' ? 'active' : '' }} ">
-                    <a href="{{ url('admin') }}" class='sidebar-link '>
+                    <a href="{{ url('koordinator/laporan-bulanan') }}" class='sidebar-link '>
                         <i class="fas fa-file-alt"></i>
                         <span>Laporan Bulanan</span>
-                    </a>
-                </li>
-                <li class="sidebar-item {{ $page == 'Kelola Akun' ? 'active' : '' }} ">
-                    <a href="{{ url('admin/kelola-akun') }}" class='sidebar-link '>
-                        <i class="fa bi-person-lines-fill"></i>
-                        <span>Akun Pegawai</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">

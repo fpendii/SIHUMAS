@@ -16,7 +16,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Publikasi</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $totalPublikasi }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-3 order-first order-lg-last">
                 <div class="card">
                     <a href="{{ url('redaktur/profil') }}">
                         <div class="card-body py-4 px-4">
@@ -33,8 +33,8 @@
                                     <img src="template/dist/assets/compiled/jpg/1.jpg" alt="Face 1">
                                 </div>
                                 <div class="ms-3 name">
-                                    <h5 class="font-bold">John Duck</h5>
-                                    <h6 class="text-muted mb-0">@johnducky</h6>
+                                    <h5 class="font-bold">{{session('username')}}</h5>
+                                    <h6 class="text-muted mb-0">{{session('role')}}</h6>
                                 </div>
                             </div>
                         </div>

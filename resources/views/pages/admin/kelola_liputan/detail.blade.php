@@ -44,10 +44,10 @@
                                         <label for="feedback1" class="sr-only">Waktu Selesai</label>
                                         <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
                                     </div>
-                                    {{-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="feedback4" class="sr-only">Link Mentahan</label>
                                         <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
-                                    </div> --}}
+                                    </div>
                                 <div class="form-group">
                                     <label for="feedback2" class="sr-only">Pertanyaan 1</label>
                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>

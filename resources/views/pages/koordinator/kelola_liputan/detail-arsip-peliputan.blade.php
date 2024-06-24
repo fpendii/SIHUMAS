@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
+                        <h4 class="card-title">Data Permohonan Peliputan</h4>
 
                         <div class="form-body">
                             <div class="form-group">

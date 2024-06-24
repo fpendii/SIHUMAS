@@ -100,18 +100,5 @@ class KoorPeliputanController extends Controller
     }
 
 
-
-    // public function detailTolak($id){
-    //     $data =  [
-    //         'title' => 'Koordinator| SIHUMAS',
-    //         'page' => 'Koordinator',
-    //         'sidebar' => 'arsip',
-    //         'level' => 'Koordinator'
-    //     ];
-    //     $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
-
-    //     return view('pages.koordinator.kelola_liputan.detail-tolak',$data,compact('dataPermohonan','data'));
-
-    // }
     
 }

@@ -48,11 +48,11 @@
                                 <input type="text" id="feedback1" class="form-control"
                                     placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
                             </div>
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"
                                     placeholder="{{ $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
-                            </div> --}}
+                            </div>
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"

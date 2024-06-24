@@ -34,6 +34,7 @@ use App\Http\Controllers\Pegawai\TugasPasFotoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\Koordinator\KoordinatorController;
 use App\Http\Controllers\Koordinator\KoorPeliputanController;
+use App\Http\Controllers\Koordinator\KoorEditingVideoController;
 use App\Http\Controllers\SendEmail\TesEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -134,8 +135,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 
 
    // Ruote kelola editing video
-    // Route::get('editing-video', [EditingVideoController::class, 'index']);
-    Route::get('video-editing', [EditingVideoController::class, 'index']);
+    Route::get('editing-video', [EditingVideoController::class, 'index']);
      Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
      Route::get('editing-video/arsip', [EditingVideoController::class, 'arsip']);
      Route::get('editing-video/detail-arsip/{id}', [EditingVideoController::class, 'detailArsip']);
@@ -249,11 +249,23 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
             // Route Kelola Peliputan
             Route::get('peliputan', [KoorPeliputanController::class, 'index']);
-            Route::get('peliputan/detail/{id}', [KoorPeliputanController::class, 'detail']);
+            Route::get('peliputan/detail_peliputan/{id}', [KoorPeliputanController::class, 'detail']);
             Route::get('peliputan/arsip_peliputan', [KoorPeliputanController::class, 'arsip']);
             Route::get('peliputan/detail-arsip-peliputan/{id}',[KoorPeliputanController::class,'detailArsip']);
             Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
             Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
-            Route::put('peliputan/tolak/{id}', [KoorPeliputanController::class, 'tolakPermohonan']);
-            Route::get('peliputan/detail-tolak/{id}', [KoorPeliputanController::class, 'detailTolak']);
+            Route::get('laporan-bulanan', [KoordinatorController::class, 'laporan_peliputan']);
+           
+
+                    // Ruote kelola editing video
+            Route::get('editing-video', [KoorEditingVideoController::class, 'index']);
+            Route::get('editing-video/detail_editing_video/{id}', [koorEditingVideoController::class, 'detail']);
+            Route::get('editing-video/arsip', [KoorEditingVideoController::class, 'arsip']);
+            Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
+            Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
+            Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
+            Route::get('laporan-bulanan', [KoordinatorController::class, 'laporan_editing-video']);
+
+
 });
+

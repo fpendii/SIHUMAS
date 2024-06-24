@@ -21,24 +21,16 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/peliputan') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('koordinator/editing-video') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
                 <img src="/template/dist/assets/compiled/svg/logo.svg">
             </a>
         </div>
     </nav>
 
-
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <div class="form-group">
-                    <label for="linkMentahan" class="sr-only">Link Hasil</label>
-                    <input type="text" id="linkMentahan" class="form-control"
-                        value="{{ $dataPermohonan->link_hasil }}" readonly>
-                    <small><a href="{{ $dataPermohonan->link_hasil}}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link mentahan</a></small>
-                </div><br>
-
                 <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
@@ -47,56 +39,39 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
-
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Waktu Mulai</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="linkMentahan" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="linkMentahan" class="form-control"
-                                    value="{{ $dataPermohonan->link_mentahan }}" readonly>
-                                <small><a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link mentahan</a></small>
-                            </div>
-                            
-                            
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 1</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 2</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 3</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
-                            </div>
+                        <h4 class="card-title">Data Permohonan Editing Video</h4>
+                        <div class="form-group">
+                            <label for="link_mentahan">Link Mentahan</label>
+                            <p>
+                                <a href="{{ old('link_mentahan') }}" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror">
+                                    {{ old('link_mentahan') }}
+                                </a>
+                            </p>
+                            @error('link_mentahan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
-
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-
-                            <a href="{{url('admin/peliputan/proses')}}" class="btn btn-secondary">Kembali</a>
+                        <div class="form-group">
+                            <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                            <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                         </div>
-
+                    </div>
+                </div>
+            </div>
+            
+                            {{-- <div class="form-group">
+                                <label for="feedback4" class="sr-only">Link Hasil</label>
+                                <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
+                            </div> --}}
+                            </div>
+                            <div class="form-actions d-flex justify-content-end grid gap-1">
+                                <a href="{{url('koordinator/editing-video/')}}" class="btn btn-secondary">Kembali</a>
+                            </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 
     <script src="/template/dist/assets/compiled/js/app.js"></script>
 

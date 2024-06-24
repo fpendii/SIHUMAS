@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PeliputanController;
 use App\Http\Controllers\Admin\EditingVideoController;
 use App\Http\Controllers\Redaktur\RedakturController;
+use App\Http\Controllers\Redaktur\PeriksaPublikasiController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
@@ -197,11 +198,14 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 
 
                   // Route Redaktur
-// Route Redaktur
-Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+ Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+
     Route::get('', [RedakturController::class, 'index']);
+                
     // Route periksa
-    Route::get('periksa_publikasi', [RedakturController::class, 'periksaPublikasi']);
+Route::get('periksa_publikasi', [PeriksaPublikasiController::class, 'index']);
+Route::get('periksa/publikasi/detail-tugas/{id}', [PeriksaPublikasiController::class, 'detailTugas'])->name('detail-tugas');
+Route::post('periksa/publikasi/detail-tugas/submit/{id}', [PeriksaPublikasiController::class, 'submitTugas']);
 });
 
 

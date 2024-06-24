@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Koordinator;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB; 
 use App\Models\akun;
 use Illuminate\Support\Facades\Redis;
 use Carbon\Carbon;
 
-class PeliputanController extends Controller
+class KoorPeliputanController extends Controller
 {
     public function index(){
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'peliputan')->orderBy('created_at', 'desc')->get();
@@ -17,7 +18,7 @@ class PeliputanController extends Controller
         }
         $data = [
             'title' => 'Peliputan | SIHUMAS',
-            'page' => 'Peliputan',
+            'page' => 'peliputan',
             'sidebar' => 'inbox',
             'level' => 'Koordinator'
         ];
@@ -47,7 +48,7 @@ class PeliputanController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
 
-        return view('pages.koordinator.kelola_liputan.proses_liputan', $data);
+        return view('pages.koordinator.kelola_liputan.proses_peliputan', $data);
 
     }
 
@@ -63,31 +64,11 @@ class PeliputanController extends Controller
             'page' => 'Permohonan Peliputan' ,
             'level' => 'Koordinator',
         ];
-        return view('pages.koordinator.kelola_liputan.detail_proses_liputan',$data,compact('dataPermohonan'));
+        return view('pages.koordinator.kelola_liputan.detail-proses_liputan',$data,compact('dataPermohonan'));
     }
 
 
-    // public function detail(Request $request, $id)
-    // {
-      
-    //     $dataPermohonan = DB::table('pesanan')
-    //         ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-    //         ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-    //         ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
-    //         ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
-    //         ->first();
-    
-    //     // Mengambil semua petugas
-    //     $dataPetugas = akun::where('role','=','petugas')->get();
-    
-    //     $data = [
-    //         'title' => 'Permohonan Desain | SIHUMAS',
-    //         'page' => 'Permohonan Desain',
-    //         'level' => 'Admin',
-    //     ];
-    //     return view('pages.admin.kelola_liputan.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
-    
-    // }
+
 
     public function arsip(){
         $data =  [
@@ -115,31 +96,22 @@ class PeliputanController extends Controller
             'level' => 'Koordinator',
         ];
 
-        return view('pages.koordinator.kelola_liputan.detail-arsip', $data, compact('dataPermohonan'));
+        return view('pages.koordinator.kelola_liputan.detail-arsip-peliputan', $data, compact('dataPermohonan'));
     }
 
 
 
-    // public function tolakPermohonan($id)
-    // {
-    //     DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
-    
-    //     //return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
-    //     return redirect()->to('admin/peliputan')->with('success', 'Pesanan ditolak');
+    // public function detailTolak($id){
+    //     $data =  [
+    //         'title' => 'Koordinator| SIHUMAS',
+    //         'page' => 'Koordinator',
+    //         'sidebar' => 'arsip',
+    //         'level' => 'Koordinator'
+    //     ];
+    //     $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+
+    //     return view('pages.koordinator.kelola_liputan.detail-tolak',$data,compact('dataPermohonan','data'));
+
     // }
-
-
-    public function detailTolak($id){
-        $data =  [
-            'title' => 'Koordinator| SIHUMAS',
-            'page' => 'Koordinator',
-            'sidebar' => 'arsip',
-            'level' => 'Koordinator'
-        ];
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
-
-        return view('pages.koordinator.kelola_liputan.detail-tolak',$data,compact('dataPermohonan','data'));
-
-    }
     
 }

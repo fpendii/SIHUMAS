@@ -1,4 +1,4 @@
-@extends('partial.tabel_permohonan')
+@extends('partial.tabel_koordinator')
 
 @section('content')
     <div class="email-user-list list-group ps ps--active-y">

@@ -1,10 +1,10 @@
-@extends('partial.tabel_permohonan')
+@extends('partial.tabel_koordinator')
 
 @section('content')
     <div class="email-user-list list-group ps ps--active-y">
         <ul class="users-list-wrapper media-list">
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('koordinator/peliputan/detail-arsip'.$item->id_pesanan)}}">
+                <a href="{{url('koordinator/peliputan/detail-arsip-peliputan/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <div class="checkbox-con me-3">

@@ -33,6 +33,7 @@ use App\Http\Controllers\Pegawai\TugasEditFotoController;
 use App\Http\Controllers\Pegawai\TugasPasFotoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\Koordinator\KoordinatorController;
+use App\Http\Controllers\Koordinator\KoorPeliputanController;
 use App\Http\Controllers\SendEmail\TesEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -230,8 +231,6 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
     Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
     Route::post('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
-    // Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
-    // Route::post('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
 
     Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
     Route::post('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
@@ -249,17 +248,12 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
             Route::get('', [KoordinatorController::class, 'index']);
 
             // Route Kelola Peliputan
-    Route::get('peliputan', [PeliputanController::class, 'index']);
-   Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
-   Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
-   Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
-   Route::get('Peliputan/proses', [PeliputanController::class, 'proses']);
-   Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
-    Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
-    Route::get('peliputan/detail-tolak/{id}', [PeliputanController::class, 'detailTolak']);
-
-
-
-
-
+            Route::get('peliputan', [KoorPeliputanController::class, 'index']);
+            Route::get('peliputan/detail/{id}', [KoorPeliputanController::class, 'detail']);
+            Route::get('peliputan/arsip_peliputan', [KoorPeliputanController::class, 'arsip']);
+            Route::get('peliputan/detail-arsip-peliputan/{id}',[KoorPeliputanController::class,'detailArsip']);
+            Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
+            Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
+            Route::put('peliputan/tolak/{id}', [KoorPeliputanController::class, 'tolakPermohonan']);
+            Route::get('peliputan/detail-tolak/{id}', [KoorPeliputanController::class, 'detailTolak']);
 });

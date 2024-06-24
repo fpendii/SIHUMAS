@@ -46,6 +46,16 @@ class akun_seeder extends Seeder
                 'email_verified_at' => '2024-06-18 20:53:25'
             ],
             [
+                'username' => 'ferdi123',
+                'email' => 'ferdi.nurrahman@politala.ac.id',
+                'nama' => 'Ferdi Nurrahman',
+                'no_hp' => '083142170067',
+                'role' => 'redaktur',
+                'password' => hash::make('123'),
+                'is_active' => true,
+                'email_verified_at' => '2024-06-18 20:53:25'
+            ],
+            [
                 'username' => 'Bang Dimas',
                 'email' => 'dimas@mhs.politala.ac.id',
                 'nama' => 'Dimaz Nur Afrizal',

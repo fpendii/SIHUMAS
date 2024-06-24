@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AkunController;
 use App\Http\Controllers\Admin\PeliputanController;
 use App\Http\Controllers\Admin\EditingVideoController;
+use App\Http\Controllers\Redaktur\RedakturController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
@@ -28,6 +29,8 @@ use App\Http\Controllers\Pegawai\TugasPublikasiController;
 use App\Http\Controllers\Pegawai\TugasDesainController;
 use App\Http\Controllers\Pegawai\TugasPeliputanController;
 use App\Http\Controllers\Pegawai\TugasEditingVideoController;
+use App\Http\Controllers\Pegawai\TugasEditFotoController;
+use App\Http\Controllers\Pegawai\TugasPasFotoController;
 use App\Http\Controllers\pelanggan\permohonan\PermohonanDesainController;
 use App\Http\Controllers\Koordinator\KoordinatorController;
 use App\Http\Controllers\SendEmail\TesEmail;
@@ -191,12 +194,19 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
     Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
 });
 
-                  // Route Redaktur
-Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
 
+
+                  // Route Redaktur
+// Route Redaktur
+Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
     Route::get('', [RedakturController::class, 'index']);
-})
-;
+    // Route periksa
+    Route::get('periksa_publikasi', [RedakturController::class, 'periksaPublikasi']);
+});
+
+
+
+
 
 Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
@@ -214,6 +224,11 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
     Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
     Route::get('tugas/peliputan/submit/{id}', [TugasPeliputanController::class, 'submitTugas']);
 
+    Route::get('tugas/edit_foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
+    Route::post('tugas/edit-foto/submit/{id}', [TugasEditFotoController::class, 'submitTugas']);
+    
+    Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
+    Route::post('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
     // Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
     // Route::post('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);

@@ -22,14 +22,14 @@ class PermohonanPeliputanController extends Controller
         return view('pages.pelanggan.permohonan.liputan', $data);
     }
 
-    
+
     public function submit(Request $request)
     {
         $request->validate([
             'waktu_mulai' => 'required',
             'waktu_selesai' => 'required',
         ]);
-    
+
         $jasa = DB::table('jasa')->insertGetId([
             'waktu_mulai' => $request->waktu_mulai,
             'waktu_selesai' => $request->waktu_selesai,
@@ -43,19 +43,25 @@ class PermohonanPeliputanController extends Controller
         ->where('akun.id_akun', session('id_akun'))
         ->first();
 
-        DB::table('pesanan')->insert([
+        $simpanPesanan = DB::table('pesanan')->insert([
             'id_akun' => $akun->id_akun,
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => 'link mentahan',
             'pesan' => 'pesan',
-            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat 
+            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        
-    
+
+        if(!$simpanPesanan){
+            emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');
+        }else{
+            emotify('success', 'Permohonan berhasil dikirim, Silahkan tunggu konfirmasi selanjutnya dari pihak Silamas :)');
+        }
+
+
         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
     }
-    
+
 }

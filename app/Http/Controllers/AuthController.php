@@ -20,42 +20,42 @@ class AuthController extends Controller
 
     // Proses Authentifikasi
     public function store(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        $credentials = $request->only('email', 'password');
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $role = Auth::user()->role;
-            $username = Auth::user()->username;
-            $id_akun = Auth::user()->id_akun;
+    if (Auth::attempt($credentials)) {
+        $user = Auth::user();
+        $role = $user->role;
+        $username = $user->username;
+        $id_akun = $user->id_akun;
+        $nama = $user->nama;
 
-            $request->session()->put('role', $role);
-            $request->session()->put('username', $username);
-            $request->session()->put('id_akun', $id_akun);
+        $request->session()->put('role', $role);
+        $request->session()->put('username', $username);
+        $request->session()->put('id_akun', $id_akun);
+        $request->session()->put('nama', $nama);
 
-            event(new Registered($user));
 
-            if ($user->role == 'admin') {
-                return redirect()->intended('admin')->with('success', 'Login berhasil!');
+        event(new Registered($user));
 
-            } elseif ($user->role == 'petugas') {
-                return redirect()->intended('petugas')->with('success', 'Login berhasil!');
-
-            } else {
-                // Default redirection for other roles
-                return redirect()->intended('jasa')->with('success', 'Login berhasil!');
-            }
-
+        if ($role == 'admin') {
             return redirect()->intended('admin')->with('success', 'Login berhasil!');
+        } elseif ($role == 'petugas') {
+            return redirect()->intended('petugas')->with('success', 'Login berhasil!');
+        } elseif ($role == 'redaktur') {
+            return redirect()->intended('redaktur')->with('success', 'Login berhasil!');
+        } else {
+            return redirect()->intended('jasa')->with('success', 'Login berhasil!');
         }
-
-        return redirect()->back()->with('loginError', 'The provided credentials do not match our records.');
     }
+
+    return redirect()->back()->with('loginError', 'The provided credentials do not match our records.');
+}
 
     public function logout(Request $request)
     {

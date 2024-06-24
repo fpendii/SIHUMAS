@@ -48,7 +48,7 @@ class PermohonanPublikasiController extends Controller
         ->first();
 
         // Simpan data ke tabel pertama
-        DB::table('pesanan')->insert([
+        $simpanPesanan = DB::table('pesanan')->insert([
             'id_akun' => $akun->id_akun,
             'id_jasa' => $jasa,
             'status' => 'pending',
@@ -57,6 +57,12 @@ class PermohonanPublikasiController extends Controller
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             'created_at' => now()
         ]);
+
+        if(!$simpanPesanan){
+            emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');
+        }else{
+            emotify('success', 'Permohonan berhasil dikirim, Silahkan tunggu konfirmasi selanjutnya dari pihak Silamas :)');
+        }
 
         return redirect()->to('jasa')->with('success','Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');
 

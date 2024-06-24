@@ -25,9 +25,9 @@
                                             <label for="password-horizontal">Pesan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                         </div>
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="contact-info-horizontal">Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -37,21 +37,30 @@
                                             @error('ukuran_gambar')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Tanggal Pengambilan Foto</label>
+                                            <label for="jadwal_foto">Tanggal Pengambilan Foto</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="datetime-local" id="contact-info-horizontal" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" placeholder="Pilih tanggal dan waktu pengambilan foto">
+                                            <input type="datetime-local" id="jadwal_foto" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" placeholder="Pilih tanggal dan waktu pengambilan foto " required>
                                         </div>
-
+                                        
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Tenggat Pengerjaan</label>
+                                            <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="contact-info-horizontal" class="form-control"
-                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                                            <input type="date" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                                         </div>
+                                        
+                                        <script>
+                                            document.getElementById('jadwal_foto').addEventListener('change', function() {
+                                                var jadwalFoto = new Date(this.value);
+                                                var tenggatPengerjaan = document.getElementById('tenggat_pengerjaan');
+                                                var minDate = jadwalFoto.toISOString().split('T')[0];
+                                                tenggatPengerjaan.min = minDate;
+                                            });
+                                        </script>                                        
+                                        
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
                                             <button type="reset" class="btn btn-light-secondary me-1 mb-1">Batal</button>

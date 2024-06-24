@@ -36,6 +36,9 @@
             @include('partial.sidebar_petugas')
             @elseif ($level == 'Koordinator')
     @include('partial.sidebar_koordinator')
+        @elseif ($level == 'Redaktur')
+            @include('partial.sidebar_redaktur')
+
         @endif
         {{-- End Sidebar --}}
 

@@ -22,7 +22,7 @@ class KoorController extends Controller
             'totalpeliputan' => count($PermohonanPeliputan),
             'totaleditingvideo' => count($PermohonanEditingVideo),
         ];
-        return view('pages.koor.beranda',$data);
+        return view('pages.koordinator.beranda',$data);
 
  }
 }

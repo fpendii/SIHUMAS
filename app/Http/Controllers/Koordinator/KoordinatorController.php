@@ -5,20 +5,19 @@ namespace App\Http\Controllers\Koordinator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Akun; // Pastikan Anda mengimport model Akun jika belum
 
 class KoordinatorController extends Controller
 {
     public function index()
     {
-        // Mengambil total peliputan dari jumlah pesanan yang sedang dalam proses untuk jasa peliputan
+       
         $totalpeliputan = DB::table('pesanan')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
             ->where('pesanan.status', '=', 'proses')
             ->where('jasa.jenis_jasa', '=', 'peliputan')
             ->count();
 
-        // Mengambil total video editing dari jumlah pesanan yang sedang dalam proses untuk jasa video editing
+      
         $totaleditingvideo = DB::table('pesanan')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
             ->where('pesanan.status', '=', 'proses')
@@ -114,10 +113,5 @@ class KoordinatorController extends Controller
         return view('pages.koordinator.kelola_liputan.detail-arsip', compact('dataPermohonan', 'data'));
     }
 
-    public function tolakPermohonan($id)
-    {
-        DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
-
-        return redirect()->to('admin/peliputan')->with('success', 'Pesanan ditolak');
-    }
+   
 }

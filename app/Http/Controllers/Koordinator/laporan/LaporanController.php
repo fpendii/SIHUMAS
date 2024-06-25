@@ -8,18 +8,28 @@ use Illuminate\Support\Facades\DB;
 class LaporanController extends Controller
 {
     public function index()
-    {
-        $data = [
-            'title' => 'Laporan Bulanan | SIHUMAS',
-            'page' => 'Laporan Bulanan',
-            'level' => 'Koordinator',
-            'Laporan' => DB::table('petugas_pesanan')
-                ->join('pesanan', 'petugas_pesanan.id_pesanan', '=', 'pesanan.id_pesanan')
-                ->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')
-                ->join('akun','pesanan.id_akun','=','akun.id_akun')
-                ->get()
-                ->toArray()
-        ];
-        return view('pages.koordinator.kelola_laporan.laporan', $data);
-    }
+{
+    $data = [
+        'title' => 'Laporan Bulanan | SIHUMAS',
+        'page' => 'Laporan Bulanan',
+        'level' => 'Koordinator',
+        'Laporan' => DB::table('pesanan')
+            ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+            ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+            ->select(
+                'jasa.jenis_jasa', 
+                'akun.nama', 
+                'pesanan.status', 
+                DB::raw('COUNT(pesanan.id_pesanan) as total')
+            )
+            ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
+            ->get()
+            ->toArray()
+    ];
+
+    
+    return view('pages.koordinator.kelola_laporan.laporan', $data);
+}
+
+
 }

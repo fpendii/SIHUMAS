@@ -23,7 +23,7 @@ class EditingVideoController extends Controller
         }
         $data = [
             'title' => 'Editing Video | SIHUMAS',
-            'page' => 'Editing Video',
+            'page' => 'editing-video',
             'sidebar' => 'inbox',
             'level' => 'Admin'
         ];
@@ -33,7 +33,7 @@ class EditingVideoController extends Controller
     public function arsip(){
      $data =  [
             'title' => 'Editing Video | SIHUMAS',
-            'page' => 'video-editing',
+            'page' => 'editing-video',
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];
@@ -52,7 +52,7 @@ class EditingVideoController extends Controller
     {
         $data = [
             'title' => 'Editing Video | SIHUMAS',
-            'page' => 'editing-video ',
+            'page' => 'editing-video',
             'sidebar' => 'proses',
             'level' => 'Admin',
             'dataPermohonan' => DB::table('pesanan')
@@ -82,7 +82,7 @@ class EditingVideoController extends Controller
 
         $data = [
             'title' => 'Permohonan Editing Video | SIHUMAS',
-            'page' => 'Permohonan Editing Video' ,
+            'page' => 'editing-video',
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_editing_video.detail_proses_editing_video',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
@@ -101,7 +101,7 @@ class EditingVideoController extends Controller
 
         $data = [
             'title' => 'Permohonan Editing Video| SIHUMAS',
-            'page' => 'Permohonan Editing Video',
+            'page' => 'editing-video',
             'level' => 'Admin',
         ];
 
@@ -119,7 +119,7 @@ class EditingVideoController extends Controller
 
         $data = [
             'title' => 'Permohonan  Editing Video| SIHUMAS',
-            'page' => 'Permohonan  Editing Video',
+            'page' => 'editing-video',
             'level' => 'Admin',
         ];
 

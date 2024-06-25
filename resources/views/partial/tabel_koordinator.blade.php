@@ -67,17 +67,6 @@
                                     <div class="sidebar-menu-list ps">
                                         <!-- sidebar menu  -->
                                         <div class="list-group list-group-messages">
-                                            {{-- <a href="{{url('koordinator/'.$page)}}" class="list-group-item pt-0 {{ $sidebar == 'inbox' ? 'active' : '' }}
-                                            " id="inbox-menu">
-                                                <div class="fonticon-wrap d-inline me-3">
-                                                    <svg class="bi" width="1.5em" height="1.5em"
-                                                        fill="currentColor">
-                                                        <use
-                                                            xlink:href="/template/dist/assets/static/images/bootstrap-icons.svg#envelope" />
-                                                    </svg>
-                                                </div>
-                                                Inbox
-                                            </a> --}}
                                             <a href="{{url('koordinator/'.$page.'/proses_peliputan')}}" class="list-group-item {{ $sidebar == 'proses' ? 'active' : '' }}">
                                                 <div class="fonticon-wrap d-inline me-3">
                                                     <i class="bi bi-arrow-repeat icon"></i>

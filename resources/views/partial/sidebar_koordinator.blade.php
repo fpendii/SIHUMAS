@@ -83,32 +83,13 @@
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-list-ul"></i>
+                <li class="sidebar-item {{ $page == 'Laporan Bulanan' ? 'active' : '' }} ">
+                    <a href="{{ url('koordinator/laporan_peliputan') }}" class='sidebar-link '>
+                        <i class="fas fa-file-alt"></i>
                         <span>Laporan Bulanan</span>
                     </a>
-                    <ul class="submenu">
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/laporan_peliputan') }}" class="submenu-link">Peliputan</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/publikasi') }}" class="submenu-link">Publikasi</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/laporan_editing-video') }}" class="submenu-link">Editing Video</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/video-foto') }}" class="submenu-link">Editing Foto</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/pas-foto') }}" class="submenu-link">Pas Foto</a>
-                        </li>
-                        <li class="submenu-item ">
-                            <a href="{{ url('koordinator/desain') }}" class="submenu-link">Desain</a>
-                        </li>
-                    </ul>
                 </li>
+                   
                 <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">
                     <a href="{{ url('logout') }}" class='sidebar-link '>
                         <i class="bi bi-box-arrow-right"></i>

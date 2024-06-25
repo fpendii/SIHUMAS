@@ -25,7 +25,7 @@ class KoordinatorController extends Controller
             'totaleditingvideo' => count($PermohonanEditingVideo),
 
         ];
-
+        
         return view('pages.koordinator.beranda',$data);
     }
     public function laporan_peliputan(GrafikPermohonanBulanan $chart){

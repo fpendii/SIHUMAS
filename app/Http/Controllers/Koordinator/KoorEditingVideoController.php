@@ -56,7 +56,10 @@ class KoorEditingVideoController extends Controller
 
     public function detailProses($id){
 
-        $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
+        $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')
+        ->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')
+        ->where('pesanan.id_pesanan',$id)->get()->first();
+        
         $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
@@ -75,7 +78,7 @@ class KoorEditingVideoController extends Controller
     public function arsip(){
         $data =  [
                'title' => 'Peliputan | SIHUMAS',
-               'page' => 'peliputan',
+               'page' => 'editing video',
                'sidebar' => 'arsip',
                'level' => 'Koordinator'
            ];

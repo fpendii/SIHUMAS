@@ -77,7 +77,7 @@
 
                         <div class="form-actions d-flex justify-content-end grid gap-1">
 
-                            <a href="{{url('koordinator/peliputan/proses')}}" class="btn btn-secondary">Kembali</a>
+                            <a href="{{url('koordinator/peliputan/')}}" class="btn btn-secondary">Kembali</a>
                         </div>
 
                     </div>

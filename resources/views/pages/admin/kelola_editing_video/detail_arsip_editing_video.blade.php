@@ -51,14 +51,14 @@
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Hasil</label>
                                 <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
-                            </div> --}}
+                            </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 
-                                <a href="{{url('admin/editing-video/proses')}}" class="btn btn-secondary">Kembali</a>
+                                <a href="{{url('admin/editing-video/')}}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </form>
                     </div>

@@ -28,59 +28,57 @@
         </div>
     </nav>
 
-
+    
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
+                <h4 class="card-title">{{ $dataPermohonan->username }}</h4>
+                <div class="form-group">
+                    <label for="linkMentahan" class="sr-only">Link Hasil</label>
+                    <input type="text" id="linkMentahan" class="form-control"
+                        value="{{ $dataPermohonan->link_hasil }}" readonly>
+                    <small><a href="{{ $dataPermohonan->link_hasil }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
+                </div>
             </div>
             <div class="card-body">
-                <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan Peliputan</h4>
-
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Waktu Mulai</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 1</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 2</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 3</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
-                            </div>
-                        </div>
-
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-
-                            <a href="{{url('koordinator/peliputan/')}}" class="btn btn-secondary">Kembali</a>
-                        </div>
-
+                <h4 class="card-title">Data Permohonan Peliputan</h4>
+                <div class="form-body">
+                    <div class="form-group">
+                        <label for="feedback1" class="sr-only">Waktu Mulai</label>
+                        <input type="text" id="feedback1" class="form-control"
+                            placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
                     </div>
+                    <div class="form-group">
+                        <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                        <input type="text" id="feedback2" class="form-control"
+                            placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback3" class="sr-only">Pertanyaan 1</label>
+                        <input type="text" id="feedback3" class="form-control"
+                               value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback4" class="sr-only">Pertanyaan 2</label>
+                        <input type="text" id="feedback4" class="form-control"
+                               value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback5" class="sr-only">Pertanyaan 3</label>
+                        <input type="text" id="feedback5" class="form-control"
+                               value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card-footer">
+                <div class="form-actions d-flex justify-content-end">
+                    <a href="{{ url('koordinator/peliputan/') }}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>
         </div>
     </div>
-
+    
 
 
     <script src="/template/dist/assets/compiled/js/app.js"></script>

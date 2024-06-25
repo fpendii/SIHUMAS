@@ -27,16 +27,29 @@
             </a>
         </div>
     </nav>
+
+      
     <div class="container">
+        <div class="card mt-5">
+            <div class="card-header">
+                <h4 class="card-title">{{ $dataPermohonan->username }}</h4>
+                <div class="form-group">
+                    <label for="linkMentahan" class="sr-only">Link Hasil</label>
+                    <input type="text" id="linkMentahan" class="form-control"
+                        value="{{ $dataPermohonan->link_hasil }}" readonly>
+                    <small><a href="{{ $dataPermohonan->link_hasil }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
+                </div>
+            </div>
+    {{-- <div class="container">
         <div class="card mt-5">
             <div class="card-header">
                 <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
-            <div class="card">
-                <div class="card-content">
+            </div> --}}
+            {{-- <div class="card">
+                <div class="card-content"> --}}
                     <div class="card-body">
                         <h4 class="card-title">Data Permohonan Editing Video</h4>
 

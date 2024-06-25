@@ -39,7 +39,7 @@ class KoorEditingVideoController extends Controller
                 ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
                 ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
                 ->where('pesanan.status', '=', 'proses')
-                ->where('jasa.jenis_jasa', '=', 'peliputan') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
+                ->where('jasa.jenis_jasa', '=', 'editing video') // menambahkan prefix 'jasa.' untuk kolom 'jenis_jasa'
                 ->orderByDesc('pesanan.created_at') // menambahkan prefix 'pesanan.' untuk kolom 'created_at'
                 ->get()
                 ->toArray(),
@@ -82,7 +82,11 @@ class KoorEditingVideoController extends Controller
                'sidebar' => 'arsip',
                'level' => 'Koordinator'
            ];
-           $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+           $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+           ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+           ->where('pesanan.status', '!=', 'pending')
+           ->where('jasa.jenis_jasa', '=', 'editing video')
+           ->where('pesanan.status', '!=', 'proses')->get();
    
            return view('pages.koordinator.kelola_editing_video.arsip_editing-video',$data,compact('dataPermohonan','data'));
        }

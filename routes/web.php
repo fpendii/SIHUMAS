@@ -267,6 +267,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
             Route::get('laporan-bulanan', [LaporanController::class, 'index']);
 
+ Route::get('/koordinator/laporan/cetak-pdf',[App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])->name('koordinator.laporan.cetakPDF');
 
 
                     // Ruote kelola editing video

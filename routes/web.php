@@ -249,7 +249,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
 
         // Route Koordinator
-         Route::prefix('koordinator')->group(function ()
+         Route::prefix('koordinator')->middleware(['auth', 'verified'])->group(function ()
          {
 
             Route::get('', [KoordinatorController::class, 'index']);

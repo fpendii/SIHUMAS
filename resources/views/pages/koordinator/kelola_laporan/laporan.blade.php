@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>{{ $page }}</h3>
-                    <a href="{{ route('laporan.peliputan') }}">Laporan Bulanan</a>
+                    <a>Laporan Bulanan</a>
 
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">

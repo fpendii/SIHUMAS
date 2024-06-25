@@ -84,7 +84,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item {{ $page == 'Laporan Bulanan' ? 'active' : '' }} ">
-                    <a href="{{ url('koordinator/laporan_peliputan') }}" class='sidebar-link '>
+                    <a href="{{ url('koordinator/laporan-bulanan') }}" class='sidebar-link '>
                         <i class="fas fa-file-alt"></i>
                         <span>Laporan Bulanan</span>
                     </a>

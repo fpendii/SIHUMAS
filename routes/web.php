@@ -265,7 +265,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
 
 
-            Route::get('laporan-bulanan', [KoordinatorController::class, 'laporan_peliputan']);
+            Route::get('laporan-bulanan', [LaporanController::class, 'index']);
 
 
 
@@ -276,7 +276,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
             Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
             Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
             Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
-            Route::get('laporan-bulanan', [KoordinatorController::class, 'laporan_editing-video']);
+          
 
 
 });

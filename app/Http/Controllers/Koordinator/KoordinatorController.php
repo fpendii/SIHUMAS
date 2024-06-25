@@ -44,7 +44,7 @@ class KoordinatorController extends Controller
 
         ];
 
-        return view('pages.koordinator.laporan_peliputan',$data);
+        return view('pages.koordinator.kelola_laporan.laporan',$data);
     }
 
 

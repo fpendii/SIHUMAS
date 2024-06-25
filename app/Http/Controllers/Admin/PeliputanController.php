@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PeliputanModel;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use App\Models\PetugasModel;
 use App\Models\akun;
 use App\Models\PetugasPesananModel;
@@ -31,7 +31,7 @@ class PeliputanController extends Controller
             'level' => 'Admin'
         ];
         return view('pages.admin.kelola_liputan.liputan',$data, compact('dataPermohonan', 'data'));
-        
+
     }
     public function arsip(){
      $data =  [
@@ -40,7 +40,11 @@ class PeliputanController extends Controller
             'sidebar' => 'arsip',
             'level' => 'Admin'
         ];
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+        ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+        ->where('pesanan.status', '!=', 'pending')
+        ->where('jasa.jenis_jasa', '=', 'peliputan')
+        ->where('pesanan.status', '!=', 'proses')->get();
 
         return view('pages.admin.kelola_liputan.arsip_liputan',$data,compact('dataPermohonan','data'));
     }
@@ -89,26 +93,26 @@ class PeliputanController extends Controller
 
     public function detail(Request $request, $id)
     {
-      
+
         $dataPermohonan = DB::table('pesanan')
             ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
             ->where('pesanan.id_pesanan', $id) // Menambahkan kondisi nilai 'proses' untuk kolom 'status'
             ->select('pesanan.*', 'akun.*', 'jasa.*') // Opsional: menambahkan select untuk memilih kolom yang diinginkan
             ->first();
-    
+
         // Mengambil semua petugas
         $dataPetugas = akun::where('role','=','petugas')->get();
-    
+
         $data = [
             'title' => 'Permohonan Desain | SIHUMAS',
             'page' => 'Permohonan Desain',
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_liputan.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
-    
+
     }
-    
+
 
     public function detailArsip(Request $request, $id)
     {
@@ -147,9 +151,9 @@ class PeliputanController extends Controller
     public function tolakPermohonan($id)
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
-    
+
         //return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
         return redirect()->to('admin/peliputan')->with('success', 'Pesanan ditolak');
     }
-    
+
 }

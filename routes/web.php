@@ -122,6 +122,8 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
     Route::get('kelola-akun', [AkunController::class, 'index']);
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
     Route::post('kelola-akun/simpan', [AkunController::class, 'simpan']);
+    Route::get('kelola-akun/edit/{id}', [AkunController::class, 'edit']);
+    Route::put('kelola-akun/update/{id}', [AkunController::class, 'update']);
 
 
    // Ruote kelola peliputan
@@ -203,7 +205,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
  Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('', [RedakturController::class, 'index']);
-                
+
     // Route periksa
 Route::get('periksa_publikasi', [PeriksaPublikasiController::class, 'index']);
 Route::get('periksa/publikasi/detail-tugas/{id}', [PeriksaPublikasiController::class, 'detailTugas'])->name('detail-tugas');
@@ -232,7 +234,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('tugas/edit_foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
     Route::post('tugas/edit-foto/submit/{id}', [TugasEditFotoController::class, 'submitTugas']);
-    
+
     Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
     Route::post('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
@@ -259,14 +261,11 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
             Route::get('peliputan/detail-arsip-peliputan/{id}',[KoorPeliputanController::class,'detailArsip']);
             Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
             Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
-            // Route::get('laporan-bulanan', [LaporanPeliputanController::class, 'laporan_peliputan']);
 
 
-            Route::get('laporan_peliputan', [LaporanController::class, 'index'])->name('laporan.peliputan');
-
-            // Route::get('laporan_peliputan/{id}', [LaporanPeliputanController::class, 'laporan_peliputan']);
 
 
+            Route::get('laporan-bulanan', [KoordinatorController::class, 'laporan_peliputan']);
 
 
 

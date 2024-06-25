@@ -92,7 +92,7 @@
                 <li class="sidebar-item {{ $page == 'Kelola Akun' ? 'active' : '' }} ">
                     <a href="{{ url('admin/kelola-akun') }}" class='sidebar-link '>
                         <i class="fa bi-person-lines-fill"></i>
-                        <span>Akun Pegawai</span>
+                        <span>Akun</span>
                     </a>
                 </li>
                 <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">

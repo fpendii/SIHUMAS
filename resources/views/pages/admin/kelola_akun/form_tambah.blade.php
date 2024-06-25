@@ -5,10 +5,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Form Validation</h3>
-                    <p class="text-subtitle text-muted">
-                        Complete the form with powerful validation library such as Parsley.
-                    </p>
+                    <h3>Form Tambah Akun Pegawai</h3>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -24,17 +21,21 @@
             </div>
         </div>
 
+        <!-- Tampilkan pesan sukses -->
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <!-- // Basic multiple Column Form section start -->
         <section id="multiple-column-form">
             <div class="row match-height">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Multiple Column</h4>
-                        </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{ url('admin/kelola_akun/simpan') }}" method="POST"
+                                <form class="form" action="{{ url('admin/kelola-akun/simpan') }}" method="POST"
                                     data-parsley-validate>
                                     @csrf
                                     <div class="row">
@@ -42,8 +43,11 @@
                                             <div class="form-group mandatory">
                                                 <label for="nama" class="form-label">Nama</label>
                                                 <input type="text" id="nama" class="form-control"
-                                                    placeholder="Masukkan nama" name="nama_petugas"
-                                                    data-parsley-required="true" />
+                                                    placeholder="Masukkan nama" name="nama"
+                                                    data-parsley-required="true" value="{{ old('nama') }}" />
+                                                @error('nama')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +57,10 @@
                                                 <label for="username" class="form-label">Username</label>
                                                 <input type="text" id="username" class="form-control"
                                                     placeholder="Masukkan Username" name="username"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ old('username') }}" />
+                                                @error('username')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +70,10 @@
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="text" id="email" class="form-control"
                                                     placeholder="Masukkan Alamat Email" name="email"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ old('email') }}" />
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -73,32 +83,55 @@
                                                 <label for="no_hp" class="form-label">No Handphone</label>
                                                 <input type="text" id="no_hp" class="form-control"
                                                     placeholder="Masukkan no handphone" name="no_hp"
-                                                    data-parsley-required="true" />
+                                                    data-parsley-required="true" value="{{ old('no_hp') }}" />
+                                                @error('no_hp')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group mandatory">
-                                                <label for="password" class="form-label">password</label>
-                                                <input type="text" id="password" class="form-control"
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" id="password" class="form-control"
                                                     placeholder="Masukkan password" name="password"
                                                     data-parsley-required="true" />
+                                                @error('password')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
-                                            <label for="jabatan" class="form-label">Email</label>
+                                            <div class="form-group mandatory">
+                                                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                                <input type="password" id="password_confirmation" class="form-control"
+                                                    placeholder="Masukkan konfirmasi password" name="password_confirmation"
+                                                    data-parsley-required="true" />
+                                                @error('password_confirmation')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-12">
+                                            <label for="jabatan" class="form-label">Jabatan</label>
                                             <fieldset class="form-group">
-                                                <select name="level" class="form-select" id="jabatan">
-                                                    <option>--- Pilih Jabatan --</option>
-                                                    {{-- <option value="admin">Admin</option> --}}
-                                                    <option value="koordinator">Koordinator</option>
-                                                    <option value="petugas">Petugas</option>
-                                                    <option value="redaktur">Redaktur</option>
-                                                    {{-- <option value="pelanggan">Pelanggan</option> --}}
+                                                <select name="level" class="form-select" id="jabatan"
+                                                    data-parsley-required="true">
+                                                    <option value="">--- Pilih Jabatan ---</option>
+                                                    <option value="koordinator" {{ old('level') == 'koordinator' ? 'selected' : '' }}>Koordinator</option>
+                                                    <option value="petugas" {{ old('level') == 'petugas' ? 'selected' : '' }}>Petugas</option>
+                                                    <option value="redaktur" {{ old('level') == 'redaktur' ? 'selected' : '' }}>Redaktur</option>
+                                                    <option value="admin" {{ old('level') == 'admin' ? 'selected' : '' }}>Admin</option>
+
                                                 </select>
+                                                @error('level')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </fieldset>
                                         </div>
                                     </div>

@@ -127,7 +127,7 @@
                                                     <option value="petugas" {{ old('level') == 'petugas' ? 'selected' : '' }}>Petugas</option>
                                                     <option value="redaktur" {{ old('level') == 'redaktur' ? 'selected' : '' }}>Redaktur</option>
                                                     <option value="admin" {{ old('level') == 'admin' ? 'selected' : '' }}>Admin</option>
-                                                    <option value="pelanggan" {{ old('level') == 'pelanggan' ? 'selected' : '' }}>Pelanggan</option>
+
                                                 </select>
                                                 @error('level')
                                                     <span class="text-danger">{{ $message }}</span>

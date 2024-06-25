@@ -12,21 +12,32 @@ use Illuminate\Support\Facades\Validator;
 
 class AkunController extends Controller
 {
-    public function index()
-    {
-        $data = [
-            'title' => 'Kelola Akun | SIHUMAS',
-            'page' => 'Kelola Akun',
-            'level' => 'Admin',
-        ];
+    public function index(Request $request)
+{
+    // Data tambahan untuk view
+    $data = [
+        'title' => 'Kelola Akun | SIHUMAS',
+        'page' => 'Kelola Akun',
+        'level' => 'Admin',
+    ];
 
+    // Mengambil parameter role dari request
+    $role = $request->input('role');
+
+    // Jika ada filter role, tambahkan kondisi pada kueri
+    if ($role) {
         $data_pegawai = DB::table('akun')
-            ->where('role', '!=', 'pelanggan')
+            ->where('role', $role)
             ->orderBy('id_akun', 'desc')
             ->get();
-
-        return view('pages.admin.kelola_akun.akun', compact('data_pegawai'), $data);
+    } else {
+        $data_pegawai = DB::table('akun')
+            ->orderBy('id_akun', 'desc')
+            ->get();
     }
+
+    return view('pages.admin.kelola_akun.akun', compact('data_pegawai'), $data);
+}
 
     public function tambah()
     {

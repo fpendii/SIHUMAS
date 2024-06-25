@@ -114,7 +114,6 @@
                                                 <option value="petugas" {{ $akun->role == 'petugas' ? 'selected' : '' }}>Petugas</option>
                                                 <option value="redaktur" {{ $akun->role == 'redaktur' ? 'selected' : '' }}>Redaktur</option>
                                                 <option value="admin" {{ $akun->role == 'admin' ? 'selected' : '' }}>Admin</option>
-                                                <option value="pelanggan" {{ $akun->role == 'pelanggan' ? 'selected' : '' }}>Pelanggan</option>
                                             </select>
                                         </fieldset>
                                         @error('level')

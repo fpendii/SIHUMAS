@@ -3,12 +3,10 @@
 @section('content')
     <div class="page-heading">
         <div class="page-title">
-
-
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>{{ $page }} Pegawai</h3>
-                    <p class="text-subtitle text-muted">Data akun yang pegawai yang sudah terdaftar</p>
+                    <p class="text-subtitle text-muted">Data akun pegawai yang sudah terdaftar</p>
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -20,26 +18,40 @@
                 </div>
             </div>
         </div>
-        @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
 
-    @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
         <section class="section">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title text-start ">
+                    <h5 class="card-title text-start">
                         Data Tabel Akun Pegawai
                     </h5>
                     <a href="{{ url('admin/kelola-akun/tambah') }}" class="btn btn-sm btn-success">Tambah</a>
+                    <div class="float-end">
+                        <form action="{{ url('admin/kelola-akun') }}" method="GET">
+                            <select name="role" class="form-select form-select-sm" onchange="this.form.submit()">
+                                <option value="">Semua</option>
+                                <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="petugas" {{ request('role') == 'petugas' ? 'selected' : '' }}>Petugas</option>
+                                <option value="koordinator" {{ request('role') == 'koordinator' ? 'selected' : '' }}>Koordinator</option>
+                                <option value="pelanggan" {{ request('role') == 'pelanggan' ? 'selected' : '' }}>Pelanggan</option>
+                                <option value="redaktur" {{ request('role') == 'redaktur' ? 'selected' : '' }}>Redaktur</option>
+                            </select>
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped" id="table1">
@@ -58,7 +70,7 @@
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->role }}</td>
                                     <td>{{ $item->no_hp }}</td>
-                                    <td>{{ $item->no_hp == true ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                    <td>{{ $item->is_active ? 'Aktif' : 'Tidak Aktif' }}</td>
                                     <td class="col-2">
                                         <a href="{{ url('admin/kelola-akun/edit/' . $item->id_akun) }}"
                                             class="btn btn-sm btn-primary">Edit</a>
@@ -70,6 +82,6 @@
                     </table>
                 </div>
             </div>
-
         </section>
-</div @endsection
+    </div>
+@endsection

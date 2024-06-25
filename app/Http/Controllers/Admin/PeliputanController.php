@@ -19,7 +19,10 @@ use Carbon\Carbon;
 class PeliputanController extends Controller
 {
     public function index(){
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('status', '=', 'pending')->where('jenis_jasa', '=', 'peliputan')->orderBy('created_at', 'desc')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+        ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+        ->where('status', '=', 'pending')
+        ->where('jenis_jasa', '=', 'peliputan')->orderBy('created_at', 'desc')->get();
 
         foreach ($dataPermohonan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\PesananModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; // 
+use Illuminate\Support\Facades\DB; //
 use App\Models\PetugasModel;
 use App\Models\akun;
 use App\Models\PetugasPesananModel;
@@ -28,7 +28,7 @@ class EditingVideoController extends Controller
             'level' => 'Admin'
         ];
         return view('pages.admin.kelola_editing_video.editing_video',$data,compact('dataPermohonan'));
-        
+
     }
     public function arsip(){
      $data =  [
@@ -38,7 +38,11 @@ class EditingVideoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+        ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+        ->where('pesanan.status', '!=', 'pending')
+        ->where('jasa.jenis_jasa', '=', 'editing video') 
+        ->where('pesanan.status', '!=', 'proses')->get();
 
         return view('pages.admin.kelola_editing_video.arsip_editing_video',$data,compact('dataPermohonan'));
 
@@ -70,7 +74,7 @@ class EditingVideoController extends Controller
 
 
     public function detailProses($id){
-        
+
         $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.id_pesanan',$id)->get()->first();
         $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
@@ -94,17 +98,17 @@ class EditingVideoController extends Controller
         ->first();
 
        $dataPetugas = akun::where('role','=','petugas')->get();
-    
+
         $data = [
             'title' => 'Permohonan Editing Video| SIHUMAS',
             'page' => 'Permohonan Editing Video',
             'level' => 'Admin',
         ];
-    
+
         return view('pages.admin.kelola_editing_video.detail_editing_video', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
-        
+
     }
-    
+
 
     public function detailArsip($id)
     {

@@ -29,7 +29,7 @@ class PeliputanController extends Controller
         }
         $data = [
             'title' => 'Peliputan | SIHUMAS',
-            'page' => 'Peliputan',
+            'page' => 'peliputan',
             'sidebar' => 'inbox',
             'level' => 'Admin'
         ];
@@ -87,7 +87,8 @@ class PeliputanController extends Controller
 
         $data = [
             'title' => 'Permohonan Peliputan | SIHUMAS',
-            'page' => 'Permohonan Peliputan' ,
+            // 'page' => 'Permohonan Peliputan' ,
+            'page' => 'peliputan' ,
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_liputan.detail_proses_liputan',$data,compact('dataPermohonan','dataPetugas','dataPetugasPesanan'));
@@ -108,8 +109,8 @@ class PeliputanController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Desain | SIHUMAS',
-            'page' => 'Permohonan Desain',
+            'title' => 'Permohonan Peliputan| SIHUMAS',
+            'page' => 'peliputan',
             'level' => 'Admin',
         ];
         return view('pages.admin.kelola_liputan.detail', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
@@ -126,7 +127,8 @@ class PeliputanController extends Controller
 
         $data = [
             'title' => 'Permohonan Peliputan| SIHUMAS',
-            'page' => 'Permohonan Peliputan',
+            // 'page' => 'Permohonan Peliputan',
+            'page' => 'peliputan',
             'level' => 'Admin',
         ];
 

@@ -32,13 +32,20 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
+                {{-- <div class="form-group">
+                    <label for="linkMentahan" class="sr-only">Link Hasil</label>
+                    <input type="text" id="linkMentahan" class="form-control"
+                        value="{{ $dataPermohonan->link_hasil }}" readonly>
+                    <small><a href="{{ $dataPermohonan->link_hasil}}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
+                </div><br> --}}
                 <div class="form-group">
                     <label for="linkMentahan" class="sr-only">Link Hasil</label>
                     <input type="text" id="linkMentahan" class="form-control"
                         value="{{ $dataPermohonan->link_hasil }}" readonly>
-                    <small><a href="{{ $dataPermohonan->link_hasil}}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link mentahan</a></small>
+                    <small><a href="{{ $dataPermohonan->link_hasil }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
                 </div><br>
-
+                
+                
                 <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
@@ -55,14 +62,6 @@
                                 <input type="text" id="feedback1" class="form-control"
                                     placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
                             </div>
-                            <div class="form-group">
-                                <label for="linkMentahan" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="linkMentahan" class="form-control"
-                                    value="{{ $dataPermohonan->link_mentahan }}" readonly>
-                                <small><a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link mentahan</a></small>
-                            </div>
-                            
-                            
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"

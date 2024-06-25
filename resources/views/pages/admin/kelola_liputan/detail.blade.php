@@ -34,7 +34,15 @@
                             <h4 class="card-title">Data Permohonan</h4>
                                 <form action="{{ url('admin/peliputan/pilih-petugas/' . $dataPermohonan->id_pesanan) }}">
                                 @csrf
-                                @method('PUT')
+                                @method('PUT')     
+                                {{-- <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="password-horizontal">Pesan</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                        </div>                          --}}
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Waktu Mulai</label>
@@ -43,10 +51,6 @@
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Waktu Selesai</label>
                                         <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
                                     </div>
                                 <div class="form-group">
                                     <label for="feedback2" class="sr-only">Pertanyaan 1</label>

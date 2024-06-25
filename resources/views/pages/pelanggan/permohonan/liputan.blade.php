@@ -22,6 +22,14 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
+                                            <label for="password-horizontal">Pesan</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                                        </div>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <label for="jadwal-mulai">Jadwal Mulai</label>
                                         </div>
                                         <div class="col-md-8 form-group">

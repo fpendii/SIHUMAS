@@ -131,7 +131,7 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
    Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
    Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
    Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
-   Route::get('Peliputan/proses', [PeliputanController::class, 'proses']);
+   Route::get('peliputan/proses', [PeliputanController::class, 'proses']);
    Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
    Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
     Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);

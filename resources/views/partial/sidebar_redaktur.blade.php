@@ -4,8 +4,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href=""><img src="/template/dist/assets/compiled/svg/logo.svg" alt="Logo"
-                            srcset=""></a>
+                    <img src="images/silamas.png" alt="">
                 </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -60,8 +59,8 @@
                         <span>Periksa Publikasi</span>
                     </a>
                 </li>
-                
-                
+
+
                 {{-- <li class="sidebar-item {{ $page == 'Arsip Tugas' ? 'active' : '' }} ">
                     <a href="{{ url('petugas/arsip-tugas') }}" class='sidebar-link '>
                         <i class="bi bi-archive"></i>

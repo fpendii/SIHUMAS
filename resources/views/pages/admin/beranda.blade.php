@@ -250,7 +250,7 @@
             </div>
             <div class="col-12 col-lg-3 order-first order-lg-last">
                 <div class="card">
-                    <a href="{{ url('admin/profil') }}">
+                    <a href="#">
                         <div class="card-body py-4 px-4">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">

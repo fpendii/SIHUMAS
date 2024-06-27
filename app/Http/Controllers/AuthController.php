@@ -49,6 +49,8 @@ class AuthController extends Controller
             return redirect()->intended('petugas')->with('success', 'Login berhasil!');
         } elseif ($role == 'redaktur') {
             return redirect()->intended('redaktur')->with('success', 'Login berhasil!');
+        } elseif ($role == 'koordinator') {
+            return redirect()->intended('koordinator')->with('success', 'Login berhasil!');
         } else {
             return redirect()->intended('jasa')->with('success', 'Login berhasil!');
         }

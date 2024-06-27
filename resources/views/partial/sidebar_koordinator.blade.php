@@ -3,10 +3,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="/template/dist/assets/compiled/svg/logo.svg" alt="Logo"
-                            srcset=""></a>
-
-
+                    <img src="images/silamas.png" alt="">
                 </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
@@ -89,7 +86,7 @@
                         <span>Laporan Permohonan</span>
                     </a>
                 </li>
-                   
+
                 <li class="sidebar-item {{ $page == 'Logout' ? 'active' : '' }} ">
                     <a href="{{ url('logout') }}" class='sidebar-link '>
                         <i class="bi bi-box-arrow-right"></i>

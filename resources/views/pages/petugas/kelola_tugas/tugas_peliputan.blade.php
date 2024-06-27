@@ -59,6 +59,7 @@
                                             {{ $item->username }}
                                         </span>
                                     @endforeach
+                                    <br>
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">

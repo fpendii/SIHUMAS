@@ -31,7 +31,7 @@
                 <div class="container d-block">
                     <a href="{{url('admin')}}"><i class="bi bi-chevron-left"></i></a>
                     <a class="navbar-brand ms-4" href="{{url('admin')}}">
-                        <img src="/template/dist/assets/compiled/svg/logo.svg">
+                        <img src="images/silamas.png" alt="">
                     </a>
                 </div>
             </nav>

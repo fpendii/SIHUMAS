@@ -31,7 +31,7 @@
                 <div class="container d-block">
                     <a href="{{url('koordinator')}}"><i class="bi bi-chevron-left"></i></a>
                     <a class="navbar-brand ms-4" href="{{url('koordinator')}}">
-                        <img src="/template/dist/assets/compiled/svg/logo.svg">
+                        <img src="images/silamas.png" alt="">
                     </a>
                 </div>
             </nav>
@@ -118,7 +118,7 @@
                                                     </div>
                                                     <!-- delete unread dropdown -->
                                                     <ul class="list-inline m-0 d-flex">
-                                                        
+
                                                     </ul>
                                                 </div>
                                                 <!-- action left end here -->

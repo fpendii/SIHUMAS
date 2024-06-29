@@ -150,6 +150,6 @@ class DesainControllert extends Controller
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
 
-        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+        return redirect()->to('admin/desain')->with('success', 'Pesanan ditolak');
     }
 }

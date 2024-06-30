@@ -16,13 +16,13 @@ class RedakturController extends Controller
     {
         $PermohonanPublikasi = DB::table('pesanan')
             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-            ->where('jenis_jasa', '=', 'publikasi')
+            ->where('jenis_jasa', '=', 'publikasi')->where('status', '=', 'redaktur')
             ->get()
             ->toArray();
 
         $data = [
             'title' => 'Beranda | SIHUMAS',
-            'page' => 'index',
+            'page' => 'Beranda',
             'level' => 'Redaktur',
             'totalPublikasi' => count($PermohonanPublikasi),
         ];

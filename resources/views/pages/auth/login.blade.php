@@ -19,7 +19,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="{{url('')}}">Humas Politala</a>
+                        <a href="{{url('/')}}"><img width="" src="images/silamas.png" alt="#"></a>
                     </div>
                     <h1 class="auth-title">Login</h1>
                     <p class="auth-subtitle mb-5">Login dengan akun yang sudah anda daftarkan</p>
@@ -54,7 +54,7 @@
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Belum Punya Akun? <a href="{{ url('registrasi') }}" class="font-bold">Daftar</a>.</p>
-                        <p><a class="fw-lighter" href="{{ url('lupa-password') }}">Lupa Password</a>.</p>
+
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="template/dist/assets/compiled/svg/logo.svg" alt="Logo"></a>
+                        <a href="{{url('/')}}"><img width="" src="images/silamas.png" alt="#"></a>
                     </div>
                     <h1 class="auth-title">Daftar</h1>
                     <form action="{{url('registrasi')}}" method="POST">
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Konfirmasi Password">
+                            <input type="password" class="form-control form-control-xl" placeholder="Konfirmasi Password" name="password_confirmation">
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

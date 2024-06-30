@@ -73,17 +73,24 @@ public function submitPemeriksaan(Request $request, $id)
 {
     // Validasi input
     $request->validate([
-        'catatan_redaktur' => 'required|string|max:255',
+        'catatan_redaktur' => 'nullable|string|max:255',
     ]);
 
-    // Update catatan_redaktur di tabel jasa
+    // Tentukan status berdasarkan catatan redaktur
+    $status = empty($request->catatan_redaktur) ? 'selesai' : 'proses';
+
+    // Update catatan_redaktur dan status di tabel jasa
     DB::table('jasa')
         ->join('pesanan', 'jasa.id_jasa', '=', 'pesanan.id_jasa')
         ->where('pesanan.id_pesanan', $id)
-        ->update(['jasa.catatan_redaktur' => $request->catatan_redaktur]);
+        ->update([
+            'jasa.catatan_redaktur' => $request->catatan_redaktur,
+            'pesanan.status' => $status,
+        ]);
 
     // Redirect dengan pesan sukses
-    return redirect()->back()->with('success', 'Catatan redaktur berhasil diperbarui.');
+    return redirect('redaktur/periksa_publikasi')->with('success', 'Catatan redaktur berhasil diperbarui.');
 }
+
 
 }

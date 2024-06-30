@@ -38,6 +38,8 @@ use App\Http\Controllers\Koordinator\KoordinatorController;
 use App\Http\Controllers\Koordinator\laporan\LaporanController;
 use App\Http\Controllers\Koordinator\KoorPeliputanController;
 use App\Http\Controllers\Koordinator\KoorEditingVideoController;
+use App\Http\Controllers\Koordinator\KoorEditFotoController;
+use App\Http\Controllers\Koordinator\KoorPasFotoController;
 use App\Http\Controllers\SendEmail\TesEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -286,7 +288,21 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
             Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
             Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
           
-
+          //Route Kelola Pas Foto  
+            Route::get('pas-foto', [KoorPasfotoController::class, 'index']);
+            Route::get('pas-foto/detail_pas_foto/{id}', [koorPasfotoController::class, 'detail']);
+            Route::get('pas-foto/arsip', [KoorPasfotoController::class, 'arsip']);
+            Route::get('pas-foto/detail-arsip-pas-foto/{id}', [KoorPasfotoController::class, 'detailArsip']);
+            Route::get('pas-foto/proses', [KoorPasfotoController::class, 'proses']);
+            Route::get('pas-foto/detail-proses_pas_foto/{id}', [KoorPasfotoController::class, 'detailProses']);
+            
+            //Route Kelola edit Foto  
+              Route::get('edit-foto', [KoorEditfotoController::class, 'index']);
+              Route::get('edit-foto/detail_edit_foto/{id}', [koorEditfotoController::class, 'detail']);
+              Route::get('edit-foto/arsip', [KoorEditfotoController::class, 'arsip']);
+              Route::get('edit-foto/detail-arsip-edit-foto/{id}', [KoorEditfotoController::class, 'detailArsip']);
+              Route::get('edit-foto/proses', [KoorEditfotoController::class, 'proses']);
+              Route::get('edit-foto/detail-proses_edit_foto/{id}', [KoorEditfotoController::class, 'detailProses']);
 
 });
 

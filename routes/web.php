@@ -8,6 +8,7 @@ use App\Http\Controllers\Redaktur\RedakturController;
 use App\Http\Controllers\Redaktur\PeriksaPublikasiController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\PublikasiController;
+use App\Http\Controllers\Admin\LaporanAdminController;
 use App\Http\Controllers\Pegawai\ArsipTugasController;
 use App\Http\Controllers\Pegawai\PetugasController;
 use App\Http\Controllers\Pegawai\TugasController;
@@ -117,6 +118,12 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 
     // Halaman Dashboard Admin
     Route::get('', [AdminController::class, 'index'])->name('admin');
+    
+    //laporan bulanan
+    Route::get('laporan_bulanan', [LaporanAdminController::class, 'index']);
+
+    Route::get('/admin/laporan/cetak-pdf',[App\Http\Controllers\LaporanAdminController::class, 'cetakPDF'])->name('admin.laporan.cetakPDF');
+   
 
     // Route Kelola Akun
     Route::get('kelola-akun', [AkunController::class, 'index']);

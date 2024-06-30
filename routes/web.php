@@ -202,15 +202,16 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
 
 
                   // Route Redaktur
- Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
-
+Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+    
     Route::get('', [RedakturController::class, 'index']);
-
-    // Route periksa
-Route::get('periksa_publikasi', [PeriksaPublikasiController::class, 'index']);
-Route::get('periksa/publikasi/detail-tugas/{id}', [PeriksaPublikasiController::class, 'detailTugas'])->name('detail-tugas');
-Route::post('periksa/publikasi/detail-tugas/submit/{id}', [PeriksaPublikasiController::class, 'submitTugas']);
+                
+// Route periksa
+    Route::get('periksa_publikasi', [PeriksaPublikasiController::class, 'index']);
+    Route::get('periksa/publikasi/detail-tugas/{id}', [PeriksaPublikasiController::class, 'detailTugas'])->name('detail-tugas');
+    Route::post('periksa/publikasi/detail-tugas/submit/{id}', [PeriksaPublikasiController::class, 'submitPemeriksaan']);
 });
+                
 
 
 

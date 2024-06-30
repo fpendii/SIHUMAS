@@ -45,10 +45,22 @@
             </div> --}}
             {{-- <div class="card">
                 <div class="card-content"> --}}
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Permohonan</h4>
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
+                                        <div class="list-group">
+                                                {{-- @foreach ( $dataPetugasPesanan as $item)
+                                                    <span class="list-group-item">{{ $item->username }}</span>
+                                                @endforeach
+                                             --}}
+                                        </div>
+                                    </div>
 
-                        <div class="form-body">
+                        {{-- <div class="form-body"> --}}
                             <div class="form-group">
                                 <label for="feedback1" class="sr-only">Waktu Mulai</label>
                                 <input type="text" id="feedback1" class="form-control"
@@ -57,20 +69,21 @@
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"
-                                    placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
+                                placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
+                                    {{-- placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly> --}}
                             </div>
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 1</label>
+                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                 <input type="text" id="feedback2" class="form-control"
                                        value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 2</label>
+                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                 <input type="text" id="feedback2" class="form-control"
                                        value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Pertanyaan 3</label>
+                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                 <input type="text" id="feedback2" class="form-control"
                                        value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                             </div>

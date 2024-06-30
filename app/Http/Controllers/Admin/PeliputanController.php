@@ -122,8 +122,12 @@ class PeliputanController extends Controller
     {
 
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
+        $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
+
+        
+
 
         $data = [
             'title' => 'Permohonan Peliputan| SIHUMAS',

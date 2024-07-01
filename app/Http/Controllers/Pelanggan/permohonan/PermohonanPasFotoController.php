@@ -25,7 +25,7 @@ class PermohonanPasFotoController extends Controller
         $request->validate([
             // 'link_mentahan' => 'required',
             'pesan' => 'required',
-            'tenggat_pengerjaan' => 'required',
+            // 'tenggat_pengerjaan' => 'required',
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
@@ -44,7 +44,7 @@ class PermohonanPasFotoController extends Controller
             'status' => 'pending',
             // 'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
-            'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+            // 'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             'created_at' => now(),
         ]);
 

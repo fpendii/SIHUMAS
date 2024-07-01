@@ -50,11 +50,16 @@
                                     <blockquote class="blockquote mb-0">
                                         <p>{{ $item->pesan }}</p>
                                         <footer class="blockquote-footer">
-                                            Batas Waktu
-                                            <p>{{ $item->tenggat_pengerjaan }}</p>
+                                            @if ($item->jenis_jasa == 'pas_foto')
+                                                Tanggal Pengambilan Foto
+                                                <p>{{ $item->jadwal_foto }}</p>
+                                            @else
+                                                Batas Waktu
+                                                <p>{{ $item->tenggat_pengerjaan }}</p>
+                                            @endif
                                         </footer>
                                     </blockquote>
-                                </div>
+                                </div>                                
                                 <a href="tugas/{{ $item->jenis_jasa }}/detail-tugas/{{ $item->id_pesanan }}"
                                     class="btn btn-primary block">Kerjakan</a>
                             </div>

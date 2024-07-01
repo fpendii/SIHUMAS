@@ -54,12 +54,12 @@
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="link_mentahan" class="form-control" name="link_mentahan" value="{{ $dataPermohonan->jadwal_foto }}" readonly>
                                     </div>
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <input type="text" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" value="{{ $dataPermohonan->tenggat_pengerjaan }}" readonly>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end gap-1">

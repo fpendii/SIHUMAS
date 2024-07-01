@@ -55,7 +55,7 @@
                                     </footer>
                                 </blockquote>
                             </div>
-                            <a href="{{ url('redaktur/periksa/publikasi/detail-tugas', $item->id_pesanan) }}" class="btn btn-primary block">Kerjakan</a>
+                            <a href="{{ url('redaktur/periksa/publikasi/detail-tugas', $item->id_pesanan) }}" class="btn btn-primary block">Periksa</a>
                         </div>
                     </div>
                 @endforeach

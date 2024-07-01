@@ -45,7 +45,7 @@
                                             <input type="datetime-local" id="jadwal_foto" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" placeholder="Pilih tanggal dan waktu pengambilan foto " required>
                                         </div>
                                         
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -59,7 +59,7 @@
                                                 var minDate = jadwalFoto.toISOString().split('T')[0];
                                                 tenggatPengerjaan.min = minDate;
                                             });
-                                        </script>                                        
+                                        </script>                                         --}}
                                         
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

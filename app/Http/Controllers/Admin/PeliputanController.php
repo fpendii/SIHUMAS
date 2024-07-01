@@ -126,8 +126,7 @@ class PeliputanController extends Controller
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
-        
-
+    
 
         $data = [
             'title' => 'Permohonan Peliputan| SIHUMAS',
@@ -136,7 +135,7 @@ class PeliputanController extends Controller
             'level' => 'Admin',
         ];
 
-        return view('pages.admin.kelola_liputan.detail-arsip', $data, compact('dataPermohonan', 'dataPetugas', 'data'));
+        return view('pages.admin.kelola_liputan.detail-arsip', $data, compact('dataPermohonan', 'dataPetugas', 'data','dataPetugasPesanan'));
     }
 
 

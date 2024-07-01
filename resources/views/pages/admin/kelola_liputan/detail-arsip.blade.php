@@ -53,10 +53,10 @@
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
                                         <div class="list-group">
-                                                {{-- @foreach ( $dataPetugasPesanan as $item)
+                                                @foreach ( $dataPetugasPesanan as $item)
                                                     <span class="list-group-item">{{ $item->username }}</span>
                                                 @endforeach
-                                             --}}
+                                            
                                         </div>
                                     </div>
 

@@ -27,7 +27,12 @@
                 <h4 class="card-title">Nama Pelanggan</h4>
             </div>
             <div class="card-body">
-                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
+                <div class="card-header">
+                    <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>{{ $dataPermohonan->pesan }}</p>
+                </div>
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
@@ -35,14 +40,7 @@
                                 <form action="{{ url('admin/peliputan/pilih-petugas/' . $dataPermohonan->id_pesanan) }}">
                                 @csrf
                                 @method('PUT')     
-                                {{-- <div class="form-body">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="password-horizontal">Pesan</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                                        </div>                          --}}
+                                                 
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Waktu Mulai</label>

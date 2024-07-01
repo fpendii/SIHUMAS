@@ -40,9 +40,9 @@
                     <small><a href="{{ $dataPermohonan->link_hasil }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
                 </div>
             </div>
-            {{-- <div class="card-body">
+            <div class="card-body">
                <p>{{ $dataPermohonan->pesan }}</p> (ini mun membuat pesan di permohonan maka pakai ini)
-            </div> --}}
+            </div>
             {{-- <div class="card">
                 <div class="card-content"> --}}
                     <div class="card">

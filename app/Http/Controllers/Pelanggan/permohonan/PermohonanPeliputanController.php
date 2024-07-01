@@ -48,7 +48,7 @@ class PermohonanPeliputanController extends Controller
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => 'link mentahan',
-            'pesan' => 'pesan',
+            'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
             'created_at' => now(),
             'updated_at' => now(),

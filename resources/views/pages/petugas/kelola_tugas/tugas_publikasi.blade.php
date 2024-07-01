@@ -36,7 +36,7 @@
                 <div class="card-header">
                     <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
                     <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
-                        placeholder="Masukkan Link Hasil" name="link_hasil">
+                        placeholder="Masukkan Link Hasil" name="link_hasil" value="{{ $dataPermohonan->link_hasil }}">
                     @error('link_hasil')
                         <p class="invalid-feedback">{{ $message }}</p>
                     @enderror

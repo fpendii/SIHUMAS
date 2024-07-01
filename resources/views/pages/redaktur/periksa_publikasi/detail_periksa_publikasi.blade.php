@@ -64,7 +64,7 @@
                                     @enderror
                                 </div>                             
                                 <div class="form-group">
-                                    <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
+                                    <label for="feedback4" class="sr-only">File Ringkasan Publikasi</label>
                                     <a href="{{ url('publikasi/' . $dataPermohonan->link_ringkasan_publikasi) }}" target="_blank">{{ $dataPermohonan->link_ringkasan_publikasi }}</a>
                                 </div>                                
                                 <div class="form-group">

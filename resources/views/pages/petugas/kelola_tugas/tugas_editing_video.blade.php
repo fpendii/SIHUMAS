@@ -39,6 +39,7 @@
                                         {{ $item->username }}
                                     </span>
                                 @endforeach
+                                <br>
                             </div>
                             <div class="form-body">
                                 <div class="row">
@@ -58,7 +59,7 @@
                             </div>
                             <div class="form-actions d-flex justify-content-end gap-1">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('admin/petugas') }}" class="btn btn-secondary">Kembali</a>
+                                <a href="{{ url('petugas') }}" class="btn btn-secondary">Kembali</a>
                             </div>
                         </div>
                     </div>

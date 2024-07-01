@@ -48,6 +48,10 @@ class PeliputanController extends Controller
         ->where('pesanan.status', '!=', 'pending')
         ->where('jasa.jenis_jasa', '=', 'peliputan')
         ->where('pesanan.status', '!=', 'proses')->get();
+        
+        foreach ($dataPermohonan as $item) {
+            $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
+        }
 
         return view('pages.admin.kelola_liputan.arsip_liputan',$data,compact('dataPermohonan','data'));
     }

@@ -30,9 +30,9 @@
                                 <th>Pengaju</th>
                                 <th>Status</th>
                                 <th>Total</th>
-                                <th>PerMinggu</th>
+                                {{-- <th>PerMinggu</th>
                                 <th>PerBulan</th>
-                                <th>PerTahun</th>
+                                <th>PerTahun</th> --}}
                             </tr>
                         </thead>
                         <tbody>

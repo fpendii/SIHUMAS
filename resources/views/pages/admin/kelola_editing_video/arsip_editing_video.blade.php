@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="mail-meta-item">
                                     <span class="float-right">
-                                        <span class="mail-date">{{ $item->created_at }}</span>
+                                        <span class="mail-date">{{ $item->time_ago}}
                                     </span>
                                 </div>
                             </div>

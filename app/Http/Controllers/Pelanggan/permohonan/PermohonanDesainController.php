@@ -23,9 +23,9 @@ class PermohonanDesainController extends Controller
 
     public function submit(Request $request)
     {
-        if($request->get('ukuran_gambar') == 'custom'){
+        if ($request->get('ukuran_gambar') == 'custom') {
             $ukuran_gambar = $request->get('ukuran_gambar_costum');
-        }else {
+        } else {
             $ukuran_gambar = $request->get('ukuran_gambar');
         }
 
@@ -69,7 +69,8 @@ class PermohonanDesainController extends Controller
         if (!$simpanPesanan) {
             emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');
         } else {
-            emotify('success', 'Permohonan berhasil dikirim, Silahkan tunggu konfirmasi selanjutnya dari pihak Silamas :)');
+            emotify('success', 'Terima kasih banyak atas kerja sama untuk mengisi formulir Permohonan Bantuan Kehumasan Unit Humas Politeknik Negeri Tanah Laut. Semoga kegiatan di lingkungan Politeknik Negeri Tanah Laut dapat berjalan dengan baik, lancar, dan terarsipkan dengan baik.
+Koordinasi lebih lanjut dan konfirmasi permohonan design grafis silahkan hubungi kontak WhatsApp kami');
         }
 
         return redirect()->to('jasa')->with('success', 'Permohonan berhasil dikirim. Tunggu Konfirmasi dari pihak humas');

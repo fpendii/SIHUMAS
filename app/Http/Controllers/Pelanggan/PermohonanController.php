@@ -18,7 +18,7 @@ class PermohonanController extends Controller
             'hak_akses' => 'Pelanggan'
         ];
 
-        $PermohonanPelanggan = DB::table('pesanan')->where('id_akun',session('id_akun'))->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
+        $PermohonanPelanggan = DB::table('pesanan')->where('id_akun',session('id_akun'))->orderBy('created_at', 'desc')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->get();
 
         foreach ($PermohonanPelanggan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();

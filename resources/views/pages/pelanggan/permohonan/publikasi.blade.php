@@ -22,10 +22,21 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="password-horizontal">Pesan</label>
+                                            <label for="unit">Unit</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input name="unit" class="form-control" id="unit"
+                                                rows="3"></input>
+                                            <small id="deskripsi_help"
+                                                class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
+                                                Kerja/Ormawa.</small>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="password-horizontal">Deskripsi 5w+1H</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <small id="deskripsi_help" class="form-text text-muted">Deskripsikan informasi lengkap mengenai kegiatan atau acara yang ingin dipublikasikan menggunakan pendekatan 5W+1H (What, Who, Where, When, Why, dan How)</small>
                                         </div>
 
                                         <div class="col-md-4">
@@ -41,6 +52,7 @@
                                                     <option value="sosial media">Sosial Media</option>
                                                     <option value="media masa">Media Masa</option>
                                                 </select>
+                                                <small id="deskripsi_help" class="form-text text-muted">Pilih media publikasi yang diinginkan untuk mempublikasikan informasi.</small>
                                                 @error('pilihan_publikasi')
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -72,18 +84,8 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <textarea name="tag_sosmed" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <small id="deskripsi_help" class="form-text text-muted">Masukkan tag atau mention yang ingin ditambahkan saat mempublikasikan informasi di media sosial. Contoh: @username1, @username2.</small>
                                         </div>
-                                        {{-- <div class="col-md-4">
-                                            <label for="email-horizontal">Link Dokumentasi Publikasi</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="text" id="email-horizontal"
-                                                class="form-control @error('link_dokumentasi') is-invalid @enderror"
-                                                name="link_dokumentasi" placeholder="Masukkan link dokumentasi">
-                                            @error('link_dokumentasi')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div> --}}
                                         <div class="col-md-4">
                                             <label for="contact-info-horizontal">Link Dokumentasi Publikasi</label>
                                         </div>

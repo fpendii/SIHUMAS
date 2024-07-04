@@ -82,16 +82,19 @@
 
         <!-- Slider Area -->
         <section class="slider mb-5">
-            <div class="hero-slider">
+
                 <!-- Start Single Slider -->
-                <div class="single-slider" style="background-image:url('images/hero_1.png')">
+
+                <!-- End Single Slider -->
+                <!-- Start Single Slider -->
+                <div class="single-slider" style="background-image:url('images/hero.png')">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="text">
                                     <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah
                                             Laut</span></h1>
-                                    <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
+                                    <p>Terkini di Humas Politala: Kirim permintaan layanan Anda kepada kami, dan kami akan
                                         dengan segera mewujudkannya untuk Anda </p>
                                     <div class="button">
                                         <a href="{{ url('jasa') }}" class="btn">Kirim Permohonan</a>
@@ -101,31 +104,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Single Slider -->
-                <!-- Start Single Slider -->
-                <div class="single-slider" style="background-image:url('images/hero_2.png')">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-7">
-                                <div class="text">
-                                    <h1>Sistem Informasi <span>Layanan </span><span>Humas Politeknik Negeri Tanah
-                                            Laut</span></h1>
-                                    <p>Terkini di Humas Politala: Kirim permintaan jasa Anda kepada kami, dan kami akan
-                                        dengan segera mewujudkannya untuk Anda </p>
-                                    <div class="button">
-                                        <a href="{{ url('jasa') }}" class="btn">Kirim Permohonan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Slider -->
-            </div>
         </section>
         <!--/ End Slider Area -->
-
-
         <!-- Start Feautes -->
         <section class="Feautes section">
             <div class="container">
@@ -155,7 +135,7 @@
                                 <i class="icofont-hand-drag1"></i>
                             </div>
                             <h3>Kedua</h3>
-                            <p>Pilih jasa yang Anda inginkan dari daftar yang tersedia</p>
+                            <p>Pilih layanan yang Anda inginkan dari daftar yang tersedia</p>
                         </div>
                         <!-- End Single features -->
                     </div>
@@ -166,7 +146,7 @@
                                 <i class="icofont-file-document"></i>
                             </div>
                             <h3>Ketiga</h3>
-                            <p>Lengkapi formulir sesuai dengan jasa yang Anda pilih</p>
+                            <p>Lengkapi formulir sesuai dengan layanan yang Anda pilih</p>
                         </div>
                         <!-- End Single features -->
                     </div>

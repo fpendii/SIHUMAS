@@ -23,7 +23,11 @@ class PermohonanDesainController extends Controller
 
     public function submit(Request $request)
     {
-
+        if($request->get('ukuran_gambar') == 'custom'){
+            $ukuran_gambar = $request->get('ukuran_gambar_costum');
+        }else {
+            $ukuran_gambar = $request->get('ukuran_gambar');
+        }
 
         $request->validate([
             'link_mentahan' => 'required',
@@ -36,14 +40,18 @@ class PermohonanDesainController extends Controller
 
         $jasa = DB::table('jasa')->insertGetId([
             'tipe_desain' => $request->tipe_desain,
-            'ukuran_gambar' => $request->ukuran_gambar,
+            'ukuran_gambar' => $ukuran_gambar,
             'jenis_jasa' => 'desain',
             'tema' => $request->tema,
+
         ]);
 
-            $akun = DB::table('akun')
+        $akun = DB::table('akun')
             ->where('akun.id_akun', session('id_akun'))
             ->first();
+
+
+
 
 
         // Simpan data ke tabel pertama
@@ -54,12 +62,13 @@ class PermohonanDesainController extends Controller
             'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
-            'created_at' => now()
+            'created_at' => now(),
+            'unit' => $request->unit
         ]);
 
-        if(!$simpanPesanan){
+        if (!$simpanPesanan) {
             emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');
-        }else{
+        } else {
             emotify('success', 'Permohonan berhasil dikirim, Silahkan tunggu konfirmasi selanjutnya dari pihak Silamas :)');
         }
 

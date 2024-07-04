@@ -23,7 +23,8 @@
         <div class="container d-block">
             <a href="{{ url('petugas/tugas') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <a href="#"><img src="/images/silamas.png"
+                    alt="Logo"></a>
             </a>
         </div>
     </nav>

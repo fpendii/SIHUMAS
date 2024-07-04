@@ -32,9 +32,12 @@
                         </thead>
 
                         <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
                             @foreach ($ArsipTugas as $item)
                                 <tr>
-                                    <td></td>
+                                    <td>{{$no++}}</td>
                                     <td class="col-4">{{$item->jenis_jasa}}</td>
                                     <td>{{$item->nama}}</td>
                                     <td class="col-2">

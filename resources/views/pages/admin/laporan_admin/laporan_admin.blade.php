@@ -12,7 +12,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{ route('koordinator.laporan.cetakPDF') }}" class="btn btn-primary" target="_blank">Cetak Laporan</a>
+                                <a href="{{ route('admin.laporan.cetakPDF') }}" class="btn btn-primary" target="_blank">Cetak Laporan</a>
                             </li>
                         </ol>
                     </nav>

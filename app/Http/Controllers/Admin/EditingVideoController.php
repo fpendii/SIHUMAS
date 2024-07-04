@@ -43,7 +43,10 @@ class EditingVideoController extends Controller
         ->where('pesanan.status', '!=', 'pending')
         ->where('jasa.jenis_jasa', '=', 'editing video') 
         ->where('pesanan.status', '!=', 'proses')->get();
-
+        
+        foreach ($dataPermohonan as $item) {
+            $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
+        }
         return view('pages.admin.kelola_editing_video.arsip_editing_video',$data,compact('dataPermohonan'));
 
     }

@@ -33,7 +33,7 @@ class PublikasiController extends Controller
             'page' => 'publikasi',
             'sidebar' => 'proses',
             'level' => 'Admin',
-            'dataPermohonan' => DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.status','=','proses')->where('jenis_jasa','=','publikasi')->orderByDesc('created_at')->get()->toArray(),
+            'dataPermohonan' => DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')->where('pesanan.status','=','proses')->where('pesanan.status','=','redaktur')->where('jenis_jasa','=','publikasi')->orderByDesc('created_at')->get()->toArray(),
         ];
 
         foreach($data['dataPermohonan'] as $item){

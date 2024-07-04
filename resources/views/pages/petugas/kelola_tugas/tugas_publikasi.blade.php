@@ -25,13 +25,14 @@
     <div class="container">
         <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }} " enctype="multipart/form-data">
             <div class="card mt-5">
-                    <div class="card-header">
-                        <h4 class="card-title">Upload Ringkasan Publikasi (PDF, max 200 KB) {{ $dataPermohonan->jenis_jasa }}</h4>
-                        <input type="file" id="ringkasan_publikasi" class="form-control @error('ringkasan_publikasi') is-invalid @enderror" name="ringkasan_publikasi" accept="application/pdf">
-                        @error('ringkasan_publikasi')
-                            <p class="invalid-feedback">{{ $message }}</p>
-                        @enderror
-                    </div>
+
+                <div class="card-header">
+                    <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
+                    <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
+                        placeholder="Masukkan Link Hasil" name="link_hasil">
+                    @error('link_hasil')
+                        <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
                     <h4 class="card-title mt-5"></i>{{ $dataPermohonan->username }}</h4>
                 <div class="card-body">
                     <p>{{ $dataPermohonan->pesan }}</p>

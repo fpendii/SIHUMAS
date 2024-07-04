@@ -42,8 +42,7 @@
                                             <label for="contact-info-horizontal">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="contact-info-horizontal" class="form-control"
-                                                name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}">
+                                            <input type="datetime-local" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

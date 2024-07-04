@@ -27,12 +27,8 @@
             @csrf
             <div class="card mt-5">
                 <div class="card-header">
-                    <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
-                    <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
-                        placeholder="Masukkan Link Hasil" name="link_hasil" readonly>
-                    @error('link_hasil')
-                        <p class="invalid-feedback">{{ $message }}</p>
-                    @enderror
+                    <h4 class="card-title">Link Hasil tugas </h4>
+                    <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
                     <h4 class="card-title mt-5">{{ $dataPermohonan->username }}</h4>
                 </div>
                 <div class="card-body">
@@ -62,13 +58,13 @@
                                 <div class="form-group">
                                     <label for="feedback1" class="sr-only">Catatan Redaktur</label>
                                     <textarea id="feedback1" class="form-control @error('catatan_redaktur') is-invalid @enderror"
-                                              name="catatan_redaktur" placeholder="Jika tidak ada komentar untuk pekerjaan petugas maka kosongkan saja">{{ old('catatan_redaktur', $dataPermohonan->catatan_redaktur) }}</textarea>
+                                              name="catatan_redaktur" placeholder="Jika tidak ada komentar untuk pekerjaan petugas maka kosongkan saja"></textarea>
                                     @error('catatan_redaktur')
                                         <p class="invalid-feedback">{{ $message }}</p>
                                     @enderror
                                 </div>                             
                                 <div class="form-group">
-                                    <label for="feedback4" class="sr-only">Link Ringkasan Publikasi</label>
+                                    <label for="feedback4" class="sr-only">File Ringkasan Publikasi</label>
                                     <a href="{{ url('publikasi/' . $dataPermohonan->link_ringkasan_publikasi) }}" target="_blank">{{ $dataPermohonan->link_ringkasan_publikasi }}</a>
                                 </div>                                
                                 <div class="form-group">

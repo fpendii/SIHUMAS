@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('link_hasil',200)->nullable();
             $table->text('pesan');
             $table->date('tenggat_pengerjaan');
-            $table->varchar('unit')->nullable();
             $table->timestamps();
 
             $table->foreign('id_akun')->references('id_akun')->on('akun')->onDelete('cascade');

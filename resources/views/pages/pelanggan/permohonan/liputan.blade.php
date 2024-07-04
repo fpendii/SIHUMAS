@@ -33,14 +33,21 @@
                                             <label for="jadwal-mulai">Jadwal Mulai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="date" id="jadwal-mulai" class="form-control" name="waktu_mulai">
+                                            <input type="datetime-local" id="jadwal-mulai" class="form-control" name="waktu_mulai">
                                         </div>
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="jadwal-selesai">Jadwal Selesai</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="jadwal-selesai" class="form-control" name="waktu_selesai">
+                                        </div> --}}
+                                        <div class="col-md-4">
+                                            <label for="jadwal-selesai">Jadwal Selesai</label>
                                         </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="datetime-local" id="jadwal-selesai" class="form-control" name="waktu_selesai">
+                                        </div>
+                                        
                                         <div class="col-md-4">
                                             <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
                                         </div>

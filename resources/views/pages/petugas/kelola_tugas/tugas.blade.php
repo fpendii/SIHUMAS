@@ -45,7 +45,8 @@
                                         <footer class="blockquote-footer">
                                             @if ($item->jenis_jasa == 'pas_foto')
                                                 Tanggal Pengambilan Foto
-                                                <p>{{ $item->jadwal_foto }}</p>
+                                                <p>{{ \Carbon\Carbon::parse($item->jadwal_foto)->format(' d/m/Y H:i:s') }}</p>
+                                                {{-- <p>{{ $item->jadwal_foto }}</p> --}}
                                             @else
                                                 Batas Waktu
                                                 <p>{{ $item->tenggat_pengerjaan }}</p>

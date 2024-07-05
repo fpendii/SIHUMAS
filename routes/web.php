@@ -85,8 +85,9 @@ Route::get('home', [LandingPageController::class, 'home']);
 Route::get('tentang-kami', [LandingPageController::class, 'tentangKami']);
 Route::get('layanan', [LandingPageController::class, 'layanan']);
 
+
 // Route Pelanggan
-Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('jasa')->middleware(['auth', 'verified','pelanggan'])->group(function () {
     Route::get('', [PermohonanController::class, 'index']);
 
     // Route Desain
@@ -112,7 +113,10 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
     // Route Publikasi
     Route::get('publikasi', [PermohonanPublikasiController::class, 'index']);
     Route::post('publikasi/submit', [PermohonanPublikasiController::class, 'submit']);
+
+    Route::get('cek-permohonan/{id}/{type}', [PermohonanController::class, 'cekPermohonan']);
 });
+
 
 // <<<<<< ========== Route Admin ========== >>>>>>
 Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -125,7 +129,6 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
 
     Route::get('/admin/laporan/cetak-pdf', [LaporanAdminController::class, 'cetakPDF'])->name('admin.laporan.cetakPDF');
 
-
     // Route Kelola Akun
     Route::get('kelola-akun', [AkunController::class, 'index']);
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
@@ -133,30 +136,27 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::get('kelola-akun/edit/{id}', [AkunController::class, 'edit']);
     Route::put('kelola-akun/update/{id}', [AkunController::class, 'update']);
 
-
-   // Ruote kelola peliputan
-   Route::get('peliputan', [PeliputanController::class, 'index']);
-   Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
-   Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
-   Route::get('peliputan/detail-arsip/{id}',[PeliputanController::class,'detailArsip']);
-   Route::get('peliputan/proses', [PeliputanController::class, 'proses']);
-   Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
-   Route::put('peliputan/pilih-petugas/{id}',[PeliputanController::class,'pilihPetugas']);
+    // Ruote kelola peliputan
+    Route::get('peliputan', [PeliputanController::class, 'index']);
+    Route::get('peliputan/detail/{id}', [PeliputanController::class, 'detail']);
+    Route::get('peliputan/arsip', [PeliputanController::class, 'arsip']);
+    Route::get('peliputan/detail-arsip/{id}', [PeliputanController::class, 'detailArsip']);
+    Route::get('peliputan/proses', [PeliputanController::class, 'proses']);
+    Route::get('peliputan/detail-proses/{id}', [PeliputanController::class, 'detailProses']);
+    Route::put('peliputan/pilih-petugas/{id}', [PeliputanController::class, 'pilihPetugas']);
     Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
 
-
-
-   // Ruote kelola editing video
+    // Ruote kelola editing video
     Route::get('editing-video', [EditingVideoController::class, 'index']);
-     Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
-     Route::get('editing-video/arsip', [EditingVideoController::class, 'arsip']);
-     Route::get('editing-video/detail-arsip/{id}', [EditingVideoController::class, 'detailArsip']);
-     Route::get('editing-video/proses', [EditingVideoController::class, 'proses']);
-     Route::get('editing-video/detail-proses/{id}', [EditingVideoController::class, 'detailProses']);
-     Route::put('editing-video/pilih-petugas/{id}',[EditingVideoController::class,'pilihPetugas']);
-    Route::put('editing-video/tolak/{id}',[EditingVideoController::class,'tolakPermohonan']);
+    Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
+    Route::get('editing-video/arsip', [EditingVideoController::class, 'arsip']);
+    Route::get('editing-video/detail-arsip/{id}', [EditingVideoController::class, 'detailArsip']);
+    Route::get('editing-video/proses', [EditingVideoController::class, 'proses']);
+    Route::get('editing-video/detail-proses/{id}', [EditingVideoController::class, 'detailProses']);
+    Route::put('editing-video/pilih-petugas/{id}', [EditingVideoController::class, 'pilihPetugas']);
+    Route::put('editing-video/tolak/{id}', [EditingVideoController::class, 'tolakPermohonan']);
 
-
+     // Ruote kelola editing video
     Route::get('desain', [DesainControllert::class, 'index']);
     Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
@@ -207,7 +207,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
 });
 
 // Route Redaktur
-Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('redaktur')->middleware(['auth', 'verified','redaktur'])->group(function () {
 
     Route::get('', [RedakturController::class, 'index']);
 
@@ -222,7 +222,7 @@ Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
 
 
 
-Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('petugas')->middleware(['auth', 'verified','petugas'])->group(function () {
 
     Route::get('', [PetugasController::class, 'index']);
 
@@ -252,36 +252,32 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 });
 
 
-        // Route Koordinator
-         Route::prefix('koordinator')->middleware(['auth', 'verified'])->group(function ()
-         {
+// Route Koordinator
+Route::prefix('koordinator')->middleware(['auth', 'verified','koordinator'])->group(function () {
 
     Route::get('', [KoordinatorController::class, 'index']);
 
-            // Route Kelola Peliputan
-            Route::get('peliputan', [KoorPeliputanController::class, 'index']);
-            Route::get('peliputan/detail_peliputan/{id}', [KoorPeliputanController::class, 'detail']);
-            Route::get('peliputan/arsip_peliputan', [KoorPeliputanController::class, 'arsip']);
-            Route::get('peliputan/detail-arsip-peliputan/{id}',[KoorPeliputanController::class,'detailArsip']);
-            Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
-            Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
+    // Route Kelola Peliputan
+    Route::get('peliputan', [KoorPeliputanController::class, 'index']);
+    Route::get('peliputan/detail_peliputan/{id}', [KoorPeliputanController::class, 'detail']);
+    Route::get('peliputan/arsip_peliputan', [KoorPeliputanController::class, 'arsip']);
+    Route::get('peliputan/detail-arsip-peliputan/{id}', [KoorPeliputanController::class, 'detailArsip']);
+    Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
+    Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
 
 
 
 
     Route::get('laporan-bulanan', [LaporanController::class, 'index']);
 
- Route::get('/koordinator/laporan/cetak-pdf',[App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])->name('koordinator.laporan.cetakPDF');
+    Route::get('/koordinator/laporan/cetak-pdf', [App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])->name('koordinator.laporan.cetakPDF');
 
 
-                    // Ruote kelola editing video
-            Route::get('editing-video', [KoorEditingVideoController::class, 'index']);
-            Route::get('editing-video/detail_editing_video/{id}', [koorEditingVideoController::class, 'detail']);
-            Route::get('editing-video/arsip', [KoorEditingVideoController::class, 'arsip']);
-            Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
-            Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
-            Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
-
-
-
+    // Ruote kelola editing video
+    Route::get('editing-video', [KoorEditingVideoController::class, 'index']);
+    Route::get('editing-video/detail_editing_video/{id}', [koorEditingVideoController::class, 'detail']);
+    Route::get('editing-video/arsip', [KoorEditingVideoController::class, 'arsip']);
+    Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
+    Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
+    Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
 });

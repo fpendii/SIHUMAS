@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="copyright-content">
-                        <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologin Informasi. </p>
+                        <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologi Informasi. </p>
                     </div>
                 </div>
             </div>

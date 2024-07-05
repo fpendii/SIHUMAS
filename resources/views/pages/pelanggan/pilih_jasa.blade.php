@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="page-heading">
-        <h3>Jasa Yang Tersedia Di Humas</h3>
+        <h3>Layanan Yang Tersedia Di Humas</h3>
 
     </div>
     <div class="page-content">
@@ -166,7 +166,9 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($PermohonanPelanggan as $item)
+
                                                 <tr>
+
                                                     <td class="col-3">
                                                         <div class="d-flex align-items-center">
                                                             @if ($item->status == 'selesai')
@@ -186,17 +188,20 @@
                                                         </div>
                                                     </td>
                                                     <td class="col-auto">
-                                                        <p class=" mb-0">{{ $item->pesan }}
-                                                        </p>
+                                                        <p class=" mb-0">{{ Str::limit($item->pesan, 50) }}</p>
                                                     </td>
-
                                                     <td class="col-2 text-right">
                                                         <span class="float-right">
                                                             <span style="font-size: 12px"
                                                                 class="mail-date">{{ $item->time_ago }}</span>
                                                         </span>
                                                     </td>
+                                                    <td class="col-auto">
+                                                        <a href="jasa/cek-permohonan/{{$item->id_pesanan}}/{{$item->jenis_jasa}}" type="button" class="btn btn-primary btn-sm">Cek</a>
+                                                    </td>
+
                                                 </tr>
+
                                             @endforeach
                                         </tbody>
                                     </table>

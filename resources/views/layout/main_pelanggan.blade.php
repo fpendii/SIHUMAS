@@ -19,8 +19,6 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/iconly.css">
 
-
-
     <style>
         .hidden {
             display: none;
@@ -46,7 +44,7 @@
                                     class="user-dropdown d-flex align-items-center dropend dropdown-toggle "
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="avatar avatar-md2">
-                                        <img src="/template/dist/assets/compiled/jpg/1.jpg" alt="Avatar">
+                                        <img src="/images/profil.png" width="20px" alt="Avatar">
                                     </div>
                                     <div class="text">
                                         <h6 class="user-dropdown-name">{{session('username')}}</h6>
@@ -81,7 +79,7 @@
                 <div class="container">
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-start">
-                            <p>2023 &copy; Mazer</p>
+                            <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologi Informasi. </p>
                         </div>
                         <div class="float-end">
                             <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a

@@ -134,6 +134,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
     Route::post('kelola-akun/simpan', [AkunController::class, 'simpan']);
     Route::get('kelola-akun/edit/{id}', [AkunController::class, 'edit']);
+    Route::delete('kelola-akun/hapus/{id}', [AkunController::class, 'hapus']);
     Route::put('kelola-akun/update/{id}', [AkunController::class, 'update']);
 
     // Ruote kelola peliputan

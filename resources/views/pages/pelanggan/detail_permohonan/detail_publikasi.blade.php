@@ -51,7 +51,6 @@
                                         <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
                                             name="unit" readonly>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Media Publikasi</label>
                                         <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->pilihan_publikasi }}" readonly>

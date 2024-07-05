@@ -9,6 +9,7 @@ use App\Models\PetugasModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\Validator;
 use App\Models\akun;
+use Illuminate\Support\Str;
 
 class TugasPublikasiController extends Controller
 {
@@ -37,7 +38,7 @@ class TugasPublikasiController extends Controller
         ];
 
         $validator = Validator::make($request->all(), [
-            'ringkasan_publikasi' => 'required',
+            'ringkasan_publikasi' => 'required|file',
         ], $messages);
 
         if ($validator->fails()) {
@@ -46,8 +47,8 @@ class TugasPublikasiController extends Controller
 
         if ($request->hasFile('ringkasan_publikasi')) {
             $file = $request->file('ringkasan_publikasi');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('public/ringkasan_publikasi', $fileName); // Simpan di storage/app/public/ringkasan_publikasi
+            $fileName = Str::random(10) . time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs($fileName); // Simpan di storage/app/public/ringkasan_publikasi
             // Update atribut pada model PesananModel
             $dataPermohonan = PesananModel::findOrFail($id);
             $dataPermohonan->ringkasan_publikasi = $filePath; // Simpan path file

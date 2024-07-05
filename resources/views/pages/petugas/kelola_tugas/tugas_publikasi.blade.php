@@ -23,14 +23,15 @@
         </div>
     </nav>
     <div class="container">
-        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }} " enctype="multipart/form-data">
+        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }} " method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('post')
             <div class="card mt-5">
-
                 <div class="card-header">
-                    <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
-                    <input type="text" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
-                        placeholder="Masukkan Link Hasil" name="link_hasil">
-                    @error('link_hasil')
+                    <h4 class="card-title">File Ringkasan {{ $dataPermohonan->jenis_jasa }}</h4>
+                    <input type="file" id="feedback1" class="form-control @error('link_hasil') is-invalid @enderror"
+                        placeholder="Masukkan Link Hasil" name="ringkasan_publikasi">
+                    @error('ringkasan_publikasi')
                         <p class="invalid-feedback">{{ $message }}</p>
                     @enderror
                     <h4 class="card-title mt-5"></i>{{ $dataPermohonan->username }}</h4>

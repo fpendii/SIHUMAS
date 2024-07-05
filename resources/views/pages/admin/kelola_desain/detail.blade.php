@@ -45,6 +45,11 @@
 
                         <div class="form-body">
                             <div class="form-group">
+                                <label for="feedback1" class="sr-only">Unit</label>
+                                <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->unit}}"
+                                    name="tema" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="feedback1" class="sr-only">Tema</label>
                                 <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->tema}}"
                                     name="tema" readonly>

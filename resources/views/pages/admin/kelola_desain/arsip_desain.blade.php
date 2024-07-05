@@ -19,8 +19,6 @@
                                 @elseif ($item->status == 'selesai')
                                     <i class="bi bi-check-circle icon"></i>
                                 @endif
-
-
                             </span>
                         </div>
                         <div class="pr-50">

@@ -42,7 +42,11 @@
                     <div class="card-body">
                         <h4 class="card-title">Data Permohonan</h4>
                         <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
-
+                        <div class="form-group">
+                            <label for="feedback1" class="sr-only">Unit</label>
+                            <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->unit}}"
+                                name="tema" readonly>
+                        </div>
                         <div class="form-body">
                             <div class="form-group">
                                 <label for="feedback1" class="sr-only">Tema</label>

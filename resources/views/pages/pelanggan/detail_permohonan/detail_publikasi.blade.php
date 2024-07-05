@@ -90,9 +90,8 @@
                                         @endif
                                     </div>
                                     <div class="form-group">
-                                        <label for="linkInput" class="sr-only">Link Hasil</label>
+                                        <label for="linkInput" class="sr-only">Ringkasan</label>
                                         @if($dataPermohonan->ringkasan_publikasi)
-                                            <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download class="btn btn-primary">Download Ringkasan Publikasi</a>
                                         @else
                                             <p>Ringkasan Publikasi belum diunggah.</p>
                                         @endif
@@ -100,13 +99,29 @@
 
 
                                     <div class="form-group">
-                                        <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
-                                            <i class="bi bi-clipboard"></i> Copy Link
-                                        </button>
-                                        <button class="btn btn-secondary btn-sm" onclick="openInNewTab()">
-                                            <i class="bi bi-box-arrow-up-right"></i> Open Link
-                                        </button>
+                                        @if($dataPermohonan->ringkasan_publikasi)
+                                        <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download class="btn btn-sm btn-secondary btn-sm" >
+                                            <i class="bi bi-clipboard"></i> Download
+                                        </a>
+                                        @else
+
+                                        @endif
+
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback4" class="sr-only">Link Hasil</label>
+                                    <input type="text" id="feedback4" class="form-control"
+                                        placeholder="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
+                                        @if ($dataPermohonan->link_hasil)
+                                        <a href="$dataPermohonan->link_hasil" class="btn btn-primary btn-sm">Open Link</a>
+                                        @else
+                                        <small id="deskripsi_help"
+                                        class="form-text text-muted">Link Hasil Belum Tesedia.</small>
+                                        @endif
+
+                                </div>
+
                                 </div>
                             </div>
                         </div>
@@ -165,22 +180,7 @@
         }
         // ]]>
 
-        function copyToClipboard() {
-            var copyText = document.getElementById("linkInput");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
 
-            navigator.clipboard.writeText(copyText.value).then(() => {
-                alert("Link copied to clipboard: " + copyText.value);
-            }).catch(err => {
-                console.error('Could not copy text: ', err);
-            });
-        }
-
-        function openInNewTab() {
-            var link = document.getElementById("linkInput").value;
-            window.open(link, '_blank').focus();
-        }
     </script>
 </body>
 

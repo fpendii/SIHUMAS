@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_pesanan');
             $table->bigInteger('id_akun')->unsigned();
             $table->bigInteger('id_jasa')->unsigned();
-            $table->enum('status',['pending','proses','redaktur','selesai','tidak selesai','ditolak'])->default('pending');
+            $table->enum('status',['pending','proses','belum-acc','redaktur','selesai','tidak selesai','ditolak'])->default('pending');
             $table->string('link_mentahan',200)->nullable();
             $table->string('ringkasan_publikasi',200)->nullable();
             $table->string('link_hasil',200)->nullable();

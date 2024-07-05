@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('ringkasan_publikasi',200)->nullable();
             $table->string('link_hasil',200)->nullable();
             $table->text('pesan');
-            $table->date('tenggat_pengerjaan');
+            $table->date('tenggat_pengerjaan')->nullable();
             $table->char('unit',200)->nullable();
             $table->timestamps();
 

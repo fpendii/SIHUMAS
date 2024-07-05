@@ -38,7 +38,7 @@ class TugasPublikasiController extends Controller
     ];
 
     $validator = Validator::make($request->all(), [
-        'ringkasan_publikasi' => 'required|file',
+        'ringkasan_publikasi' => 'required|file|max:200',
     ], $messages);
 
     if ($validator->fails()) {

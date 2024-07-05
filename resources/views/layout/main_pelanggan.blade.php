@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/iconly.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMZt8z0lY4XlrR6UP2LU7Myspn6D32V+5nP+EZF" crossorigin="anonymous">
+
+
+
     <style>
         .hidden {
             display: none;

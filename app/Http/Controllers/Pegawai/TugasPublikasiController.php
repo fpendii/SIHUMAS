@@ -30,34 +30,38 @@ class TugasPublikasiController extends Controller
     }
 
     public function submitTugas($id, Request $request)
-    {
-        $messages = [
-            'required' => 'Ringkasan Publikasi wajib diisi.',
-            'file' => 'Ringkasan Publikasi harus berupa file PDF.',
-            'max' => 'Ringkasan Publikasi tidak boleh lebih dari 200 KB.'
-        ];
+{
+    $messages = [
+        'required' => 'Ringkasan Publikasi wajib diisi.',
+        'file' => 'Ringkasan Publikasi harus berupa file PDF.',
+        'max' => 'Ringkasan Publikasi tidak boleh lebih dari 200 KB.'
+    ];
 
-        $validator = Validator::make($request->all(), [
-            'ringkasan_publikasi' => 'required|file',
-        ], $messages);
+    $validator = Validator::make($request->all(), [
+        'ringkasan_publikasi' => 'required|file',
+    ], $messages);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-        if ($request->hasFile('ringkasan_publikasi')) {
-            $file = $request->file('ringkasan_publikasi');
-            $fileName = Str::random(10) . time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs($fileName); // Simpan di storage/app/public/ringkasan_publikasi
-            // Update atribut pada model PesananModel
-            $dataPermohonan = PesananModel::findOrFail($id);
-            $dataPermohonan->ringkasan_publikasi = $filePath; // Simpan path file
-            $dataPermohonan->status = 'selesai';
-            $updateSuccessful = $dataPermohonan->save();
-            if (!$updateSuccessful) {
-                return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
-            }
-        }
-        return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
     }
+
+    if ($request->hasFile('ringkasan_publikasi')) {
+        $file = $request->file('ringkasan_publikasi');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $filePath = $file->storeAs('public/ringkasan_publikasi', $fileName); // Simpan di storage/app/public/ringkasan_publikasi
+
+        // Update atribut pada model PesananModel
+        $dataPermohonan = PesananModel::findOrFail($id);
+        $dataPermohonan->ringkasan_publikasi = 'storage/ringkasan_publikasi/' . $fileName; // Simpan path file relatif dari public
+        $dataPermohonan->status = 'selesai';
+        $updateSuccessful = $dataPermohonan->save();
+
+        if (!$updateSuccessful) {
+            return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
+        }
+    }
+
+    return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+}
+
 }

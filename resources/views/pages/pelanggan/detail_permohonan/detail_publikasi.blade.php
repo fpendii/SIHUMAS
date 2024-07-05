@@ -91,8 +91,14 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="linkInput" class="sr-only">Link Hasil</label>
-                                        <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
+                                        @if($dataPermohonan->ringkasan_publikasi)
+                                            <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download class="btn btn-primary">Download Ringkasan Publikasi</a>
+                                        @else
+                                            <p>Ringkasan Publikasi belum diunggah.</p>
+                                        @endif
                                     </div>
+
+
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
                                             <i class="bi bi-clipboard"></i> Copy Link

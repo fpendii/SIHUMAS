@@ -22,9 +22,9 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/desain') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('jasa') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <img src="/images/silamas.png">
             </a>
         </div>
     </nav>

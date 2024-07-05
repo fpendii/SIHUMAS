@@ -53,7 +53,7 @@ class TugasPublikasiController extends Controller
         // Update atribut pada model PesananModel
         $dataPermohonan = PesananModel::findOrFail($id);
         $dataPermohonan->ringkasan_publikasi = 'storage/ringkasan_publikasi/' . $fileName; // Simpan path file relatif dari public
-        $dataPermohonan->status = 'selesai';
+        $dataPermohonan->status = 'belum-acc';
         $updateSuccessful = $dataPermohonan->save();
 
         if (!$updateSuccessful) {

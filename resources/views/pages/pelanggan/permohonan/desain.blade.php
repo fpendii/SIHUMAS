@@ -111,7 +111,7 @@
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="mentahan"
                                                 class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link drive file pendukukng">
+                                                name="link_mentahan" placeholder="Masukkan link drive file pendukung">
                                             <small id="deskripsi_help" class="form-text text-muted">upload
                                                 logo/gambar/file pendukung yang diperlukan dalam design (jika ada).</small>
                                             @error('link_mentahan')

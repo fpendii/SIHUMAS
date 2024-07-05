@@ -34,8 +34,9 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="#"><img src="/images/silamas.png"
-                                    alt="Logo"></a>
+                            <a class="navbar-brand ms-4" href="index.html">
+                                <img src="/images/silamas.png">
+                            </a>
                         </div>
                         <div class="header-top-right">
 

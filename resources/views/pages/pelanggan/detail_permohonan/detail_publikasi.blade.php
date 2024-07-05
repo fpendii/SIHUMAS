@@ -22,9 +22,9 @@
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/desain') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('jasa') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <img src="/images/silamas.png">
             </a>
         </div>
     </nav>
@@ -48,12 +48,13 @@
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label for="unit" class="sr-only">Unit</label>
-                                        <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
-                                            name="unit" readonly>
+                                        <input type="text" id="unit" class="form-control"
+                                            placeholder="{{ $dataPermohonan->unit }}" name="unit" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Media Publikasi</label>
-                                        <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->pilihan_publikasi }}" readonly>
+                                        <input type="text" id="feedback1" class="form-control"
+                                            placeholder="{{ $dataPermohonan->pilihan_publikasi }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Tag Sosmed</label>
@@ -64,6 +65,8 @@
                                         <label for="feedback4" class="sr-only">Link Dokumentasi Publikasi</label>
                                         <input type="text" id="feedback4" class="form-control"
                                             placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm">Open
+                                            Link</a>
                                     </div>
                                     <div class="form-group">
                                         <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
@@ -91,7 +94,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="linkInput" class="sr-only">Ringkasan</label>
-                                        @if($dataPermohonan->ringkasan_publikasi)
+                                        @if ($dataPermohonan->ringkasan_publikasi)
                                         @else
                                             <p>Ringkasan Publikasi belum diunggah.</p>
                                         @endif
@@ -99,12 +102,12 @@
 
 
                                     <div class="form-group">
-                                        @if($dataPermohonan->ringkasan_publikasi)
-                                        <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download class="btn btn-sm btn-secondary btn-sm" >
-                                            <i class="bi bi-clipboard"></i> Download
-                                        </a>
+                                        @if ($dataPermohonan->ringkasan_publikasi)
+                                            <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download
+                                                class="btn btn-sm btn-secondary btn-sm">
+                                                <i class="bi bi-clipboard"></i> Download
+                                            </a>
                                         @else
-
                                         @endif
 
                                     </div>
@@ -113,28 +116,29 @@
                                     <label for="feedback4" class="sr-only">Link Hasil</label>
                                     <input type="text" id="feedback4" class="form-control"
                                         placeholder="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
-                                        @if ($dataPermohonan->link_hasil)
-                                        <a href="$dataPermohonan->link_hasil" class="btn btn-primary btn-sm">Open Link</a>
-                                        @else
-                                        <small id="deskripsi_help"
-                                        class="form-text text-muted">Link Hasil Belum Tesedia.</small>
-                                        @endif
+                                    @if ($dataPermohonan->link_hasil)
+                                        <a href="{{ $dataPermohonan->link_hasil }}" class="btn btn-primary btn-sm">Open
+                                            Link</a>
+                                    @else
+                                        <small id="deskripsi_help" class="form-text text-muted">Link Hasil Belum
+                                            Tesedia.</small>
+                                    @endif
 
                                 </div>
 
-                                </div>
                             </div>
                         </div>
-
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-
-                            <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
-                        </div>
-
                     </div>
+
+                    <div class="form-actions d-flex justify-content-end grid gap-1">
+
+                        <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -179,8 +183,6 @@
             console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
         }
         // ]]>
-
-
     </script>
 </body>
 

@@ -36,22 +36,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $no = 1;
+                            @endphp
                             @foreach ($Laporan as $item)
-                                <tr>
-                                    <td></td>
-                                    <td class="col-4">{{$item->jenis_jasa}}</td>
-                                    <td>{{$item->nama}}</td>
-                                    <td class="col-2">
-                                        @if ($item->status == 'selesai')
+                                @if ($item->status == 'selesai')
+                                    <tr>
+                                        <td>{{ $no++ }}</td>
+                                        <td class="col-4">{{$item->jenis_jasa}}</td>
+                                        <td>{{$item->nama}}</td>
+                                        <td class="col-2">
                                             <span class="badge bg-success">{{$item->status}}</span>
-                                        @elseif ($item->status == 'tolak')
-                                            <span class="badge bg-danger">{{$item->status}}</span>
-                                        @else 
-                                            <span class="badge bg-warning">{{$item->status}}</span>
-                                        @endif
-                                    </td>
-                                    <td>{{$item->total}}</td>
-                                </tr>
+                                        </td>
+                                        <td>{{$item->total}}</td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

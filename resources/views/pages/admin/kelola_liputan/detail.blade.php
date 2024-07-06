@@ -39,35 +39,55 @@
                                 @csrf
                                 @method('PUT')     
                                                  
-                                <div class="form-group row">
-                                    <label for="waktu_mulai" class="col-sm-3 col-form-label">Waktu Mulai</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="waktu_mulai" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="feedback1">Jadwal Mulai</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_mulai }}" name="name" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label for="feedback1">Jadwal Selesai</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label for="feedback2">Apakah kegiatan membutuhkan keprotokolan dalam kegiatan tersebut?
+                                                <br>(jika keprotokolan kegiatan cukup di handle oleh pelaksana kegiatan, maka pilih "Tidak")
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label for="feedback2">Apakah kegiatan membutuhkan dokumentasi foto?
+                                                <br>(foto-foto kegiatan akan mewakili setiap momen penting di dalam kegiatan tersebut)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-md-4">
+                                            <label for="feedback2">Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
+                                                <br>(Jika "Ya" silakan mengisi kembali link permohonan editing)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="waktu_selesai" class="col-sm-3 col-form-label">Waktu Selesai</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="waktu_selesai" class="form-control" value="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
-                                    </div>
-                                <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Apakah kegaitan membutuhkan keprotokolan dalam kegiatan tersebut? 
-                                        <br>(jika keprotokolan kegiatan cukup di handle oleh pelaksanan kegiatan, maka pilih "tidak")</label>
-                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto?
-                                        <br> (foto-foto kegiatan akan mewakili setiap momen penting di dalam kegiatan tersebut)
-                                    </label>
-                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
-                                        <br> (Jika "Ya" silahkah mengisi kembali link permohonan editing)
-                                    </label>
-                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
-                                </div>
-                            </div>
+                                
                                 <div class="form-actions d-flex justify-content-end gap-1">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

@@ -59,34 +59,55 @@
                                     </div>
 
                         {{-- <div class="form-body"> --}}
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Waktu Mulai</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="feedback1">Jadwal Mulai</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_mulai }}" name="name" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <label for="feedback1">Jadwal Selesai</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <label for="feedback2">Apakah kegiatan membutuhkan keprotokolan dalam kegiatan tersebut?
+                                            <br>(jika keprotokolan kegiatan cukup di handle oleh pelaksana kegiatan, maka pilih "Tidak")
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <label for="feedback2">Apakah kegiatan membutuhkan dokumentasi foto?
+                                            <br>(foto-foto kegiatan akan mewakili setiap momen penting di dalam kegiatan tersebut)
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <label for="feedback2">Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
+                                            <br>(Jika "Ya" silakan mengisi kembali link permohonan editing)
+                                        </label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
-                                    {{-- placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly> --}}
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                       value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
-                            </div>
-                        </div>
-
+                            
                         <div class="form-actions d-flex justify-content-end grid gap-1">
 
                             <a href="{{url('admin/peliputan/')}}" class="btn btn-secondary">Kembali</a>

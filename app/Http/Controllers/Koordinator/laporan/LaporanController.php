@@ -9,6 +9,55 @@ use PDF;
 
 class LaporanController extends Controller
 {
+    public function index()      
+    {
+        $data = [
+            'title' => 'Laporan Bulanan | SIHUMAS',
+            'page' => 'Laporan Bulanan',
+            'level' => 'Koordinator',
+            'Laporan' => DB::table('pesanan')
+                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+                ->select(
+                    'jasa.jenis_jasa', 
+                    'akun.nama', 
+                    'pesanan.status', 
+                    DB::raw('COUNT(pesanan.id_pesanan) as total')
+                )
+                ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
+                ->get()
+                ->toArray()
+        ];
+
+        return view('pages.koordinator.kelola_laporan.laporan', $data);
+    }
+
+    public function cetakPDF()
+    {
+        $data = [
+            'title' => 'Laporan Bulanan | SIHUMAS',
+            'page' => 'Laporan Bulanan',
+            'level' => 'Koordinator',
+            'Laporan' => DB::table('pesanan')
+                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+                ->select(
+                    'jasa.jenis_jasa', 
+                    'akun.nama', 
+                    'pesanan.status', 
+                    DB::raw('COUNT(pesanan.id_pesanan) as total')
+                )
+                ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
+                ->get()
+                ->toArray()
+        ];
+
+        $pdf = PDF::loadView('pages.koordinator.kelola_laporan.cetak_laporan', $data);
+        return $pdf->download('laporan_bulanan.pdf');
+    }
+}
+
+
 //     public function index()
 //     {
 //         $data = [
@@ -159,51 +208,5 @@ class LaporanController extends Controller
 
     //ini sum total aja
 
-    public function index()      
-    {
-        $data = [
-            'title' => 'Laporan Bulanan | SIHUMAS',
-            'page' => 'Laporan Bulanan',
-            'level' => 'Koordinator',
-            'Laporan' => DB::table('pesanan')
-                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-                ->select(
-                    'jasa.jenis_jasa', 
-                    'akun.nama', 
-                    'pesanan.status', 
-                    DB::raw('COUNT(pesanan.id_pesanan) as total')
-                )
-                ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
-                ->get()
-                ->toArray()
-        ];
-
-        return view('pages.koordinator.kelola_laporan.laporan', $data);
-    }
-
-    public function cetakPDF()
-    {
-        $data = [
-            'title' => 'Laporan Bulanan | SIHUMAS',
-            'page' => 'Laporan Bulanan',
-            'level' => 'Koordinator',
-            'Laporan' => DB::table('pesanan')
-                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-                ->select(
-                    'jasa.jenis_jasa', 
-                    'akun.nama', 
-                    'pesanan.status', 
-                    DB::raw('COUNT(pesanan.id_pesanan) as total')
-                )
-                ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
-                ->get()
-                ->toArray()
-        ];
-
-        $pdf = PDF::loadView('pages.koordinator.kelola_laporan.cetak_laporan', $data);
-        return $pdf->download('laporan_bulanan.pdf');
-    }
-}
+  
 

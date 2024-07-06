@@ -34,7 +34,9 @@
     </nav>
 
     <div class="container">
-        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+        {{-- <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}"> --}}
+            <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}" method="POST">
+                @csrf
             <div class="card mt-5">
                 <div class="card-header">
                     <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>
@@ -96,7 +98,7 @@
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a href="{{ url('petugas') }}" class="btn btn-secondary">Kembali</a>
+                                <a href="/petugas/tugas" class="btn btn-secondary">Kembali</a>
                             </div>
                         </div>
                     </div>

@@ -52,14 +52,9 @@
                                 value="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="feedback4" class="sr-only">Link Mentahan</label>
-                            <input type="text" id="feedback4" class="form-control"
-                                value="{{ $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                            <label for="feedback2" class="sr-only">Waktu Selesai</label>
                             <input type="text" id="feedback2" class="form-control"
-                                value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
+                                value="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
                         </div>
                         <div class="form-group">
                             <label for="feedback2" class="sr-only">Pertanyaan 1</label>

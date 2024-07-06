@@ -239,6 +239,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified','petugas'])->group(func
     Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
     Route::post('tugas/peliputan/submit/{id}', [TugasPeliputanController::class, 'submitTugas']);
 
+
     Route::get('tugas/edit_foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
     Route::post('tugas/edit-foto/submit/{id}', [TugasEditFotoController::class, 'submitTugas']);
 

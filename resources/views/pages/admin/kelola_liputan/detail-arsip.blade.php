@@ -40,15 +40,13 @@
                     <small><a href="{{ $dataPermohonan->link_hasil }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link Hasilnya</a></small>
                 </div>
             </div>
-            <div class="card-body">
-               <p>{{ $dataPermohonan->pesan }}</p> (ini mun membuat pesan di permohonan maka pakai ini)
-            </div>
-            {{-- <div class="card">
-                <div class="card-content"> --}}
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
                                 <h4 class="card-title">Data Permohonan</h4>
+                                <div class="card-body">
+                                    <p>{{ $dataPermohonan->pesan }}</p>
+                                </div>
                                 <div class="form-body">
                                     <div class="form-group">
                                         <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>

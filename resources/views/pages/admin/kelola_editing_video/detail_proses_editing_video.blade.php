@@ -45,20 +45,15 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
-                                <label for="link_mentahan">Link Mentahan</label>
-                                <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror"
-                                       name="link_mentahan" value="{{ old('link_mentahan') }}" required>
-                                @error('link_mentahan')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                <input type="text" id="feedback4" class="form-control"
+                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                    <small><a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" id="linkMentahanHref">Klik di sini untuk membuka link mentahan</a></small>
+                            </div>
                             <div class="form-group">
                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                 <input type="text" id="feedback2" class="form-control"placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                             </div>
-                            {{-- <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Hasil</label>
-                                <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName">
-                            </div> --}}
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 

@@ -246,7 +246,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified','petugas'])->group(func
     Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
     Route::post('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
-    Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
+    Route::get('tugas/editing video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
     Route::post('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
 
     // Route Kelola Asip Tugas

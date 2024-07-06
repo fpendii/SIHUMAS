@@ -22,27 +22,26 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="password-horizontal">Pesan</label>
+                                            <label for="deskripsi" class="col-form-label">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                
+                                        <div class="col-md-4">
+                                            <label for="link_mentahan" class="col-form-label">Mentahan</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror" name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Mentahan</label>
+                                            <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="contact-info-horizontal"
-                                                class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
-                                            @error('ukuran_gambar')
-                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            <input type="datetime-local" id="tenggat_pengerjaan" class="form-control @error('tenggat_pengerjaan') is-invalid @enderror" name="tenggat_pengerjaan" value="{{ old('tenggat_pengerjaan') }}">
+                                            @error('tenggat_pengerjaan')
+                                                <div class="invalid-feedback">The tenggat pengerjaan field is required.</div>
                                             @enderror
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="contact-info-horizontal">Tenggat Pengerjaan</label>
-                                        </div>
-                                        <div class="col-md-8 form-group">
-                                            <input type="datetime-local" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>

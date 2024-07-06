@@ -43,19 +43,30 @@
                 <div class="card-content">
                     <div class="card-body">
                         <h4 class="card-title">Data Permohonan Editing Video</h4>
-                        <hr>
                         <div class="row">
                             <div class="col">
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                        <input type="text" id="feedback4" class="form-control"
-                                            placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback4" class="form-control"
+                                                       placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                        <input type="text" id="feedback2" class="form-control"placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                     
                     <div class="col">
                         <div class="form-body">

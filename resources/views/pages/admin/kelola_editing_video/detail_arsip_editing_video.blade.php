@@ -46,15 +46,29 @@
                         <form action="{{url('admin/editing-video/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf
                             @method('PUT')
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control"value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                            </div>
+                            <div class="row">
+                                <div class="col">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                    <input type="text" id="feedback4" class="form-control"
+                                                           placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                    <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 
                                 <a href="{{url('admin/editing-video/')}}" class="btn btn-secondary">Kembali</a>

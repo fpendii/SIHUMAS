@@ -23,8 +23,8 @@ class PermohonanEditingVideoController extends Controller
     public function submit(Request $request)
     {
         $request->validate([
-            'link_mentahan' => 'required',
-            'pesan' => 'required',
+            // // 'link_mentahan' => 'required',
+            // 'pesan' => 'required',
             'tenggat_pengerjaan' => 'required',
         ]);
 

@@ -30,6 +30,7 @@
     </nav>
 
 
+   
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
@@ -39,135 +40,83 @@
                 <p>{{ $dataPermohonan->pesan }}</p>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Masukkan data di {{ $page }} untuk melalukan permohonan</h4>
-                </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{ url('jasa/liputan/submit') }}" method="POST" class="form form-horizontal">
-                            @csrf
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="password-horizontal">Pesan</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <textarea name="pesan" placeholder="Masukkan pesan permohonan" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                                    </div>
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="jadwal-mulai">Jadwal Mulai</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="datetime-local" id="jadwal-mulai" class="form-control" name="waktu_mulai">
-                                    </div>
-                                    {{-- <div class="col-md-4">
-                                        <label for="jadwal-selesai">Jadwal Selesai</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="date" id="jadwal-selesai" class="form-control" name="waktu_selesai">
-                                    </div> --}}
-                                    <div class="col-md-4">
-                                        <label for="jadwal-selesai">Jadwal Selesai</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="datetime-local" id="jadwal-selesai" class="form-control" name="waktu_selesai">
-                                    </div>
-                                    
-                                    <div class="col-md-4">
-                                        <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_1" id="dokumentasi_foto_1_ya" value="1" required>
-                                            <label class="form-check-label" for="dokumentasi_foto_1_ya">
-                                                Ya
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_1" id="dokumentasi_foto_1_tidak" value="0" checked required>
-                                            <label class="form-check-label" for="dokumentasi_foto_1_tidak">
-                                                Tidak
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_2" id="dokumentasi_foto_2_ya" value="1" required>
-                                            <label class="form-check-label" for="dokumentasi_foto_2_ya">
-                                                Ya
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_2" id="dokumentasi_foto_2_tidak" value="0" checked required>
-                                            <label class="form-check-label" for="dokumentasi_foto_2_tidak">
-                                                Tidak
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="dokumentasi-foto-2">Apakah kegiatan membutuhkan dokumentasi foto</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="1" required>
-                                            <label class="form-check-label" for="dokumentasi_foto_3_ya">
-                                                Ya
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_tidak" value="0" checked required>
-                                            <label class="form-check-label" for="dokumentasi_foto_3_tidak">
-                                                Tidak
-                                            </label>
-                                        </div>
-                                    </div>
+                        <h4 class="card-title">Data Permohonan Peliputan</h4>
+                        <hr>
+                        <div class="row">
                             <div class="col">
                                 <div class="form-body">
 
-                                    <div class="form-group">
-                                        <label for="feedback1" class="sr-only">Status Permohonan</label>
-                                        <br>
-                                        @if ($dataPermohonan->status == 'selesai')
-                                            <span class="badge bg-success">{{ $dataPermohonan->status }}</span>
-                                        @elseif($dataPermohonan->status == 'pending')
-                                            <span class="badge bg-primary">{{ $dataPermohonan->status }}</span>
-                                        @elseif($dataPermohonan->status == 'proses')
-                                            <span class="badge bg-warning">{{ $dataPermohonan->status }}</span>
-                                        @else
-                                            <span class="badge bg-danger">{{ $dataPermohonan->status }}</span>
-                                        @endif
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="linkInput" class="sr-only">Link Hasil</label>
-                                        <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
-                                            <i class="bi bi-clipboard"></i> Copy Link
-                                        </button>
-                                        <button class="btn btn-secondary btn-sm" onclick="openInNewTab()">
-                                            <i class="bi bi-box-arrow-up-right"></i> Open Link
-                                        </button>
-                                    </div>
-                                </div>
+                        <div class="form-group">
+                            <label for="feedback1" class="sr-only">Jadwal Mulai</label>
+                            <input type="text" id="feedback1" class="form-control"
+                                placeholder="{{ $dataPermohonan->waktu_mulai }}" name="name" readonly>
+                        </div> 
+                        <div class="form-group">
+                            <label for="feedback1" class="sr-only">Jadwal Selesai</label>
+                            <input type="text" id="feedback1" class="form-control"
+                                placeholder="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
+                        </div> 
+                        <div class="form-group">
+                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <input type="text" id="feedback2" class="form-control"
+                                   value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <input type="text" id="feedback2" class="form-control"
+                                   value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <input type="text" id="feedback2" class="form-control"
+                                   value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                        </div>
+                    </div>
+                                    
+                    <div class="col">
+                        <div class="form-body">
+
+                            <div class="form-group">
+                                <label for="feedback1" class="sr-only">Status Permohonan</label>
+                                <br>
+                                @if ($dataPermohonan->status == 'selesai')
+                                    <span class="badge bg-success">{{ $dataPermohonan->status }}</span>
+                                @elseif($dataPermohonan->status == 'pending')
+                                    <span class="badge bg-primary">{{ $dataPermohonan->status }}</span>
+                                @elseif($dataPermohonan->status == 'proses')
+                                    <span class="badge bg-warning">{{ $dataPermohonan->status }}</span>
+                                @else
+                                    <span class="badge bg-danger">{{ $dataPermohonan->status }}</span>
+                                @endif
+                            </div>
+                            <div class="form-group">
+                                <label for="linkInput" class="sr-only">Link Hasil</label>
+                                <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
+                                    <i class="bi bi-clipboard"></i> Copy Link
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="openInNewTab()">
+                                    <i class="bi bi-box-arrow-up-right"></i> Open Link
+                                </button>
                             </div>
                         </div>
-
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-
-                            <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
-                        </div>
-
                     </div>
                 </div>
+
+                <div class="form-actions d-flex justify-content-end grid gap-1">
+
+                    <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
+                </div>
+
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
 

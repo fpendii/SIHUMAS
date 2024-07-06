@@ -64,7 +64,7 @@ class EditFotoController extends Controller
             'level' => 'Admin'
         ];
 
-        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->get();
+        $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.status', '!=', 'pending')->where('pesanan.status', '!=', 'proses')->where('jasa.jenis_jasa', '=', 'edit_foto')->get();
 
 
         return view('pages.admin.kelola_editFoto.arsip_editFoto', $data, compact('dataPermohonan', 'data'));

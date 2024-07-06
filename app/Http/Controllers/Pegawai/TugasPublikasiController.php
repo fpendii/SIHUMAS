@@ -9,6 +9,7 @@ use App\Models\PetugasModel;
 use App\Models\PesananModel;
 use Illuminate\Support\Facades\Validator;
 use App\Models\akun;
+use Illuminate\Support\Str;
 
 class TugasPublikasiController extends Controller
 {
@@ -18,7 +19,7 @@ class TugasPublikasiController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')->where('pesanan.id_pesanan', $id)->get()->first();
         $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun', 'petugas_pesanan.id_akun', '=', 'akun.id_akun')->where('id_pesanan', '=', $dataPermohonan->id_pesanan)->get();
 
-        $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
+        $dataPetugas = DB::table('akun')->where('role', '=', 'petugas')->get();
         $data = [
             'title' => 'Permohonan Publikasi | SIHUMAS',
             'page' => 'publikasi',
@@ -28,35 +29,39 @@ class TugasPublikasiController extends Controller
         return view('pages.petugas.kelola_tugas.tugas_publikasi', $data, compact('dataPermohonan', 'dataPetugas', 'dataPetugasPesanan'));
     }
 
-    public function submitTugas($id,Request $request)
-    {
-        $messages = [
-            'required' => 'Link Hasil Wajib Diisi.',
-            'url' => 'Link yang dimasukkan tidak valid'
-        ];
+    public function submitTugas($id, Request $request)
+{
+    $messages = [
+        'required' => 'Ringkasan Publikasi wajib diisi.',
+        'file' => 'Ringkasan Publikasi harus berupa file PDF.',
+        'max' => 'Ringkasan Publikasi tidak boleh lebih dari 200 KB.'
+    ];
 
-        // Validasi input
-        $validator = Validator::make(request()->all(), [
-            'link_hasil' => 'required|url',
-        ],$messages);
+    $validator = Validator::make($request->all(), [
+        'ringkasan_publikasi' => 'required|file|max:200',
+    ], $messages);
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+    if ($validator->fails()) {
+        return redirect()->back()->withErrors($validator)->withInput();
+    }
 
-        // Temukan pesanan berdasarkan ID
+    if ($request->hasFile('ringkasan_publikasi')) {
+        $file = $request->file('ringkasan_publikasi');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+        $filePath = $file->storeAs('public/ringkasan_publikasi', $fileName); // Simpan di storage/app/public/ringkasan_publikasi
+
+        // Update atribut pada model PesananModel
         $dataPermohonan = PesananModel::findOrFail($id);
+        $dataPermohonan->ringkasan_publikasi = 'storage/ringkasan_publikasi/' . $fileName; // Simpan path file relatif dari public
+        $dataPermohonan->status = 'belum-acc';
+        $updateSuccessful = $dataPermohonan->save();
 
-        // Update status pesanan dan periksa apakah update berhasil
-        $updateSuccessful = $dataPermohonan->update([
-            'status' => 'redaktur',
-            'link_hasil' =>$request->link_hasil
-        ]);
-
-        if (!$updateSuccessful) { // Menggunakan ! untuk mengecek apakah false
+        if (!$updateSuccessful) {
             return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
         }
-
-        return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
     }
+
+    return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
+}
+
 }

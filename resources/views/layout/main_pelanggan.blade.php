@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/iconly.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMZt8z0lY4XlrR6UP2LU7Myspn6D32V+5nP+EZF" crossorigin="anonymous">
+
 
 
     <style>
@@ -36,8 +39,9 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="#"><img src="/images/silamas.png"
-                                    alt="Logo"></a>
+                            <a class="navbar-brand ms-4" href="index.html">
+                                <img src="/images/silamas.png">
+                            </a>
                         </div>
                         <div class="header-top-right">
 
@@ -46,17 +50,18 @@
                                     class="user-dropdown d-flex align-items-center dropend dropdown-toggle "
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="avatar avatar-md2">
-                                        <img src="/template/dist/assets/compiled/jpg/1.jpg" alt="Avatar">
+                                        <img src="/images/profil.png" width="20px" alt="Avatar">
                                     </div>
                                     <div class="text">
-                                        <h6 class="user-dropdown-name">{{session('username')}}</h6>
-                                        <p class="user-dropdown-status text-sm text-muted">{{session('role')}}</p>
+                                        <h6 class="user-dropdown-name">{{ session('username') }}</h6>
+                                        <p class="user-dropdown-status text-sm text-muted">{{ session('role') }}</p>
                                     </div>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end shadow-lg" aria-labelledby="topbarUserDropdown">
+                                <ul class="dropdown-menu dropdown-menu-end shadow-lg"
+                                    aria-labelledby="topbarUserDropdown">
                                     {{-- <li><a class="dropdown-item" href="#">My Account</a></li>
                                     <li><a class="dropdown-item" href="#">Settings</a></li> --}}
-                                    <li><a class="dropdown-item" href="{{url('logout')}}">Logout</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('logout') }}">Logout</a></li>
                                 </ul>
                             </div>
 
@@ -81,7 +86,7 @@
                 <div class="container">
                     <div class="footer clearfix mb-0 text-muted">
                         <div class="float-start">
-                            <p>2023 &copy; Mazer</p>
+                            <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologi Informasi. </p>
                         </div>
                         <div class="float-end">
                             <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
@@ -141,24 +146,7 @@
         }
         // ]]>
 
-        // script tombol pilih sosial media
-        document.addEventListener('DOMContentLoaded', function() {
-            var publikasiSelect = document.getElementById('publikasiSelect');
-            var sosialMediaOptions = document.getElementById('sosialMediaOptions');
-
-            if (publikasiSelect && sosialMediaOptions) {
-                publikasiSelect.addEventListener('change', function() {
-                    if (this.value === 'sosial media') {
-                        sosialMediaOptions.classList.remove('hidden');
-                    } else {
-                        sosialMediaOptions.classList.add('hidden');
-                        document.getElementById('platform_sosial_media').value = ''; // Reset the select value
-                    }
-                });
-            }
-        });
     </script>
-    <script></script>
 </body>
 
 </html>

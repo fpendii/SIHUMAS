@@ -39,9 +39,8 @@
                         <h2>Informasi Kontak</h2>
                         </p>
                         <ul class="time-sidual">
-                            <li class="day">Jl. Contoh No. 123, Jakarta, Indonesia</li>
-                            <li class="day">Telepon: <span> (021) 123-4567</span></li>
-                            <li class="day">Email: <span>info@contoh.com</span></li>
+                            <li class="day">Alamat: <span> Jl. Ahmad Yani ,Pelaihari, Kabupaten Tanah Laut, Kalimantan Selatan 70815</li>
+                            <li class="day">Email: <span>humas@politala.ac.id</span></li>
                             <li class="day">Jam Operasional: Senin - Jumat: 09.00 - 18.00 WIB</li>
                         </ul>
                     </div>
@@ -57,7 +56,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-12">
                     <div class="copyright-content">
-                        <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologin Informasi. </p>
+                        <p>© 2024 IT PROYEK Mahasiswa Politeknik Negeri Tanah Laut Prodi Teknologi Informasi. </p>
                     </div>
                 </div>
             </div>

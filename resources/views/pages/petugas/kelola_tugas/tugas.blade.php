@@ -7,14 +7,7 @@
                     <h3>Tugas Terbaru</h3>
                     <p class="text-subtitle text-muted"></p>
                 </div>
-                <div class="col-12 col-md-6 order-md-2 order-first">
-                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Form Layout</li>
-                        </ol>
-                    </nav>
-                </div>
+
             </div>
         </div>
 
@@ -52,14 +45,15 @@
                                         <footer class="blockquote-footer">
                                             @if ($item->jenis_jasa == 'pas_foto')
                                                 Tanggal Pengambilan Foto
-                                                <p>{{ $item->jadwal_foto }}</p>
+                                                <p>{{ \Carbon\Carbon::parse($item->jadwal_foto)->format(' d/m/Y H:i:s') }}</p>
+                                                {{-- <p>{{ $item->jadwal_foto }}</p> --}}
                                             @else
                                                 Batas Waktu
                                                 <p>{{ $item->tenggat_pengerjaan }}</p>
                                             @endif
                                         </footer>
                                     </blockquote>
-                                </div>                                
+                                </div>
                                 <a href="tugas/{{ $item->jenis_jasa }}/detail-tugas/{{ $item->id_pesanan }}"
                                     class="btn btn-primary block">Kerjakan</a>
                             </div>

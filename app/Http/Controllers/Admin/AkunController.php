@@ -28,11 +28,13 @@ class AkunController extends Controller
     if ($role) {
         $data_pegawai = DB::table('akun')
             ->where('role', $role)
+            ->whereNot('is_active',0)
             ->orderBy('id_akun', 'desc')
             ->get();
     } else {
         $data_pegawai = DB::table('akun')
             ->orderBy('id_akun', 'desc')
+            ->whereNot('is_active',0)
             ->get();
     }
 
@@ -186,5 +188,17 @@ class AkunController extends Controller
 
          // Set flash session untuk notifikasi berhasil
     return redirect()->to('admin/kelola-akun')->with('success', 'Data berhasil diperbarui');
+    }
+
+    public function hapus($id){
+        $akun = DB::table('akun')->where('id_akun',$id)->first();
+
+        if ($akun) {
+            DB::table('akun')->where('id_akun', $id)->update(['is_active' => 0]);
+            return redirect()->back()->with('success', 'Data Berhasil Dihapus');
+        } else {
+            return redirect()->back()->with('error', 'Data Gagal Dihapus');
+        }
+
     }
 }

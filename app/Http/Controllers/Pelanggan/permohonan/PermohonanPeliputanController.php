@@ -57,7 +57,8 @@ class PermohonanPeliputanController extends Controller
         if(!$simpanPesanan){
             emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');
         }else{
-            emotify('success', 'Permohonan berhasil dikirim, Silahkan tunggu konfirmasi selanjutnya dari pihak Silamas :)');
+            emotify('success', 'Terima kasih banyak atas kerja sama untuk mengisi formulir Permohonan Bantuan Kehumasan Unit Humas Politeknik Negeri Tanah Laut. Semoga kegiatan di lingkungan Politeknik Negeri Tanah Laut dapat berjalan dengan baik, lancar, dan terarsipkan dengan baik.
+Koordinasi lebih lanjut dan konfirmasi permohonan design grafis silahkan hubungi kontak WhatsApp kami');
         }
 
 

@@ -14,16 +14,17 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
 
-
+    <style>
+    </style>
 </head>
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/desain') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('jasa') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <img src="/images/silamas.png">
             </a>
         </div>
     </nav>
@@ -40,45 +41,104 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
-                        <p class="card-text">Desain {{ $dataPermohonan->tipe_desain }}</p>
-                        <div class="form-group">
-                            <label for="feedback1" class="sr-only">Unit</label>
-                            <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->unit}}"
-                                name="tema" readonly>
-                        </div>
-                        <div class="form-body">
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Tema</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->tema }}" name="tema" readonly>
+                        <h4 class="card-title">Data Permohonan Publikasi</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label for="unit" class="sr-only">Unit</label>
+                                        <input type="text" id="unit" class="form-control"
+                                            placeholder="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feedback1" class="sr-only">Media Publikasi</label>
+                                        <input type="text" id="feedback1" class="form-control"
+                                            placeholder="{{ $dataPermohonan->pilihan_publikasi }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feedback1" class="sr-only">Tag Sosmed</label>
+                                        <input type="text" id="feedback1" class="form-control"
+                                            placeholder="{{ $dataPermohonan->tag_sosmed }}" name="name" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feedback4" class="sr-only">Link Dokumentasi Publikasi</label>
+                                        <input type="text" id="feedback4" class="form-control"
+                                            placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm">Open
+                                            Link</a>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                        <input type="text" id="feedback2" class="form-control"
+                                            placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email"
+                                            readonly>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="feedback1" class="sr-only">Ukuran Gambar</label>
-                                <input type="text" id="feedback1" class="form-control"
-                                    value="{{ $dataPermohonan->ukuran_gambar }}" name="name" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control"
-                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                    value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                        </div>
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
+                            <div class="col">
+                                <div class="form-body">
+
+                                    <div class="form-group">
+                                        <label for="feedback1" class="sr-only">Status Permohonan</label>
+                                        <br>
+                                        @if ($dataPermohonan->status == 'selesai')
+                                            <span class="badge bg-success">{{ $dataPermohonan->status }}</span>
+                                        @elseif($dataPermohonan->status == 'pending')
+                                            <span class="badge bg-primary">{{ $dataPermohonan->status }}</span>
+                                        @elseif($dataPermohonan->status == 'proses')
+                                            <span class="badge bg-warning">{{ $dataPermohonan->status }}</span>
+                                        @else
+                                            <span class="badge bg-danger">{{ $dataPermohonan->status }}</span>
+                                        @endif
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="linkInput" class="sr-only">Ringkasan</label>
+                                        @if ($dataPermohonan->ringkasan_publikasi)
+                                        @else
+                                            <p>Ringkasan Publikasi belum diunggah.</p>
+                                        @endif
+                                    </div>
 
 
-                            <a href="{{ url('admin/desain') }}" class="btn btn-secondary">Kembali</a>
-                        </div>
+                                    <div class="form-group">
+                                        @if ($dataPermohonan->ringkasan_publikasi)
+                                            <a href="{{ asset($dataPermohonan->ringkasan_publikasi) }}" download
+                                                class="btn btn-sm btn-secondary btn-sm">
+                                                <i class="bi bi-clipboard"></i> Download
+                                            </a>
+                                        @else
+                                        @endif
 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="feedback4" class="sr-only">Link Hasil</label>
+                                    <input type="text" id="feedback4" class="form-control"
+                                        placeholder="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
+                                    @if ($dataPermohonan->link_hasil)
+                                        <a href="{{ $dataPermohonan->link_hasil }}" class="btn btn-primary btn-sm">Open
+                                            Link</a>
+                                    @else
+                                        <small id="deskripsi_help" class="form-text text-muted">Link Hasil Belum
+                                            Tesedia.</small>
+                                    @endif
+
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="form-actions d-flex justify-content-end grid gap-1">
+
+                        <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 

@@ -79,15 +79,15 @@ Route::get('lupa-password', [AuthController::class, 'lupaPassword']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 
-
 // Route Landing Page
 Route::get('', [LandingPageController::class, 'home']);
 Route::get('home', [LandingPageController::class, 'home']);
 Route::get('tentang-kami', [LandingPageController::class, 'tentangKami']);
 Route::get('layanan', [LandingPageController::class, 'layanan']);
 
+
 // Route Pelanggan
-Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('jasa')->middleware(['auth', 'verified','pelanggan'])->group(function () {
     Route::get('', [PermohonanController::class, 'index']);
 
     // Route Desain
@@ -113,7 +113,10 @@ Route::prefix('jasa')->middleware(['auth', 'verified'])->group(function () {
     // Route Publikasi
     Route::get('publikasi', [PermohonanPublikasiController::class, 'index']);
     Route::post('publikasi/submit', [PermohonanPublikasiController::class, 'submit']);
+
+    Route::get('cek-permohonan/{id}/{type}', [PermohonanController::class, 'cekPermohonan']);
 });
+
 
 // <<<<<< ========== Route Admin ========== >>>>>>
 Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -126,14 +129,13 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
 
     Route::get('/admin/laporan/cetak-pdf', [LaporanAdminController::class, 'cetakPDF'])->name('admin.laporan.cetakPDF');
 
-
     // Route Kelola Akun
     Route::get('kelola-akun', [AkunController::class, 'index']);
     Route::get('kelola-akun/tambah', [AkunController::class, 'tambah']);
     Route::post('kelola-akun/simpan', [AkunController::class, 'simpan']);
     Route::get('kelola-akun/edit/{id}', [AkunController::class, 'edit']);
+    Route::delete('kelola-akun/hapus/{id}', [AkunController::class, 'hapus']);
     Route::put('kelola-akun/update/{id}', [AkunController::class, 'update']);
-
 
     // Ruote kelola peliputan
     Route::get('peliputan', [PeliputanController::class, 'index']);
@@ -145,8 +147,6 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::put('peliputan/pilih-petugas/{id}', [PeliputanController::class, 'pilihPetugas']);
     Route::put('peliputan/tolak/{id}', [PeliputanController::class, 'tolakPermohonan']);
 
-
-
     // Ruote kelola editing video
     Route::get('editing-video', [EditingVideoController::class, 'index']);
     Route::get('editing-video/detail/{id}', [EditingVideoController::class, 'detail']);
@@ -157,7 +157,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::put('editing-video/pilih-petugas/{id}', [EditingVideoController::class, 'pilihPetugas']);
     Route::put('editing-video/tolak/{id}', [EditingVideoController::class, 'tolakPermohonan']);
 
-
+     // Ruote kelola editing video
     Route::get('desain', [DesainControllert::class, 'index']);
     Route::get('desain/detail/{id}', [DesainControllert::class, 'detail']);
     Route::get('desain/arsip', [DesainControllert::class, 'arsip']);
@@ -166,7 +166,6 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::get('desain/detail-proses/{id}', [DesainControllert::class, 'detailProses']);
     Route::put('desain/pilih-petugas/{id}', [DesainControllert::class, 'pilihPetugas']);
     Route::put('desain/tolak/{id}', [DesainControllert::class, 'tolakPermohonan']);
-
 
     // Route Kelola Pas Foto
     Route::get('pas-foto', [PasFotoController::class, 'index']);
@@ -208,10 +207,8 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
 });
 
-
-
 // Route Redaktur
-Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('redaktur')->middleware(['auth', 'verified','redaktur'])->group(function () {
 
     Route::get('', [RedakturController::class, 'index']);
 
@@ -226,7 +223,7 @@ Route::prefix('redaktur')->middleware(['auth', 'verified'])->group(function () {
 
 
 
-Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('petugas')->middleware(['auth', 'verified','petugas'])->group(function () {
 
     Route::get('', [PetugasController::class, 'index']);
 
@@ -234,13 +231,13 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
     Route::get('tugas', [TugasController::class, 'index']);
 
     Route::get('tugas/publikasi/detail-tugas/{id}', [TugasPublikasiController::class, 'detailTugas']);
-    Route::get('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
+    Route::post('tugas/publikasi/submit/{id}', [TugasPublikasiController::class, 'submitTugas']);
 
     Route::get('tugas/desain/detail-tugas/{id}', [TugasDesainController::class, 'detailTugas']);
-    Route::get('tugas/desain/submit/{id}', [TugasDesainController::class, 'submitTugas']);
+    Route::post('tugas/desain/submit/{id}', [TugasDesainController::class, 'submitTugas']);
 
     Route::get('tugas/peliputan/detail-tugas/{id}', [TugasPeliputanController::class, 'detailTugas']);
-    Route::get('tugas/peliputan/submit/{id}', [TugasPeliputanController::class, 'submitTugas']);
+    Route::post('tugas/peliputan/submit/{id}', [TugasPeliputanController::class, 'submitTugas']);
 
     Route::get('tugas/edit_foto/detail-tugas/{id}', [TugasEditFotoController::class, 'detailTugas']);
     Route::post('tugas/edit-foto/submit/{id}', [TugasEditFotoController::class, 'submitTugas']);
@@ -248,10 +245,8 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
     Route::get('tugas/pas_foto/detail-tugas/{id}', [TugasPasFotoController::class, 'detailTugas']);
     Route::post('tugas/pas-foto/submit/{id}', [TugasPasFotoController::class, 'submitTugas']);
 
-
     Route::get('tugas/editing-video/detail-tugas/{id}', [TugasEditingVideoController::class, 'detailTugas']);
     Route::post('tugas/editing-video/submit/{id}', [TugasEditingVideoController::class, 'submitTugas']);
-
 
     // Route Kelola Asip Tugas
     Route::get('arsip-tugas', [ArsipTugasController::class, 'index']);
@@ -259,7 +254,7 @@ Route::prefix('petugas')->middleware(['auth', 'verified'])->group(function () {
 
 
 // Route Koordinator
-Route::prefix('koordinator')->middleware(['auth', 'verified'])->group(function () {
+Route::prefix('koordinator')->middleware(['auth', 'verified','koordinator'])->group(function () {
 
     Route::get('', [KoordinatorController::class, 'index']);
 
@@ -286,22 +281,4 @@ Route::prefix('koordinator')->middleware(['auth', 'verified'])->group(function (
     Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
     Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
     Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
-
-    //Route Kelola Pas Foto  
-    Route::get('pas-foto', [KoorPasfotoController::class, 'index']);
-    Route::get('pas-foto/detail_pas_foto/{id}', [koorPasfotoController::class, 'detail']);
-    Route::get('pas-foto/arsip', [KoorPasfotoController::class, 'arsip']);
-    Route::get('pas-foto/detail-arsip-pas-foto/{id}', [KoorPasfotoController::class, 'detailArsip']);
-    Route::get('pas-foto/proses', [KoorPasfotoController::class, 'proses']);
-    Route::get('pas-foto/detail-proses_pas_foto/{id}', [KoorPasfotoController::class, 'detailProses']);
-
-    //Route Kelola edit Foto  
-    Route::get('edit-foto', [KoorEditfotoController::class, 'index']);
-    Route::get('edit-foto/detail_edit_foto/{id}', [koorEditfotoController::class, 'detail']);
-    Route::get('edit-foto/arsip', [KoorEditfotoController::class, 'arsip']);
-    Route::get('edit-foto/detail-arsip-edit-foto/{id}', [KoorEditfotoController::class, 'detailArsip']);
-    Route::get('edit-foto/proses', [KoorEditfotoController::class, 'proses']);
-    Route::get('edit-foto/detail-proses_edit_foto/{id}', [KoorEditfotoController::class, 'detailProses']);
-
 });
-

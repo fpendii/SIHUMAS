@@ -126,9 +126,9 @@
                                         <button type="submit" class="btn btn-primary me-1 mb-1">
                                             Update
                                         </button>
-                                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">
+                                        <a href="{{url('admin/kelola-akun')}}" class="btn btn-light-secondary me-1 mb-1">
                                             Kembali
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>

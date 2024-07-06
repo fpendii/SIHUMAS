@@ -23,7 +23,8 @@
         <div class="container d-block">
             <a href="{{ url('petugas/tugas') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <a href="#"><img width="100px" src="/images/silamas.png"
+                    alt="Logo"></a>
             </a>
         </div>
     </nav>
@@ -83,12 +84,10 @@
                                 </div>
                             </div>
                             <div class="form-actions d-flex justify-content-end grid gap-1">
-                                {{-- end modal --}}
-
                                 <button type="submit" class="btn btn-primary">Submit</button>
-
-                                <a href="{{ url('admin/desain') }}" class="btn btn-secondary">Kembali</a>
+                                <a href="/petugas/tugas" class="btn btn-secondary">Kembali</a>
                             </div>
+
 
                         </div>
                     </div>

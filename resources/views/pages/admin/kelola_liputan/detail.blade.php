@@ -24,8 +24,6 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title">Nama Pelanggan</h4>
-            </div>
             <div class="card-body">
                 <div class="card-header">
                     <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
@@ -41,25 +39,32 @@
                                 @csrf
                                 @method('PUT')     
                                                  
-                                <div class="form-body">
-                                    <div class="form-group">
-                                        <label for="feedback1" class="sr-only">Waktu Mulai</label>
-                                        <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
+                                <div class="form-group row">
+                                    <label for="waktu_mulai" class="col-sm-3 col-form-label">Waktu Mulai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="waktu_mulai" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="waktu_mulai" readonly>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="feedback1" class="sr-only">Waktu Selesai</label>
-                                        <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="waktu_selesai" class="col-sm-3 col-form-label">Waktu Selesai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="waktu_selesai" class="form-control" value="{{ $dataPermohonan->waktu_selesai }}" name="waktu_selesai" readonly>
                                     </div>
                                 <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Pertanyaan 1</label>
+                                    <label for="feedback2" class="sr-only">Apakah kegaitan membutuhkan keprotokolan dalam kegiatan tersebut? 
+                                        <br>(jika keprotokolan kegiatan cukup di handle oleh pelaksanan kegiatan, maka pilih "tidak")</label>
                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Pertanyaan 2</label>
+                                    <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto?
+                                        <br> (foto-foto kegiatan akan mewakili setiap momen penting di dalam kegiatan tersebut)
+                                    </label>
                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="feedback2" class="sr-only">Pertanyaan 3</label>
+                                    <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
+                                        <br> (Jika "Ya" silahkah mengisi kembali link permohonan editing)
+                                    </label>
                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                                 </div>
                             </div>

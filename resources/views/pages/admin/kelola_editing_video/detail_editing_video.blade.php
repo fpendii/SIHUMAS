@@ -28,11 +28,13 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
-            </div>
             <div class="card-body">
-                <p>{{ $dataPermohonan->pesan }}</p>
-            </div>
+                <div class="card-header">
+                    <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
+                </div>
+                <div class="card-body">
+                    <p>{{ $dataPermohonan->pesan }}</p>
+                </div>
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">

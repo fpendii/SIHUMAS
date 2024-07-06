@@ -59,17 +59,20 @@
                                 placeholder="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
                         </div> 
                         <div class="form-group">
-                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan keprotokolan dalam kegiatan tersebut? 
+                                <br>(jika keprotokolan kegiatan cukup di handle oleh pelaksana kegiatan, maka pilih "Tidak")</label>
                             <input type="text" id="feedback2" class="form-control"
                                    value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <label for="feedback2" class="sr-only">  Apakah kegiatan membutuhkan dokumentasi foto?
+                                <br>(foto-foto kegiatan akan mewakili setiap momen penting di dalam kegiatan tersebut)</label>
                             <input type="text" id="feedback2" class="form-control"
                                    value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="feedback2" class="sr-only">Apakah kegiatan membutuhkan dokumentasi foto</label>
+                            <label for="feedback2" class="sr-only"> Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
+                                <br>(Jika "Ya" silakan mengisi kembali link permohonan editing)</label>
                             <input type="text" id="feedback2" class="form-control"
                                    value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                         </div>

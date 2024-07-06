@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Koordinator\laporan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;  
+use Barryvdh\DomPDF\Facade\Pdf; 
 
 class LaporanController extends Controller
 {

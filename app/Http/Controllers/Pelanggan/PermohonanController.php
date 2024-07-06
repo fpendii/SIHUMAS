@@ -52,6 +52,10 @@ class PermohonanController extends Controller
             return view('pages.pelanggan.detail_permohonan.detail_desain', $data, compact('dataPermohonan', 'dataPetugasPesanan'));
         } elseif ($type == 'publikasi') {
             return view('pages.pelanggan.detail_permohonan.detail_publikasi', $data, compact('dataPermohonan', 'dataPetugasPesanan'));
+        }elseif ($type == 'peliputan') {
+            return view('pages.pelanggan.detail_permohonan.detail_peliputan', $data, compact('dataPermohonan', 'dataPetugasPesanan'));
+        }elseif ($type == 'editing video') {
+            return view('pages.pelanggan.detail_permohonan.detail_editing_video', $data, compact('dataPermohonan', 'dataPetugasPesanan'));
         } else {
             abort(404);
         }

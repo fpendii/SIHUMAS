@@ -258,27 +258,12 @@ Route::prefix('koordinator')->middleware(['auth', 'verified','koordinator'])->gr
 
     Route::get('', [KoordinatorController::class, 'index']);
 
-    // Route Kelola Peliputan
-    Route::get('peliputan', [KoorPeliputanController::class, 'index']);
-    Route::get('peliputan/detail_peliputan/{id}', [KoorPeliputanController::class, 'detail']);
-    Route::get('peliputan/arsip_peliputan', [KoorPeliputanController::class, 'arsip']);
-    Route::get('peliputan/detail-arsip-peliputan/{id}', [KoorPeliputanController::class, 'detailArsip']);
-    Route::get('peliputan/proses_peliputan', [KoorPeliputanController::class, 'proses']);
-    Route::get('peliputan/detail-proses_liputan/{id}', [KoorPeliputanController::class, 'detailProses']);
-
-
-
-
     Route::get('laporan-bulanan', [LaporanController::class, 'index']);
 
-    Route::get('/koordinator/laporan/cetak-pdf', [App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])->name('koordinator.laporan.cetakPDF');
+    Route::get('/koordinator/laporan/cetak-pdf', 
+    [App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])
+    ->name('koordinator.laporan.cetakPDF');
 
 
-    // Ruote kelola editing video
-    Route::get('editing-video', [KoorEditingVideoController::class, 'index']);
-    Route::get('editing-video/detail_editing_video/{id}', [koorEditingVideoController::class, 'detail']);
-    Route::get('editing-video/arsip', [KoorEditingVideoController::class, 'arsip']);
-    Route::get('editing-video/detail-arsip-editing-video/{id}', [KoorEditingVideoController::class, 'detailArsip']);
-    Route::get('editing-video/proses', [KoorEditingVideoController::class, 'proses']);
-    Route::get('editing-video/detail-proses_editing_video/{id}', [KoorEditingVideoController::class, 'detailProses']);
+
 });

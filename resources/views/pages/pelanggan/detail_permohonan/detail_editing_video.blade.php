@@ -46,13 +46,21 @@
                         <div class="row">
                             <div class="col">
                                     <div class="form-body">
-                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-4">
+                                                <label for="unit" class="sr-only">Unit</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                <input type="text" id="unit" class="form-control"
+                                                    value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                                            </div>
                                             <div class="col-md-4">
                                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                             </div>
                                             <div class="col-md-8 form-group">
                                                 <input type="text" id="feedback4" class="form-control"
-                                                       placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                       value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +70,7 @@
                                                 <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                                             </div>
                                         </div>
                                     </div>

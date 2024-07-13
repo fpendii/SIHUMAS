@@ -30,7 +30,6 @@
                 </div>
                 <div class="card">
                     <div class="card-content">
-                        <div class="card-body">
                             <h4 class="card-title">Data Permohonan</h4>
                             <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
                             <div class="list-group">
@@ -43,6 +42,13 @@
                             </div>
                             <div class="form-body">
                                 <div class="row">
+                                    <div class="col-md-4">
+                                    <label for="unit" class="sr-only">Unit</label>
+                                </div>
+                                <div class="col-md-8 form-group">
+                                <input type="text" id="unit" class="form-control"
+                                    value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                            </div>
                                     <div class="col-md-4">
                                         <label for="link_mentahan">Link Mentahan</label>
                                     </div>

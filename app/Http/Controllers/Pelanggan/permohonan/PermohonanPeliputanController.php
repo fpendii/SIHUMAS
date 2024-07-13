@@ -55,6 +55,7 @@ class PermohonanPeliputanController extends Controller
             'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
             'created_at' => now(),
             'updated_at' => now(),
+            'unit' => $request->unit
         ]);
 
         if(!$simpanPesanan){

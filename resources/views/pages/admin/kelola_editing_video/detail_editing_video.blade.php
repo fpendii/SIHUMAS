@@ -39,6 +39,14 @@
                     <div class="card-content">
                         <div class="card-body">
                             <h4 class="card-title">Data Permohonan</h4>
+                            <div class="row">
+                                <div class="col-md-3">
+                            <label for="unit" class="sr-only">Unit</label>
+                                </div>
+                                <div class="col-md-8 form-group">
+                            <input type="text" id="unit" class="form-control"
+                            value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                        </div>
                                 <form action="{{ url('admin/editing-video/pilih-petugas/' . $dataPermohonan->id_pesanan) }}">
                                 @csrf
                                 @method('PUT')

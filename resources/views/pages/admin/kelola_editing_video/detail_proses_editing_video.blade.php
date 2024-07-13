@@ -36,24 +36,71 @@
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
             </div>
-            <div class="card">
+            {{-- <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan Editing Video</h4>
+                        <h4 class="card-title">Data Permohonan</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-body">
+                            @isset($dataPetugasPesanan)
+                                <div class="form-group">
+                                    <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
+                                    <div class="list-group">
+                                        @foreach ($dataPetugasPesanan as $item)
+                                        <span class="list-group-item">{{ $item->username }}</span>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @else
+                                <p>Data Petugas Pesanan tidak tersedia.</p>
+                            @endisset
+        
+                            @isset($dataPermohonan) --}}
+
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body pb-0"> <!-- Menghapus padding bottom -->
+                                        <h4 class="card-title">Data Permohonan</h4>
+                                    </div>
+                                    <div class="card-body pt-0"> <!-- Menghapus padding top -->
+                                        <div class="form-body">
+                                            @isset($dataPetugasPesanan)
+                                                <div class="form-group mb-0"> <!-- Menghapus margin bottom -->
+                                                    <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
+                                                    <div class="list-group">
+                                                        @foreach ($dataPetugasPesanan as $item)
+                                                            <span class="list-group-item">{{ $item->username }}</span>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <p>Data Petugas Pesanan tidak tersedia.</p>
+                                            @endisset
+                            
+                                            @isset($dataPermohonan)
 
                         <form action="{{url('admin/editing-video/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf
                             @method('PUT')
                             <div class="row">
                                 <div class="col">
+                                    <br>
                                         <div class="form-body">
                                             <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="unit" class="sr-only">Unit</label>
+                                                        </div>
+                                                        <div class="col-md-8 form-group">
+                                                            <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->unit}}"
+                                                            name="unit" readonly>
+                                                </div>
                                                 <div class="col-md-4">
                                                     <label for="feedback4" class="sr-only">Link Mentahan</label>
                                                 </div>
                                                 <div class="col-md-8 form-group">
                                                     <input type="text" id="feedback4" class="form-control"
-                                                           placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                           value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -63,7 +110,7 @@
                                                     <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                                 </div>
                                                 <div class="col-md-8 form-group">
-                                                    <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,8 +122,12 @@
                     </div>
                 </div>
             </div>
+            @else
+            <p>Data Permohonan tidak tersedia.</p>
+        @endisset
         </div>
     </div>
+
 
     <script src="/template/dist/assets/compiled/js/app.js"></script>
 

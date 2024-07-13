@@ -22,6 +22,18 @@
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
+                                            <label for="unit">Unit</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input name="unit" class="form-control" id="unit"
+                                                rows="3"></input>
+                                            <small id="deskripsi_help"
+                                                class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
+                                                Kerja/Ormawa.</small>
+                                        </div>
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <label for="deskripsi" class="col-form-label">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">

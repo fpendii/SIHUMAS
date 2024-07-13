@@ -45,6 +45,7 @@ class PermohonanEditingVideoController extends Controller
             'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             'created_at' => now(),
+            'unit' => $request->unit
         ]);
 
         if(!$simpanPesanan){

@@ -65,10 +65,17 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
+                                                <label for="unit" class="sr-only">Unit</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                <input type="text" id="unit" class="form-control"
+                                                    value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <label for="feedback1">Jadwal Mulai</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_mulai }}" name="name" readonly>
+                                                <input type="text" id="feedback1" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="name" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -76,7 +83,7 @@
                                                 <label for="feedback1">Jadwal Selesai</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback1" class="form-control" placeholder="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
+                                                <input type="text" id="feedback1" class="form-control" value="{{ $dataPermohonan->waktu_selesai }}" name="name" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">

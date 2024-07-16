@@ -25,7 +25,7 @@ class PermohonanEditingVideoController extends Controller
         $request->validate([
             // // 'link_mentahan' => 'required',
             // 'pesan' => 'required',
-            'tenggat_pengerjaan' => 'required',
+            'tenggat_pengerjaan' => 'required|date|after_or_equal:today',
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([

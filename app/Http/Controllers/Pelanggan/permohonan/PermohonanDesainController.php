@@ -32,7 +32,7 @@ class PermohonanDesainController extends Controller
         $request->validate([
             'link_mentahan' => 'required',
             'pesan' => 'required',
-            'tenggat_pengerjaan' => 'required',
+            'tenggat_pengerjaan' => 'required|date|after_or_equal:today',
             'tipe_desain' => 'required',
             'ukuran_gambar' => 'required',
             'tema' => 'required',

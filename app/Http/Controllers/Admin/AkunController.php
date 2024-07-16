@@ -13,33 +13,33 @@ use Illuminate\Support\Facades\Validator;
 class AkunController extends Controller
 {
     public function index(Request $request)
-{
-    // Data tambahan untuk view
-    $data = [
-        'title' => 'Kelola Akun | SIHUMAS',
-        'page' => 'Kelola Akun',
-        'level' => 'Admin',
-    ];
+    {
+        // Data tambahan untuk view
+        $data = [
+            'title' => 'Kelola Akun | SIHUMAS',
+            'page' => 'Kelola Akun',
+            'level' => 'Admin',
+        ];
 
-    // Mengambil parameter role dari request
-    $role = $request->input('role');
+        // Mengambil parameter role dari request
+        $role = $request->input('role');
 
-    // Jika ada filter role, tambahkan kondisi pada kueri
-    if ($role) {
-        $data_pegawai = DB::table('akun')
-            ->where('role', $role)
-            ->whereNot('is_active',0)
-            ->orderBy('id_akun', 'desc')
-            ->get();
-    } else {
-        $data_pegawai = DB::table('akun')
-            ->orderBy('id_akun', 'desc')
-            ->whereNot('is_active',0)
-            ->get();
+        // Jika ada filter role, tambahkan kondisi pada kueri
+        if ($role) {
+            $data_pegawai = DB::table('akun')
+                ->where('role', $role)
+                ->whereNot('is_active', 0)
+                ->orderBy('id_akun', 'desc')
+                ->get();
+        } else {
+            $data_pegawai = DB::table('akun')
+                ->orderBy('id_akun', 'desc')
+                ->whereNot('is_active', 0)
+                ->get();
+        }
+
+        return view('pages.admin.kelola_akun.akun', compact('data_pegawai'), $data);
     }
-
-    return view('pages.admin.kelola_akun.akun', compact('data_pegawai'), $data);
-}
 
     public function tambah()
     {
@@ -186,12 +186,13 @@ class AkunController extends Controller
             DB::table('akun')->where('id_akun', $id)->update($dataAkun);
         });
 
-         // Set flash session untuk notifikasi berhasil
-    return redirect()->to('admin/kelola-akun')->with('success', 'Data berhasil diperbarui');
+        // Set flash session untuk notifikasi berhasil
+        return redirect()->to('admin/kelola-akun')->with('success', 'Data berhasil diperbarui');
     }
 
-    public function hapus($id){
-        $akun = DB::table('akun')->where('id_akun',$id)->first();
+    public function hapus($id)
+    {
+        $akun = DB::table('akun')->where('id_akun', $id)->first();
 
         if ($akun) {
             DB::table('akun')->where('id_akun', $id)->update(['is_active' => 0]);
@@ -199,6 +200,5 @@ class AkunController extends Controller
         } else {
             return redirect()->back()->with('error', 'Data Gagal Dihapus');
         }
-
     }
 }

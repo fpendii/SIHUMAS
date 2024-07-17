@@ -14,23 +14,27 @@
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app.css">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app-dark.css">
 
-
+    <style>
+    </style>
 </head>
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
     <nav class="navbar navbar-light">
         <div class="container d-block">
-            <a href="{{ url('admin/edit-foto/detalArsip') }}"><i class="bi bi-chevron-left"></i></a>
+            <a href="{{ url('jasa') }}"><i class="bi bi-chevron-left"></i></a>
             <a class="navbar-brand ms-4" href="index.html">
-                <img src="/template/dist/assets/compiled/svg/logo.svg">
+                <img src="/images/silamas.png">
             </a>
         </div>
     </nav>
+
+
+   
     <div class="container">
         <div class="card mt-5">
             <div class="card-header">
-                <h4 class="card-title">{{ $dataPermohonan->username }}</h4>
+                <h4 class="card-title"></i>{{ $dataPermohonan->username }}</h4>
             </div>
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
@@ -38,48 +42,82 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
+                        <h4 class="card-title">Data Permohonan Pas Foto</h4>
+                        <div class="row">
+                            <div class="col">
+                                    <div class="form-body">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-4">
+                                                <label for="unit" class="sr-only">Unit</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                <input type="text" id="unit" class="form-control"
+                                                    value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                                            </div>
+                                            {{-- <div class="col-md-4">
+                                                <label for="feedback4" class="sr-only">Link Mentahan</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback4" class="form-control"
+                                                       value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                    <div class="col">
                         <div class="form-body">
+
                             <div class="form-group">
-                                <label for="unit" class="sr-only">Unit</label>
-                                <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
-                                    name="unit" readonly>
+                                <label for="feedback1" class="sr-only">Status Permohonan</label>
+                                <br>
+                                @if ($dataPermohonan->status == 'selesai')
+                                    <span class="badge bg-success">{{ $dataPermohonan->status }}</span>
+                                @elseif($dataPermohonan->status == 'pending')
+                                    <span class="badge bg-primary">{{ $dataPermohonan->status }}</span>
+                                @elseif($dataPermohonan->status == 'proses')
+                                    <span class="badge bg-warning">{{ $dataPermohonan->status }}</span>
+                                @else
+                                    <span class="badge bg-danger">{{ $dataPermohonan->status }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
-                                <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
-                                <div class="list-group">
-                                    @foreach ($dataPetugasPesanan as $item)
-                                        <span class="list-group-item">{{ $item->username }}</span>
-                                    @endforeach
-                                </div>
-                            </div>
-                            {{-- <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tanggal Pengambilan Foto</label>
-                                <input type="text" id="feedback2" class="form-control"
-                                value="{{ $dataPermohonan->jadwal_foto }}" name="email" readonly>
-                            </div> --}}
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Mentahan</label>
-                                <input type="text" id="feedback4" class="form-control" value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                <label for="linkInput" class="sr-only">Link Hasil</label>
+                                <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
-                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="feedback4" class="sr-only">Link Hasil</label>
-                                <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{ $dataPermohonan->link_hasil }}" name="LastName" readonly>
+                                <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
+                                    <i class="bi bi-clipboard"></i> Copy Link
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="openInNewTab()">
+                                    <i class="bi bi-box-arrow-up-right"></i> Open Link
+                                </button>
                             </div>
                         </div>
-                        <div class="form-actions d-flex justify-content-end grid gap-1">
-                                <a href="{{ url('admin/edit-foto/arsip') }}" class="btn btn-secondary">Kembali</a>
-                            </div>
-                        </form>
                     </div>
                 </div>
+
+                <div class="form-actions d-flex justify-content-end grid gap-1">
+
+                    <a href="{{ url('jasa') }}" class="btn btn-secondary">Kembali</a>
+                </div>
+
             </div>
         </div>
     </div>
+</div>
+</div>
 
 
 
@@ -123,6 +161,23 @@
             console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
         }
         // ]]>
+
+        function copyToClipboard() {
+            var copyText = document.getElementById("linkInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            navigator.clipboard.writeText(copyText.value).then(() => {
+                alert("Link copied to clipboard: " + copyText.value);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        function openInNewTab() {
+            var link = document.getElementById("linkInput").value;
+            window.open(link, '_blank').focus();
+        }
     </script>
 </body>
 

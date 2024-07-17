@@ -40,6 +40,11 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
+                        <div class="form-group">
+                            <label for="unit" class="sr-only">Unit</label>
+                            <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
+                                name="unit" readonly>
+                        </div>
                         <h4 class="card-title">Data Permohonan Pas Foto</h4>
                         <form action="{{url('admin/pas-foto/pilih-petugas/'.$dataPermohonan->id_pesanan)}}" class="form" method="post">
                             @csrf

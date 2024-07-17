@@ -45,6 +45,11 @@
                             @csrf
                             @method('PUT')
                             <div class="form-group">
+                                <label for="unit" class="sr-only">Unit</label>
+                                <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
+                                    name="unit" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                 <input type="text" id="feedback4" class="form-control"
                                     value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>

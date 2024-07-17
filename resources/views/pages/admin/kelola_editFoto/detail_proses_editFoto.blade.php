@@ -35,6 +35,11 @@
                 <h4 class="card-title">Data Permohonan</h4>
                         <div class="form-body">
                             <div class="form-group">
+                                <label for="unit" class="sr-only">Unit</label>
+                                <input type="text" id="unit" class="form-control" placeholder="{{ $dataPermohonan->unit }}"
+                                    name="unit" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
                                 <div class="list-group">
                                     @foreach ($dataPetugasPesanan as $item)

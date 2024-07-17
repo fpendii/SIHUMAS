@@ -3,10 +3,10 @@
 @section('content')
     <div class="container">
     <div class="email-user-list list-group ps ps--active-y">
-        {{-- <ul class="users-list-wrapper media-list"> --}}
-            <ul class="users-list-wrapper media-list" style="width: 96%">
+        <ul class="users-list-wrapper media-list">
+            {{-- <ul class="users-list-wrapper media-list" style="width: 96%"> --}}
             @foreach ($dataPermohonan as $item)
-                <a href="{{url('admin/peliputan/detail/'.$item->id_pesanan)}}"style="width: 10%">
+                <a href="{{url('admin/peliputan/detail/'.$item->id_pesanan)}}">
                     <li class="media mail-read">
                         <div class="user-action">
                             <span class="favorite">

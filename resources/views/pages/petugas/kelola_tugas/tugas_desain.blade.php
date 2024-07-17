@@ -31,7 +31,8 @@
 
 
     <div class="container">
-        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}">
+        <form action="{{ url('petugas/tugas/' . $page . '/submit/' . $dataPermohonan->id_pesanan) }}" method="POST">
+            @csrf
             <div class="card mt-5">
                 <div class="card-header">
                     <h4 class="card-title">Link Hasil tugas {{ $dataPermohonan->jenis_jasa }}</h4>

@@ -31,6 +31,7 @@ class PermohonanPeliputanController extends Controller
             'pertanyaan_1' => 'required|in:0,1',
             'pertanyaan_2' => 'required|in:0,1',
             'pertanyaan_3' => 'required|in:0,1',
+
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([

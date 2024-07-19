@@ -21,7 +21,7 @@
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="unit">Unit</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -30,7 +30,7 @@
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
                                                 Kerja/Ormawa.</small>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>
                                         </div>

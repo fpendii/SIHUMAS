@@ -46,7 +46,7 @@ class PermohonanPasFotoController extends Controller
             // 'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
             // 'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
-            'unit' => $request->unit,
+            // 'unit' => $request->unit,
             'created_at' => now(),
         ]);
 

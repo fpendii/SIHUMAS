@@ -21,7 +21,7 @@
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
-                                        {{-- <div class="col-md-4">
+                                        <div class="col-md-4">
                                             <label for="unit">Unit</label>
                                         </div>
                                         <div class="col-md-8 form-group">
@@ -30,7 +30,7 @@
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
                                                 Kerja/Ormawa.</small>
-                                        </div> --}}
+                                        </div>
                                         <div class="col-md-4">
                                             <label for="password-horizontal">Pesan</label>
                                         </div>
@@ -54,14 +54,14 @@
                                         <div class="col-md-8 form-group">
                                             <input type="datetime-local" id="jadwal_foto" class="form-control" name="jadwal_foto" min="{{ \Carbon\Carbon::now()->format('Y-m-d\TH:i') }}" placeholder="Pilih tanggal dan waktu pengambilan foto " required>
                                         </div>
-                                        
+
                                         {{-- <div class="col-md-4">
                                             <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="date" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" min="{{ \Carbon\Carbon::now()->format('Y-m-d') }}" required>
                                         </div>
-                                        
+
                                         <script>
                                             document.getElementById('jadwal_foto').addEventListener('change', function() {
                                                 var jadwalFoto = new Date(this.value);
@@ -70,7 +70,7 @@
                                                 tenggatPengerjaan.min = minDate;
                                             });
                                         </script>                                         --}}
-                                        
+
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
                                             <a href="{{url('jasa')}}" class="btn btn-light-secondary me-1 mb-1">Batal</a>

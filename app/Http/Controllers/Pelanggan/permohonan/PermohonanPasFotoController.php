@@ -26,7 +26,7 @@ class PermohonanPasFotoController extends Controller
             // 'link_mentahan' => 'required',
             'pesan' => 'required',
             // 'tenggat_pengerjaan' => 'required',
-            'tenggat_pengerjaan' => 'required|date|after_or_equal:today',
+            'jadwal_foto' => 'required|date|after_or_equal:today',
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
@@ -42,6 +42,7 @@ class PermohonanPasFotoController extends Controller
          $simpanPesanan = DB::table('pesanan')->insert([
             'id_akun' => $akun->id_akun,
             'id_jasa' => $jasa,
+            'unit' => $request->unit,
             'status' => 'pending',
             // 'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,

@@ -125,11 +125,21 @@
                                             <input type="date" id="tenggat" class="form-control"
                                                 name="tenggat_pengerjaan">
                                         </div>
-                                        <div class="col-sm-12 d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
-                                            <a href="{{ url('jasa') }}"
-                                                class="btn btn-light-secondary me-1 mb-1">Batal</a>
+
+                                        <div class="col-md-12 mt-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="warningCheckbox" name="warning_checkbox">
+                                                <small class="form-check-label" for="warningCheckbox">
+                                                    Jika permohonan ini tidak sesuai dengan kepentingan Politeknik Negeri Tanah Laut maka pihak humas berhak untuk menolak.
+                                                </label>
+                                            </div>
                                         </div>
+
+                                        <div class="col-sm-12 d-flex justify-content-end">
+                                            <button type="submit" id="submitBtn" class="btn btn-primary me-1 mb-1" disabled>Kirim</button>
+                                            <a href="{{ url('jasa') }}" class="btn btn-light-secondary me-1 mb-1">Batal</a>
+                                        </div>
+
                                     </div>
                                 </div>
                             </form>
@@ -143,6 +153,32 @@
 @endsection
 
 <script>
+     document.addEventListener('DOMContentLoaded', function () {
+        var submitBtn = document.getElementById('submitBtn');
+        var warningCheckbox = document.getElementById('warningCheckbox');
+
+        warningCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                submitBtn.disabled = false;
+            } else {
+                submitBtn.disabled = true;
+            }
+        });
+    });
+
+    function checkTipeDesain() {
+        var tipeDesain = document.getElementById('tipe').value;
+        var jenisDesainLainnyaGroup = document.getElementById('jenis_desain_lainnya_group');
+        var jenisDesainLainnya = document.getElementById('jenis_desain_lainnya');
+
+        if (tipeDesain === 'lainnya') {
+            jenisDesainLainnyaGroup.classList.remove('d-none');
+            jenisDesainLainnya.name = 'tipe_desain'; // Mengganti name
+        } else {
+            jenisDesainLainnyaGroup.classList.add('d-none');
+            jenisDesainLainnya.name = ''; // Menghapus name
+        }
+    }
     function checkTipeDesain() {
         var tipeDesain = document.getElementById('tipe').value;
         var jenisDesainLainnyaGroup = document.getElementById('jenis_desain_lainnya_group');

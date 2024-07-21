@@ -64,7 +64,7 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate(); // Mematikan sesi
         $request->session()->regenerateToken(); // Membuat token sesi yang baru
-        return redirect('/login')->with('success', 'Logout berhasil!');
+        return redirect('/')->with('success', 'Logout berhasil!');
     }
 
     public function lupaPassword()
@@ -78,42 +78,43 @@ class AuthController extends Controller
     }
 
     public function registerProses(Request $request)
-    {
-        // Validasi input
-        $validatedData = $request->validate([
-            'username' => 'required|string|max:255|unique:akun',
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                'unique:akun',
+{
+    // Validasi input
+    $validatedData = $request->validate([
+        'username' => 'required|string|max:255|unique:akun',
+        'email' => [
+            'required',
+            'string',
+            'email',
+            'max:255',
+            'unique:akun',
+            'regex:/@(mhs\.politala\.ac\.id|politala\.ac\.id)$/'
+        ],
+        'nama' => 'required|string|max:255',
+        'no_hp' => 'required|string|max:15',
+        'password' => 'required|string|min:8|confirmed',
+    ], [
+        'email.regex' => 'Email harus menggunakan domain @mhs.politala.ac.id atau @politala.ac.id',
+    ]);
 
-            ],
-            'nama' => 'required|string|max:255',
-            'no_hp' => 'required|string|max:15',
-            'password' => 'required|string|min:8|confirmed',
-        ], [
-            'email.regex' => 'Registrasi Menggunakana Akun Politala',
-        ]);
+    // Buat akun jika validasi sukses
+    $akun = akun::create([
+        'username' => $validatedData['username'],
+        'email' => $validatedData['email'],
+        'nama' => $validatedData['nama'],
+        'no_hp' => $validatedData['no_hp'],
+        'password' => Hash::make($validatedData['password']),
+        'role' => 'pelanggan',
+        'is_active' => 1
+    ]);
 
-        // Buat akun jika validasi sukses
-        $akun = akun::create([
-            'username' => $validatedData['username'],
-            'email' => $validatedData['email'],
-            'nama' => $validatedData['nama'],
-            'no_hp' => $validatedData['no_hp'],
-            'password' => Hash::make($validatedData['password']),
-            'role' => 'pelanggan',
-            'is_active' => 1
-        ]);
+    event(new Registered($akun));
 
-        event(new Registered($akun));
+    Auth::login($akun);
 
-        Auth::login($akun);
+    return redirect('email/verify');
+}
 
-        return redirect('email/verify');
-    }
 
 
     protected function validator(array $data)

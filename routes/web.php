@@ -205,6 +205,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::put('publikasi/pilih-petugas/{id}', [PublikasiController::class, 'pilihPetugas']);
     Route::get('publikasi/proses', [PublikasiController::class, 'proses']);
     Route::get('publikasi/detail-proses/{id}', [PublikasiController::class, 'detailProses']);
+    Route::put('publikasi/tolak/{id}', [PublikasiController::class, 'tolakPermohonan']);
 });
 
 // Route Redaktur
@@ -261,7 +262,7 @@ Route::prefix('koordinator')->middleware(['auth', 'verified','koordinator'])->gr
 
     Route::get('laporan-bulanan', [LaporanController::class, 'index']);
 
-    Route::get('/koordinator/laporan/cetak-pdf', 
+    Route::get('/koordinator/laporan/cetak-pdf',
     [App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])
     ->name('koordinator.laporan.cetakPDF');
 

@@ -125,4 +125,11 @@ class PublikasiController extends Controller
 
         return redirect()->to('admin/publikasi')->with('success', 'Data dikirim ke petugas');
     }
+
+    public function TolakPermohonan($id)
+    {
+        DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
+
+        return redirect()->to('admin/publikasi')->with('success', 'Pesanan ditolak');
+    }
 }

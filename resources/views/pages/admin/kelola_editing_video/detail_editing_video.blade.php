@@ -40,13 +40,13 @@
                         <div class="card-body">
                             <h4 class="card-title">Data Permohonan</h4>
                             <div class="row">
-                                <div class="col-md-3">
-                            <label for="unit" class="sr-only">Unit</label>
+                            <div class="form-group row">
+                                <label for="feedback4" class="col-sm-3 col-form-label">Unit</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="feedback4" class="form-control" value="{{  $dataPermohonan->unit }}" name="unit" readonly>
                                 </div>
-                                <div class="col-md-8 form-group">
-                            <input type="text" id="unit" class="form-control"
-                            value="{{ $dataPermohonan->unit }}" name="unit" readonly>
-                        </div>
+                            </div>
+                            
                                 <form action="{{ url('admin/editing-video/pilih-petugas/' . $dataPermohonan->id_pesanan) }}">
                                 @csrf
                                 @method('PUT')
@@ -62,12 +62,16 @@
                                         <input type="text" id="feedback2" class="form-control" value="{{  $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
                                     </div>
                                 </div>
-                                {{-- <div class="form-group row">
-                                    <label for="feedback4" class="col-sm-3 col-form-label">Link Hasil</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" id="feedback4" class="form-control" placeholder="Masukkan Link Hasil" value="{{  $dataPermohonan->link_hasil }}" name="link_hasil" readonly>
-                                    </div> --}}
                                 </div>
+                                <div class="form-group row">
+                                    <label for="feedback2" class="col-sm-3 col-form-label">File Pendukung</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" id="feedback2" class="form-control" value="{{  $dataPermohonan->link_mentahan}}" name="link_mentahan" readonly>
+                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
+                                    </div>
+                                </div>
+                               
+                                
                                 <div class="form-actions d-flex justify-content-end gap-1">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">

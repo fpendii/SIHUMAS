@@ -41,10 +41,13 @@
                                         </div>
                                 
                                         <div class="col-md-4">
-                                            <label for="link_mentahan" class="col-form-label">Mentahan</label>
+                                            <label for="link_mentahan" class="col-form-label"> Link Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror" name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
+                                            @error('tenggat_pengerjaan')
+                                            <div class="invalid-feedback">The link mentahan field is required.</div>
+                                        @enderror
                                         </div>
                                         <div class="col-md-4">
                                             <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
@@ -55,6 +58,34 @@
                                                 <div class="invalid-feedback">The tenggat pengerjaan field is required.</div>
                                             @enderror
                                         </div>
+                                        
+                                       
+                                            <div class="col-md-4">
+                                                <label for="mentahan" >File Pendukung</label>
+                                            </div>
+                                            
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="mentahan"
+                                                    class="form-control @error('link_mentahan') is-invalid @enderror"
+                                                    name="link_mentahan" placeholder="Masukkan link drive file pendukung">
+                                                <small id="deskripsi_help" class="form-text text-muted">upload
+                                                gambar panitia/organisasi/file pendukung sebagai bukti yang jelas .</small>
+                                                @error('link_mentahan')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-md-12 mt-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="warningCheckbox" name="warning_checkbox">
+                                    <small class="form-check-label" for="warningCheckbox">
+                                        Jika permohonan ini tidak sesuai dengan kepentingan Politeknik Negeri Tanah Laut maka pihak humas berhak untuk menolak.
+                                    </label>
+                                </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
                                             <a href="{{url('jasa')}}" class="btn btn-light-secondary me-1 mb-1">Batal</a>

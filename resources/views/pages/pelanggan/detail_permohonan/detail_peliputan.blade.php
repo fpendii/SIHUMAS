@@ -102,8 +102,18 @@
                                             <div class="col-md-8 form-group">
                                                 <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                                             </div>
-                                        </div>
-                                    </div>
+                                            <div class="form-group">
+                                                <div class="row mt-3">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="feedback4">File Pendukung</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                     
                                     
                     <div class="col">
@@ -122,18 +132,25 @@
                                     <span class="badge bg-danger">{{ $dataPermohonan->status }}</span>
                                 @endif
                             </div>
-                            <div class="form-group">
-                                <label for="linkInput" class="sr-only">Link Hasil</label>
-                                <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="linkInput">Link Hasil</label>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_hasil }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
+                                            <i class="bi bi-clipboard"></i> Copy Link
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm ml-2" onclick="openInNewTab()">
+                                            <i class="bi bi-box-arrow-up-right"></i> Open Link
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <button class="btn btn-primary btn-sm" onclick="copyToClipboard()">
-                                    <i class="bi bi-clipboard"></i> Copy Link
-                                </button>
-                                <button class="btn btn-secondary btn-sm" onclick="openInNewTab()">
-                                    <i class="bi bi-box-arrow-up-right"></i> Open Link
-                                </button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -155,15 +155,15 @@
                     <div>
                         <div class="card">
                             <div class="card-header">
-                                <h4>Arsip Permohonan</h4>
+                                <h4>Arsip Layanan</h4>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover table-lg">
                                         <thead>
                                             <tr>
-                                                <th>Status Permohonan</th>
-                                                <th>Layanan Permohonan</th>
+                                                <th>Status Layanan</th>
+                                                <th>Layanan</th>
                                                 <th>Pesan</th>
                                                 <th></th>
                                             </tr>

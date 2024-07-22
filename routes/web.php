@@ -128,6 +128,9 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'admin'])->group(functio
     Route::get('laporan_bulanan', [LaporanAdminController::class, 'index']);
 
     Route::get('/admin/laporan/cetak-pdf', [LaporanAdminController::class, 'cetakPDF'])->name('admin.laporan.cetakPDF');
+    Route::get('/admin/laporan/review', [LaporanAdminController::class, 'review'])->name('admin.laporan.review');
+
+
 
     // Route Kelola Akun
     Route::get('kelola-akun', [AkunController::class, 'index']);
@@ -265,6 +268,8 @@ Route::prefix('koordinator')->middleware(['auth', 'verified','koordinator'])->gr
     Route::get('/koordinator/laporan/cetak-pdf',
     [App\Http\Controllers\Koordinator\Laporan\LaporanController::class, 'cetakPDF'])
     ->name('koordinator.laporan.cetakPDF');
+    Route::get('/koordinator/laporan/review', [LaporanController::class, 'review_laporan'])->name('koordinator.laporan.review_laporan');
+    
 
 
 

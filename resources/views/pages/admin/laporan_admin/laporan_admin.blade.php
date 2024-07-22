@@ -14,6 +14,9 @@
                             <li class="breadcrumb-item">
                                 <a href="{{ route('admin.laporan.cetakPDF') }}" class="btn btn-primary" target="_blank">Cetak Laporan</a>
                             </li>
+                            <li class="breadcrumb-item">
+                                <a href="{{ route('admin.laporan.review') }}" class="btn btn-secondary">Review Laporan</a>
+                            </li>
                         </ol>
                     </nav>
                 </div>

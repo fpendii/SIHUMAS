@@ -17,7 +17,7 @@ class PeriksaPublikasiController extends Controller
     // Mengambil data pesanan yang terkait dengan status 'redaktur' dan jenis jasa 'publikasi'
     $pesanan = DB::table('pesanan')
         ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-        ->where('pesanan.status', '=', 'redaktur')
+        ->where('pesanan.status', '=', 'belum-acc')
         ->where('jasa.jenis_jasa', '=', 'publikasi')
         ->select('pesanan.*', 'jasa.jenis_jasa')
         ->get();

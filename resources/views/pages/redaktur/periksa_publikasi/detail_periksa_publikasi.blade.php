@@ -65,7 +65,7 @@
                                 </div>                             
                                 <div class="form-group">
                                     <label for="feedback4" class="sr-only">File Ringkasan Publikasi</label>
-                                    <a href="{{ url('publikasi/' . $dataPermohonan->link_ringkasan_publikasi) }}" target="_blank">{{ $dataPermohonan->link_ringkasan_publikasi }}</a>
+                                    <a href="{{ url('publikasi/' . $dataPermohonan->ringkasan_publikasi) }}" target="_blank">{{ $dataPermohonan->ringkasan_publikasi }}</a>
                                 </div>                                
                                 <div class="form-group">
                                     <label for="link_mentahan" class="sr-only">Link Mentahan</label>

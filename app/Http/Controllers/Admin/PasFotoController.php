@@ -143,6 +143,6 @@ class PasFotoController extends Controller
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
 
-        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+        return redirect()->to('admin/pas-foto')->with('success', 'Pesanan ditolak');
     }
 }

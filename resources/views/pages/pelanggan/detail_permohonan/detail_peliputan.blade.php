@@ -80,7 +80,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_1" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -90,7 +90,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_2" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -100,7 +100,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row mt-3">

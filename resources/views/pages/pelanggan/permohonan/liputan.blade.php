@@ -128,7 +128,7 @@
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input @error('pertanyaan_3') is-invalid @enderror" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="2" required>
+                                                                <input class="form-check-input @error('pertanyaan_3') is-invalid @enderror" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="1" required>
                                                                 <label class="form-check-label" for="dokumentasi_foto_3_ya">
                                                                     Ya (sertifikat narasumber & peserta)
                                                                 </label>
@@ -139,9 +139,9 @@
                                                                     Tidak
                                                                 </label>
                                                             </div>
-                                                            @error('pertanyaan_3')
+                                                            {{-- @error('pertanyaan_3')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                                            @enderror
+                                                            @enderror --}}
                                                         </div>
                                                         
                                                         <div class="row mt-3">

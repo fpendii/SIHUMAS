@@ -56,11 +56,16 @@
                                         <input type="text" id="feedback4" class="form-control" value="{{  $dataPermohonan->link_mentahan }}" name="link_mentahan" readonly>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="feedback2" class="col-sm-3 col-form-label">Tenggat Pengerjaan</label>
                                     <div class="col-sm-9">
                                         <input type="text" id="feedback2" class="form-control" value="{{  $dataPermohonan->tenggat_pengerjaan }}" name="tenggat_pengerjaan" readonly>
+                                    </div> --}}
+                                    <div class="col-md-4">
+                                        <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
                                     </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="datetime-local" id="tenggat_pengerjaan" class="form-control @error('tenggat_pengerjaan') is-invalid @enderror" name="tenggat_pengerjaan" value="{{ old('tenggat_pengerjaan') }}">
                                 </div>
                                 </div>
                                 <div class="form-group row">

@@ -67,10 +67,21 @@
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
+                                                <label for="judul_video" class="sr-only">Judul Video</label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                                <input type="text" id="judul_video" class="form-control" value="{{ $dataPermohonan->judul_video }}" name="judul_video" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback2" class="sr-only">Tanggal Kegiatan</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="email" readonly>
                                             </div>
                                         </div>
                                        

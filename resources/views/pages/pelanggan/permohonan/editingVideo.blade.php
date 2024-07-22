@@ -39,7 +39,12 @@
                                         <div class="col-md-8 form-group">
                                             <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                
+                                        <div class="col-md-4">
+                                            <label for="deskripsi" class="col-form-label">Judul Video</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <textarea name="judul_video" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
                                         <div class="col-md-4">
                                             <label for="link_mentahan" class="col-form-label"> Link Mentahan</label>
                                         </div>
@@ -50,10 +55,10 @@
                                         @enderror
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
+                                            <label for="tenggat_pengerjaan">Tanggal Kegiatan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="datetime-local" id="tenggat_pengerjaan" class="form-control @error('tenggat_pengerjaan') is-invalid @enderror" name="tenggat_pengerjaan" value="{{ old('tenggat_pengerjaan') }}">
+                                            <input type="datetime-local" id="waktu_mulai" class="form-control @error('waktu_mulai') is-invalid @enderror" name="waktu_mulai" value="{{ old('waktu_mulai') }}">
                                             @error('tenggat_pengerjaan')
                                                 <div class="invalid-feedback">The tenggat pengerjaan field is required.</div>
                                             @enderror

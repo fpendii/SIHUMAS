@@ -151,6 +151,6 @@ class EditFotoController extends Controller
     {
         DB::table('pesanan')->where('id_pesanan', $id)->update(['status' => 'ditolak']);
 
-        return redirect()->route('kembali')->with('success', 'Pesanan ditolak');
+        return redirect()->to('admin/edit-foto')->with('success', 'Pesanan ditolak');
     }
 }

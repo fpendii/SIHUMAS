@@ -14,7 +14,7 @@
                                 </div>
                             </div>
                             <span class="favorite">
-                                @if ($item->status == 'ditolak')
+                                @if ($item->status == 'ditolak' || $item->status == 'tidak selesai')
                                     <i class="bi bi-x-circle icon"></i>
                                 @elseif ($item->status == 'selesai')
                                     <i class="bi bi-check-circle icon"></i>

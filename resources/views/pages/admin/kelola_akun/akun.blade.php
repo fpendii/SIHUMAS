@@ -45,14 +45,10 @@
                             <select name="role" class="form-select form-select-sm" onchange="this.form.submit()">
                                 <option value="">Semua</option>
                                 <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-                                <option value="petugas" {{ request('role') == 'petugas' ? 'selected' : '' }}>Petugas
-                                </option>
-                                <option value="koordinator" {{ request('role') == 'koordinator' ? 'selected' : '' }}>
-                                    Koordinator</option>
-                                <option value="pelanggan" {{ request('role') == 'pelanggan' ? 'selected' : '' }}>Pelanggan
-                                </option>
-                                <option value="redaktur" {{ request('role') == 'redaktur' ? 'selected' : '' }}>Redaktur
-                                </option>
+                                <option value="petugas" {{ request('role') == 'petugas' ? 'selected' : '' }}>Petugas</option>
+                                <option value="koordinator" {{ request('role') == 'koordinator' ? 'selected' : '' }}>Koordinator</option>
+                                <option value="pelanggan" {{ request('role') == 'pelanggan' ? 'selected' : '' }}>Pelanggan</option>
+                                <option value="redaktur" {{ request('role') == 'redaktur' ? 'selected' : '' }}>Redaktur</option>
                             </select>
                         </form>
                     </div>
@@ -79,14 +75,11 @@
                                         <div class="d-flex">
                                             <a href="{{ url('admin/kelola-akun/edit/' . $item->id_akun) }}"
                                                 class="btn btn-sm btn-primary mr-2">Edit</a>
-                                            <form action="{{ url('admin/kelola-akun/hapus/' . $item->id_akun) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                                            </form>
+                                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#confirmDeleteModal" data-id="{{ $item->id_akun }}">
+                                                Hapus
+                                            </button>
                                         </div>
-
                                     </td>
                                 </tr>
                             @endforeach
@@ -96,4 +89,38 @@
             </div>
         </section>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi Hapus</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus akun ini?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <form id="deleteForm" action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const confirmDeleteModal = document.getElementById('confirmDeleteModal');
+        confirmDeleteModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const id = button.getAttribute('data-id');
+            const form = document.getElementById('deleteForm');
+            form.action = `{{ url('admin/kelola-akun/hapus') }}/${id}`;
+        });
+    </script>
 @endsection

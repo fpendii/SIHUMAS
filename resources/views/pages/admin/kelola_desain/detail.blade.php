@@ -136,13 +136,37 @@
                                     </div>
                                 </div>
                             </form>
-                            {{-- end modal --}}
-                            <form action="{{ url('admin/desain/tolak/' . $dataPermohonan->id_pesanan) }}"
-                                method="post" style="display:inline;">
-                                @csrf
-                                @method('PUT')
-                                <button type="submit" class="btn btn-danger me-1">Tolak</button>
-                            </form>
+                            <button type="button" class="btn btn-danger me-1" data-bs-toggle="modal"
+                                data-bs-target="#tolakModal">
+                                Tolak
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="tolakModalLabel">Konfirmasi Penolakan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Apakah Anda yakin ingin menolak permohonan ini?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form
+                                                action="{{ url('admin/desain/tolak/' . $dataPermohonan->id_pesanan) }}"
+                                                method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger">Tolak</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <a href="{{url('admin/desain')}}" class="btn btn-secondary">Kembali</a>
                         </div>
 

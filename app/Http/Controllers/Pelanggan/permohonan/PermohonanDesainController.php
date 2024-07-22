@@ -50,10 +50,6 @@ class PermohonanDesainController extends Controller
             ->where('akun.id_akun', session('id_akun'))
             ->first();
 
-
-
-
-
         // Simpan data ke tabel pertama
         $simpanPesanan = DB::table('pesanan')->insert([
             'id_akun' => $akun->id_akun,

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('pesan');
             $table->date('tenggat_pengerjaan')->nullable();
             $table->char('unit',200)->nullable();
+            $table->varchar('undangan_kegiatan',100)->nullable();
             $table->timestamps();
 
             $table->foreign('id_akun')->references('id_akun')->on('akun')->onDelete('cascade');

@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <form action="{{ url('jasa/editing-video/submit') }}" method="POST" class="form form-horizontal">
                                 @csrf
-                                <div class="form-body">
+                                {{-- <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="unit">Unit</label>
@@ -30,26 +30,29 @@
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
                                                 Kerja/Ormawa.</small>
-                                        </div>
+                                        </div> --}}
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="deskripsi" class="col-form-label">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul video nya" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                        <div class="col-md-4">
+                                        {{-- <div class="col-md-4">
                                             <label for="deskripsi" class="col-form-label">Judul Video</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <textarea name="judul_video" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4">
                                             <label for="link_mentahan" class="col-form-label"> Link Mentahan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror" name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
+                                            <small id="custom_ukuran_help" class="form-text text-muted">Jelaskanlah ukuran
+                                                design yang diminta. Contoh: Design Sertifikat A4/F4; Design Backdrop
+                                                Landscape A4; Design Spanduk 4 x 6; DLL.</small>
                                             @error('tenggat_pengerjaan')
                                             <div class="invalid-feedback">The link mentahan field is required.</div>
                                         @enderror
@@ -65,7 +68,7 @@
                                         </div>
                                         
                                        
-                                            <div class="col-md-4">
+                                            {{-- <div class="col-md-4">
                                                 <label for="mentahan" >File Pendukung</label>
                                             </div>
                                             
@@ -83,7 +86,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+                            --}}
                             <div class="col-md-12 mt-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="warningCheckbox" name="warning_checkbox">

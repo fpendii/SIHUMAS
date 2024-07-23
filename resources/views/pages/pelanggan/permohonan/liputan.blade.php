@@ -25,7 +25,7 @@
                                             <label for="unit">Unit</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input name="unit" class="form-control" id="unit"
+                                            <input name="unit" placeholder="Direktorat/Manajemen/Program Studi/Unit Kerja/Ormawa." class="form-control" id="unit"
                                                 rows="3"></input>
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
@@ -37,8 +37,8 @@
                                             <label for="password-horizontal">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan"  class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
-                                            <small id="deskripsi_help" class="form-text text-muted">Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput. .</small>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput."  class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                            <small id="deskripsi_help" class="form-text text-muted">Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput.</small>
                                         </div> 
 
                                         <div class="form-body">
@@ -149,11 +149,10 @@
                                                         
                                                         <div class="col-md-8 form-group">
                                                             <input type="text" id="mentahan"
-                                                                class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                                name="link_mentahan" placeholder="Masukkan link drive file pendukung">
-                                                            <small id="deskripsi_help" class="form-text text-muted">upload
-                                                            gambar panitia/organisasi/file pendukung sebagai bukti yang jelas .</small>
-                                                            @error('link_mentahan')
+                                                                class="form-control @error('undangan_kegiatan') is-invalid @enderror"
+                                                                name="undangan_kegiatan" placeholder="Masukkan link drive undangan kegiatan">
+                                                            <small id="deskripsi_help" class="form-text text-muted">upload link undangan organisasi sebagai bukti yang jelas.</small>
+                                                            @error('undangan_kegiatan')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                         </div>

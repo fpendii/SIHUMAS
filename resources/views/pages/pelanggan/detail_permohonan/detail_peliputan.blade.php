@@ -106,11 +106,11 @@
                                                 <div class="row mt-3">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label for="feedback4">File Pendukung</label>
+                                                        <label for="feedback4">Undangan Kegiatan</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
+                                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->undangan_kegiatan}}" name="LastName" readonly>
+                                                        <a href="{{ $dataPermohonan->undangan_kegiatan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                     </div>
                                                 </div>
                                             </div>

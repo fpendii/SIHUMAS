@@ -37,7 +37,8 @@
                                             <label for="deskripsi" class="col-form-label">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul video nya" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul videonya" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <small id="custom_ukuran_help" class="form-text text-muted">Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul videonya</small>
                                         </div>
                                         {{-- <div class="col-md-4">
                                             <label for="deskripsi" class="col-form-label">Judul Video</label>
@@ -50,9 +51,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror" name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
-                                            <small id="custom_ukuran_help" class="form-text text-muted">Jelaskanlah ukuran
-                                                design yang diminta. Contoh: Design Sertifikat A4/F4; Design Backdrop
-                                                Landscape A4; Design Spanduk 4 x 6; DLL.</small>
+                                            <small id="custom_ukuran_help" class="form-text text-muted">Beri keterangan pada setiap file video</small>
                                             @error('tenggat_pengerjaan')
                                             <div class="invalid-feedback">The link mentahan field is required.</div>
                                         @enderror

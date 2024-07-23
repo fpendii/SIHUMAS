@@ -24,14 +24,11 @@ class PermohonanEditingVideoController extends Controller
     {
         $request->validate([
             'link_mentahan' => 'required',
-            // 'pesan' => 'required',
-            // 'tenggat_pengerjaan' => 'required|date|after_or_equal:today',
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
            'jenis_jasa' => 'editing video',
            'waktu_mulai' => $request->waktu_mulai,
-        //    'judul_video' => $request->judul_video,
         ]);
 
         $akun = DB::table('akun')
@@ -45,8 +42,6 @@ class PermohonanEditingVideoController extends Controller
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
-            // 'waktu_mulai' => $request->waktu_mulai,
-            'judul_video' => $request->judul_video,
             'created_at' => now(),
             'unit' => $request->unit
         ]);

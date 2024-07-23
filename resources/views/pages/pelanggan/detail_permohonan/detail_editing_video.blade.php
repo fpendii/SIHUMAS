@@ -49,32 +49,20 @@
                                             <div class="form-group">
                                                 <div class="row">
                                                 <div class="col-md-4">
-                                                <label for="unit" class="sr-only">Unit</label>
                                                 </div>
                                                 <div class="col-md-8 form-group">
-                                                <input type="text" id="unit" class="form-control"
-                                                    value="{{ $dataPermohonan->unit }}" name="unit" readonly>
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="feedback4" class="sr-only">Link Mentahan</label>
                                             </div>
-                                            <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback4" class="form-control"
-                                                       value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="form-group">
+                                                    <input type="text" id="linkInput" class="form-control" value="{{ $dataPermohonan->link_mentahan}}" readonly>
+                                                    <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
+                                                </div>
+                                        </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <label for="judul_video" class="sr-only">Judul Video</label>
-                                            </div>
-                                            <div class="col-md-8 form-group">
-                                                <input type="text" id="judul_video" class="form-control" value="{{ $dataPermohonan->judul_video }}" name="judul_video" readonly>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -85,7 +73,7 @@
                                             </div>
                                         </div>
                                        
-                                     <div class="form-group">
+                                     {{-- <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <label for="feedback4">File Pendukung</label>
@@ -97,7 +85,7 @@
                                         </div>
                                     </div>
                                     
-                                    
+                                     --}}
                     <div class="col">
                         <div class="form-body">
 

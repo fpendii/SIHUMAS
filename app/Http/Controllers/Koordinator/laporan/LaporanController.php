@@ -54,7 +54,7 @@ class LaporanController extends Controller
         ];
 
         $pdf = PDF::loadView('pages.koordinator.kelola_laporan.cetak_laporan', $data);
-        return $pdf->download('laporan_bulanan.pdf');
+        return $pdf->stream('laporan_bulanan.pdf');
     }
 
     public function review_laporan()

@@ -41,6 +41,9 @@
                 <th>Pengaju</th>
                 <th>Status</th>
                 <th>Total</th>
+                {{-- <th>Per Minggu</th>
+                <th>Per Bulan</th>
+                <th>Per Tahun</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -51,6 +54,9 @@
                     <td>{{ $item->nama }}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->total }}</td>
+                    {{-- <td>{{ $item->total_perminggu }}</td>
+                    <td>{{ $item->total_perbulan }}</td>
+                    <td>{{ $item->total_pertahun }}</td> --}}
                 </tr>
             @endforeach
         </tbody>

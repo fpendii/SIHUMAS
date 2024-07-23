@@ -53,35 +53,36 @@ class LaporanAdminController extends Controller
         ];
 
         $pdf = PDF::loadView('pages.admin.laporan_admin.cetak_laporan_admin', $data);
-        return $pdf->download('laporan_bulanan.pdf');
+        return $pdf->stream('laporan_bulanan.pdf');
     }
 
     // Tambahkan metode review
-    public function review()
-    {
-        $data = [
-            'title' => 'Review Laporan Bulanan | SIHUMAS',
-            'page' => 'Review Laporan Bulanan',
-            'level' => 'Admin',
-            'Laporan' => DB::table('pesanan')
-                ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
-                ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
-                ->select(
-                    'jasa.jenis_jasa', 
-                    'akun.nama', 
-                    'pesanan.status', 
-                    DB::raw('COUNT(pesanan.id_pesanan) as total')
-                )
+    // public function review()
+    // {
+    //     $data = [
+    //         'title' => 'Review Laporan Bulanan | SIHUMAS',
+    //         'page' => 'Review Laporan Bulanan',
+    //         'level' => 'Admin',
+    //         'Laporan' => DB::table('pesanan')
+    //             ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
+    //             ->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
+    //             ->select(
+    //                 'jasa.jenis_jasa', 
+    //                 'akun.nama', 
+    //                 'pesanan.status', 
+    //                 DB::raw('COUNT(pesanan.id_pesanan) as total')
+    //             )
                 
-                ->where('pesanan.status', 'selesai')
-                ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
-                ->get()
-                ->toArray()
-        ];
-        // dd($data);
+    //             ->where('pesanan.status', 'selesai')
+    //             ->groupBy('jasa.jenis_jasa', 'akun.nama', 'pesanan.status')
+    //             ->get()
+    //             ->toArray()
+    //     ];
+    //     // dd($data);
       
-        return view('pages.admin.laporan_admin.review_laporan', $data);
-    }
+    //     return view('pages.admin.laporan_admin.review_laporan', $data);
+    // }
+    
     
 
 }

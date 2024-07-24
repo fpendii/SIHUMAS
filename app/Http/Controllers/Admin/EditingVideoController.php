@@ -113,6 +113,8 @@ class EditingVideoController extends Controller
     }
 
 
+
+
     public function detailArsip($id)
     {
 
@@ -131,22 +133,32 @@ class EditingVideoController extends Controller
 
 
 
-public function pilihPetugas(Request $request, $id)
-{
-    $petugas = $request->petugas;
-    $jumlahPetugas = count($petugas);
-
-    for ($i = 0; $i < $jumlahPetugas; $i++) {
-        PetugasPesananModel::create([
-            'id_akun' => $request->petugas[$i],
-            'id_pesanan' => $id
+    public function pilihPetugas(Request $request, $id)
+    {
+     
+        $request->validate([
+            'tenggat_pengerjaan' => 'required|date',
+            'petugas' => 'required|array'
         ]);
-    };
-
-    $pesanan = DB::table('pesanan')->where('pesanan.id_pesanan', $id)->update(['status' => 'proses']);
-
-    return redirect()->to('admin/editing-video')->with('success', 'Data dikirim ke petugas');
-}
+    
+        // Update data pesanan
+        $pesanan = PesananModel::findOrFail($id);
+        $pesanan->tenggat_pengerjaan = Carbon::parse($request->tenggat_pengerjaan);
+        $pesanan->status = 'proses'; 
+        $pesanan->save();
+    
+        
+        foreach ($request->petugas as $petugasId) {
+            PetugasPesananModel::create([
+                'id_pesanan' => $id,
+                'id_akun' => $petugasId,
+            ]);
+        }
+    
+        return redirect()->to('admin/editing-video')->with('success', 'Petugas berhasil dipilih dan tenggat pengerjaan telah diatur.');
+     
+    }
+    
 
 public function tolakPermohonan($id)
 {

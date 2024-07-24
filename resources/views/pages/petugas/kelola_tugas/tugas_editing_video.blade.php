@@ -53,16 +53,25 @@
                                         <label for="link_mentahan">Link Mentahan</label>
                                     </div>
                                     <div class="col-md-8 form-group">
-                                        <input type="text" id="link_mentahan" class="form-control" name="link_mentahan" value="{{ $dataPermohonan->link_mentahan }}" readonly>
+                                        <input type="text" id="feedback4" class="form-control"
+                                        value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="waktu_mulai">Tanggal Kegiatan</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="waktu_mulai" class="form-control" name="waktu_mulai" value="{{ $dataPermohonan->waktu_mulai }}" readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" value="{{ $dataPermohonan->tenggat_pengerjaan }}" readonly>
+                                        </div>
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="tenggat_pengerjaan" class="form-control" name="tenggat_pengerjaan" value="{{ $dataPermohonan->tenggat_pengerjaan }}" readonly>
-                                    </div>
-                                </div>
-                            </div>
+                                    
                             <div class="form-actions d-flex justify-content-end gap-1">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ url('petugas') }}" class="btn btn-secondary">Kembali</a>

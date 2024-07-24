@@ -55,7 +55,7 @@ class PermohonanPeliputanController extends Controller
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
-            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
+            // 'waktu_selesai' => $request->waktu_selesai,
             'created_at' => now(),
             'updated_at' => now(),
             'undangan_kegiatan' =>  $request->undangan_kegiatan,

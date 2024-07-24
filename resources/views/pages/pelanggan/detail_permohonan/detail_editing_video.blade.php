@@ -45,6 +45,20 @@
                         <h4 class="card-title">Data Permohonan Editing Video</h4>
                         <div class="row">
                             <div class="col">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="unit" class="sr-only">Unit</label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" id="unit" class="form-control" value="{{ $dataPermohonan->unit }}" name="unit" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                                     <div class="form-body">
                                             <div class="form-group">
                                                 <div class="row">

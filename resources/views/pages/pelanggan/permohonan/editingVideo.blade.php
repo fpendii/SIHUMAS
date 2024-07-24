@@ -19,7 +19,7 @@
                         <div class="card-body">
                             <form action="{{ url('jasa/editing-video/submit') }}" method="POST" class="form form-horizontal">
                                 @csrf
-                                {{-- <div class="form-body">
+                                <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label for="unit">Unit</label>
@@ -30,7 +30,7 @@
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
                                                 Kerja/Ormawa.</small>
-                                        </div> --}}
+                                        </div>
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="datetime-local" id="waktu_mulai" class="form-control @error('waktu_mulai') is-invalid @enderror" name="waktu_mulai" value="{{ old('waktu_mulai') }}">
-                                            @error('tenggat_pengerjaan')
+                                            @error('waktu_mulai')
                                                 <div class="invalid-feedback">The tenggat pengerjaan field is required.</div>
                                             @enderror
                                         </div>

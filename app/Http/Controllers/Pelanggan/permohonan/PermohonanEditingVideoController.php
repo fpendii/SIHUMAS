@@ -24,6 +24,7 @@ class PermohonanEditingVideoController extends Controller
     {
         $request->validate([
             'link_mentahan' => 'required',
+         
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
@@ -41,6 +42,7 @@ class PermohonanEditingVideoController extends Controller
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
+            'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
             'pesan' => $request->pesan,
             'created_at' => now(),
             'unit' => $request->unit

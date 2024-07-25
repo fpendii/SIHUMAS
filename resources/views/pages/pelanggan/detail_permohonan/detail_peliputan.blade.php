@@ -80,7 +80,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_1" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_1 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_1" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -90,7 +90,7 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_2" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_2 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_2" readonly>
                                             </div>
                                         </div>
                                         <div class="row mt-3">
@@ -100,17 +100,17 @@
                                                 </label>
                                             </div>
                                             <div class="col-md-8 form-group">
-                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Iya' : 'Tidak' }}" name="pertanyaan_3" readonly>
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->pertanyaan_3 == 1 ? 'Ya' : 'Tidak' }}" name="pertanyaan_3" readonly>
                                             </div>
                                             <div class="form-group">
                                                 <div class="row mt-3">
                                                 <div class="row">
                                                     <div class="col-md-4">
-                                                        <label for="feedback4">File Pendukung</label>
+                                                        <label for="feedback4">Undangan Kegiatan</label>
                                                     </div>
                                                     <div class="col-md-8 form-group">
-                                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
-                                                        <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
+                                                        <input type="text" id="feedback4" class="form-control" placeholder="{{ $dataPermohonan->undangan_kegiatan}}" name="LastName" readonly>
+                                                        <a href="{{ $dataPermohonan->undangan_kegiatan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                     </div>
                                                 </div>
                                             </div>

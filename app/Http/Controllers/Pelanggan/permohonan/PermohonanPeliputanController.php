@@ -31,6 +31,7 @@ class PermohonanPeliputanController extends Controller
             'pertanyaan_1' => 'required|in:0,1',
             'pertanyaan_2' => 'required|in:0,1',
             'pertanyaan_3' => 'required|in:0,1',
+            // 'undangan_kegiatan' => 'required',
 
         ]);
 
@@ -41,6 +42,7 @@ class PermohonanPeliputanController extends Controller
             'pertanyaan_2' => $request->pertanyaan_2,
             'pertanyaan_3' => $request->pertanyaan_3,
             'jenis_jasa' => 'peliputan',
+            // 'undangan_kegiatan' =>  $request->undangan_kegiatan,
         ]);
 
         $akun = DB::table('akun')
@@ -53,10 +55,12 @@ class PermohonanPeliputanController extends Controller
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
             'pesan' => $request->pesan,
-            'tenggat_pengerjaan' => $request->waktu_selesai, //dari link mentahan- tenggat
+            // 'waktu_selesai' => $request->waktu_selesai,
             'created_at' => now(),
             'updated_at' => now(),
+            'undangan_kegiatan' =>  $request->undangan_kegiatan,
             'unit' => $request->unit
+            
         ]);
 
         if(!$simpanPesanan){

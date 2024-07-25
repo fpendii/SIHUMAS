@@ -24,12 +24,12 @@ class PermohonanEditingVideoController extends Controller
     {
         $request->validate([
             'link_mentahan' => 'required',
-            // 'pesan' => 'required',
-            'tenggat_pengerjaan' => 'required|date|after_or_equal:today',
+         
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
            'jenis_jasa' => 'editing video',
+           'waktu_mulai' => $request->waktu_mulai,
         ]);
 
         $akun = DB::table('akun')
@@ -42,11 +42,12 @@ class PermohonanEditingVideoController extends Controller
             'id_jasa' => $jasa,
             'status' => 'pending',
             'link_mentahan' => $request->link_mentahan,
-            'pesan' => $request->pesan,
             'tenggat_pengerjaan' => $request->tenggat_pengerjaan,
+            'pesan' => $request->pesan,
             'created_at' => now(),
             'unit' => $request->unit
         ]);
+       
 
         if(!$simpanPesanan){
             emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');

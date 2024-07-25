@@ -48,6 +48,15 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback2" class="sr-only">Unit</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->unit }}" name="email" readonly>
+                                            </div>
+                                        </div>
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -55,21 +64,31 @@
                                                 </div>
                                                 <div class="col-md-8 form-group">
                                                     <input type="text" id="feedback4" class="form-control"
-                                                           placeholder="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                    value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                    <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="row">
+                                            <div class="form-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="feedback2" class="sr-only">Tanggal Kegiatan</label>
+                                                    </div>
+                                                    <div class="col-md-8 form-group">
+                                                        <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="email" readonly>
+                                                    </div>
+                                                </div>
+    
+                                                    <div class="form-body">
+                                                        <div class="row">
                                                 <div class="col-md-4">
                                                     <label for="feedback2" class="sr-only">Tenggat Pengerjaan</label>
                                                 </div>
                                                 <div class="col-md-8 form-group">
-                                                    <input type="text" id="feedback2" class="form-control" placeholder="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
+                                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <div class="row mt-3">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -80,7 +99,7 @@
                                                     <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 
                                 <a href="{{url('admin/editing-video/')}}" class="btn btn-secondary">Kembali</a>

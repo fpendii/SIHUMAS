@@ -25,7 +25,7 @@
                                             <label for="unit">Unit</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input name="unit" class="form-control" id="unit"
+                                            <input name="unit" placeholder="Direktorat/Manajemen/Program Studi/Unit Kerja/Ormawa." class="form-control" id="unit"
                                                 rows="3"></input>
                                             <small id="deskripsi_help"
                                                 class="form-text text-muted">Direktorat/Manajemen/Program Studi/Unit
@@ -37,8 +37,10 @@
                                             <label for="password-horizontal">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput." class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
-                                        </div>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput."  class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
+                                            <small id="deskripsi_help" class="form-text text-muted">Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja yang ingin di liput.</small>
+                                        </div> 
+
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -116,7 +118,7 @@
                                                         <div class="col-md-4">
                                                             <label for="dokumentasi-foto-3">
                                                                 Apakah kegiatan membutuhkan bantuan Unit Humas untuk pembuatan sertifikat?
-                                                                <br>(Jika "Ya" silakan mengisi kembali link permohonan editing)
+                                                                <br>(Jika "Ya" silakan mengisi kembali link permohonan desain)
                                                             </label>
                                                             
                                                         </div>
@@ -124,38 +126,33 @@
                                                             <div class="form-check">
                                                                 <input class="form-check-input @error('pertanyaan_3') is-invalid @enderror" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="1" required>
                                                                 <label class="form-check-label" for="dokumentasi_foto_3_ya">
-                                                                    Ya (sertifikat narasumber)
+                                                                    Ya (Jika "Ya" silakan mengisi kembali link permohonan desain)
                                                                 </label>
                                                             </div>
-                                                            <div class="form-check">
-                                                                <input class="form-check-input @error('pertanyaan_3') is-invalid @enderror" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_ya" value="2" required>
-                                                                <label class="form-check-label" for="dokumentasi_foto_3_ya">
-                                                                    Ya (sertifikat narasumber & peserta)
-                                                                </label>
-                                                            </div>
+                                                           
                                                             <div class="form-check">
                                                                 <input class="form-check-input @error('pertanyaan_3') is-invalid @enderror" type="radio" name="pertanyaan_3" id="dokumentasi_foto_3_tidak" value="0" required>
                                                                 <label class="form-check-label" for="dokumentasi_foto_3_tidak">
                                                                     Tidak
                                                                 </label>
                                                             </div>
-                                                            @error('pertanyaan_3')
+                                                           
+                                                            {{-- @error('pertanyaan_3')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                                            @enderror
+                                                            @enderror --}}
                                                         </div>
                                                         
                                                         <div class="row mt-3">
                                                         <div class="col-md-4">
-                                                            <label for="mentahan">File Pendukung</label>
+                                                            <label for="mentahan">Undangan Kegiatan</label>
                                                         </div>
                                                         
                                                         <div class="col-md-8 form-group">
                                                             <input type="text" id="mentahan"
-                                                                class="form-control @error('link_mentahan') is-invalid @enderror"
-                                                                name="link_mentahan" placeholder="Masukkan link drive file pendukung">
-                                                            <small id="deskripsi_help" class="form-text text-muted">upload
-                                                            gambar panitia/organisasi/file pendukung sebagai bukti yang jelas .</small>
-                                                            @error('link_mentahan')
+                                                                class="form-control @error('undangan_kegiatan') is-invalid @enderror"
+                                                                name="undangan_kegiatan" placeholder="Masukkan link drive undangan kegiatan">
+                                                            <small id="deskripsi_help" class="form-text text-muted">upload link undangan organisasi sebagai bukti yang jelas.</small>
+                                                            @error('undangan_kegiatan')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                         </div>

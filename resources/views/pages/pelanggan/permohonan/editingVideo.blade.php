@@ -37,7 +37,11 @@
                                             <label for="deskripsi" class="col-form-label">Deskripsi</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea name="pesan" placeholder="Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul videonya" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <small id="custom_ukuran_help" class="form-text text-muted">Deskripsikan secara singkat mengenai kebutuhan atau detail spesifik untuk apa saja video yang ingin di edit dan judul videonya</small>
+                                        </div>
+                                        {{-- <div class="col-md-4">
+                                            <label for="deskripsi" class="col-form-label">Judul Video</label>
                                         </div>
 
                                         <div class="col-md-4">
@@ -45,16 +49,17 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="link_mentahan" class="form-control @error('link_mentahan') is-invalid @enderror" name="link_mentahan" placeholder="Masukkan link mentahan seperti link video, dll yang diperlukan dalam editing video">
+                                            <small id="custom_ukuran_help" class="form-text text-muted">Beri keterangan pada setiap file video</small>
                                             @error('tenggat_pengerjaan')
                                             <div class="invalid-feedback">The link mentahan field is required.</div>
                                         @enderror
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="tenggat_pengerjaan">Tenggat Pengerjaan</label>
+                                            <label for="tenggat_pengerjaan">Tanggal Kegiatan</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="datetime-local" id="tenggat_pengerjaan" class="form-control @error('tenggat_pengerjaan') is-invalid @enderror" name="tenggat_pengerjaan" value="{{ old('tenggat_pengerjaan') }}">
-                                            @error('tenggat_pengerjaan')
+                                            <input type="datetime-local" id="waktu_mulai" class="form-control @error('waktu_mulai') is-invalid @enderror" name="waktu_mulai" value="{{ old('waktu_mulai') }}">
+                                            @error('waktu_mulai')
                                                 <div class="invalid-feedback">The tenggat pengerjaan field is required.</div>
                                             @enderror
                                         </div>

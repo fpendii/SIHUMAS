@@ -11,8 +11,11 @@
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
+                            {{-- <li class="breadcrumb-item">
+                                <a href="{{ route('koordinator.laporan.review_laporan') }}" class="btn btn-secondary">Lihat Laporan</a>
+                            </li> --}}
                             <li class="breadcrumb-item">
-                                <a href="{{ route('koordinator.laporan.cetakPDF') }}" class="btn btn-primary" target="_blank">Cetak Laporan</a>
+                                <a href="{{ route('koordinator.laporan.cetakPDF') }}" class="btn btn-primary" target="_blank">Lihat Laporan</a>
                             </li>
                         </ol>
                     </nav>

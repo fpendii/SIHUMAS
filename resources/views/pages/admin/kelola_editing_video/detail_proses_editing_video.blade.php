@@ -36,37 +36,15 @@
             <div class="card-body">
                 <p>{{ $dataPermohonan->pesan }}</p>
             </div>
-            {{-- <div class="card">
-                <div class="card-content">
-                    <div class="card-body">
-                        <h4 class="card-title">Data Permohonan</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-body">
-                            @isset($dataPetugasPesanan)
-                                <div class="form-group">
-                                    <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
-                                    <div class="list-group">
-                                        @foreach ($dataPetugasPesanan as $item)
-                                        <span class="list-group-item">{{ $item->username }}</span>
-                                        @endforeach
-                                    </div>
-                                </div>
-                            @else
-                                <p>Data Petugas Pesanan tidak tersedia.</p>
-                            @endisset
-        
-                            @isset($dataPermohonan) --}}
-
                             <div class="card">
                                 <div class="card-content">
-                                    <div class="card-body pb-0"> <!-- Menghapus padding bottom -->
+                                    <div class="card-body pb-0"> 
                                         <h4 class="card-title">Data Permohonan</h4>
                                     </div>
-                                    <div class="card-body pt-0"> <!-- Menghapus padding top -->
+                                    <div class="card-body pt-0"> 
                                         <div class="form-body">
                                             @isset($dataPetugasPesanan)
-                                                <div class="form-group mb-0"> <!-- Menghapus margin bottom -->
+                                                <div class="form-group mb-0"> 
                                                     <label for="feedback1" class="sr-only">Petugas Yang Mengerjakan</label>
                                                     <div class="list-group">
                                                         @foreach ($dataPetugasPesanan as $item)
@@ -86,14 +64,20 @@
                             <div class="row">
                                 <div class="col">
                                     <br>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label for="feedback2" class="sr-only">Unit</label>
+                                            </div>
+                                            <div class="col-md-8 form-group">
+                                                <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->unit }}" name="email" readonly>
+                                            </div>
+                                        </div>
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="unit" class="sr-only">Unit</label>
                                                         </div>
                                                         <div class="col-md-8 form-group">
-                                                            <input type="text" id="feedback1" class="form-control" value="{{$dataPermohonan->unit}}"
-                                                            name="unit" readonly>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label for="feedback4" class="sr-only">Link Mentahan</label>
@@ -101,9 +85,20 @@
                                                 <div class="col-md-8 form-group">
                                                     <input type="text" id="feedback4" class="form-control"
                                                            value="{{ $dataPermohonan->link_mentahan }}" name="LastName" readonly>
+                                                           <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="feedback2" class="sr-only">Tanggal Kegiatan</label>
+                                                </div>
+                                                <div class="col-md-8 form-group">
+                                                    <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->waktu_mulai }}" name="email" readonly>
+                                                </div>
+                                            </div>
+
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -112,10 +107,9 @@
                                                 <div class="col-md-8 form-group">
                                                     <input type="text" id="feedback2" class="form-control" value="{{ $dataPermohonan->tenggat_pengerjaan }}" name="email" readonly>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
+                                            
+                                        
+                                        {{-- <div class="form-group">
                                             <div class="row mt-3">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -126,7 +120,7 @@
                                                     <a href="{{ $dataPermohonan->link_mentahan }}" target="_blank" class="btn btn-primary btn-sm mt-2">Open Link</a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                             <div class="form-actions d-flex justify-content-end grid gap-1">
                                 
                                 <a href="{{ url('admin/editing-video/proses') }}" class="btn btn-secondary">Kembali</a>
@@ -144,9 +138,7 @@
 
     <script src="/template/dist/assets/compiled/js/app.js"></script>
 
-    <!-- Code injected by live-server -->
     <script>
-        // <![CDATA[  <-- For SVG support
         if ('WebSocket' in window) {
             (function() {
                 function refreshCSS() {
@@ -181,7 +173,6 @@
         } else {
             console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
         }
-        // ]]>
     </script>
 </body>
 

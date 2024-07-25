@@ -75,23 +75,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-3">
-                <div class="card">
-                    <a href="{{ url('admin/profil') }}">
-                        <div class="card-body py-4 px-4">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <h5 class="font-bold">John Duck</h5>
-                                    <h6 class="text-muted mb-0">@johnducky</h6>
-                                </div>
-                                <div class="avatar avatar-xl">
-                                    <img src="template/dist/assets/compiled/jpg/1.jpg" alt="Face 1" style="width: 60px; height: 60px; border-radius: 50%;">
-                                </div>
-                            </div>
+    <div class="col-12 col-lg-3 order-first order-lg-last">
+        <div class="card">
+            <a href="#">
+                <div class="card-body py-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <div class="avatar avatar-xl">
+                            <img src="template/dist/assets/compiled/jpg/1.jpg" alt="Face 1">
                         </div>
-                    </a>
+                        <div class="ms-3 name">
+                            <h5 class="font-bold">{{ session('username') }}</h5>
+                            <h6 class="text-muted mb-0">{{ session('role') }}</h6>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </a>
+        </div>
     </div>
+</section>
+</div>
 @endsection

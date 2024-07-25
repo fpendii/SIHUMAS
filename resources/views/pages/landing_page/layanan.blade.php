@@ -91,7 +91,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-title">
-                            <h2>Jasa yang kami sediakan di Humas Politala</h2>
+                            <h2>Layanan yang kami sediakan</h2>
                             <p>Tersedia pilihan layanan yang lengkap dari Humas Politala, siap untuk mendukung dan
                                 memenuhi
                                 berbagai keperluan Anda.</p>
@@ -105,7 +105,7 @@
                             <i class="icofont-ruler-pencil"></i>
 
                             <h4>Desain</h4>
-                            <p>ingkatkan branding Anda dengan desain brosur, poster, spanduk, dan media promosi lainnya yang menarik dan profesional. Dapatkan pula jasa editing foto dan video untuk mempercantik konten Anda.</p>
+                            <p>Tingkatkan branding Anda dengan desain brosur, poster, spanduk, dan media promosi lainnya yang menarik dan profesional. Dapatkan pula jasa editing foto dan video untuk mempercantik konten Anda.</p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -141,7 +141,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-newspaper"></i>
                             <h4>Pemberitaan dan Publikasi</h4>
-                            <p>ebarkan informasi atau berita Anda kepada khalayak yang lebih luas dengan bantuan SILAMAS. Kami siap menulis artikel berita yang menarik dan informatif serta mempublikasikannya di berbagai media. </p>
+                            <p>Sebarkan informasi atau berita Anda kepada khalayak yang lebih luas dengan bantuan SILAMAS. Kami siap menulis artikel berita yang menarik dan informatif serta mempublikasikannya di berbagai media. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>

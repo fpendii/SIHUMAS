@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -77,43 +79,97 @@ class AuthController extends Controller
         return view('pages.auth.registrasi');
     }
 
+    // Menangani permintaan lupa password
+    public function sendResetLinkEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email|exists:akun,email',
+        ], [
+            'email.required' => 'Email harus diisi.',
+            'email.email' => 'Email tidak valid.',
+            'email.exists' => 'Email tidak ditemukan dalam sistem kami.',
+        ]);
+
+        $status = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        return $status === Password::RESET_LINK_SENT
+            ? back()->with(['status' => 'Tautan reset password sudah dikirim ke email Anda.'])
+            : back()->withErrors(['email' => 'Gagal mengirimkan tautan reset password.']);
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('pages/auth/reset-password')->with([
+            'token' => $token,
+            'email' => $request->email,
+        ]);
+    }
+
+    public function reset(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email|exists:akun,email',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->save();
+
+                Auth::login($user);
+            }
+        );
+
+        return $status === Password::PASSWORD_RESET
+            ? redirect()->route('login')->with('status', __($status))
+            : back()->withErrors(['email' => [__($status)]]);
+    }
+
+
+
     public function registerProses(Request $request)
-{
-    // Validasi input
-    $validatedData = $request->validate([
-        'username' => 'required|string|max:255|unique:akun',
-        'email' => [
-            'required',
-            'string',
-            'email',
-            'max:255',
-            'unique:akun',
-            'regex:/@(mhs\.politala\.ac\.id|politala\.ac\.id)$/'
-        ],
-        'nama' => 'required|string|max:255',
-        'no_hp' => 'required|string|max:15',
-        'password' => 'required|string|min:8|confirmed',
-    ], [
-        'email.regex' => 'Email harus menggunakan domain @mhs.politala.ac.id atau @politala.ac.id',
-    ]);
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'username' => 'required|string|max:255|unique:akun',
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:akun',
+                'regex:/@(mhs\.politala\.ac\.id|politala\.ac\.id)$/'
+            ],
+            'nama' => 'required|string|max:255',
+            'no_hp' => 'required|string|max:15',
+            'password' => 'required|string|min:8|confirmed',
+        ], [
+            'email.regex' => 'Email harus menggunakan domain @mhs.politala.ac.id atau @politala.ac.id',
+        ]);
 
-    // Buat akun jika validasi sukses
-    $akun = akun::create([
-        'username' => $validatedData['username'],
-        'email' => $validatedData['email'],
-        'nama' => $validatedData['nama'],
-        'no_hp' => $validatedData['no_hp'],
-        'password' => Hash::make($validatedData['password']),
-        'role' => 'pelanggan',
-        'is_active' => 1
-    ]);
+        // Buat akun jika validasi sukses
+        $akun = akun::create([
+            'username' => $validatedData['username'],
+            'email' => $validatedData['email'],
+            'nama' => $validatedData['nama'],
+            'no_hp' => $validatedData['no_hp'],
+            'password' => Hash::make($validatedData['password']),
+            'role' => 'pelanggan',
+            'is_active' => 1
+        ]);
 
-    event(new Registered($akun));
+        event(new Registered($akun));
 
-    Auth::login($akun);
+        Auth::login($akun);
 
-    return redirect('email/verify');
-}
+        return redirect('email/verify');
+    }
 
 
 

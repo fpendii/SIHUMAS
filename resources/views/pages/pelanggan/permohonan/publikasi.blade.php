@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-md-8 form-group">
                                         <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        <small id="deskripsi_help" class="form-text text-muted">Deskripsikan informasi lengkap mengenai kegiatan atau acara yang ingin dipublikasikan menggunakan pendekatan 5W+1H (What, Who, Where, When, Why, dan How)</small>
+                                        <small id="deskripsi_help" class="form-text text-muted">Deskripsikan informasi lengkap mengenai kegiatan atau acara yang ingin dipublikasikan menggunakan pendekatan 5W+1H (What, Who, Where, When, Why, dan How), nama narasumber jika diperlukan</small>
                                     </div>
 
                                     <div class="col-md-4">

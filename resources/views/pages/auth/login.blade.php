@@ -54,6 +54,7 @@
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
                         <p class="text-gray-600">Belum Punya Akun? <a href="{{ url('registrasi') }}" class="font-bold">Daftar</a>.</p>
+                        <p class="text-gray-600" style="font-size: 15px"><a href="{{ url('password-reset') }}" class="font-bold">Lupa Password?</a></p>
 
                     </div>
                 </div>

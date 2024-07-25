@@ -75,7 +75,11 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 
 
 
-Route::get('lupa-password', [AuthController::class, 'lupaPassword']);
+Route::get('password-reset', [AuthController::class, 'lupaPassword']);
+Route::post('password-reset', [AuthController::class, 'sendResetLinkEmail']);
+Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
+
 Route::get('logout', [AuthController::class, 'logout']);
 
 

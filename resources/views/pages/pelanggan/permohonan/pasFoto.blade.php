@@ -96,3 +96,17 @@
     </section>
     <!-- // Basic Horizontal form layout section end -->
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+       var submitBtn = document.getElementById('submitBtn');
+       var warningCheckbox = document.getElementById('warningCheckbox');
+
+       warningCheckbox.addEventListener('change', function () {
+           if (this.checked) {
+               submitBtn.disabled = false;
+           } else {
+               submitBtn.disabled = true;
+           }
+       });
+   });
+</script>

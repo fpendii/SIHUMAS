@@ -52,9 +52,6 @@ class AkunController extends Controller
         return view('pages.admin.kelola_akun.form_tambah', $data);
     }
 
-
-
-
     public function simpan(Request $request)
     {
         // Definisikan aturan validasi

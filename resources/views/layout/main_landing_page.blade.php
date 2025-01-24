@@ -79,7 +79,7 @@
                     <div class="col-lg-6 col-md-7 col-12">
                         <!-- Top Contact -->
                         <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                            <li><i class="fa fa-phone"></i>politala</li>
                             <li><i class="fa fa-envelope"></i><a
                                     href="mailto:humas@politala.ac.id">humas@politala.ac.id</a></li>
                         </ul>

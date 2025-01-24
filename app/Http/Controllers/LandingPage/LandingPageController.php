@@ -35,7 +35,7 @@ class LandingPageController extends Controller
         $data = [
             'title' => 'SILAMAS',
             'page' => 'home',
-            'no_hp' => $no_hp,
+            'no_hp' => 'politala',
         ];
 
         return view('pages.landing_page.home', $data);

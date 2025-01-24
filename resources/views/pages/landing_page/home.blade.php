@@ -21,6 +21,9 @@
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="template_landing_page/css/bootstrap.min.css">
     <!-- Nice Select CSS -->
@@ -64,7 +67,8 @@
                     <div class="col-lg-6 col-md-7 col-12">
                         <!-- Top Contact -->
                         <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i>{{$no_hp}}</li>
+                            <li><i class="fab fa-instagram"></i><i class="fab fa-youtube"></i><i class="fa fa-facebook"></i>
+                            </i>{{$no_hp}}</li>
                             <li><i class="fa fa-envelope"></i><a
                                     href="mailto:humas@politala.ac.id">humas@politala.ac.id</a></li>
                         </ul>

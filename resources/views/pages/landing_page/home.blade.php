@@ -68,7 +68,7 @@
                         <!-- Top Contact -->
                         <ul class="top-contact">
                             <li><i class="fab fa-instagram"></i><i class="fab fa-youtube"></i><i class="fa fa-facebook"></i>
-                            </i>{{$no_hp}}</li>
+                            </i>politala</li>
                             <li><i class="fa fa-envelope"></i><a
                                     href="mailto:humas@politala.ac.id">humas@politala.ac.id</a></li>
                         </ul>
@@ -128,7 +128,7 @@
                                 <i class="icofont-login"></i>
                             </div>
                             <h3>Pertama</h3>
-                            <p>Login menggunakan akun SILAMAS</p>
+                            <p>Login menggunakan akun LinePro</p>
                         </div>
                         <!-- End Single features -->
                     </div>
@@ -161,7 +161,7 @@
                                 <i class="icofont-ui-text-loading"></i>
                             </div>
                             <h3>Keempat</h3>
-                            <p>Tunggu konfirmasi dari tim SILAMAS</p>
+                            <p>Tunggu konfirmasi dari tim LinePro</p>
                         </div>
                         <!-- End Single features -->
                     </div>

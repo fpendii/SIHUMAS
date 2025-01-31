@@ -5,7 +5,7 @@
                 <div class="col-lg-3 col-md-3 col-12">
                     <!-- Start Logo -->
                     <div class="logo">
-                        <a href="index.html"><img width="200px" src="images/silamas.png" alt="#"></a>
+                        <a href="#"><img width="200px" src="images/line pro.png" alt="#"></a>
                     </div>
                     <!-- End Logo -->
                     <!-- Mobile Nav -->

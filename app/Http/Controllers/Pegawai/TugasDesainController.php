@@ -20,7 +20,7 @@ class TugasDesainController extends Controller
         $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Desain | SIHUMAS',
+            'title' => 'Permohonan Desain | LinePro',
             'page' => 'desain' ,
             'level' => 'Admin',
         ];

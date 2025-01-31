@@ -23,7 +23,7 @@ class EditFotoController extends Controller
         }
 
         $data = [
-            'title' => 'edit Foto | SIHUMAS',
+            'title' => 'edit Foto | LinePro',
             'page' => 'edit-foto',
             'sidebar' => 'inbox',
             'level' => 'Admin'
@@ -47,7 +47,7 @@ class EditFotoController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Detail Permohonan edit Foto | SIHUMAS',
+            'title' => 'Detail Permohonan edit Foto | LinePro',
             'page' => 'edit-foto',
             'level' => 'Admin',
         ];
@@ -58,7 +58,7 @@ class EditFotoController extends Controller
     public function arsip()
     {
         $data = [
-            'title' => 'Arsip edit Foto | SIHUMAS',
+            'title' => 'Arsip edit Foto | LinePro',
             'page' => 'edit-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -73,7 +73,7 @@ class EditFotoController extends Controller
     public function proses()
     {
         $data = [
-            'title' => 'edit foto | SIHUMAS',
+            'title' => 'edit foto | LinePro',
             'page' => 'edit-foto',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -103,7 +103,7 @@ class EditFotoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Detail Proses Permohonan edit Foto | SIHUMAS',
+            'title' => 'Detail Proses Permohonan edit Foto | LinePro',
             'page' => 'edit-foto' ,
             'level' => 'Admin',
         ];
@@ -122,7 +122,7 @@ class EditFotoController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan edit Foto | SIHUMAS',
+            'title' => 'Permohonan edit Foto | LinePro',
             'page' => 'edit-foto',
             'level' => 'Admin',
         ];

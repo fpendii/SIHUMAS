@@ -21,7 +21,7 @@ class RedakturController extends Controller
             ->toArray();
 
         $data = [
-            'title' => 'Beranda | SIHUMAS',
+            'title' => 'Beranda | LinePro',
             'page' => 'Beranda',
             'level' => 'Redaktur',
             'totalPublikasi' => count($PermohonanPublikasi),

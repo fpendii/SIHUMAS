@@ -23,7 +23,7 @@ class PeriksaPublikasiController extends Controller
         ->get();
 
     $data = [
-        'title' => 'Periksa | SIHUMAS',
+        'title' => 'Periksa | LinePro',
         'page' => 'Periksa Publikasi',
         'level' => 'Redaktur',
     ];
@@ -60,7 +60,7 @@ public function detailTugas($id)
 
     // Data untuk dikirim ke view
     $data = [
-        'title' => 'Permohonan Publikasi | SIHUMAS',
+        'title' => 'Permohonan Publikasi | LinePro',
         'page' => 'publikasi',
         'level' => 'Redaktur',
     ];

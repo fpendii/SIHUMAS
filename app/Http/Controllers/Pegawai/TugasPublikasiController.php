@@ -21,7 +21,7 @@ class TugasPublikasiController extends Controller
 
         $dataPetugas = DB::table('akun')->where('role', '=', 'petugas')->get();
         $data = [
-            'title' => 'Permohonan Publikasi | SIHUMAS',
+            'title' => 'Permohonan Publikasi | LinePro',
             'page' => 'publikasi',
             'level' => 'Admin',
         ];

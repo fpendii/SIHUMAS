@@ -14,7 +14,7 @@ class PublikasiController extends Controller
     public function index(){
 
         $data = [
-            'title' => 'Publikasi | SIHUMAS',
+            'title' => 'Publikasi | LinePro',
             'page' => 'publikasi',
             'level' => 'Admin',
             'sidebar' => 'inbox',
@@ -29,7 +29,7 @@ class PublikasiController extends Controller
 
     public function proses(){
         $data = [
-            'title' => 'Publikasi | SIHUMAS',
+            'title' => 'Publikasi | LinePro',
             'page' => 'publikasi',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -46,7 +46,7 @@ class PublikasiController extends Controller
 
     public function arsip(){
         $data = [
-            'title' => 'Publikasi | SIHUMAS',
+            'title' => 'Publikasi | LinePro',
             'page' => 'publikasi',
             'sidebar' => 'arsip',
             'level' => 'Admin',
@@ -70,7 +70,7 @@ class PublikasiController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan Publikasi | SIHUMAS',
+            'title' => 'Permohonan Publikasi | LinePro',
             'page' => 'Permohonan Publikasi' ,
             'level' => 'Admin',
         ];
@@ -87,7 +87,7 @@ class PublikasiController extends Controller
 
 
         $data = [
-            'title' => 'Permohonan Publikasi | SIHUMAS',
+            'title' => 'Permohonan Publikasi | LinePro',
             'page' => 'Permohonan Publikasi' ,
             'level' => 'Admin',
         ];
@@ -102,7 +102,7 @@ class PublikasiController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Publikasi | SIHUMAS',
+            'title' => 'Permohonan Publikasi | LinePro',
             'page' => 'Permohonan Publikasi' ,
             'level' => 'Admin',
         ];

@@ -31,7 +31,7 @@ class AdminController extends Controller
             ->toArray();
 
         $data = [
-            'title' => 'Beranda | SIHUMAS',
+            'title' => 'Beranda | LinePro',
             'page' => 'Beranda',
             'chart' => $chart->build(),
             'level' => 'Admin',

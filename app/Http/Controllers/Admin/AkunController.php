@@ -16,7 +16,7 @@ class AkunController extends Controller
     {
         // Data tambahan untuk view
         $data = [
-            'title' => 'Kelola Akun | SIHUMAS',
+            'title' => 'Kelola Akun | LinePro',
             'page' => 'Kelola Akun',
             'level' => 'Admin',
         ];
@@ -44,7 +44,7 @@ class AkunController extends Controller
     public function tambah()
     {
         $data = [
-            'title' => 'Tambah Akun | SIHUMAS',
+            'title' => 'Tambah Akun | LinePro',
             'page' => 'Kelola Akun',
             'level' => 'Admin'
         ];
@@ -111,7 +111,7 @@ class AkunController extends Controller
     public function edit($id)
     {
         $data = [
-            'title' => 'Kelola Akun | SIHUMAS',
+            'title' => 'Kelola Akun | LinePro',
             'page' => 'Kelola Akun',
             'level' => 'Admin',
         ];

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - SILAMAS</title>
+    <title>Login - LinePRo</title>
 
     <link rel="shortcut icon" href="/template/dist/assets/compiled/svg/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="/template/dist/assets/compiled/css/app.css">
@@ -19,7 +19,7 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="{{url('/')}}"><img width="" src="images/silamas.png" alt="#"></a>
+                        <a href="{{url('/')}}"><img width="" src="images/line pro.png" alt="#"></a>
                     </div>
                     <h1 class="auth-title">Login</h1>
                     <p class="auth-subtitle mb-5">Login dengan akun yang sudah anda daftarkan</p>

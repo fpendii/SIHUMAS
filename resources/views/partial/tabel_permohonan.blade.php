@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
+     <!-- Title -->
+     <title>{{ $title }}</title>
 
+     <!-- Favicon -->
+     <link rel="icon" href="template_landing_page/img/favicon.png">
 
     <link rel="shortcut icon" href="/template/dist/assets/compiled/svg/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon"
@@ -31,7 +35,7 @@
                 <div class="container d-block">
                     <a href="{{url('admin')}}"><i class="bi bi-chevron-left"></i></a>
                     <a class="navbar-brand ms-4" href="{{url('admin')}}">
-                        <img src="images/silamas.png" alt="">
+                        <img src="images/line pro.png" alt="">
                     </a>
                 </div>
             </nav>

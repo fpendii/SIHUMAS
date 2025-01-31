@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Koordinator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use App\Models\akun;
 use Illuminate\Support\Facades\Redis;
 use Carbon\Carbon;
@@ -19,19 +19,19 @@ class KoorEditingVideoController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
         $data = [
-            'title' => 'Editing Video | SIHUMAS',
+            'title' => 'Editing Video | LinePro',
             'page' => 'editing video',
             'sidebar' => 'inbox',
             'level' => 'Koordinator'
         ];
         return view('pages.koordinator.kelola_editing_video.editing_video',$data, compact('dataPermohonan', 'data'));
-        
+
     }
 
     public function proses()
     {
         $data = [
-            'title' => 'Editing Video | SIHUMAS',
+            'title' => 'Editing Video | LinePro',
             'page' => 'editing video',
             'sidebar' => 'proses',
             'level' => 'Koordinator',
@@ -59,13 +59,13 @@ class KoorEditingVideoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')
         ->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')
         ->where('pesanan.id_pesanan',$id)->get()->first();
-        
+
         $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Editing Video| SIHUMAS',
+            'title' => 'Permohonan Editing Video| LinePro',
             'page' => 'Permohonan Editing Video' ,
             'level' => 'Koordinator',
         ];
@@ -77,7 +77,7 @@ class KoorEditingVideoController extends Controller
 
     public function arsip(){
         $data =  [
-               'title' => 'Peliputan | SIHUMAS',
+               'title' => 'Peliputan | LinePro',
                'page' => 'editing video',
                'sidebar' => 'arsip',
                'level' => 'Koordinator'
@@ -87,10 +87,10 @@ class KoorEditingVideoController extends Controller
            ->where('pesanan.status', '!=', 'pending')
            ->where('jasa.jenis_jasa', '=', 'editing video')
            ->where('pesanan.status', '!=', 'proses')->get();
-   
+
            return view('pages.koordinator.kelola_editing_video.arsip_editing-video',$data,compact('dataPermohonan','data'));
        }
-    
+
 
     public function detailArsip(Request $request, $id)
     {
@@ -100,7 +100,7 @@ class KoorEditingVideoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Koordinator| SIHUMAS',
+            'title' => 'Permohonan Koordinator| LinePro',
             'page' => 'Permohonan Koordinator',
             'level' => 'Koordinator',
         ];
@@ -109,5 +109,5 @@ class KoorEditingVideoController extends Controller
     }
 
 
-    
+
 }

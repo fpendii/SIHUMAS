@@ -16,6 +16,8 @@
     <!-- Favicon -->
     <link rel="icon" href="template_landing_page/img/favicon.png">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
@@ -61,7 +63,8 @@
                     <div class="col-lg-6 col-md-7 col-12">
                         <!-- Top Contact -->
                         <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                            <li><i class="fab fa-instagram"></i><i class="fab fa-youtube"></i><i class="fa fa-facebook"></i>
+                            </i>politala</li>
                             <li><i class="fa fa-envelope"></i><a
                                     href="mailto:humas@politala.ac.id">humas@politala.ac.id</a></li>
                         </ul>

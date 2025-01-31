@@ -20,7 +20,7 @@ class TugasPeliputanController extends Controller
         $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Peliputan | SIHUMAS',
+            'title' => 'Permohonan Peliputan | LinePro',
             'page' => 'peliputan' ,
             'level' => 'Admin',
         ];
@@ -34,29 +34,29 @@ class TugasPeliputanController extends Controller
             'required' => 'Link Hasil Wajib Diisi.',
             'url' => 'Link yang dimasukkan tidak valid'
         ];
-    
+
         $validator = Validator::make($request->all(), [
             'link_hasil' => 'required|url',
         ], $messages);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         $dataPermohonan = PesananModel::findOrFail($id);
-    
+
         $updateSuccessful = $dataPermohonan->update([
             'status' => 'selesai',
             'link_hasil' => $request->input('link_hasil')
         ]);
-    
+
         if (!$updateSuccessful) {
             return redirect()->to('petugas/tugas')->with('error', 'Tugas Gagal Dikirim');
         }
-    
+
         return redirect()->to('petugas/tugas')->with('success', 'Tugas Berhasil Diselesaikan');
     }
-    
-    
-    
+
+
+
 }

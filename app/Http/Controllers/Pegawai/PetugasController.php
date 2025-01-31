@@ -20,7 +20,7 @@ class PetugasController extends Controller
         $PermohonanEditingVideo = DB::table('pesanan')->join('jasa','pesanan.id_jasa','=','jasa.id_jasa')->where('jenis_jasa','=','editing_video')->select('id_pesanan')->get()->toArray();
 
         $data = [
-            'title' => 'Beranda | SIHUMAS',
+            'title' => 'Beranda | LinePro',
             'page' => 'Beranda',
             'level' => 'Petugas',
             'totalpeliputan' => count($PermohonanPeliputan),

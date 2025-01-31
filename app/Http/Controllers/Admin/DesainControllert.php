@@ -24,7 +24,7 @@ class DesainControllert extends Controller
         }
 
         $data = [
-            'title' => 'Desain | SIHUMAS',
+            'title' => 'Desain | LinePro',
             'page' => 'desain',
             'sidebar' => 'inbox',
             'level' => 'Admin'
@@ -35,7 +35,7 @@ class DesainControllert extends Controller
     public function arsip()
     {
         $data = [
-            'title' => ' Arsip Desain | SIHUMAS',
+            'title' => ' Arsip Desain | LinePro',
             'page' => 'desain',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -54,7 +54,7 @@ class DesainControllert extends Controller
     public function proses()
     {
         $data = [
-            'title' => 'Publikasi | SIHUMAS',
+            'title' => 'Publikasi | LinePro',
             'page' => 'desain',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -84,7 +84,7 @@ class DesainControllert extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Desain | SIHUMAS',
+            'title' => 'Permohonan Desain | LinePro',
             'page' => 'Permohonan Desain' ,
             'level' => 'Admin',
         ];
@@ -107,7 +107,7 @@ class DesainControllert extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan Desain | SIHUMAS',
+            'title' => 'Permohonan Desain | LinePro',
             'page' => 'Permohonan Desain',
             'level' => 'Admin',
         ];
@@ -125,7 +125,7 @@ class DesainControllert extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Permohonan Desain | SIHUMAS',
+            'title' => 'Permohonan Desain | LinePro',
             'page' => 'Permohonan Desain',
             'level' => 'Admin',
         ];

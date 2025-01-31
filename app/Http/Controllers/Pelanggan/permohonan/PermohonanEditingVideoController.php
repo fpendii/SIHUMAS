@@ -14,7 +14,7 @@ class PermohonanEditingVideoController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Form Permohonan Editing | SIHUMAS',
+            'title' => 'Form Permohonan Editing | LinePro',
             'page' => 'form Editing Video',
             'level' => 'Pelanggan'
         ];
@@ -24,7 +24,7 @@ class PermohonanEditingVideoController extends Controller
     {
         $request->validate([
             'link_mentahan' => 'required',
-         
+
         ]);
 
         $jasa = DB::table('jasa')->insertGetId([
@@ -47,7 +47,7 @@ class PermohonanEditingVideoController extends Controller
             'created_at' => now(),
             'unit' => $request->unit
         ]);
-       
+
 
         if(!$simpanPesanan){
             emotify('error', 'Maaf Permohonan tidak dapat terkirim, silahkan coba lagi atau hubungi pihak Silamas :(');

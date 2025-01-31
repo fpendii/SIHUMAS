@@ -15,7 +15,7 @@ class PermohonanPeliputanController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Form Permohonan Peliputan | SIHUMAS',
+            'title' => 'Form Permohonan Peliputan | LinePro',
             'page' => 'form peliputan',
             'level' => 'Pelanggan'
         ];
@@ -60,7 +60,7 @@ class PermohonanPeliputanController extends Controller
             'updated_at' => now(),
             'undangan_kegiatan' =>  $request->undangan_kegiatan,
             'unit' => $request->unit
-            
+
         ]);
 
         if(!$simpanPesanan){

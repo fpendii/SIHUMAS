@@ -13,7 +13,7 @@ class PermohonanEditFotoController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Form Permohonan Edit Foto | SIHUMAS',
+            'title' => 'Form Permohonan Edit Foto | LinePro',
             'page' => 'Form Edit foto',
             'level' => 'Pelanggan'
         ];

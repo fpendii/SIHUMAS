@@ -14,7 +14,7 @@ class PermohonanDesainController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Desain | SIHUMAS',
+            'title' => 'Desain | LinePro',
             'page' => 'form desain',
             'level' => 'Pelanggan'
         ];

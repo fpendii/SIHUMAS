@@ -23,7 +23,7 @@ class PasFotoController extends Controller
         }
 
         $data = [
-            'title' => 'Pas Foto | SIHUMAS',
+            'title' => 'Pas Foto | LinePro',
             'page' => 'pas-foto',
             'sidebar' => 'inbox',
             'level' => 'Admin'
@@ -41,7 +41,7 @@ class PasFotoController extends Controller
         // dd(compact('dataPetugas'));
 
         $data = [
-            'title' => 'Detail Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Detail Permohonan Pas Foto | LinePro',
             'page' => 'pas-foto',
             'level' => 'Admin',
         ];
@@ -52,7 +52,7 @@ class PasFotoController extends Controller
     public function arsip()
     {
         $data = [
-            'title' => 'Arsip Pas Foto | SIHUMAS',
+            'title' => 'Arsip Pas Foto | LinePro',
             'page' => 'pas-foto',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -67,7 +67,7 @@ class PasFotoController extends Controller
     public function proses()
     {
         $data = [
-            'title' => 'pas foto | SIHUMAS',
+            'title' => 'pas foto | LinePro',
             'page' => 'pas-foto',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -97,7 +97,7 @@ class PasFotoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Detail Proses Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Detail Proses Permohonan Pas Foto | LinePro',
             'page' => 'pas-foto' ,
             'level' => 'Admin',
         ];
@@ -114,7 +114,7 @@ class PasFotoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Permohonan Pas Foto | LinePro',
             'page' => 'pas-foto',
             'level' => 'Admin',
         ];

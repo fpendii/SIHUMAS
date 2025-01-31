@@ -16,6 +16,8 @@
     <!-- Favicon -->
     <link rel="icon" href="template_landing_page/img/favicon.png">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
@@ -65,7 +67,8 @@
                     <div class="col-lg-6 col-md-7 col-12">
                         <!-- Top Contact -->
                         <ul class="top-contact">
-                            <li><i class="fa fa-phone"></i>+880 1234 56789</li>
+                            <li><i class="fab fa-instagram"></i><i class="fab fa-youtube"></i><i class="fa fa-facebook"></i>
+                            </i>politala</li>
                             <li><i class="fa fa-envelope"></i><a
                                     href="mailto:humas@politala.ac.id">humas@politala.ac.id</a></li>
                         </ul>
@@ -114,7 +117,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-edit"></i>
                             <h4>Editing Foto</h4>
-                            <p>Buat foto Anda lebih menarik dan profesional dengan jasa editing foto SILAMAS. Kami menawarkan koreksi warna, pencahayaan, kontras, efek, dan filter untuk mempercantik foto Anda. </p>
+                            <p>Buat foto Anda lebih menarik dan profesional dengan jasa editing foto LinePro. Kami menawarkan koreksi warna, pencahayaan, kontras, efek, dan filter untuk mempercantik foto Anda. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -123,7 +126,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-camera"></i>
                             <h4>Pas Foto</h4>
-                            <p>Cepat dan mudah buat pas foto untuk KTP, SIM, paspor, dan berbagai keperluan lainnya di SILAMAS. Kami memastikan pas foto Anda sesuai standar dan siap dalam waktu singkat. </p>
+                            <p>Cepat dan mudah buat pas foto untuk KTP, SIM, paspor, dan berbagai keperluan lainnya di LinePro. Kami memastikan pas foto Anda sesuai standar dan siap dalam waktu singkat. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -132,7 +135,7 @@
                         <div class="single-service">
                             <i class="icofont-video"></i>
                             <h4>Peliputan</h4>
-                            <p>Abadikan momen spesial Anda dengan jasa peliputan profesional dari SILAMAS. Kami menyediakan foto, video, dan audio untuk dokumentasi acara seminar, konferensi, dan berbagai acara lainnya. </p>
+                            <p>Abadikan momen spesial Anda dengan jasa peliputan profesional dari LinePro. Kami menyediakan foto, video, dan audio untuk dokumentasi acara seminar, konferensi, dan berbagai acara lainnya. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -141,7 +144,7 @@
                         <div class="single-service">
                             <i class="icofont icofont-newspaper"></i>
                             <h4>Pemberitaan dan Publikasi</h4>
-                            <p>Sebarkan informasi atau berita Anda kepada khalayak yang lebih luas dengan bantuan SILAMAS. Kami siap menulis artikel berita yang menarik dan informatif serta mempublikasikannya di berbagai media. </p>
+                            <p>Sebarkan informasi atau berita Anda kepada khalayak yang lebih luas dengan bantuan LinePro. Kami siap menulis artikel berita yang menarik dan informatif serta mempublikasikannya di berbagai media. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>
@@ -150,7 +153,7 @@
                         <div class="single-service">
                             <i class="icofont-video-alt"></i>
                             <h4>Editing Video</h4>
-                            <p>Buat video yang menarik dan profesional dengan jasa editing video SILAMAS. Kami menambahkan musik, efek, transisi, dan sentuhan kreatif lainnya sesuai kebutuhan dan target audience Anda. </p>
+                            <p>Buat video yang menarik dan profesional dengan jasa editing video LinePro. Kami menambahkan musik, efek, transisi, dan sentuhan kreatif lainnya sesuai kebutuhan dan target audience Anda. </p>
                         </div>
                         <!-- End Single Service -->
                     </div>

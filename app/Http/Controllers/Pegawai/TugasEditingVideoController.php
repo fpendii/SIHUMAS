@@ -24,7 +24,7 @@ class TugasEditingVideoController extends Controller
             ->get();
 
         $data = [
-            'title' => 'Permohonan Editing Video | SIHUMAS',
+            'title' => 'Permohonan Editing Video | LinePro',
             'page' => 'editing video',
             'level' => 'Admin',
         ];
@@ -32,7 +32,7 @@ class TugasEditingVideoController extends Controller
         return view('pages.petugas.kelola_tugas.tugas_editing_video', compact('dataPermohonan', 'dataPetugasPesanan'))->with($data);
     }
 
-  
+
     public function submitTugas(Request $request, $id)
 {
     $messages = [

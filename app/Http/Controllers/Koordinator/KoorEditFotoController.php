@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Koordinator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use App\Models\akun;
 use Illuminate\Support\Facades\Redis;
 use Carbon\Carbon;
@@ -19,19 +19,19 @@ class KoorEditFotoController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
         $data = [
-            'title' => 'Editing Foto | SIHUMAS',
+            'title' => 'Editing Foto | LinePro',
             'page' => 'edit foto',
             'sidebar' => 'inbox',
             'level' => 'Koordinator'
         ];
         return view('pages.koordinator.kelola_edit_foto.edit_foto',$data, compact('dataPermohonan', 'data'));
-        
+
     }
 
     public function proses()
     {
         $data = [
-            'title' => 'Edit foto | SIHUMAS',
+            'title' => 'Edit foto | LinePro',
             'page' => 'edit foto',
             'sidebar' => 'proses',
             'level' => 'Koordinator',
@@ -59,13 +59,13 @@ class KoorEditFotoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('akun','pesanan.id_akun','=','akun.id_akun')
         ->join('jasa', 'pesanan.id_jasa','=','jasa.id_jasa')
         ->where('pesanan.id_pesanan',$id)->get()->first();
-        
+
         $dataPetugasPesanan = DB::table('petugas_pesanan')->join('akun','petugas_pesanan.id_akun','=','akun.id_akun')->where('id_pesanan','=',$dataPermohonan->id_pesanan)->get();
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Edit foto| SIHUMAS',
+            'title' => 'Permohonan Edit foto| LinePro',
             'page' => 'Permohonan Edit foto' ,
             'level' => 'Koordinator',
         ];
@@ -77,7 +77,7 @@ class KoorEditFotoController extends Controller
 
     public function arsip(){
         $data =  [
-               'title' => 'Editing Foto | SIHUMAS',
+               'title' => 'Editing Foto | LinePro',
                'page' => 'edit foto',
                'sidebar' => 'arsip',
                'level' => 'Koordinator'
@@ -87,10 +87,10 @@ class KoorEditFotoController extends Controller
            ->where('pesanan.status', '!=', 'pending')
            ->where('jasa.jenis_jasa', '=', 'edit foto')
            ->where('pesanan.status', '!=', 'proses')->get();
-   
+
            return view('pages.koordinator.kelola_edit_foto.arsip_edit-foto',$data,compact('dataPermohonan','data'));
        }
-    
+
 
     public function detailArsip(Request $request, $id)
     {
@@ -100,7 +100,7 @@ class KoorEditFotoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Detail Arsip Edit Foto Koordinator| SIHUMAS',
+            'title' => 'Detail Arsip Edit Foto Koordinator| LinePro',
             'page' => 'Permohonan Koordinator',
             'level' => 'Koordinator',
         ];
@@ -109,5 +109,5 @@ class KoorEditFotoController extends Controller
     }
 
 
-    
+
 }

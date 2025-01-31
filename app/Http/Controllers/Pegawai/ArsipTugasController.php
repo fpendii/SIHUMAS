@@ -11,7 +11,7 @@ class ArsipTugasController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Arsip Tugas | SIHUMAS',
+            'title' => 'Arsip Tugas | LinePro',
             'page' => 'Arsip Tugas',
             'level' => 'Petugas',
             'ArsipTugas' => DB::table('petugas_pesanan')

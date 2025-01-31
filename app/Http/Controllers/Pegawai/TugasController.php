@@ -17,7 +17,7 @@ class TugasController extends Controller
         $id_akun = $petugas->id_akun;
 
         $data = [
-            'title' => 'Tugas | SIHUMAS',
+            'title' => 'Tugas | LinePro',
             'page' => 'Tugas',
             'level' => 'Petugas',
             'petugas' => Akun::where('role', '=', 'petugas')->get()

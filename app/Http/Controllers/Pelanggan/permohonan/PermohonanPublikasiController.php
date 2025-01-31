@@ -11,7 +11,7 @@ class PermohonanPublikasiController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Publikasi | SIHUMAS',
+            'title' => 'Publikasi | LinePro',
             'page' => 'form publikasi',
             'level' => 'Pelanggan'
         ];

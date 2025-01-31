@@ -22,7 +22,7 @@ class EditingVideoController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
         $data = [
-            'title' => 'Editing Video | SIHUMAS',
+            'title' => 'Editing Video | LinePro',
             'page' => 'editing-video',
             'sidebar' => 'inbox',
             'level' => 'Admin'
@@ -32,7 +32,7 @@ class EditingVideoController extends Controller
     }
     public function arsip(){
      $data =  [
-            'title' => 'Editing Video | SIHUMAS',
+            'title' => 'Editing Video | LinePro',
             'page' => 'editing-video',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -41,9 +41,9 @@ class EditingVideoController extends Controller
         $dataPermohonan = DB::table('pesanan')->join('akun', 'pesanan.id_akun', '=', 'akun.id_akun')
         ->join('jasa', 'pesanan.id_jasa', '=', 'jasa.id_jasa')
         ->where('pesanan.status', '!=', 'pending')
-        ->where('jasa.jenis_jasa', '=', 'editing video') 
+        ->where('jasa.jenis_jasa', '=', 'editing video')
         ->where('pesanan.status', '!=', 'proses')->get();
-        
+
         foreach ($dataPermohonan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
@@ -54,7 +54,7 @@ class EditingVideoController extends Controller
     public function proses()
     {
         $data = [
-            'title' => 'Editing Video | SIHUMAS',
+            'title' => 'Editing Video | LinePro',
             'page' => 'editing-video',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -84,7 +84,7 @@ class EditingVideoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Editing Video | SIHUMAS',
+            'title' => 'Permohonan Editing Video | LinePro',
             'page' => 'editing-video',
             'level' => 'Admin',
         ];
@@ -103,7 +103,7 @@ class EditingVideoController extends Controller
        $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Editing Video| SIHUMAS',
+            'title' => 'Permohonan Editing Video| LinePro',
             'page' => 'editing-video',
             'level' => 'Admin',
         ];
@@ -121,7 +121,7 @@ class EditingVideoController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan  Editing Video| SIHUMAS',
+            'title' => 'Permohonan  Editing Video| LinePro',
             'page' => 'editing-video',
             'level' => 'Admin',
         ];
@@ -141,20 +141,20 @@ class EditingVideoController extends Controller
 
         $pesanan = PesananModel::findOrFail($id);
         $pesanan->tenggat_pengerjaan = Carbon::parse($request->tenggat_pengerjaan);
-        $pesanan->status = 'proses';  
+        $pesanan->status = 'proses';
         $pesanan->save();
-    
-  
+
+
         foreach ($request->petugas as $petugasId) {
             PetugasPesananModel::create([
                 'id_pesanan' => $id,
                 'id_akun' => $petugasId,
             ]);
         }
-    
+
         return redirect()->to('admin/editing-video')->with('success', 'Petugas berhasil dipilih dan tenggat pengerjaan telah diatur.');
     }
-    
+
 
 public function tolakPermohonan($id)
 {

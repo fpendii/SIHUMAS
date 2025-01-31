@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Koordinator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use App\Models\akun;
 use Illuminate\Support\Facades\Redis;
 use Carbon\Carbon;
@@ -21,19 +21,19 @@ class KoorPeliputanController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
         $data = [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Peliputan | LinePro',
             'page' => 'peliputan',
             'sidebar' => 'inbox',
             'level' => 'Koordinator'
         ];
         return view('pages.koordinator.kelola_liputan.liputan',$data, compact('dataPermohonan', 'data'));
-        
+
     }
 
     public function proses()
     {
         $data = [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Peliputan | LinePro',
             'page' => 'peliputan',
             'sidebar' => 'proses',
             'level' => 'Koordinator',
@@ -64,7 +64,7 @@ class KoorPeliputanController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Peliputan | SIHUMAS',
+            'title' => 'Permohonan Peliputan | LinePro',
             'page' => 'Permohonan Peliputan' ,
             'level' => 'Koordinator',
         ];
@@ -76,7 +76,7 @@ class KoorPeliputanController extends Controller
 
     public function arsip(){
         $data =  [
-               'title' => 'Peliputan | SIHUMAS',
+               'title' => 'Peliputan | LinePro',
                'page' => 'peliputan',
                'sidebar' => 'arsip',
                'level' => 'Koordinator'
@@ -87,10 +87,10 @@ class KoorPeliputanController extends Controller
            ->where('pesanan.status', '!=', 'pending')
            ->where('jasa.jenis_jasa', '=', 'peliputan')
            ->where('pesanan.status', '!=', 'proses')->get();
-   
+
            return view('pages.koordinator.kelola_liputan.arsip_liputan',$data,compact('dataPermohonan','data'));
        }
-    
+
 
     public function detailArsip(Request $request, $id)
     {
@@ -100,7 +100,7 @@ class KoorPeliputanController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Koordinator| SIHUMAS',
+            'title' => 'Permohonan Koordinator| LinePro',
             'page' => 'Permohonan Koordinator',
             'level' => 'Koordinator',
         ];
@@ -109,5 +109,5 @@ class KoorPeliputanController extends Controller
     }
 
 
-    
+
 }

@@ -28,7 +28,7 @@ class PeliputanController extends Controller
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
         $data = [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Peliputan | LinePro',
             'page' => 'peliputan',
             'sidebar' => 'inbox',
             'level' => 'Admin'
@@ -38,7 +38,7 @@ class PeliputanController extends Controller
     }
     public function arsip(){
      $data =  [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Peliputan | LinePro',
             'page' => 'peliputan',
             'sidebar' => 'arsip',
             'level' => 'Admin'
@@ -48,7 +48,7 @@ class PeliputanController extends Controller
         ->where('pesanan.status', '!=', 'pending')
         ->where('jasa.jenis_jasa', '=', 'peliputan')
         ->where('pesanan.status', '!=', 'proses')->get();
-        
+
         foreach ($dataPermohonan as $item) {
             $item->time_ago = Carbon::createFromTimeString($item->created_at)->locale('id')->diffForHumans();
         }
@@ -59,7 +59,7 @@ class PeliputanController extends Controller
     public function proses()
     {
         $data = [
-            'title' => 'Peliputan | SIHUMAS',
+            'title' => 'Peliputan | LinePro',
             'page' => 'peliputan',
             'sidebar' => 'proses',
             'level' => 'Admin',
@@ -90,7 +90,7 @@ class PeliputanController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Peliputan | SIHUMAS',
+            'title' => 'Permohonan Peliputan | LinePro',
             // 'page' => 'Permohonan Peliputan' ,
             'page' => 'peliputan' ,
             'level' => 'Admin',
@@ -113,7 +113,7 @@ class PeliputanController extends Controller
         $dataPetugas = akun::where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Peliputan| SIHUMAS',
+            'title' => 'Permohonan Peliputan| LinePro',
             'page' => 'peliputan',
             'level' => 'Admin',
         ];
@@ -130,10 +130,10 @@ class PeliputanController extends Controller
 
         $dataPetugas = akun::where('role','=','petugas')->get();
 
-    
+
 
         $data = [
-            'title' => 'Permohonan Peliputan| SIHUMAS',
+            'title' => 'Permohonan Peliputan| LinePro',
             // 'page' => 'Permohonan Peliputan',
             'page' => 'peliputan',
             'level' => 'Admin',

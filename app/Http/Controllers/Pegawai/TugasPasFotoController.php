@@ -20,7 +20,7 @@ class TugasPasFotoController extends Controller
         $dataPetugas = DB::table('akun')->where('role','=','petugas')->get();
 
         $data = [
-            'title' => 'Permohonan Edit Foto | SIHUMAS',
+            'title' => 'Permohonan Edit Foto | LinePro',
             'page' => 'edit-foto' ,
             'level' => 'Admin',
         ];

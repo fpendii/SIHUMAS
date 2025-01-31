@@ -4,7 +4,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <img src="/images/silamas.png" alt="">
+                    <img src="/images/line pro.png" alt="">
                 </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">

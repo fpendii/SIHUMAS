@@ -13,7 +13,7 @@ class PermohonanPasFotoController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Form Permohonan Pas Foto | SIHUMAS',
+            'title' => 'Form Permohonan Pas Foto | LinePro',
             'page' => 'form pas foto',
             'level' => 'Pelanggan'
         ];

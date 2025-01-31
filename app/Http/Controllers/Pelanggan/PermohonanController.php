@@ -14,7 +14,7 @@ class PermohonanController extends Controller
     public function index(){
 
         $data = [
-            'title' => 'Jasa | Humas',
+            'title' => 'Jasa | LinePro',
             'page' => 'Pilih Jasa',
             'hak_akses' => 'Pelanggan'
         ];
@@ -43,7 +43,7 @@ class PermohonanController extends Controller
         $dataPetugas = akun::where('role', '=', 'petugas')->get();
 
         $data = [
-            'title' => 'Permohonan ' . ucfirst($type) . ' | SIHUMAS',
+            'title' => 'Permohonan ' . ucfirst($type) . ' | LinePro',
             'page' => 'Permohonan ' . ucfirst($type),
             'level' => 'Admin',
         ];

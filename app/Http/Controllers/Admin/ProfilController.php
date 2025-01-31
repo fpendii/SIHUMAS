@@ -9,7 +9,7 @@ class ProfilController extends Controller
 {
     public function index(){
         $data = [
-            'title' => 'Profil | SIHUMAS',
+            'title' => 'Profil | LinePro',
             'page' => 'Profil',
             'level' => 'Admin'
         ];

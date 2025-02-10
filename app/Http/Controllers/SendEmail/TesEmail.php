@@ -12,6 +12,7 @@ class TesEmail extends Controller
 {
     public function index(){
 
+        // send email
         $akun = akun::all();
         Mail::to('nurependi@mhs.politala.ac.id')->send(new VerifikasiEmail($akun));
     }
